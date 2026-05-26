@@ -2,6 +2,8 @@
   {
     "id": "systeme-tayyibat",
     "name_fr": "Systeme Tayyibat",
+    "name_en": "Tayyibat System",
+    "name_ar": "نظام الطيبات",
     "description_fr": "Philosophie generale du systeme Tayyibat.",
     "keywords": [
       "طيبات",
@@ -12,6 +14,8 @@
   {
     "id": "diabete-insuline-glycemie",
     "name_fr": "Diabete, insuline et glycemie",
+    "name_en": "Diabetes, Insulin & Blood Sugar",
+    "name_ar": "السكري والأنسولين والسكر في الدم",
     "description_fr": "Diabete, glycemie, insuline et alimentation.",
     "keywords": [
       "سكر",
@@ -24,6 +28,8 @@
   {
     "id": "digestion-estomac-colon",
     "name_fr": "Digestion, estomac et colon",
+    "name_en": "Digestion, Stomach & Colon",
+    "name_ar": "الهضم والمعدة والقولون",
     "description_fr": "Acidite, colon, absorption et troubles digestifs.",
     "keywords": [
       "معدة",
@@ -39,6 +45,8 @@
   {
     "id": "pain-farine-glucides",
     "name_fr": "Pain, farine et glucides",
+    "name_en": "Bread, Flour & Carbohydrates",
+    "name_ar": "الخبز والدقيق والنشويات",
     "description_fr": "Pain, farine, feculents et glucides.",
     "keywords": [
       "عيش",
@@ -52,6 +60,8 @@
   {
     "id": "jeune-rythme-poids",
     "name_fr": "Jeune, rythme alimentaire et poids",
+    "name_en": "Fasting, Eating Rhythm & Weight",
+    "name_ar": "الصيام ونظام الأكل والوزن",
     "description_fr": "Jeune intermittent, regime, perte de poids et repas.",
     "keywords": [
       "صيام",
@@ -66,6 +76,8 @@
   {
     "id": "foie-metabolisme",
     "name_fr": "Foie et metabolisme",
+    "name_en": "Liver & Metabolism",
+    "name_ar": "الكبد والأيض",
     "description_fr": "Foie, metabolisme et equilibres internes.",
     "keywords": [
       "كبد",
@@ -77,6 +89,8 @@
   {
     "id": "reins-eau-mineraux",
     "name_fr": "Reins, eau et mineraux",
+    "name_en": "Kidneys, Water & Minerals",
+    "name_ar": "الكلى والماء والمعادن",
     "description_fr": "Reins, hydratation, eau et mineraux.",
     "keywords": [
       "كلى",
@@ -90,6 +104,8 @@
   {
     "id": "tension-sel-coeur",
     "name_fr": "Tension, sel et coeur",
+    "name_en": "Blood Pressure, Salt & Heart",
+    "name_ar": "ضغط الدم والملح والقلب",
     "description_fr": "Tension arterielle, sel, coeur et circulation.",
     "keywords": [
       "ضغط",
@@ -104,6 +120,8 @@
   {
     "id": "vitamine-d-carences-energie",
     "name_fr": "Vitamine D, carences et energie",
+    "name_en": "Vitamin D, Deficiencies & Energy",
+    "name_ar": "فيتامين د والنقص والطاقة",
     "description_fr": "Vitamine D, carences, fatigue et energie.",
     "keywords": [
       "فيتامين",
@@ -115,6 +133,8 @@
   {
     "id": "inflammation-douleurs-articulations",
     "name_fr": "Inflammation, douleurs et articulations",
+    "name_en": "Inflammation, Pain & Joints",
+    "name_ar": "الالتهاب والآلام والمفاصل",
     "description_fr": "Douleurs, nerfs, dos, articulations et inflammation.",
     "keywords": [
       "الم",
@@ -130,6 +150,8 @@
   {
     "id": "hormones-fertilite-sexualite",
     "name_fr": "Hormones, fertilite et sante sexuelle",
+    "name_en": "Hormones, Fertility & Sexual Health",
+    "name_ar": "الهرمونات والخصوبة والصحة الجنسية",
     "description_fr": "Hormones, fertilite, erection, sexualite et nutrition.",
     "keywords": [
       "هرمون",
@@ -144,6 +166,8 @@
   {
     "id": "grossesse-famille",
     "name_fr": "Grossesse, post-partum et nutrition familiale",
+    "name_en": "Pregnancy, Postpartum & Family Nutrition",
+    "name_ar": "الحمل وما بعد الولادة والتغذية الأسرية",
     "description_fr": "Grossesse, post-partum et nutrition familiale.",
     "keywords": [
       "حامل",
@@ -155,6 +179,8 @@
   {
     "id": "sommeil-fatigue-stress",
     "name_fr": "Sommeil, fatigue et stress",
+    "name_en": "Sleep, Fatigue & Stress",
+    "name_ar": "النوم والتعب والضغط النفسي",
     "description_fr": "Sommeil, fatigue, stress et energie quotidienne.",
     "keywords": [
       "نوم",
@@ -168,6 +194,8 @@
   {
     "id": "cheveux-peau-signes",
     "name_fr": "Cheveux, peau et signes visibles",
+    "name_en": "Hair, Skin & Visible Signs",
+    "name_ar": "الشعر والجلد والعلامات الظاهرة",
     "description_fr": "Cheveux, peau et signes visibles de desequilibres.",
     "keywords": [
       "شعر",
@@ -180,6 +208,8 @@
   {
     "id": "critiques-controverses-reponses",
     "name_fr": "Critiques, controverses et reponses",
+    "name_en": "Critiques, Controversies & Responses",
+    "name_ar": "الانتقادات والجدل والردود",
     "description_fr": "Critiques, debats publics, reponses et mises au point.",
     "keywords": [
       "حقيقة",
@@ -193,6 +223,8 @@
   {
     "id": "autre",
     "name_fr": "Autre sujet a classer",
+    "name_en": "Uncategorized Topic",
+    "name_ar": "موضوع غير مصنف",
     "description_fr": "Sujet non classe automatiquement.",
     "keywords": []
   }
