@@ -1,0 +1,199 @@
+[
+  {
+    "id": "systeme-tayyibat",
+    "name_fr": "Systeme Tayyibat",
+    "description_fr": "Philosophie generale du systeme Tayyibat.",
+    "keywords": [
+      "طيبات",
+      "الطيبات",
+      "tayyibat"
+    ]
+  },
+  {
+    "id": "diabete-insuline-glycemie",
+    "name_fr": "Diabete, insuline et glycemie",
+    "description_fr": "Diabete, glycemie, insuline et alimentation.",
+    "keywords": [
+      "سكر",
+      "السكر",
+      "diabetes",
+      "glycemie",
+      "insuline"
+    ]
+  },
+  {
+    "id": "digestion-estomac-colon",
+    "name_fr": "Digestion, estomac et colon",
+    "description_fr": "Acidite, colon, absorption et troubles digestifs.",
+    "keywords": [
+      "معدة",
+      "المعدة",
+      "قولون",
+      "القولون",
+      "حموضة",
+      "امتصاص",
+      "digestion",
+      "colon"
+    ]
+  },
+  {
+    "id": "pain-farine-glucides",
+    "name_fr": "Pain, farine et glucides",
+    "description_fr": "Pain, farine, feculents et glucides.",
+    "keywords": [
+      "عيش",
+      "دقيق",
+      "نشويات",
+      "glucides",
+      "farine",
+      "pain"
+    ]
+  },
+  {
+    "id": "jeune-rythme-poids",
+    "name_fr": "Jeune, rythme alimentaire et poids",
+    "description_fr": "Jeune intermittent, regime, perte de poids et repas.",
+    "keywords": [
+      "صيام",
+      "دايت",
+      "نخس",
+      "تخس",
+      "وزن",
+      "intermittent",
+      "regime"
+    ]
+  },
+  {
+    "id": "foie-metabolisme",
+    "name_fr": "Foie et metabolisme",
+    "description_fr": "Foie, metabolisme et equilibres internes.",
+    "keywords": [
+      "كبد",
+      "الكبد",
+      "foie",
+      "metabolisme"
+    ]
+  },
+  {
+    "id": "reins-eau-mineraux",
+    "name_fr": "Reins, eau et mineraux",
+    "description_fr": "Reins, hydratation, eau et mineraux.",
+    "keywords": [
+      "كلى",
+      "الكلى",
+      "مياة",
+      "مياه",
+      "reins",
+      "eau"
+    ]
+  },
+  {
+    "id": "tension-sel-coeur",
+    "name_fr": "Tension, sel et coeur",
+    "description_fr": "Tension arterielle, sel, coeur et circulation.",
+    "keywords": [
+      "ضغط",
+      "الضغط",
+      "ملح",
+      "القلب",
+      "tension",
+      "sel",
+      "coeur"
+    ]
+  },
+  {
+    "id": "vitamine-d-carences-energie",
+    "name_fr": "Vitamine D, carences et energie",
+    "description_fr": "Vitamine D, carences, fatigue et energie.",
+    "keywords": [
+      "فيتامين",
+      "vitamine",
+      "carence",
+      "fatigue"
+    ]
+  },
+  {
+    "id": "inflammation-douleurs-articulations",
+    "name_fr": "Inflammation, douleurs et articulations",
+    "description_fr": "Douleurs, nerfs, dos, articulations et inflammation.",
+    "keywords": [
+      "الم",
+      "الألم",
+      "اعصاب",
+      "الأعصاب",
+      "غضروف",
+      "عمود",
+      "douleur",
+      "inflammation"
+    ]
+  },
+  {
+    "id": "hormones-fertilite-sexualite",
+    "name_fr": "Hormones, fertilite et sante sexuelle",
+    "description_fr": "Hormones, fertilite, erection, sexualite et nutrition.",
+    "keywords": [
+      "هرمون",
+      "هرمونات",
+      "جنسي",
+      "الانتصاب",
+      "حامل",
+      "fertilite",
+      "hormones"
+    ]
+  },
+  {
+    "id": "grossesse-famille",
+    "name_fr": "Grossesse, post-partum et nutrition familiale",
+    "description_fr": "Grossesse, post-partum et nutrition familiale.",
+    "keywords": [
+      "حامل",
+      "الحامل",
+      "ولادة",
+      "grossesse"
+    ]
+  },
+  {
+    "id": "sommeil-fatigue-stress",
+    "name_fr": "Sommeil, fatigue et stress",
+    "description_fr": "Sommeil, fatigue, stress et energie quotidienne.",
+    "keywords": [
+      "نوم",
+      "ارهاق",
+      "تعب",
+      "صداع",
+      "stress",
+      "sommeil"
+    ]
+  },
+  {
+    "id": "cheveux-peau-signes",
+    "name_fr": "Cheveux, peau et signes visibles",
+    "description_fr": "Cheveux, peau et signes visibles de desequilibres.",
+    "keywords": [
+      "شعر",
+      "تساقط",
+      "جلد",
+      "peau",
+      "cheveux"
+    ]
+  },
+  {
+    "id": "critiques-controverses-reponses",
+    "name_fr": "Critiques, controverses et reponses",
+    "description_fr": "Critiques, debats publics, reponses et mises au point.",
+    "keywords": [
+      "حقيقة",
+      "ولا عك",
+      "تعليقات",
+      "هارد",
+      "controverse",
+      "critique"
+    ]
+  },
+  {
+    "id": "autre",
+    "name_fr": "Autre sujet a classer",
+    "description_fr": "Sujet non classe automatiquement.",
+    "keywords": []
+  }
+]

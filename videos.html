@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vidéos — Dr Dhiaa Al Awadhy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Playfair+Display:wght@600;800&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-soft: #E6D18A;
+    --dark: #1A1A18;
+    --ink: #24231F;
+    --muted: #706D61;
+    --cream: #F5F0E8;
+    --cream-2: #EAE2D2;
+    --paper: #FFFCF4;
+    --green: #2D6A4F;
+    --red: #9B2335;
+    --line: rgba(26,26,24,0.12);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: "Source Sans 3", sans-serif;
+    line-height: 1.55;
+  }
+  a { color: inherit; }
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(26, 26, 24, 0.96);
+    border-bottom: 1px solid rgba(201,168,76,0.35);
+    color: var(--cream);
+  }
+  .topbar-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 14px clamp(18px, 4vw, 36px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+  }
+  .brand {
+    font-family: "Playfair Display", serif;
+    font-weight: 800;
+    color: var(--gold-soft);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .navlinks { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
+  .navlinks a {
+    color: rgba(245,240,232,0.75);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  .navlinks a:hover { color: var(--gold-soft); }
+
+  .hero {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: clamp(54px, 8vw, 96px) clamp(18px, 4vw, 36px) 36px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.55fr);
+    gap: clamp(28px, 6vw, 72px);
+    align-items: end;
+  }
+  .eyebrow {
+    color: var(--green);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin: 0 0 12px;
+  }
+  h1 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(2.4rem, 7vw, 5.4rem);
+    line-height: 0.96;
+    letter-spacing: 0;
+    margin: 0;
+    max-width: 860px;
+  }
+  .hero p {
+    font-size: clamp(1.05rem, 2vw, 1.35rem);
+    color: var(--muted);
+    margin: 24px 0 0;
+    max-width: 720px;
+  }
+  .ledger {
+    border-top: 3px solid var(--dark);
+    border-bottom: 1px solid var(--line);
+    padding: 18px 0;
+    display: grid;
+    gap: 12px;
+  }
+  .ledger-row { display: flex; justify-content: space-between; gap: 18px; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+  .ledger-row:last-child { border-bottom: 0; padding-bottom: 0; }
+  .ledger-label { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.14em; }
+  .ledger-value { font-weight: 700; text-align: right; }
+
+  .workspace {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 18px clamp(18px, 4vw, 36px) 80px;
+  }
+  .tools {
+    display: grid;
+    grid-template-columns: minmax(220px, 360px) 1fr;
+    gap: 18px;
+    align-items: start;
+    margin-bottom: 24px;
+  }
+  .searchbox {
+    width: 100%;
+    min-height: 48px;
+    border: 1px solid var(--dark);
+    background: var(--paper);
+    color: var(--ink);
+    font: inherit;
+    font-size: 1rem;
+    padding: 12px 14px;
+    outline: none;
+  }
+  .searchbox:focus { box-shadow: 0 0 0 3px rgba(201,168,76,0.28); }
+  .topic-strip {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 6px;
+  }
+  .topic-btn {
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.9rem;
+    min-height: 40px;
+    padding: 8px 12px;
+    white-space: nowrap;
+  }
+  .topic-btn.active {
+    background: var(--dark);
+    border-color: var(--dark);
+    color: var(--gold-soft);
+  }
+  .status-line {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin: 0 0 16px;
+  }
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+  }
+  .video-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 250px;
+  }
+  .video-card.is-priority { border-color: rgba(45,106,79,0.42); }
+  .video-head {
+    min-height: 82px;
+    background: var(--dark);
+    color: var(--cream);
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .platform {
+    color: var(--gold-soft);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .duration {
+    border: 1px solid rgba(245,240,232,0.24);
+    color: rgba(245,240,232,0.82);
+    font-size: 12px;
+    line-height: 1;
+    padding: 6px 7px;
+    white-space: nowrap;
+  }
+  .video-body { padding: 16px; }
+  .topic-name {
+    color: var(--green);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .video-title {
+    direction: rtl;
+    font-family: "Cairo", sans-serif;
+    font-size: 1.02rem;
+    font-weight: 700;
+    line-height: 1.45;
+    margin: 0;
+  }
+  .video-meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-top: 14px;
+  }
+  .video-actions {
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 16px;
+    align-items: center;
+  }
+  .source-link {
+    color: var(--dark);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  .source-link:hover { color: var(--green); }
+  .status-pill {
+    color: var(--muted);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .empty {
+    display: none;
+    border-top: 3px solid var(--dark);
+    padding: 28px 0;
+    color: var(--muted);
+  }
+  .notice {
+    margin-top: 28px;
+    border: 1px solid rgba(155,35,53,0.2);
+    background: color-mix(in srgb, var(--paper) 82%, var(--cream-2));
+    padding: 18px 20px;
+    color: var(--muted);
+    font-size: 0.96rem;
+  }
+
+  @media (max-width: 920px) {
+    .hero { grid-template-columns: 1fr; }
+    .tools { grid-template-columns: 1fr; }
+    .video-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 620px) {
+    .topbar-inner { align-items: flex-start; flex-direction: column; }
+    .navlinks { justify-content: flex-start; }
+    .video-grid { grid-template-columns: 1fr; }
+    .ledger-row { align-items: flex-start; flex-direction: column; gap: 2px; }
+    .ledger-value { text-align: left; }
+  }
+</style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">Le Système Tayyibat</a>
+      <nav class="navlinks" aria-label="Navigation">
+        <a href="index.html">Accueil</a>
+        <a href="videos.html">Vidéos</a>
+        <a href="index.html#references">Sources</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Médiathèque de travail</p>
+        <h1>Les vidéos classées par sujet</h1>
+        <p>Une archive consultable pour retrouver les explications du Dr Diaa Al Awady par thème, durée et date. Les vidéos restent reliées à leur source officielle.</p>
+      </div>
+      <aside class="ledger" aria-label="Statistiques">
+        <div class="ledger-row"><span class="ledger-label">Vidéos</span><span class="ledger-value" id="stat-videos">-</span></div>
+        <div class="ledger-row"><span class="ledger-label">Sujets</span><span class="ledger-value" id="stat-topics">-</span></div>
+        <div class="ledger-row"><span class="ledger-label">Copies locales</span><span class="ledger-value" id="stat-archives">-</span></div>
+      </aside>
+    </section>
+
+    <section class="workspace">
+      <div class="tools">
+        <input class="searchbox" id="search" type="search" placeholder="Rechercher en arabe, français, sujet..." autocomplete="off">
+        <div class="topic-strip" id="topics" aria-label="Filtres par sujet"></div>
+      </div>
+      <p class="status-line" id="status">Chargement des vidéos...</p>
+      <div class="video-grid" id="grid"></div>
+      <div class="empty" id="empty">Aucune vidéo ne correspond à cette recherche.</div>
+      <div class="notice">
+        Cette page est une médiathèque éducative. Les résumés et classifications sont en préparation et doivent être relus avant publication éditoriale. Les contenus médicaux ne remplacent pas un avis professionnel.
+      </div>
+    </section>
+  </main>
+
+<script>
+const state = { videos: [], topics: [], activeTopic: "all", query: "" };
+const topicName = new Map();
+
+function byId(id) {
+  return document.getElementById(id);
+}
+
+function escapeHtml(value) {
+  return String(value || "").replace(/[&<>"']/g, char => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;"
+  }[char]));
+}
+
+function formatDate(value) {
+  if (!value) return "Date inconnue";
+  const parts = value.split("-");
+  if (parts.length !== 3) return value;
+  return `${parts[2]}/${parts[1]}/${parts[0]}`;
+}
+
+function isPriority(video) {
+  return ["diabete-insuline-glycemie", "systeme-tayyibat", "digestion-estomac-colon"].includes(video.primary_topic);
+}
+
+function filteredVideos() {
+  const q = state.query.trim().toLowerCase();
+  return state.videos.filter(video => {
+    const topicMatch = state.activeTopic === "all" || video.primary_topic === state.activeTopic;
+    const haystack = [
+      video.title_original,
+      video.title_public_fr,
+      video.summary_fr,
+      video.primary_topic,
+      ...(video.tags || [])
+    ].join(" ").toLowerCase();
+    return topicMatch && (!q || haystack.includes(q));
+  });
+}
+
+function renderTopics() {
+  const counts = new Map();
+  state.videos.forEach(video => counts.set(video.primary_topic, (counts.get(video.primary_topic) || 0) + 1));
+  const buttons = [`<button class="topic-btn active" type="button" data-topic="all">Tous (${state.videos.length})</button>`];
+  state.topics
+    .filter(topic => counts.has(topic.id))
+    .sort((a, b) => (counts.get(b.id) || 0) - (counts.get(a.id) || 0))
+    .forEach(topic => {
+      buttons.push(`<button class="topic-btn" type="button" data-topic="${escapeHtml(topic.id)}">${escapeHtml(topic.name_fr)} (${counts.get(topic.id)})</button>`);
+    });
+  byId("topics").innerHTML = buttons.join("");
+  byId("topics").querySelectorAll(".topic-btn").forEach(button => {
+    button.addEventListener("click", () => {
+      state.activeTopic = button.dataset.topic;
+      byId("topics").querySelectorAll(".topic-btn").forEach(btn => btn.classList.toggle("active", btn === button));
+      renderVideos();
+    });
+  });
+}
+
+function renderVideos() {
+  const videos = filteredVideos();
+  byId("status").textContent = `${videos.length} vidéo${videos.length > 1 ? "s" : ""} affichée${videos.length > 1 ? "s" : ""}`;
+  byId("empty").style.display = videos.length ? "none" : "block";
+  byId("grid").innerHTML = videos.map(video => `
+    <article class="video-card ${isPriority(video) ? "is-priority" : ""}">
+      <div class="video-head">
+        <span class="platform">${escapeHtml(video.platform)}</span>
+        <span class="duration">${escapeHtml(video.duration_label || "-")}</span>
+      </div>
+      <div class="video-body">
+        <div class="topic-name">${escapeHtml(topicName.get(video.primary_topic) || "Sujet à classer")}</div>
+        <h2 class="video-title">${escapeHtml(video.title_original)}</h2>
+        <div class="video-meta">${formatDate(video.date)} · ${escapeHtml(video.status)}</div>
+      </div>
+      <div class="video-actions">
+        <a class="source-link" href="${escapeHtml(video.source_url)}" target="_blank" rel="noopener">Voir la source</a>
+        ${video.archive_url ? `<a class="source-link" href="${escapeHtml(video.archive_url)}" target="_blank" rel="noopener">Copie locale</a>` : `<span class="status-pill">${escapeHtml(video.language || "ar")}</span>`}
+      </div>
+    </article>
+  `).join("");
+}
+
+async function init() {
+  const [videosRes, inventoryRes, topicsRes] = await Promise.all([
+    fetch("data/videos.json"),
+    fetch("data/youtube-inventory.json"),
+    fetch("data/topics.json")
+  ]);
+  const videos = await videosRes.json();
+  const inventory = await inventoryRes.json();
+  const bySource = new Map();
+  videos.forEach(video => bySource.set(video.source_id || video.id, video));
+  inventory.forEach(video => {
+    const key = video.source_id || video.id;
+    if (bySource.has(key)) {
+      const existing = bySource.get(key);
+      if (!existing.archive_url && video.archive_url) {
+        existing.archive_url = video.archive_url;
+        existing.archive_file = video.archive_file;
+        existing.archive_size = video.archive_size;
+      }
+      return;
+    }
+    bySource.set(key, video);
+  });
+  state.videos = Array.from(bySource.values()).sort((a, b) => (b.archive_url ? 1 : 0) - (a.archive_url ? 1 : 0));
+  state.topics = await topicsRes.json();
+  state.topics.forEach(topic => topicName.set(topic.id, topic.name_fr));
+  byId("stat-videos").textContent = state.videos.length;
+  byId("stat-topics").textContent = state.topics.length;
+  byId("stat-archives").textContent = state.videos.filter(video => video.archive_url).length;
+  renderTopics();
+  renderVideos();
+}
+
+byId("search").addEventListener("input", event => {
+  state.query = event.target.value;
+  renderVideos();
+});
+
+init().catch(error => {
+  byId("status").textContent = "Impossible de charger les données vidéo.";
+  console.error(error);
+});
+</script>
+</body>
+</html>

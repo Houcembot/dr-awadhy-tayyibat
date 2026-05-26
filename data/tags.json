@@ -1,0 +1,102 @@
+[
+  {
+    "id": "systeme-tayyibat",
+    "name": "systeme-tayyibat",
+    "video_count": 87
+  },
+  {
+    "id": "autre",
+    "name": "autre",
+    "video_count": 80
+  },
+  {
+    "id": "douleur",
+    "name": "douleur",
+    "video_count": 51
+  },
+  {
+    "id": "inflammation-douleurs-articulations",
+    "name": "inflammation-douleurs-articulations",
+    "video_count": 23
+  },
+  {
+    "id": "nutrition",
+    "name": "nutrition",
+    "video_count": 17
+  },
+  {
+    "id": "diabete",
+    "name": "diabete",
+    "video_count": 14
+  },
+  {
+    "id": "diabete-insuline-glycemie",
+    "name": "diabete-insuline-glycemie",
+    "video_count": 10
+  },
+  {
+    "id": "digestion",
+    "name": "digestion",
+    "video_count": 6
+  },
+  {
+    "id": "digestion-estomac-colon",
+    "name": "digestion-estomac-colon",
+    "video_count": 6
+  },
+  {
+    "id": "jeune-rythme-poids",
+    "name": "jeune-rythme-poids",
+    "video_count": 6
+  },
+  {
+    "id": "critiques-controverses-reponses",
+    "name": "critiques-controverses-reponses",
+    "video_count": 4
+  },
+  {
+    "id": "pain-farine-glucides",
+    "name": "pain-farine-glucides",
+    "video_count": 3
+  },
+  {
+    "id": "tension-sel-coeur",
+    "name": "tension-sel-coeur",
+    "video_count": 2
+  },
+  {
+    "id": "cheveux-peau-signes",
+    "name": "cheveux-peau-signes",
+    "video_count": 1
+  },
+  {
+    "id": "foie-metabolisme",
+    "name": "foie-metabolisme",
+    "video_count": 1
+  },
+  {
+    "id": "hormones-fertilite-sexualite",
+    "name": "hormones-fertilite-sexualite",
+    "video_count": 1
+  },
+  {
+    "id": "reins-eau-mineraux",
+    "name": "reins-eau-mineraux",
+    "video_count": 1
+  },
+  {
+    "id": "sommeil-fatigue-stress",
+    "name": "sommeil-fatigue-stress",
+    "video_count": 1
+  },
+  {
+    "id": "vitamine-d",
+    "name": "vitamine-d",
+    "video_count": 1
+  },
+  {
+    "id": "vitamine-d-carences-energie",
+    "name": "vitamine-d-carences-energie",
+    "video_count": 1
+  }
+]
