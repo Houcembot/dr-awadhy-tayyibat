@@ -4,7 +4,8 @@ import { checkRateLimit } from './ratelimit.js';
 import { corsHeaders, handlePreflight } from './cors.js';
 import videosData from './videos.json';
 
-const GEMINI_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
+const OPENROUTER_URL = 'https://openrouter.ai/api/v1/chat/completions';
+const OPENROUTER_MODEL = 'google/gemini-2.0-flash-001';
 const videoMap = new Map(videosData.map(v => [v.id, v]));
 
 export default {
@@ -54,36 +55,42 @@ export default {
     const filtered = filterVideos(question, videosData, 25);
     const { system, user } = buildPrompt(question, filtered);
 
-    // Call Gemini
-    let geminiData;
+    // Call OpenRouter (OpenAI-compatible)
+    let aiData;
     try {
-      const geminiRes = await fetch(`${GEMINI_URL}?key=${env.GEMINI_API_KEY}`, {
+      const aiRes = await fetch(OPENROUTER_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${env.OPENROUTER_API_KEY}`,
+          'HTTP-Referer': 'https://tayyibat.pages.dev',
+          'X-Title': 'Tayyibat Chat'
+        },
         body: JSON.stringify({
-          system_instruction: { parts: [{ text: system }] },
-          contents: [{ role: 'user', parts: [{ text: user }] }],
-          generationConfig: {
-            responseMimeType: 'application/json',
-            maxOutputTokens: 1024,
-            temperature: 0.3
-          }
+          model: OPENROUTER_MODEL,
+          messages: [
+            { role: 'system', content: system },
+            { role: 'user', content: user }
+          ],
+          response_format: { type: 'json_object' },
+          max_tokens: 1024,
+          temperature: 0.3
         })
       });
-      if (!geminiRes.ok) throw new Error(`Gemini ${geminiRes.status}`);
-      geminiData = await geminiRes.json();
+      if (!aiRes.ok) throw new Error(`OpenRouter ${aiRes.status}`);
+      aiData = await aiRes.json();
     } catch (err) {
-      console.error('Gemini error:', err);
+      console.error('OpenRouter error:', err);
       return Response.json(
         { error: 'model_error' },
         { status: 502, headers: corsHeaders(request) }
       );
     }
 
-    // Parse Gemini response
+    // Parse response
     let parsed;
     try {
-      const text = geminiData.candidates[0].content.parts[0].text;
+      const text = aiData.choices[0].message.content;
       parsed = JSON.parse(text);
     } catch {
       return Response.json(

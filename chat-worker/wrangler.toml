@@ -5,8 +5,8 @@ compatibility_flags = ["nodejs_compat"]
 
 [[kv_namespaces]]
 binding = "RATE_LIMIT_KV"
-id = "REPLACE_WITH_KV_ID_AFTER_TASK_7"
-preview_id = "REPLACE_WITH_PREVIEW_KV_ID_AFTER_TASK_7"
+id = "49981be2901d404b8f052e164b00b4d0"
+preview_id = "29e7ac5e1cc74223be34e2c96301c09d"
 
 [build]
 command = "cp ../data/videos.json src/videos.json"
