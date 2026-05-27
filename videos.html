@@ -323,6 +323,7 @@
         <a href="index.html" data-i18n="nav_home">Accueil</a>
         <a href="videos.html" data-i18n="nav_videos">Vidéos</a>
         <a href="index.html#references" data-i18n="nav_sources">Sources</a>
+        <a href="chat.html" data-i18n="nav_chat">Chat</a>
         <div class="lang-switcher">
           <button class="lang-btn active" data-lang="fr">FR</button>
           <button class="lang-btn" data-lang="en">EN</button>
@@ -365,7 +366,7 @@ const i18n = {
   fr: {
     meta_title: "Vidéos — Dr Dhiaa Al Awadhy",
     brand: "Le Système Tayyibat",
-    nav_home: "Accueil", nav_videos: "Vidéos", nav_sources: "Sources",
+    nav_home: "Accueil", nav_videos: "Vidéos", nav_sources: "Sources", nav_chat: "Chat",
     hero_eyebrow: "Médiathèque de travail",
     hero_h1: "Les vidéos classées par sujet",
     hero_p: "Une archive consultable pour retrouver les explications du Dr Diaa Al Awady par thème, durée et date. Les vidéos restent reliées à leur source officielle.",
@@ -385,7 +386,7 @@ const i18n = {
   en: {
     meta_title: "Videos — Dr Dhiaa Al Awadhy",
     brand: "The Tayyibat System",
-    nav_home: "Home", nav_videos: "Videos", nav_sources: "Sources",
+    nav_home: "Home", nav_videos: "Videos", nav_sources: "Sources", nav_chat: "Chat",
     hero_eyebrow: "Working Media Library",
     hero_h1: "Videos sorted by topic",
     hero_p: "A searchable archive to find Dr Diaa Al Awady's explanations by theme, duration and date. Videos remain linked to their official source.",
@@ -405,7 +406,7 @@ const i18n = {
   ar: {
     meta_title: "الفيديوهات — د. ضياء العوضي",
     brand: "نظام الطيبات",
-    nav_home: "الرئيسية", nav_videos: "الفيديوهات", nav_sources: "المصادر",
+    nav_home: "الرئيسية", nav_videos: "الفيديوهات", nav_sources: "المصادر", nav_chat: "المحادثة",
     hero_eyebrow: "مكتبة الفيديوهات",
     hero_h1: "الفيديوهات مصنّفة حسب الموضوع",
     hero_p: "أرشيف قابل للبحث لاستعادة شروحات الدكتور ضياء العوضي حسب الموضوع والمدة والتاريخ. الفيديوهات مرتبطة بمصادرها الرسمية.",
@@ -596,5 +597,6 @@ init().catch(function(error) {
   console.error(error);
 });
 </script>
+<script type="module" src="chat-widget.js"></script>
 </body>
 </html>

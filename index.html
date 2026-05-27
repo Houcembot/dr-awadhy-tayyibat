@@ -411,6 +411,7 @@
   <a href="videos.html">Vidéos</a>
   <a href="#chercheurs" data-i18n="nav_chercheurs">Chercheurs</a>
   <a href="#references" data-i18n="nav_references">Sources</a>
+  <a href="chat.html" data-i18n="nav_chat">Chat</a>
   <div class="lang-switcher">
     <button class="lang-btn active" data-lang="fr">FR</button>
     <button class="lang-btn" data-lang="en">EN</button>
@@ -666,7 +667,7 @@ const i18n = {
     hero_badge1: "Nutrition Thérapeutique", hero_badge2: "Université Ain Shams",
     hero_badge3: "Médecine Préventive", hero_badge4: "Jeûne Thérapeutique",
     nav_philosophie: "Philosophie", nav_principes: "Principes", nav_aliments: "Aliments",
-    nav_science: "Science", nav_chercheurs: "Chercheurs", nav_references: "Sources",
+    nav_science: "Science", nav_chercheurs: "Chercheurs", nav_references: "Sources", nav_chat: "Chat",
     ph_label: "Le fondateur", ph_h2: "Qui était le Dr Dhiaa Al Awadhy ?",
     ph_p1: "Médecin égyptien diplômé de la faculté de médecine de l'Université Ain Shams, spécialisé en soins intensifs et nutrition thérapeutique. Membre de la Société Américaine de l'Obésité et de la Société Européenne de Nutrition. Il est décédé en avril 2026 à l'âge de 47 ans.",
     ph_p2: "C'est en observant les limites de la médecine conventionnelle face aux maladies chroniques qu'il a développé sa philosophie : la majorité des maladies chroniques ne sont pas des fatalités biologiques mais des <strong>réactions du corps à ce qu'on lui donne</strong>. Changez ce que vous mangez, et le corps se répare.",
@@ -762,7 +763,7 @@ const i18n = {
     hero_badge1: "Therapeutic Nutrition", hero_badge2: "Ain Shams University",
     hero_badge3: "Preventive Medicine", hero_badge4: "Therapeutic Fasting",
     nav_philosophie: "Philosophy", nav_principes: "Principles", nav_aliments: "Foods",
-    nav_science: "Science", nav_chercheurs: "Researchers", nav_references: "Sources",
+    nav_science: "Science", nav_chercheurs: "Researchers", nav_references: "Sources", nav_chat: "Chat",
     ph_label: "The Founder", ph_h2: "Who Was Dr Dhiaa Al Awadhy?",
     ph_p1: "Egyptian physician graduated from Ain Shams University Faculty of Medicine, specialized in intensive care and therapeutic nutrition. Member of the American Society for Obesity and the European Society for Nutrition. He passed away in April 2026 at the age of 47.",
     ph_p2: "Observing the limits of conventional medicine against chronic diseases, he developed his philosophy: most chronic diseases are not biological fatalities but <strong>reactions of the body to what we give it</strong>. Change what you eat, and the body repairs itself.",
@@ -858,7 +859,7 @@ const i18n = {
     hero_badge1: "التغذية العلاجية", hero_badge2: "جامعة عين شمس",
     hero_badge3: "الطب الوقائي", hero_badge4: "الصيام العلاجي",
     nav_philosophie: "الفلسفة", nav_principes: "المبادئ", nav_aliments: "الأطعمة",
-    nav_science: "العلم", nav_chercheurs: "الباحثون", nav_references: "المصادر",
+    nav_science: "العلم", nav_chercheurs: "الباحثون", nav_references: "المصادر", nav_chat: "المحادثة",
     ph_label: "المؤسس", ph_h2: "من كان الدكتور ضياء العوضي؟",
     ph_p1: "طبيب مصري متخرج من كلية الطب بجامعة عين شمس، متخصص في العناية المركزة والتغذية العلاجية. عضو في الجمعية الأمريكية للسمنة والجمعية الأوروبية للتغذية. توفي في أبريل 2026 عن عمر 47 عاماً.",
     ph_p2: "من خلال ملاحظته لحدود الطب التقليدي في مواجهة الأمراض المزمنة، طوّر فلسفته: معظم الأمراض المزمنة ليست قدراً بيولوجياً بل <strong>ردود فعل الجسم على ما نعطيه</strong>. غيّر ما تأكل، وسيصلح الجسم نفسه.",
@@ -973,6 +974,6 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
 const saved = localStorage.getItem('lang');
 if (saved && saved !== 'fr') setLang(saved);
 </script>
-
+<script type="module" src="chat-widget.js"></script>
 </body>
 </html>
