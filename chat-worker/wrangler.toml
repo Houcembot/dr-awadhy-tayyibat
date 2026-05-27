@@ -1,0 +1,12 @@
+name = "tayyibat-chat"
+main = "src/index.js"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+[[kv_namespaces]]
+binding = "RATE_LIMIT_KV"
+id = "REPLACE_WITH_KV_ID_AFTER_TASK_7"
+preview_id = "REPLACE_WITH_PREVIEW_KV_ID_AFTER_TASK_7"
+
+[build]
+command = "cp ../data/videos.json src/videos.json"
