@@ -1,0 +1,6 @@
+archive/
+chat-worker/
+docs/
+data/
+*.json
+README.md
