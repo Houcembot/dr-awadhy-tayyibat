@@ -169,6 +169,13 @@ function init() {
     this.style.height = '';
     this.style.height = Math.min(this.scrollHeight, 120) + 'px';
   });
+
+  document.getElementById('input').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      document.getElementById('form').requestSubmit();
+    }
+  });
 }
 
 init();
