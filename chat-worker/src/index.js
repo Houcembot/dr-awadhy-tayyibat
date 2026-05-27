@@ -50,10 +50,11 @@ export default {
         { status: 400, headers: corsHeaders(request) }
       );
     }
+    const lang = ['fr', 'en', 'ar'].includes(body.lang) ? body.lang : 'ar';
 
     // Build prompt
     const filtered = filterVideos(question, videosData, 25);
-    const { system, user } = buildPrompt(question, filtered);
+    const { system, user } = buildPrompt(question, filtered, lang);
 
     // Call OpenRouter (OpenAI-compatible)
     let aiData;

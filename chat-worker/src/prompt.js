@@ -15,13 +15,20 @@ const SYSTEM_BASE = `أنت مساعد الدكتور ضياء العوضي، ط
 5. أعد JSON صارماً بهذا الشكل فقط:
 {"answer": "نص الإجابة هنا", "video_ids": ["id1", "id2"]}`;
 
-export function buildPrompt(question, filteredVideos) {
+const LANG_INSTRUCTION = {
+  fr: 'IMPORTANT: Réponds UNIQUEMENT en français, quelle que soit la langue du contenu.',
+  en: 'IMPORTANT: Respond ONLY in English, regardless of the content language.',
+  ar: 'مهم: أجب باللغة العربية فقط.',
+};
+
+export function buildPrompt(question, filteredVideos, lang = 'ar') {
   const videosSection = filteredVideos.length > 0
     ? filteredVideos.map(v =>
         `ID: ${v.id} | العنوان: ${v.title_original} | الموضوع: ${v.primary_topic} | المدة: ${v.duration_label || '-'}`
       ).join('\n')
     : 'لا توجد فيديوهات متاحة.';
 
-  const system = `${SYSTEM_BASE}\n\nالفيديوهات المتاحة ذات الصلة:\n${videosSection}`;
+  const langLine = LANG_INSTRUCTION[lang] || LANG_INSTRUCTION.ar;
+  const system = `${langLine}\n\n${SYSTEM_BASE}\n\nالفيديوهات المتاحة ذات الصلة:\n${videosSection}`;
   return { system, user: question };
 }

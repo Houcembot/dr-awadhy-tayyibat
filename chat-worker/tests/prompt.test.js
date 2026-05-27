@@ -35,4 +35,16 @@ describe('buildPrompt', () => {
     expect(result.system).toBeDefined();
     expect(result.user).toBe('test');
   });
+  it('includes French language instruction when lang=fr', () => {
+    const result = buildPrompt('test', SAMPLE_VIDEOS, 'fr');
+    expect(result.system).toContain('français');
+  });
+  it('includes English language instruction when lang=en', () => {
+    const result = buildPrompt('test', SAMPLE_VIDEOS, 'en');
+    expect(result.system).toContain('English');
+  });
+  it('defaults to Arabic when lang is not provided', () => {
+    const result = buildPrompt('test', SAMPLE_VIDEOS);
+    expect(result.system).toContain('العربية');
+  });
 });
