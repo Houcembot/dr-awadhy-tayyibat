@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vidéos mirror — DrDia</title>
+<style>
+  :root { --bg:#f5f0e8; --paper:#fffaf0; --ink:#20201d; --muted:#69655a; --line:rgba(32,32,29,.14); --green:#2d6a4f; --gold:#b79335; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; line-height:1.45; }
+  header { background:var(--paper); border-bottom:1px solid var(--line); padding:28px clamp(18px,4vw,44px); }
+  h1 { margin:0 0 8px; font-size:clamp(1.7rem,4vw,3rem); letter-spacing:0; }
+  p { margin:0; color:var(--muted); max-width:900px; }
+  main { padding:22px clamp(18px,4vw,44px) 70px; }
+  .tools { display:grid; grid-template-columns:minmax(220px,420px) auto; gap:12px; align-items:center; margin-bottom:16px; }
+  input, select { min-height:44px; border:1px solid var(--line); background:var(--paper); color:var(--ink); font:inherit; padding:9px 11px; }
+  .status { color:var(--muted); margin-bottom:14px; }
+  .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+  article { background:var(--paper); border:1px solid var(--line); padding:14px; }
+  h2 { direction:rtl; font-size:1rem; line-height:1.45; margin:0 0 12px; }
+  .meta { color:var(--muted); font-size:.9rem; margin-bottom:12px; }
+  .actions { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+  a { border:1px solid var(--line); color:var(--ink); text-decoration:none; font-size:.84rem; font-weight:700; padding:8px 10px; }
+  a.local { border-color:rgba(45,106,79,.45); color:var(--green); }
+  a.source { border-color:rgba(183,147,53,.5); }
+  code { display:block; margin-top:10px; color:var(--muted); font-size:.8rem; overflow-wrap:anywhere; }
+  @media (max-width:760px) { .tools, .grid { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Vidéos mirror</h1>
+  <p>Page séparée pour les copies locales sur Bake. La médiathèque publique reste sur les liens web naturels.</p>
+</header>
+<main>
+  <div class="tools">
+    <input id="search" type="search" placeholder="Rechercher titre, ID, sujet...">
+    <select id="dataset">
+      <option value="all">Toutes les copies locales</option>
+      <option value="curated">Liste principale</option>
+      <option value="youtube">Inventaire YouTube</option>
+    </select>
+  </div>
+  <div class="status" id="status">Chargement...</div>
+  <section class="grid" id="grid"></section>
+</main>
+<script>
+const state = { rows: [], source: [], query: "", dataset: "all" };
+
+function escapeHtml(value) {
+  return String(value || "").replace(/[&<>"']/g, function(char) {
+    return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" }[char];
+  });
+}
+
+function formatSize(bytes) {
+  const n = Number(bytes || 0);
+  if (!n) return "";
+  if (n > 1024 * 1024 * 1024) return (n / 1024 / 1024 / 1024).toFixed(2) + " Go";
+  return (n / 1024 / 1024).toFixed(1) + " Mo";
+}
+
+function activeRows() {
+  const q = state.query.trim().toLowerCase();
+  return state.rows.filter(function(row) {
+    if (state.dataset !== "all" && row._dataset !== state.dataset) return false;
+    if (!q) return true;
+    return [row.id, row.source_id, row.title_original, row.primary_topic, row.local_backup_file].join(" ").toLowerCase().includes(q);
+  });
+}
+
+function render() {
+  const rows = activeRows();
+  document.getElementById("status").textContent = rows.length + " copies locales affichées";
+  document.getElementById("grid").innerHTML = rows.map(function(row) {
+    return '<article>' +
+      '<h2>' + escapeHtml(row.title_original) + '</h2>' +
+      '<div class="meta">' + escapeHtml(row.platform) + ' · ' + escapeHtml(row.source_id || row.id) + ' · ' + formatSize(row.local_backup_size) + '</div>' +
+      '<div class="actions">' +
+        '<a class="local" href="' + escapeHtml(row.local_backup_url) + '" target="_blank" rel="noopener">Ouvrir local</a>' +
+        '<a class="source" href="' + escapeHtml(row.natural_source_url || row.source_url) + '" target="_blank" rel="noopener">Source web</a>' +
+      '</div>' +
+      '<code>' + escapeHtml(row.local_backup_path) + '</code>' +
+    '</article>';
+  }).join("");
+}
+
+async function init() {
+  const [curatedRes, youtubeRes] = await Promise.all([
+    fetch("data/mirror-max-20260527-bake.json"),
+    fetch("data/mirror-youtube-max-20260527-bake.json")
+  ]);
+  const curated = (await curatedRes.json()).map(function(row) { return { ...row, _dataset: "curated" }; });
+  const youtube = (await youtubeRes.json()).map(function(row) { return { ...row, _dataset: "youtube" }; });
+  const bySource = new Map();
+  curated.concat(youtube).forEach(function(row) {
+    if (!row.local_backup_available || !row.local_backup_url) return;
+    const key = row.source_id || row.id;
+    if (!bySource.has(key)) bySource.set(key, row);
+  });
+  state.rows = Array.from(bySource.values()).sort(function(a, b) {
+    return String(a.title_original || "").localeCompare(String(b.title_original || ""), "ar");
+  });
+  render();
+}
+
+document.getElementById("search").addEventListener("input", function(event) {
+  state.query = event.target.value;
+  render();
+});
+document.getElementById("dataset").addEventListener("change", function(event) {
+  state.dataset = event.target.value;
+  render();
+});
+
+init().catch(function(error) {
+  document.getElementById("status").textContent = "Impossible de charger les liens mirror.";
+  console.error(error);
+});
+</script>
+</body>
+</html>

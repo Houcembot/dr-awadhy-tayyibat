@@ -342,7 +342,7 @@
       <aside class="ledger" aria-label="Statistiques">
         <div class="ledger-row"><span class="ledger-label" data-i18n="stat_videos">Vidéos</span><span class="ledger-value" id="stat-videos">-</span></div>
         <div class="ledger-row"><span class="ledger-label" data-i18n="stat_topics">Sujets</span><span class="ledger-value" id="stat-topics">-</span></div>
-        <div class="ledger-row"><span class="ledger-label" data-i18n="stat_archives">Copies locales</span><span class="ledger-value" id="stat-archives">-</span></div>
+        <div class="ledger-row"><span class="ledger-label" data-i18n="stat_archives">Sources web</span><span class="ledger-value" id="stat-archives">-</span></div>
       </aside>
     </section>
 
@@ -369,14 +369,13 @@ const i18n = {
     hero_eyebrow: "Médiathèque de travail",
     hero_h1: "Les vidéos classées par sujet",
     hero_p: "Une archive consultable pour retrouver les explications du Dr Diaa Al Awady par thème, durée et date. Les vidéos restent reliées à leur source officielle.",
-    stat_videos: "Vidéos", stat_topics: "Sujets", stat_archives: "Copies locales",
+    stat_videos: "Vidéos", stat_topics: "Sujets", stat_archives: "Sources web",
     search_placeholder: "Rechercher en arabe, français, sujet...",
     loading: "Chargement des vidéos...",
     empty: "Aucune vidéo ne correspond à cette recherche.",
     notice: "Cette page est une médiathèque éducative. Les résumés et classifications sont en préparation et doivent être relus avant publication éditoriale. Les contenus médicaux ne remplacent pas un avis professionnel.",
     all_btn: "Tous",
     view_source: "Voir la source",
-    local_copy: "Copie locale",
     uncategorized: "Sujet à classer",
     unknown_date: "Date inconnue",
     error: "Impossible de charger les données vidéo.",
@@ -390,14 +389,13 @@ const i18n = {
     hero_eyebrow: "Working Media Library",
     hero_h1: "Videos sorted by topic",
     hero_p: "A searchable archive to find Dr Diaa Al Awady's explanations by theme, duration and date. Videos remain linked to their official source.",
-    stat_videos: "Videos", stat_topics: "Topics", stat_archives: "Local Copies",
+    stat_videos: "Videos", stat_topics: "Topics", stat_archives: "Web sources",
     search_placeholder: "Search in Arabic, French, topic...",
     loading: "Loading videos...",
     empty: "No videos match this search.",
     notice: "This page is an educational media library. Summaries and classifications are being prepared and must be reviewed before editorial publication. Medical content does not replace professional advice.",
     all_btn: "All",
     view_source: "View source",
-    local_copy: "Local copy",
     uncategorized: "Uncategorized",
     unknown_date: "Unknown date",
     error: "Unable to load video data.",
@@ -411,14 +409,13 @@ const i18n = {
     hero_eyebrow: "مكتبة الفيديوهات",
     hero_h1: "الفيديوهات مصنّفة حسب الموضوع",
     hero_p: "أرشيف قابل للبحث لاستعادة شروحات الدكتور ضياء العوضي حسب الموضوع والمدة والتاريخ. الفيديوهات مرتبطة بمصادرها الرسمية.",
-    stat_videos: "فيديو", stat_topics: "موضوعات", stat_archives: "نسخ محلية",
+    stat_videos: "فيديو", stat_topics: "موضوعات", stat_archives: "مصادر الويب",
     search_placeholder: "ابحث بالعربية أو الفرنسية أو الموضوع...",
     loading: "جاري تحميل الفيديوهات...",
     empty: "لا توجد فيديوهات تطابق هذا البحث.",
     notice: "هذه الصفحة مكتبة إعلامية تعليمية. الملخصات والتصنيفات قيد الإعداد وتحتاج إلى مراجعة قبل النشر التحريري. المحتوى الطبي لا يغني عن الاستشارة المتخصصة.",
     all_btn: "الكل",
     view_source: "مشاهدة المصدر",
-    local_copy: "نسخة محلية",
     uncategorized: "موضوع غير مصنف",
     unknown_date: "تاريخ غير معروف",
     error: "تعذّر تحميل بيانات الفيديوهات.",
@@ -516,9 +513,7 @@ function renderVideos() {
       '</div>' +
       '<div class="video-actions">' +
         '<a class="source-link" href="' + escapeHtml(video.source_url) + '" target="_blank" rel="noopener">' + t.view_source + '</a>' +
-        (video.archive_url
-          ? '<a class="source-link" href="' + escapeHtml(video.archive_url) + '" target="_blank" rel="noopener">' + t.local_copy + '</a>'
-          : '<span class="status-pill">' + escapeHtml(video.language || "ar") + '</span>') +
+        '<span class="status-pill">' + escapeHtml(video.language || "ar") + '</span>' +
       '</div>' +
     '</article>';
   }).join("");
@@ -566,23 +561,15 @@ async function init() {
   inventory.forEach(function(video) {
     const key = video.source_id || video.id;
     if (bySource.has(key)) {
-      const existing = bySource.get(key);
-      if (!existing.archive_url && video.archive_url) {
-        existing.archive_url = video.archive_url;
-        existing.archive_file = video.archive_file;
-        existing.archive_size = video.archive_size;
-      }
       return;
     }
     bySource.set(key, video);
   });
-  state.videos = Array.from(bySource.values()).sort(function(a, b) {
-    return (b.archive_url ? 1 : 0) - (a.archive_url ? 1 : 0);
-  });
+  state.videos = Array.from(bySource.values());
   state.topics = await topicsRes.json();
   byId("stat-videos").textContent = state.videos.length;
   byId("stat-topics").textContent = state.topics.length;
-  byId("stat-archives").textContent = state.videos.filter(function(v) { return v.archive_url; }).length;
+  byId("stat-archives").textContent = state.videos.filter(function(v) { return v.source_url; }).length;
   state.loaded = true;
   renderTopics();
   renderVideos();
