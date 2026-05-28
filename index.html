@@ -25,11 +25,14 @@
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
+  html { overflow-x: hidden; }
+
   body {
     font-family: 'Source Sans 3', sans-serif;
     background: var(--cream);
     color: var(--text);
     line-height: 1.7;
+    overflow-x: hidden;
   }
 
   [lang="ar"] body,
@@ -373,16 +376,135 @@
   .nuances-box ul li { font-size: 0.95rem; font-weight: 300; margin-bottom: 8px; color: var(--text-muted); }
 
   @media (max-width: 600px) {
-    .section { padding: 60px 24px; }
-    .hero { padding: 60px 24px 80px; }
+    .hero {
+      padding: 52px 22px 64px;
+      min-height: auto;
+    }
+    .hero-eyebrow {
+      font-size: 10px;
+      letter-spacing: 3px;
+      line-height: 1.8;
+      max-width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 12vw, 3rem);
+      line-height: 1.08;
+    }
+    .hero-subtitle {
+      font-size: 1rem;
+      line-height: 1.65;
+      margin-bottom: 30px;
+    }
+    .hero-divider { margin-bottom: 30px; }
+    .hero-badges {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .badge {
+      width: min(100%, 250px);
+      min-height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      white-space: normal;
+      line-height: 1.35;
+    }
+
+    .nav {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      align-items: stretch;
+      justify-content: stretch;
+      gap: 0;
+      width: 100%;
+      overflow: visible;
+    }
+    .nav a {
+      min-width: 0;
+      min-height: 44px;
+      padding: 11px 4px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 10px;
+      letter-spacing: 0.5px;
+      line-height: 1.2;
+      border-right: 1px solid rgba(245,240,232,0.08);
+    }
+    .nav a:nth-of-type(4n) { border-right: none; }
+    .lang-switcher {
+      position: static;
+      transform: none;
+      grid-column: 1 / -1;
+      justify-content: center;
+      padding: 7px 0 8px;
+      border-top: 1px solid rgba(245,240,232,0.08);
+      background: rgba(26,26,24,0.24);
+    }
+    [dir="rtl"] .lang-switcher {
+      right: auto;
+      left: auto;
+    }
+    .lang-btn {
+      min-width: 42px;
+      min-height: 32px;
+      padding: 6px 10px;
+      font-size: 10px;
+    }
+
+    .section {
+      width: 100%;
+      padding: 52px 22px;
+    }
+    .section h2 { margin-bottom: 24px; }
+    .quote-block {
+      margin: 30px 0;
+      padding: 18px 20px;
+      font-size: 1.05rem;
+    }
+    [dir="rtl"] .quote-block { padding: 18px 20px; }
     .aliments-grid { grid-template-columns: 1fr; }
+    .principes-grid {
+      grid-template-columns: 1fr;
+      margin: 32px 0;
+    }
+    .principe-card { padding: 26px 22px; }
+    .chercheurs-grid { grid-template-columns: 1fr; }
+    .science-list li {
+      grid-template-columns: 36px 1fr;
+      gap: 14px;
+    }
+    .science-icon {
+      width: 36px;
+      height: 36px;
+    }
+    .schema {
+      margin: 32px -6px;
+      padding: 34px 18px;
+    }
     .schema-flow { flex-direction: column; }
+    .schema-step {
+      width: 100%;
+      max-width: 240px;
+      min-width: 0;
+    }
     .schema-arrow { transform: rotate(90deg); }
     [dir="rtl"] .schema-arrow { transform: rotate(90deg); }
-    .nav a { padding: 14px 14px; font-size: 11px; }
-    .lang-switcher { right: 4px; }
-    [dir="rtl"] .lang-switcher { right: auto; left: 4px; }
-    .lang-btn { padding: 4px 6px; font-size: 10px; }
+    .aliments-header {
+      padding: 14px 16px;
+      letter-spacing: 1.5px;
+      line-height: 1.35;
+    }
+    .aliments-list li { padding: 11px 16px; }
+    .nuances-box {
+      padding: 22px 20px;
+      margin: 28px 0;
+    }
   }
 </style>
 </head>
