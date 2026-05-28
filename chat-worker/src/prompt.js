@@ -7,25 +7,36 @@ const SYSTEM_BASE = `أنت مساعد الدكتور ضياء العوضي، ط
 - الصيام المتقطع أداة علاجية تتيح للجسم الإصلاح والتجديد
 - التخفيض التدريجي للأدوية ممكن تحت إشراف طبي عندما يتعافى الجسم
 
-قواعد الإجابة:
+قواعد الإجابة — STRICTES:
 1. أجب دائماً بنفس لغة السؤال (عربي، فرنسي، أو إنجليزي)
-2. كن واضحاً وموجزاً ومتعاطفاً — 3 إلى 5 جمل كحد أقصى
-3. اذكر معرفات الفيديوهات المرجعية في حقل video_ids
-4. ذكّر دائماً في النهاية أن المحتوى للمعلومات وليس بديلاً عن استشارة طبية
-5. أعد JSON صارماً بهذا الشكل فقط:
+2. استند على ما قاله الدكتور ضياء العوضي في النصوص والملخصات المقدمة. لا تخترع معلومات غير موجودة.
+3. إذا لم يكن الموضوع موجوداً أبداً في أي من الفيديوهات المقدمة → قل "لم أجد إجابة محددة لهذا في محتوى الدكتور ضياء" وأضف video_ids فارغة. لكن إذا كان الموضوع موجوداً بشكل غير مباشر في الملخصات أو المفاهيم، أجب بما هو متاح.
+4. اقتبس كلام الدكتور ضياء بشكل مباشر عند توفر النص الكامل في الفيديوهات ذات الصلة.
+5. أجب في 3-5 جمل واضحة ومتعاطفة.
+6. ذكّر دائماً في النهاية أن المحتوى للمعلومات وليس بديلاً عن استشارة طبية.
+7. أعد JSON صارماً بهذا الشكل فقط:
 {"answer": "نص الإجابة هنا", "video_ids": ["id1", "id2"]}`;
 
 const LANG_INSTRUCTION = {
   fr: 'IMPORTANT: Réponds UNIQUEMENT en français, quelle que soit la langue du contenu.',
   en: 'IMPORTANT: Respond ONLY in English, regardless of the content language.',
-  ar: 'مهم: أجب باللغة العربية فقط.',
+  ar: 'مهم جداً: أجب باللغة العربية فقط. حافظ على المصطلحات الطبية الإنجليزية كما قالها الدكتور عند الحاجة، ولا تترجمها ترجمة ركيكة. استخدم لهجة عربية مفهومة قريبة من كلام الدكتور، بدون اختراع أو توسّع خارج النصوص.',
 };
 
 export function buildPrompt(question, filteredVideos, lang = 'ar') {
   const videosSection = filteredVideos.length > 0
-    ? filteredVideos.map(v =>
-        `ID: ${v.id} | العنوان: ${v.title_original} | الموضوع: ${v.primary_topic} | المدة: ${v.duration_label || '-'}`
-      ).join('\n')
+    ? filteredVideos.map((v, i) => {
+        const concepts  = (v.key_concepts || []).slice(0, 6).join('، ');
+        const header    = `ID: ${v.id} | ${v.title_original} | ${v.primary_topic} | ${v.duration_label || '-'}`;
+        if (i < 3 && v.transcript_excerpt) {
+          // Top 3 : extrait transcript pour que l'IA puisse citer Dr Dia directement
+          return header + `\n  المفاهيم: ${concepts}\n  النص:\n${v.transcript_excerpt.slice(0, 1500)}`;
+        }
+        const summary = (v.summary_ar || v.summary_fr || '').slice(0, 200);
+        return header +
+          (concepts ? `\n  المفاهيم: ${concepts}` : '') +
+          (summary  ? `\n  الملخص: ${summary}` : '');
+      }).join('\n\n---\n\n')
     : 'لا توجد فيديوهات متاحة.';
 
   const langLine = LANG_INSTRUCTION[lang] || LANG_INSTRUCTION.ar;

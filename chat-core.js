@@ -10,7 +10,8 @@ const I18N = {
     error_rate: 'Trop de questions. Réessayez dans une minute.',
     error_model: 'Erreur du modèle. Réessayez.',
     error_generic: 'Une erreur est survenue.',
-    thinking: 'En cours...'
+    thinking: 'En cours...',
+    usage: 'Questions utilisées'
   },
   en: {
     placeholder: 'Ask your health question...',
@@ -21,7 +22,8 @@ const I18N = {
     error_rate: 'Too many requests. Try again in a minute.',
     error_model: 'Model error. Please try again.',
     error_generic: 'An error occurred.',
-    thinking: 'Thinking...'
+    thinking: 'Thinking...',
+    usage: 'Questions used'
   },
   ar: {
     placeholder: 'اكتب سؤالك الصحي...',
@@ -32,7 +34,8 @@ const I18N = {
     error_rate: 'طلبات كثيرة جداً. حاول مرة أخرى بعد دقيقة.',
     error_model: 'خطأ في النموذج. حاول مرة أخرى.',
     error_generic: 'حدث خطأ ما.',
-    thinking: 'جاري التفكير...'
+    thinking: 'جاري التفكير...',
+    usage: 'الأسئلة المستعملة'
   }
 };
 
@@ -80,6 +83,13 @@ export function createVideoCard(video) {
   return card;
 }
 
+function renderUsage(usage) {
+  if (!usage || !usage.limit) return '';
+  const used = Number(usage.used || 0);
+  const limit = Number(usage.limit || 0);
+  return `<p class="chat-disclaimer">${t('usage')}: ${used}/${limit}</p>`;
+}
+
 export async function sendQuestion(question, messagesEl) {
   const lang = getLang();
   const dir = lang === 'ar' ? 'rtl' : 'ltr';
@@ -108,6 +118,7 @@ export async function sendQuestion(question, messagesEl) {
   }
 
   thinking.innerHTML = `<span dir="${dir}">${escapeHtml(data.answer)}</span>
+    ${renderUsage(data.usage)}
     <p class="chat-disclaimer">${t('disclaimer')}</p>`;
 
   if (data.videos && data.videos.length > 0) {

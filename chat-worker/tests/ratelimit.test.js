@@ -12,22 +12,22 @@ function makeMockKV() {
 describe('checkRateLimit', () => {
   it('allows first request', async () => {
     const kv = makeMockKV();
-    expect(await checkRateLimit(kv, '1.2.3.4')).toBe(true);
+    expect(await checkRateLimit(kv, '1.2.3.4')).toMatchObject({ allowed: true });
   });
-  it('allows up to 20 requests from same IP', async () => {
+  it('allows up to 8 requests from same IP in the burst window', async () => {
     const kv = makeMockKV();
-    for (let i = 0; i < 20; i++) {
-      expect(await checkRateLimit(kv, '1.2.3.4')).toBe(true);
+    for (let i = 0; i < 8; i++) {
+      expect(await checkRateLimit(kv, '1.2.3.4')).toMatchObject({ allowed: true });
     }
   });
-  it('blocks the 21st request from same IP', async () => {
+  it('blocks the 9th request from same IP in the burst window', async () => {
     const kv = makeMockKV();
-    for (let i = 0; i < 20; i++) await checkRateLimit(kv, '1.2.3.4');
-    expect(await checkRateLimit(kv, '1.2.3.4')).toBe(false);
+    for (let i = 0; i < 8; i++) await checkRateLimit(kv, '1.2.3.4');
+    expect(await checkRateLimit(kv, '1.2.3.4')).toMatchObject({ allowed: false, reason: 'burst' });
   });
   it('allows different IPs independently', async () => {
     const kv = makeMockKV();
-    for (let i = 0; i < 20; i++) await checkRateLimit(kv, '1.2.3.4');
-    expect(await checkRateLimit(kv, '5.6.7.8')).toBe(true);
+    for (let i = 0; i < 8; i++) await checkRateLimit(kv, '1.2.3.4');
+    expect(await checkRateLimit(kv, '5.6.7.8')).toMatchObject({ allowed: true });
   });
 });

@@ -6,6 +6,7 @@ const SAMPLE_VIDEOS = [
   { id: 'v2', title_original: 'الصداع وعلاجه', primary_topic: 'sommeil-fatigue-stress', tags: ['صداع', 'ارهاق'] },
   { id: 'v3', title_original: 'الكبد والأيض', primary_topic: 'foie-metabolisme', tags: ['كبد'] },
   { id: 'v4', title_original: 'الصيام المتقطع', primary_topic: 'jeune-rythme-poids', tags: ['صيام', 'وزن'] },
+  { id: 'v5', title_original: 'الدكتور ضياء العوضي مباشر', primary_topic: 'systeme-tayyibat', tags: [] },
 ];
 
 describe('tokenize', () => {
@@ -26,27 +27,35 @@ describe('tokenize', () => {
 
 describe('filterVideos', () => {
   it('returns videos matching topic', () => {
-    const results = filterVideos('diabete', SAMPLE_VIDEOS);
+    const { videos: results } = filterVideos('diabete', SAMPLE_VIDEOS);
     expect(results[0].id).toBe('v1');
   });
   it('returns videos matching Arabic title', () => {
-    const results = filterVideos('السكري', SAMPLE_VIDEOS);
+    const { videos: results } = filterVideos('السكري', SAMPLE_VIDEOS);
     expect(results[0].id).toBe('v1');
   });
   it('returns videos matching tags', () => {
-    const results = filterVideos('صداع', SAMPLE_VIDEOS);
+    const { videos: results } = filterVideos('صداع', SAMPLE_VIDEOS);
     expect(results[0].id).toBe('v2');
   });
   it('respects the limit parameter', () => {
-    const results = filterVideos('ا', SAMPLE_VIDEOS, 2);
+    const { videos: results } = filterVideos('ا', SAMPLE_VIDEOS, 2);
     expect(results.length).toBeLessThanOrEqual(2);
   });
-  it('returns first N videos when no tokens match', () => {
-    const results = filterVideos('zzz', SAMPLE_VIDEOS, 3);
-    expect(results.length).toBe(3);
+  it('returns no matches when the question has no searchable tokens', () => {
+    const result = filterVideos('ما هو رأي الدكتور ضياء؟', SAMPLE_VIDEOS, 3);
+    expect(result).toMatchObject({ videos: [], hasMatches: false });
+  });
+  it('returns no matches when no video matches the tokens', () => {
+    const result = filterVideos('zzz', SAMPLE_VIDEOS, 3);
+    expect(result).toMatchObject({ videos: [], hasMatches: false });
+  });
+  it('does not match only on Dr Dia name tokens for unrelated Arabic questions', () => {
+    const result = filterVideos('ما رأي الدكتور ضياء في إصلاح محرك سيارة كهربائية؟', SAMPLE_VIDEOS, 3);
+    expect(result).toMatchObject({ videos: [], hasMatches: false });
   });
   it('ranks topic match higher than title match', () => {
-    const results = filterVideos('insuline', SAMPLE_VIDEOS);
+    const { videos: results } = filterVideos('insuline', SAMPLE_VIDEOS);
     expect(results[0].id).toBe('v1');
   });
 });
