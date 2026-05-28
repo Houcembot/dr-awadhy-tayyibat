@@ -14,7 +14,7 @@ describe('tokenize', () => {
     expect(tokenize('السكري والأنسولين')).toEqual(['السكري', 'والأنسولين']);
   });
   it('splits French text into tokens', () => {
-    expect(tokenize('diabète insuline')).toEqual(['diabète', 'insuline']);
+    expect(tokenize('diabète insuline')).toEqual(['diabète', 'insuline', 'انسولين', 'أنسولين']);
   });
   it('removes single-character tokens', () => {
     expect(tokenize('a السكر b')).not.toContain('a');
