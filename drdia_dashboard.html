@@ -31,9 +31,129 @@ a{color:#7ec8e3;text-decoration:none}a:hover{text-decoration:underline}
   <button onclick="check()">Accéder</button>
   <div class="err" id="err"></div>
 </div>
+<style>
+.timeline{border-left:2px solid #2a6496;padding-left:16px;margin:10px 0}
+.tl-item{margin-bottom:14px;position:relative}
+.tl-item::before{content:'';position:absolute;left:-20px;top:4px;width:8px;height:8px;border-radius:50%;background:#2a6496}
+.tl-date{color:#7ec8e3;font-size:.82em;font-weight:bold}
+.tl-title{color:#a8d8a8;font-weight:bold;margin:2px 0}
+.tl-body{color:#aaa;font-size:.85em;line-height:1.6}
+.tl-ok{color:#5cb85c}.tl-warn{color:#f0ad4e}.tl-err{color:#d9534f}
+.score-bar{display:flex;gap:6px;align-items:center;margin:2px 0;font-size:.82em}
+.score-pill{display:inline-block;padding:1px 8px;border-radius:10px;font-weight:bold}
+.next-step{background:#1a2a1a;border:1px solid #2d5a2d;border-radius:6px;padding:12px 16px;margin:8px 0}
+.next-step h3{color:#a8d8a8;margin-bottom:8px;font-size:.9em}
+.next-step ul{color:#aaa;font-size:.85em;line-height:1.8;padding-left:16px}
+</style>
 <div id="content" style="display:none">
 <h1>🎙️ DrDia — Tableau de bord</h1>
 <div class="meta">Mis à jour : 2026-05-29 10:20 &nbsp;·&nbsp; <a href="javascript:location.reload()">↺ Rafraîchir</a></div>
+
+<h2>📋 Rapport de travail — 48h (2026-05-27 → 2026-05-29)</h2>
+<div class="timeline">
+
+  <div class="tl-item">
+    <div class="tl-date">2026-05-27 — Tests qualité transcription</div>
+    <div class="tl-title">🔬 Benchmark méthodes de transcription audio arabe médicale</div>
+    <div class="tl-body">
+      Vidéo test : IDDyzvjLvLc (184 MB MP4, Dr Dhiaa Al-Awady)<br>
+      <span class="tl-err">❌ OpenAI chunks 90s → 25/100</span> — hallucinations répétitives massives<br>
+      <span class="tl-ok">✅ OpenAI chunks 30s → 75/100</span> — meilleure méthode, coût ~$0.79<br>
+      <span class="tl-warn">⚠️ VAD local + Gemini → 65/100</span> — gonflement texte<br>
+      <span class="tl-warn">⚠️ VAD local + OpenAI → 75/100</span> — sous-transcrit<br>
+      Conclusion : plafond actuel 75/100 par méthode auto. Budget consommé $1.56/$4.00.<br>
+      Piste identifiée : correction chirurgicale sur <em>suspect_terms</em> → potentiel 85-90/100.
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-date">2026-05-28 matin — Classification 529 vidéos</div>
+    <div class="tl-title">🗂️ Tri complet de l'inventaire YouTube Dr Dhiaa Al-Awady</div>
+    <div class="tl-body">
+      <span class="tl-ok">264 Dr Dia (parle directement)</span> → Queue chatbot Tayyibat<br>
+      <span class="tl-warn">185 Témoignages patients</span> → Page vidéos séparée (jamais dans chatbot)<br>
+      31 News / médias externes → Ignorées<br>
+      39 Unclear → Révision manuelle requise<br>
+      10 Bad ID → Données corrompues<br>
+      Méthode : keywords titre + analyse premiers 300 chars transcript. Fix chirurgical bug <code>دي</code>→<code>ضياء</code>.
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-date">2026-05-28 — Rocbot téléchargement massif</div>
+    <div class="tl-title">⬇️ 448 vidéos téléchargées sur disque local (/media/max/Bake/DrDia/videos/)</div>
+    <div class="tl-body">
+      Officiel: 80/80 ✅ &nbsp;|&nbsp; Altayebaat: 9/9 ✅ &nbsp;|&nbsp; Pilot10: 10/10 ✅<br>
+      Top50: 50/50 ✅ &nbsp;|&nbsp; Triaged: 437/447 ✅ (10 échecs permanents)<br>
+      Dernier fichier : 2026-05-28 13:06 — <code>_oq_8QNS-uI</code> (321 MB)<br>
+      <span class="tl-warn">⚠️ Note : vérification_site=echec sur tous — bug de vérification, fichiers MP4 présents</span><br>
+      Total sur disque : <strong>586/596 — 98%</strong> (~60 GB estimés)
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-date">2026-05-28 nuit — Frebot audit inventaire (687 vidéos)</div>
+    <div class="tl-title">🔍 Audit complet de toutes les vidéos inventoriées</div>
+    <div class="tl-body">
+      <span class="tl-ok">368 acceptées</span> (Dr Dia parle directement)<br>
+      <span class="tl-err">289 rejetées</span> (tiers, parasites, hors sujet)<br>
+      <span class="tl-warn">30 sans sous-titres YouTube</span> (transcription auto impossible)<br>
+      0 à vérifier manuellement<br>
+      Total inventaire accepté : <strong>459 vidéos éligibles</strong>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-date">2026-05-28 23:47 — Chatbot rebuild complet</div>
+    <div class="tl-title">🚀 Déploiement Worker Cloudflare avec 92 vidéos + résumés Gemini</div>
+    <div class="tl-body">
+      92 vidéos @DoctorDiaaAlAwady sélectionnées (transcripts youtube_auto validés)<br>
+      <span class="tl-ok">92/92 résumés Gemini générés</span><br>
+      <span class="tl-ok">92/92 transcripts intégrés</span><br>
+      <span class="tl-ok">Worker Cloudflare mis à jour</span> — URL : tayyibat-chat.houcemben.workers.dev<br>
+      Rotation clés Gemini (KEY_1-4), rate limit KV, i18n AR/FR/EN actifs.
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-date">2026-05-29 07:30 — État Rocbot (rapport Discord)</div>
+    <div class="tl-title">📊 Rocbot inactif — toutes queues prioritaires terminées</div>
+    <div class="tl-body">
+      Rocbot: inactif | Aucune queue pending<br>
+      Triaged: 437/447 (10 échecs permanents — vidéos supprimées/privées)<br>
+      <span class="tl-warn">⚠️ 448 fichiers vidéo téléchargés mais vérification_site=echec — investigation en cours</span>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-date">2026-05-29 10:20 — Audit qualité transcriptions youtube_auto (264 vidéos Dr Dia)</div>
+    <div class="tl-title">📈 Distribution des scores qualité — pipeline chatbot</div>
+    <div class="tl-body">
+      <div class="score-bar"><span class="score-pill" style="background:#1a7a1a">95/100</span> 4 vidéos — excellent</div>
+      <div class="score-bar"><span class="score-pill" style="background:#1a7a1a">92/100</span> 1 vidéo — excellent</div>
+      <div class="score-bar"><span class="score-pill" style="background:#1a5a1a">85/100</span> 97 vidéos — bon (seuil recommandé ✅)</div>
+      <div class="score-bar"><span class="score-pill" style="background:#7a5a00">75/100</span> 112 vidéos — acceptable (révision suggérée)</div>
+      <div class="score-bar"><span class="score-pill" style="background:#7a2a00">65/100</span> 17 vidéos — faible</div>
+      <div class="score-bar"><span class="score-pill" style="background:#5a0000">30/100</span> 1 vidéo — rejet</div>
+      <div class="score-bar"><span class="tl-err">Erreurs (no SRT)</span>&nbsp; 14 vidéos</div>
+      <br>
+      <strong>Couverture chatbot actuelle : 92/264 = 35%</strong><br>
+      Vidéos score ≥ 85 non intégrées : <strong>~102 vidéos disponibles immédiatement</strong>
+    </div>
+  </div>
+
+</div>
+
+<div class="next-step">
+  <h3>🎯 Prochaines étapes — Pipeline vers 95/100</h3>
+  <ul>
+    <li><strong>PRIORITÉ 1</strong> — Intégrer les 102 vidéos score ≥ 85 dans videos.json (summaries Gemini + deploy) → chatbot passe à ~75% couverture</li>
+    <li><strong>PRIORITÉ 2</strong> — Correction chirurgicale suspect_terms sur vidéos score 75/100 → potentiel 85+/100, ajoute 112 vidéos</li>
+    <li><strong>PRIORITÉ 3</strong> — Fix LLM query expansion (KEY_1 séparé du pool réponses, déjà codé, redéploiement requis)</li>
+    <li><strong>PRIORITÉ 4</strong> — Transcription Whisper/OpenAI pour les 30 vidéos sans sous-titres YouTube</li>
+    <li><strong>PRIORITÉ 5</strong> — Audit qualité citations : vérifier que chaque réponse cite le bon timestamp</li>
+  </ul>
+</div>
 
 <h2>💬 Chatbot — visiteurs et quota</h2>
 <div id="chat-stats" class="chat-muted">Chargement des statistiques chatbot...</div>
