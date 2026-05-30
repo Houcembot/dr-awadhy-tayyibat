@@ -59,26 +59,28 @@ export function textHasAnchor(text, anchor) {
 }
 
 // ── Concept detection ─────────────────────────────────────────────────────────
-const EMPTY_RESULT = {
-  canonical_foods: [],
-  strong_matches: [],
-  related_concepts: [],
-  expanded_terms: [],
-  human_readable_ar: '',
-  dialect_hint: null,
-};
+function emptyResult() {
+  return {
+    canonical_foods: [],
+    strong_matches: [],
+    related_concepts: [],
+    expanded_terms: [],
+    human_readable_ar: '',
+    dialect_hint: null,
+  };
+}
 
 export function detectConcepts(question, dictionary) {
-  if (!question || !dictionary) return { ...EMPTY_RESULT };
+  if (!question || !dictionary) return emptyResult();
 
   const normalized = normalizeArabic(question);
-  if (!normalized) return { ...EMPTY_RESULT };
+  if (!normalized) return emptyResult();
 
   const matched = matchDictionaryEntries(normalized, dictionary);
-  if (matched.length === 0) return { ...EMPTY_RESULT };
+  if (matched.length === 0) return emptyResult();
 
   // Placeholder — fully implemented in Tasks 5-7
-  return { ...EMPTY_RESULT };
+  return emptyResult();
 }
 
 function matchDictionaryEntries(normalizedQuestion, dictionary) {

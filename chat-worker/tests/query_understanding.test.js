@@ -200,6 +200,23 @@ describe('detectConcepts — skeleton', () => {
 
   it('returns all-empty shape for empty question', () => {
     const result = detectConcepts('', TEST_DICT);
-    expect(result.canonical_foods).toEqual([]);
+    expect(result).toEqual({
+      canonical_foods: [],
+      strong_matches: [],
+      related_concepts: [],
+      expanded_terms: [],
+      human_readable_ar: '',
+      dialect_hint: null,
+    });
+  });
+
+  it('does not share array references across calls', () => {
+    const r1 = detectConcepts('', TEST_DICT);
+    const r2 = detectConcepts('', TEST_DICT);
+    // Mutating r1 must not affect r2
+    r1.canonical_foods.push('contaminant');
+    expect(r2.canonical_foods).toEqual([]);
+    // Each call returns a fresh top-level object too
+    expect(r1).not.toBe(r2);
   });
 });
