@@ -310,4 +310,28 @@ describe('detectConcepts — skeleton', () => {
     // Both canonicals shouldn't appear on the same line
     expect(firstLine.includes('العسل') && firstLine.includes('كسكسي')).toBe(false);
   });
+
+  it('does not render strong_matches in human_readable_ar when confidence is low', () => {
+    // Hypothetical malformed entry: confidence:low but strong_matches populated.
+    // detectConcepts filters those out from output.strong_matches; buildHumanReadable
+    // must apply the same filter so the two stay aligned.
+    const dict = {
+      'المعمول': {
+        type: 'dish',
+        category: 'سكريات',
+        synonyms: ['معمول'],
+        ingredients: ['دقيق', 'سكر', 'تمر'],
+        strong_matches: ['دقيق', 'سكر', 'تمر'],  // intentionally populated despite low
+        related_concepts: ['نشويات', 'سكريات'],
+        confidence: 'low',
+        dialect: 'levant',
+      },
+    };
+    const result = detectConcepts('هل المعمول صحي؟', dict);
+    expect(result.strong_matches).toEqual([]);
+    // human_readable_ar must NOT show "← دقيق + سكر + تمر" — it must show "(سكريات)"
+    expect(result.human_readable_ar).toBe(
+      'تم فهم الطبق:\n\nمعمول (سكريات)\n↳ مرتبط بـنشويات، سكريات'
+    );
+  });
 });

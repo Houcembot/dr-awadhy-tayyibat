@@ -130,12 +130,21 @@ function buildHumanReadable(matched) {
   if (!matched.length) return '';
   const { canonical, entry } = matched[0];
   const isDish = entry.type === 'dish';
+  // Phase A handles only type === 'dish' or 'food'. Future seed entries with
+  // type === 'dessert' / 'boisson' would currently fall through to the food
+  // label — explicit handling can be added in Étape 2 when those types appear.
   const label = isDish ? 'تم فهم الطبق:' : 'تم فهم السؤال:';
   const head = isDish ? stripDefArticle(canonical) : canonical;
 
+  // Mirror detectConcepts's filter: only confidence:'high' entries contribute
+  // strong_matches to the rendered "← ingrédients" line. Keeps human_readable_ar
+  // and result.strong_matches consistent.
+  const displayStrongMatches =
+    entry.confidence === 'high' ? (entry.strong_matches || []) : [];
+
   let mainLine;
-  if (isDish && entry.strong_matches && entry.strong_matches.length > 0) {
-    mainLine = `${head} ← ${entry.strong_matches.join(' + ')}`;
+  if (isDish && displayStrongMatches.length > 0) {
+    mainLine = `${head} ← ${displayStrongMatches.join(' + ')}`;
   } else {
     mainLine = `${head} (${entry.category})`;
   }
