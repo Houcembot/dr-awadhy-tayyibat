@@ -1,5 +1,64 @@
 import { describe, it, expect } from 'vitest';
-import { normalizeArabic, tokenize, anchorMatchesToken, textHasAnchor } from '../src/query_understanding.js';
+import {
+  normalizeArabic,
+  tokenize,
+  anchorMatchesToken,
+  textHasAnchor,
+  detectConcepts,
+} from '../src/query_understanding.js';
+
+const TEST_DICT = {
+  'البطاطس': {
+    type: 'food',
+    category: 'نشويات',
+    synonyms: ['بطاطس', 'بطاطا', 'بطاط'],
+    ingredients: [],
+    strong_matches: [],
+    related_concepts: ['نشويات', 'سكريات'],
+    confidence: 'high',
+    dialect: null,
+  },
+  'الكسكسي': {
+    type: 'dish',
+    category: 'نشويات',
+    synonyms: ['كسكسي', 'كسكس'],
+    ingredients: ['سميد', 'قمح'],
+    strong_matches: ['سميد', 'قمح'],
+    related_concepts: ['نشويات'],
+    confidence: 'high',
+    dialect: 'maghrebi',
+  },
+  'العسل': {
+    type: 'food',
+    category: 'سكريات',
+    synonyms: ['عسل'],
+    ingredients: [],
+    strong_matches: [],
+    related_concepts: ['سكر'],
+    confidence: 'high',
+    dialect: null,
+  },
+  'البريك': {
+    type: 'dish',
+    category: 'نشويات',
+    synonyms: ['بريك', 'بوريك'],
+    ingredients: ['دقيق', 'زيت', 'بيض'],
+    strong_matches: [],
+    related_concepts: ['نشويات'],
+    confidence: 'low',
+    dialect: 'maghrebi',
+  },
+  'الخبز': {
+    type: 'food',
+    category: 'نشويات',
+    synonyms: ['خبز', 'عيش'],
+    ingredients: [],
+    strong_matches: [],
+    related_concepts: ['نشويات'],
+    confidence: 'high',
+    dialect: null,
+  },
+};
 
 describe('normalizeArabic', () => {
   it('strips tashkeel diacritics', () => {
@@ -114,5 +173,33 @@ describe('textHasAnchor', () => {
 
   it('handles already-normalized text', () => {
     expect(textHasAnchor('هل الرز مناسب', 'رز')).toBe(true);
+  });
+});
+
+describe('detectConcepts — skeleton', () => {
+  it('returns all-empty shape for a question matching nothing', () => {
+    const result = detectConcepts('xyz aliénation', TEST_DICT);
+    expect(result).toEqual({
+      canonical_foods: [],
+      strong_matches: [],
+      related_concepts: [],
+      expanded_terms: [],
+      human_readable_ar: '',
+      dialect_hint: null,
+    });
+  });
+
+  it('returns all-empty shape when dictionary is empty', () => {
+    const result = detectConcepts('هل البطاطس صحية؟', {});
+    expect(result.canonical_foods).toEqual([]);
+    expect(result.strong_matches).toEqual([]);
+    expect(result.related_concepts).toEqual([]);
+    expect(result.human_readable_ar).toBe('');
+    expect(result.dialect_hint).toBe(null);
+  });
+
+  it('returns all-empty shape for empty question', () => {
+    const result = detectConcepts('', TEST_DICT);
+    expect(result.canonical_foods).toEqual([]);
   });
 });

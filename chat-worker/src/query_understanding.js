@@ -57,3 +57,36 @@ export function textHasAnchor(text, anchor) {
   }
   return false;
 }
+
+// ── Concept detection ─────────────────────────────────────────────────────────
+const EMPTY_RESULT = {
+  canonical_foods: [],
+  strong_matches: [],
+  related_concepts: [],
+  expanded_terms: [],
+  human_readable_ar: '',
+  dialect_hint: null,
+};
+
+export function detectConcepts(question, dictionary) {
+  if (!question || !dictionary) return { ...EMPTY_RESULT };
+
+  const normalized = normalizeArabic(question);
+  if (!normalized) return { ...EMPTY_RESULT };
+
+  const matched = matchDictionaryEntries(normalized, dictionary);
+  if (matched.length === 0) return { ...EMPTY_RESULT };
+
+  // Placeholder — fully implemented in Tasks 5-7
+  return { ...EMPTY_RESULT };
+}
+
+function matchDictionaryEntries(normalizedQuestion, dictionary) {
+  const matched = [];
+  for (const [canonical, entry] of Object.entries(dictionary)) {
+    const terms = [canonical, ...(entry.synonyms || [])].map(normalizeArabic);
+    const hit = terms.some(t => textHasAnchor(normalizedQuestion, t));
+    if (hit) matched.push({ canonical, entry });
+  }
+  return matched;
+}
