@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { normalizeArabic, tokenize } from '../src/query_understanding.js';
+import { normalizeArabic, tokenize, anchorMatchesToken, textHasAnchor } from '../src/query_understanding.js';
 
 describe('normalizeArabic', () => {
   it('strips tashkeel diacritics', () => {
@@ -58,5 +58,61 @@ describe('tokenize', () => {
 
   it('returns an empty Set for whitespace-only input', () => {
     expect([...tokenize('  ')]).toEqual([]);
+  });
+});
+
+describe('anchorMatchesToken', () => {
+  it('matches the bare anchor', () => {
+    expect(anchorMatchesToken('بطاطس', 'بطاطس')).toBe(true);
+  });
+
+  it('matches with ال prefix', () => {
+    expect(anchorMatchesToken('البطاطس', 'بطاطس')).toBe(true);
+  });
+
+  it('matches with و prefix', () => {
+    expect(anchorMatchesToken('ورز', 'رز')).toBe(true);
+  });
+
+  it('matches with combined بال prefix', () => {
+    expect(anchorMatchesToken('بالبطاطس', 'بطاطس')).toBe(true);
+  });
+
+  it('matches with ه pronoun suffix', () => {
+    expect(anchorMatchesToken('بطاطسه', 'بطاطس')).toBe(true);
+  });
+
+  it('matches with ات plural suffix', () => {
+    expect(anchorMatchesToken('بطاطسات', 'بطاطس')).toBe(true);
+  });
+
+  it('rejects substring inside an unrelated stem (رز in رزقنا)', () => {
+    expect(anchorMatchesToken('رزقنا', 'رز')).toBe(false);
+  });
+
+  it('rejects substring inside an unrelated stem (رز in ورزقنا)', () => {
+    expect(anchorMatchesToken('ورزقنا', 'رز')).toBe(false);
+  });
+
+  it('rejects when token is too short to contain anchor', () => {
+    expect(anchorMatchesToken('ال', 'بطاطس')).toBe(false);
+  });
+});
+
+describe('textHasAnchor', () => {
+  it('returns true when any token matches', () => {
+    expect(textHasAnchor('هل البطاطس صحية', 'بطاطس')).toBe(true);
+  });
+
+  it('returns false when no token matches', () => {
+    expect(textHasAnchor('هل العسل صحي', 'بطاطس')).toBe(false);
+  });
+
+  it('does not false-positive on ورزقنا for anchor رز', () => {
+    expect(textHasAnchor('ورزقنا على الله', 'رز')).toBe(false);
+  });
+
+  it('handles already-normalized text', () => {
+    expect(textHasAnchor('هل الرز مناسب', 'رز')).toBe(true);
   });
 });
