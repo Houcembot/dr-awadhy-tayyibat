@@ -241,4 +241,20 @@ describe('detectConcepts — skeleton', () => {
       new Set(['الكسكسي', 'سميد', 'قمح', 'نشويات'])
     );
   });
+
+  it('does not pull strong_matches from confidence:low entries', () => {
+    // البريك has confidence: 'low' in TEST_DICT
+    const result = detectConcepts('هل البريك صحي؟', TEST_DICT);
+    expect(result.canonical_foods).toEqual(['البريك']);
+    expect(result.strong_matches).toEqual([]);  // empty because confidence is low
+    expect(result.related_concepts).toContain('نشويات');
+  });
+
+  it('mixes a high and a low entry correctly', () => {
+    // الكسكسي (high) + البريك (low) both matched
+    const result = detectConcepts('هل الكسكسي والبريك صحيان؟', TEST_DICT);
+    expect(result.canonical_foods.sort()).toEqual(['البريك', 'الكسكسي'].sort());
+    // strong_matches only from الكسكسي (high)
+    expect(new Set(result.strong_matches)).toEqual(new Set(['سميد', 'قمح']));
+  });
 });
