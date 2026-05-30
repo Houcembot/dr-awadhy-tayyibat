@@ -18,3 +18,9 @@ export function normalizeArabic(text) {
     .toLowerCase()
     .trim();
 }
+
+export function tokenize(text) {
+  const n = normalizeArabic(text);
+  if (!n) return new Set();
+  return new Set(n.split(/\s+/).filter(Boolean));
+}

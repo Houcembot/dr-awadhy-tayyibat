@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { normalizeArabic } from '../src/query_understanding.js';
+import { normalizeArabic, tokenize } from '../src/query_understanding.js';
 
 describe('normalizeArabic', () => {
   it('strips tashkeel diacritics', () => {
@@ -40,5 +40,23 @@ describe('normalizeArabic', () => {
     expect(normalizeArabic('١ ملعقة سكر')).toBe('١ ملعقه سكر');
     expect(normalizeArabic('هيموغلوبين أ١ج')).toBe('هيموغلوبين ا١ج');
     expect(normalizeArabic('٢٠٢٦')).toBe('٢٠٢٦');
+  });
+});
+
+describe('tokenize', () => {
+  it('splits a normalized phrase into a Set of tokens', () => {
+    const result = tokenize('هل البطاطس ترفع السكر');
+    expect(result).toBeInstanceOf(Set);
+    expect([...result].sort()).toEqual(['البطاطس', 'السكر', 'ترفع', 'هل'].sort());
+  });
+
+  it('normalizes before tokenizing (strips ؟ from token)', () => {
+    const result = tokenize('هل البطاطس؟');
+    expect(result.has('البطاطس')).toBe(true);
+    expect(result.has('البطاطس؟')).toBe(false);
+  });
+
+  it('returns an empty Set for whitespace-only input', () => {
+    expect([...tokenize('  ')]).toEqual([]);
   });
 });
