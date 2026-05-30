@@ -4,7 +4,7 @@
  * No IO, no JSON imports. Dictionary is passed in as a parameter.
  */
 
-const _TASHKEEL = /[ً-ٰٟ]/g;
+const _TASHKEEL = /[ً-ٰٟ]/g;
 const _PUNCT    = /[؟?!.،,؛:"]/g;
 
 export function normalizeArabic(text) {

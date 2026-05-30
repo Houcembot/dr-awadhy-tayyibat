@@ -35,4 +35,10 @@ describe('normalizeArabic', () => {
     expect(normalizeArabic(null)).toBe('');
     expect(normalizeArabic(undefined)).toBe('');
   });
+
+  it('preserves Arabic-Indic digits ٠١٢٣٤٥٦٧٨٩', () => {
+    expect(normalizeArabic('١ ملعقة سكر')).toBe('١ ملعقه سكر');
+    expect(normalizeArabic('هيموغلوبين أ١ج')).toBe('هيموغلوبين ا١ج');
+    expect(normalizeArabic('٢٠٢٦')).toBe('٢٠٢٦');
+  });
 });
