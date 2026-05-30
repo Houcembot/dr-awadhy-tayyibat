@@ -33,6 +33,9 @@ const _AR_PREFIXES = ['', 'ال','و','ف','ب','ل','ك','س',
 const _AR_SUFFIXES = ['', 'ه','ها','هم','هن','ي','ك','كم','كن','نا',
                       'ات','ون','ين','يه','تي','هما'];
 
+// Contract: both `token` and `anchor` MUST already be normalized via
+// normalizeArabic. Callers handling raw user/text input should use
+// textHasAnchor (which normalizes internally) instead.
 export function anchorMatchesToken(token, anchor) {
   if (!token || !anchor) return false;
   for (const p of _AR_PREFIXES) {
