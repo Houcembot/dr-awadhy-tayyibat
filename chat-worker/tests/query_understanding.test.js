@@ -219,4 +219,26 @@ describe('detectConcepts — skeleton', () => {
     // Each call returns a fresh top-level object too
     expect(r1).not.toBe(r2);
   });
+
+  it('finds the canonical food when a synonym is in the question', () => {
+    const result = detectConcepts('هل البطاطس ترفع السكر؟', TEST_DICT);
+    expect(result.canonical_foods).toEqual(['البطاطس']);
+  });
+
+  it('finds the canonical via a synonym (بطاطا)', () => {
+    const result = detectConcepts('هل البطاطا مفيدة؟', TEST_DICT);
+    expect(result.canonical_foods).toEqual(['البطاطس']);
+  });
+
+  it('finds multiple canonicals in the same question', () => {
+    const result = detectConcepts('هل العسل والكسكسي صحيان؟', TEST_DICT);
+    expect(result.canonical_foods.sort()).toEqual(['العسل', 'الكسكسي'].sort());
+  });
+
+  it('populates expanded_terms with canonical + strong + related (deduped)', () => {
+    const result = detectConcepts('هل الكسكسي ينفع؟', TEST_DICT);
+    expect(new Set(result.expanded_terms)).toEqual(
+      new Set(['الكسكسي', 'سميد', 'قمح', 'نشويات'])
+    );
+  });
 });

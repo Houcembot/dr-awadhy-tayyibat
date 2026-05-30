@@ -79,8 +79,32 @@ export function detectConcepts(question, dictionary) {
   const matched = matchDictionaryEntries(normalized, dictionary);
   if (matched.length === 0) return emptyResult();
 
-  // Placeholder — fully implemented in Tasks 5-7
-  return emptyResult();
+  const canonical_foods = matched.map(m => m.canonical);
+
+  const strong_matches = uniq(
+    matched
+      .filter(m => m.entry.confidence === 'high')
+      .flatMap(m => m.entry.strong_matches || [])
+  );
+
+  const related_concepts = uniq(
+    matched.flatMap(m => m.entry.related_concepts || [])
+  );
+
+  const expanded_terms = uniq([
+    ...canonical_foods,
+    ...strong_matches,
+    ...related_concepts,
+  ]);
+
+  return {
+    canonical_foods,
+    strong_matches,
+    related_concepts,
+    expanded_terms,
+    human_readable_ar: '',    // Task 7
+    dialect_hint: null,       // Task 8
+  };
 }
 
 function matchDictionaryEntries(normalizedQuestion, dictionary) {
@@ -91,4 +115,8 @@ function matchDictionaryEntries(normalizedQuestion, dictionary) {
     if (hit) matched.push({ canonical, entry });
   }
   return matched;
+}
+
+function uniq(arr) {
+  return [...new Set(arr)];
 }
