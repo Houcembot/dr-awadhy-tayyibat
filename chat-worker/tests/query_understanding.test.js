@@ -257,4 +257,57 @@ describe('detectConcepts — skeleton', () => {
     // strong_matches only from الكسكسي (high)
     expect(new Set(result.strong_matches)).toEqual(new Set(['سميد', 'قمح']));
   });
+
+  it('builds pedagogic human_readable_ar for a dish with strong matches', () => {
+    const result = detectConcepts('هل الكسكسي ينفع؟', TEST_DICT);
+    expect(result.human_readable_ar).toBe(
+      'تم فهم الطبق:\n\nكسكسي ← سميد + قمح\n↳ مرتبط بـنشويات'
+    );
+  });
+
+  it('builds human_readable_ar for a base food (no strong matches)', () => {
+    const result = detectConcepts('هل الخبز صحي؟', TEST_DICT);
+    expect(result.human_readable_ar).toBe(
+      'تم فهم السؤال:\n\nالخبز (نشويات)\n↳ مرتبط بـنشويات'
+    );
+  });
+
+  it('builds human_readable_ar for a dish without strong matches (confidence low)', () => {
+    // البريك: type=dish, confidence=low → strong_matches empty in output
+    const result = detectConcepts('هل البريك صحي؟', TEST_DICT);
+    expect(result.human_readable_ar).toBe(
+      'تم فهم الطبق:\n\nبريك (نشويات)\n↳ مرتبط بـنشويات'
+    );
+  });
+
+  it('omits the related line when related_concepts is empty', () => {
+    // synthetic dict entry with no related_concepts
+    const dict = {
+      'الماء': {
+        type: 'food',
+        category: 'مشروبات',
+        synonyms: ['ماء', 'ميه'],
+        ingredients: [],
+        strong_matches: [],
+        related_concepts: [],
+        confidence: 'high',
+        dialect: null,
+      },
+    };
+    const result = detectConcepts('هل الماء يكفي؟', dict);
+    expect(result.human_readable_ar).toBe('تم فهم السؤال:\n\nالماء (مشروبات)');
+  });
+
+  it('renders only the first canonical when several are detected', () => {
+    // Multi-canonical: human_readable shows the first only; both are in canonical_foods.
+    const result = detectConcepts('هل العسل والكسكسي صحيان؟', TEST_DICT);
+    expect(result.canonical_foods.length).toBe(2);
+    // Human readable starts with one canonical
+    expect(result.human_readable_ar.startsWith('تم فهم')).toBe(true);
+    // Two lines after the header (mainLine + related), single canonical rendered
+    const linesAfterHeader = result.human_readable_ar.split('\n\n')[1] || '';
+    const firstLine = linesAfterHeader.split('\n')[0];
+    // Both canonicals shouldn't appear on the same line
+    expect(firstLine.includes('العسل') && firstLine.includes('كسكسي')).toBe(false);
+  });
 });

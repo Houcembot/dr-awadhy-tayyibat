@@ -102,7 +102,7 @@ export function detectConcepts(question, dictionary) {
     strong_matches,
     related_concepts,
     expanded_terms,
-    human_readable_ar: '',    // Task 7
+    human_readable_ar: buildHumanReadable(matched),
     dialect_hint: null,       // Task 8
   };
 }
@@ -119,4 +119,30 @@ function matchDictionaryEntries(normalizedQuestion, dictionary) {
 
 function uniq(arr) {
   return [...new Set(arr)];
+}
+
+// Strip Arabic definite article ال from the head of a string for display.
+function stripDefArticle(s) {
+  return s.startsWith('ال') ? s.slice(2) : s;
+}
+
+function buildHumanReadable(matched) {
+  if (!matched.length) return '';
+  const { canonical, entry } = matched[0];
+  const isDish = entry.type === 'dish';
+  const label = isDish ? 'تم فهم الطبق:' : 'تم فهم السؤال:';
+  const head = isDish ? stripDefArticle(canonical) : canonical;
+
+  let mainLine;
+  if (isDish && entry.strong_matches && entry.strong_matches.length > 0) {
+    mainLine = `${head} ← ${entry.strong_matches.join(' + ')}`;
+  } else {
+    mainLine = `${head} (${entry.category})`;
+  }
+
+  const lines = [label, '', mainLine];
+  if (entry.related_concepts && entry.related_concepts.length > 0) {
+    lines.push(`↳ مرتبط بـ${entry.related_concepts.join('، ')}`);
+  }
+  return lines.join('\n');
 }
