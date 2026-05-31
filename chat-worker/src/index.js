@@ -1,15 +1,17 @@
 import { filterVideos } from './filter.js';
 import { buildPrompt } from './prompt.js';
-import { checkRateLimit } from './ratelimit.js';
+import { extractQuotes } from './extract.js';
+import { checkRateLimit, checkRateLimitV2 } from './ratelimit.js';
 import { corsHeaders, handlePreflight } from './cors.js';
 import videosData from './videos.json';
 import { DASHBOARD_HTML } from './dashboard.js';
 import { getChatStats, getClientInfo, recordChatUsage } from './analytics.js';
+import { retrieveBlocks, buildV2Response } from './retrieval_v2.js';
 
 // Google AI Studio — rotation sur 4 clés gratuites (1500 req/jour chacune = 6000/jour total)
 const GEMINI_BASE  = 'https://generativelanguage.googleapis.com/v1beta/models';
 const GEMINI_MODELS = ['gemini-2.5-flash', 'gemini-2.5-flash-lite'];
-const GEMINI_KEYS  = ['GEMINI_KEY_1', 'GEMINI_KEY_2', 'GEMINI_KEY_3', 'GEMINI_KEY_4'];
+const GEMINI_KEYS  = ['GEMINI_KEY_2', 'GEMINI_KEY_3', 'GEMINI_KEY_4']; // KEY_1 réservée à l'expansion
 const RETRYABLE_STATUS = new Set([429, 503, 529]);
 const MAX_ATTEMPTS_PER_KEY = 2;
 const MEDICAL_DISCLAIMER = {
@@ -21,6 +23,43 @@ const MEDICAL_DISCLAIMER = {
 const videoMap = new Map(videosData.map(v => [v.id, v]));
 const DASHBOARD_TOKEN = 'tayyibat-drdia-2026';
 
+// System prompt for query expansion — minimal, fast
+const EXPAND_SYSTEM = `Tu reçois une question sur la nutrition/santé en n'importe quelle langue ou dialecte.
+Extrais 3 à 7 mots-clés ARABES qui permettront de retrouver les passages pertinents dans des transcripts du Dr Dhiaa Al-Awady (dialecte égyptien).
+Inclus : traductions arabes directes, synonymes dialectaux égyptiens, termes médicaux arabes liés.
+Réponds UNIQUEMENT avec un tableau JSON de chaînes arabes. Exemple: ["سكر الدم","أنسولين","السكري"]`;
+
+async function expandQueryToArabic(question, env) {
+  const apiKey = getExpandKey(env);
+  if (!apiKey) return [];
+  try {
+    const resp = await fetch(
+      `${GEMINI_BASE}/gemini-2.5-flash:generateContent?key=${apiKey}`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          systemInstruction: { parts: [{ text: EXPAND_SYSTEM }] },
+          contents: [{ role: 'user', parts: [{ text: question }] }],
+          generationConfig: { responseMimeType: 'application/json', maxOutputTokens: 80, temperature: 0.1 },
+        }),
+      }
+    );
+    if (!resp.ok) {
+      console.warn('expand_fail:', resp.status);
+      return [];
+    }
+    const data = await resp.json();
+    const text = data?.candidates?.[0]?.content?.parts?.map(p => p.text || '').join('').trim();
+    if (!text) return [];
+    const parsed = JSON.parse(text);
+    if (Array.isArray(parsed)) return parsed.filter(t => typeof t === 'string' && t.length >= 2);
+  } catch (e) {
+    console.warn('expand_error:', e.message);
+  }
+  return [];
+}
+
 // Retourne les clés disponibles dans un ordre aléatoire, sans exposer les secrets dans les logs.
 function getGeminiKeys(env) {
   const keys = GEMINI_KEYS
@@ -31,6 +70,11 @@ function getGeminiKeys(env) {
     [keys[i], keys[j]] = [keys[j], keys[i]];
   }
   return keys;
+}
+
+// Clé dédiée à l'expansion (GEMINI_KEY_1) — séparée du pool de réponse
+function getExpandKey(env) {
+  return env['GEMINI_KEY_1'] || null;
 }
 
 async function callGemini(apiKey, model, system, user) {
@@ -91,18 +135,12 @@ function parseGeminiJson(text) {
   }
 }
 
-function ensureMedicalDisclaimer(answer, lang) {
-  const text = String(answer || '').trim();
-  const disclaimer = MEDICAL_DISCLAIMER[lang] || MEDICAL_DISCLAIMER.ar;
-  if (!text) return disclaimer;
-  if (text.includes(disclaimer) || text.includes('استشارة طبية') || text.includes('consultation médicale') || text.includes('medical consultation')) {
-    return text;
-  }
-  return `${text}\n\n${disclaimer}`;
+function ensureMedicalDisclaimer(answer) {
+  return String(answer || '').trim();
 }
 
 function responsePayload(answer, videos, lang, usage) {
-  return { answer: ensureMedicalDisclaimer(answer, lang), videos, usage };
+  return { answer: ensureMedicalDisclaimer(answer), videos, usage };
 }
 
 async function getGeminiAnswer(env, system, user) {
@@ -119,7 +157,7 @@ async function getGeminiAnswer(env, system, user) {
         try {
           const text = await callGemini(key.value, model, system, user);
           const parsed = parseGeminiJson(text);
-          if (!parsed || typeof parsed.answer !== 'string' || !parsed.answer.trim()) {
+          if (!parsed || typeof parsed.answer_ar !== 'string' || !parsed.answer_ar.trim()) {
             throw Object.assign(new Error('Gemini missing answer'), { retryable: true, preview: text.slice(0, 180) });
           }
           return parsed;
@@ -166,6 +204,27 @@ export default {
       return Response.json(await getChatStats(env.RATE_LIMIT_KV), { headers: corsHeaders(request) });
     }
 
+    // Phase 2 — retrieval sans Gemini (endpoint séparé, pas de deploy requis)
+    if (request.method === 'POST' && url.pathname === '/api/chat_v2') {
+      let body2;
+      try { body2 = await request.json(); }
+      catch { return Response.json({ error: 'invalid_json' }, { status: 400, headers: corsHeaders(request) }); }
+      const q2 = String(body2.question || '').trim();
+      if (!q2 || q2.length > 500)
+        return Response.json({ error: 'missing_question' }, { status: 400, headers: corsHeaders(request) });
+      const client2 = getClientInfo(request);
+      if (env.RATE_LIMIT_KV) {
+        const { allowed } = await checkRateLimitV2(env.RATE_LIMIT_KV, client2.ip);
+        if (!allowed)
+          return Response.json({ answer: 'يرجى التمهل قليلاً.', sources: [], mode: 'v2_rate_limited' },
+            { headers: corsHeaders(request) });
+      }
+      const results  = retrieveBlocks(q2);
+      const debugAllowed = (url.searchParams.get('debug') === '1') || (env.DEBUG === 'true');
+      const payload  = buildV2Response(q2, results, videoMap, { debug: debugAllowed });
+      return Response.json(payload, { headers: corsHeaders(request) });
+    }
+
     if (request.method !== 'POST' || url.pathname !== '/api/chat')
       return new Response('Not found', { status: 404 });
 
@@ -206,8 +265,16 @@ export default {
       }
     }
 
+    // Expand query to Arabic keywords — handles all languages/dialects automatically
+    const arabicKeywords = await expandQueryToArabic(question, env);
+    console.log('query_expansion:', JSON.stringify({ q: question.slice(0,60), kw: arabicKeywords }));
+    // searchQuestion = original + arabic expansion (used for video filtering & quote extraction)
+    const searchQuestion = arabicKeywords.length > 0
+      ? question + ' ' + arabicKeywords.join(' ')
+      : question;
+
     // Court-circuit si aucune vidéo ne correspond
-    const { videos: filtered, hasMatches } = filterVideos(question, videosData, 25);
+    const { videos: filtered, hasMatches } = filterVideos(searchQuestion, videosData, 15);
     if (!hasMatches) {
       const noAnswerMsg = {
         ar: 'لم أجد إجابة محددة لهذا السؤال في محتوى الدكتور ضياء العوضي.',
@@ -218,7 +285,10 @@ export default {
       return Response.json(responsePayload(noAnswerMsg[lang] || noAnswerMsg.ar, [], lang, usage), { headers: corsHeaders(request) });
     }
 
-    const { system, user } = buildPrompt(question, filtered, lang);
+    // Deterministic quote extraction — done BEFORE LLM call
+    const quotes = extractQuotes(searchQuestion, filtered, 3);
+
+    const { system, user } = buildPrompt(question, filtered, lang, quotes);
 
     // Appel Gemini avec rotation de clés + retry sur 429
     const fallbackMsg = {
@@ -242,14 +312,48 @@ export default {
       return Response.json({ answer: fallbackMsg[lang] || fallbackMsg.ar, videos: [], usage }, { headers: corsHeaders(request) });
     }
 
-    // Résoudre video_ids → objets complets
-    const videos = (parsed.video_ids || [])
-      .map(id => videoMap.get(id))
-      .filter(Boolean)
-      .slice(0, 5)
-      .map(v => ({ id: v.id, title: v.title_original, url: v.source_url, duration: v.duration_label || '-', topic: v.primary_topic }));
+    const answerText = parsed.answer_ar || '';
+    const NO_ANSWER_PHRASES = ['لم أجد', 'لا تكفي المقاطع', "n'ai pas trouvé", 'I did not find', 'لم يوجد'];
+    const isNoAnswer = NO_ANSWER_PHRASES.some(p => answerText.includes(p));
+
+    // Match source to the first video Gemini cited, fallback to extractQuotes[0]
+    const geminiSourceIds = (parsed.sources || []).map(s => s.video_id).filter(Boolean);
+    const geminiVideoId = geminiSourceIds[0] || '';
+    const bestQuote = isNoAnswer
+      ? null
+      : (geminiVideoId && quotes.find(q => q.video_id === geminiVideoId)) || quotes[0] || null;
+    const source = bestQuote ? {
+      id: bestQuote.video_id,
+      title: bestQuote.title,
+      url: bestQuote.url + (bestQuote.seconds > 0 ? `&t=${bestQuote.seconds}` : ''),
+      timestamp: bestQuote.timestamp,
+      quote: bestQuote.quote,
+      confidence: parsed.confidence || 'medium',
+    } : null;
+
+    // All extracted quotes as sources array
+    const allSources = quotes.map(q => ({
+      id: q.video_id,
+      title: q.title,
+      url: q.url + (q.seconds > 0 ? `&t=${q.seconds}` : ''),
+      timestamp: q.timestamp,
+      quote: q.quote,
+    }));
+
+    // Legacy videos field for backwards compatibility
+    const legacyVideos = quotes.length > 0
+      ? quotes.map(q => videoMap.get(q.video_id)).filter(Boolean)
+          .map(v => ({ id: v.id, title: v.title_original, url: v.source_url, duration: v.duration_label || '-', topic: v.primary_topic }))
+      : [];
+
+    const payload = {
+      ...responsePayload(answerText, legacyVideos, lang, usage),
+      source,
+      sources: allSources,
+      confidence: parsed.confidence || 'medium',
+    };
 
     writeAnalytics('success');
-    return Response.json(responsePayload(parsed.answer, videos, lang, usage), { headers: corsHeaders(request) });
+    return Response.json(payload, { headers: corsHeaders(request) });
   }
 };
