@@ -238,5 +238,35 @@
     "related_concepts": ["بروتين", "نشويات"],
     "confidence": "high",
     "dialect": "levant"
+  },
+  "الكبسة": {
+    "type": "dish",
+    "category": "بروتين",
+    "synonyms": ["كبسة", "كبسه"],
+    "ingredients": ["رز", "لحم", "بهارات", "طماطم"],
+    "strong_matches": ["رز", "لحم"],
+    "related_concepts": ["بروتين", "نشويات"],
+    "confidence": "high",
+    "dialect": "khaliji"
+  },
+  "المجبوس": {
+    "type": "dish",
+    "category": "بروتين",
+    "synonyms": ["مجبوس", "مكبوس"],
+    "ingredients": ["رز", "لحم", "بهارات"],
+    "strong_matches": ["رز", "لحم"],
+    "related_concepts": ["بروتين", "نشويات"],
+    "confidence": "high",
+    "dialect": "khaliji"
+  },
+  "الهريس": {
+    "type": "dish",
+    "category": "نشويات",
+    "synonyms": ["هريس", "هريسة"],
+    "ingredients": ["قمح", "لحم"],
+    "strong_matches": ["قمح", "لحم"],
+    "related_concepts": ["نشويات", "بروتين"],
+    "confidence": "high",
+    "dialect": "khaliji"
   }
 }
