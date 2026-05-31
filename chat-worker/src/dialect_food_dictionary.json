@@ -98,5 +98,55 @@
     "related_concepts": ["بروتين", "دهون"],
     "confidence": "high",
     "dialect": null
+  },
+  "الكسكسي": {
+    "type": "dish",
+    "category": "نشويات",
+    "synonyms": ["كسكسي", "كسكس"],
+    "ingredients": ["سميد", "قمح"],
+    "strong_matches": ["سميد", "قمح"],
+    "related_concepts": ["نشويات"],
+    "confidence": "high",
+    "dialect": "maghrebi"
+  },
+  "المقروض": {
+    "type": "dish",
+    "category": "سكريات",
+    "synonyms": ["مقروض", "مقروظ"],
+    "ingredients": ["سميد", "تمر", "سكر"],
+    "strong_matches": ["سميد", "تمر", "سكر"],
+    "related_concepts": ["سكريات", "نشويات"],
+    "confidence": "high",
+    "dialect": "maghrebi"
+  },
+  "البريك": {
+    "type": "dish",
+    "category": "نشويات",
+    "synonyms": ["بريك", "بوريك"],
+    "ingredients": ["دقيق", "بيض", "زيت"],
+    "strong_matches": [],
+    "related_concepts": ["نشويات", "دهون"],
+    "confidence": "low",
+    "dialect": "maghrebi"
+  },
+  "الطاجين": {
+    "type": "dish",
+    "category": "بروتين",
+    "synonyms": ["طاجين", "طاجن"],
+    "ingredients": ["لحم", "خضار"],
+    "strong_matches": ["لحم"],
+    "related_concepts": ["بروتين"],
+    "confidence": "high",
+    "dialect": "maghrebi"
+  },
+  "الحرشة": {
+    "type": "dish",
+    "category": "نشويات",
+    "synonyms": ["حرشة"],
+    "ingredients": ["سميد", "زيت"],
+    "strong_matches": [],
+    "related_concepts": ["نشويات"],
+    "confidence": "low",
+    "dialect": "maghrebi"
   }
 }
