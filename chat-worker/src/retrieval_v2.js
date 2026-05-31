@@ -180,61 +180,162 @@ export function retrieveBlocks(question, topN = 3) {
 }
 
 // ── Response builder ──────────────────────────────────────────────────────────
-export function buildV2Response(question, results, videoMap) {
+export function buildV2Response(question, results, videoMap, opts = {}) {
+  const debug = !!opts.debug;
+
   const best = results[0];
-  if (!best || best.score < 8) {
+  if (!best) {
     return {
-      answer:     'لم أجد مقطعاً واضحاً من كلام الدكتور ضياء حول هذا السؤال.',
-      sources:    [],
-      mode:       'v2_no_result',
-      confidence: 'none',
+      answer: 'لم أجد مقطعاً واضحاً من كلام الدكتور ضياء حول هذا السؤال.',
+      sources: [],
+      mode: 'v3_no_result',
+      confidence_retrieval: 'none',
+      confidence_source: null,
+      understanding: null,
+      db_resume: null,
+      raw_quote: null,
+      evidence: [],
+      video_url: null,
     };
   }
 
-  const bestScore = best.score;
-  const blk  = best.block;
-  const vid  = videoMap.get(blk.video_id) || {};
-  const t    = Math.floor(blk.timestamp_s || 0);
-  const rawId = blk.video_id.replace('yt-', '');
-  const link  = `https://youtu.be/${rawId}?t=${t}`;
-
-  const concepts = best.concepts || detectConcepts(question, dictionary);
+  const concepts = best.concepts;
   const anchors = [
     ...concepts.canonical_foods.map(normalizeArabic),
     ...concepts.strong_matches.map(normalizeArabic),
   ];
-  const quote = buildSnippet(blk.raw_quote, anchors, 400);
+
+  const blk = best.block;
+  const vid = videoMap.get(blk.video_id) || {};
+  const t = Math.floor(blk.timestamp_s || 0);
+  const rawId = blk.video_id.replace('yt-', '');
+  const video_url = `https://youtu.be/${rawId}?t=${t}`;
+
+  const rawSnippet = buildSnippet(blk.raw_quote, anchors, 400);
+  const dbResume = dbResumePatch[blk.id] || null;
+
+  // ── Composed-dish prefix (extended logic per Task 5 TODO) ─────────────────
+  // Case 1: canonical detected but no canonical matched in best block.
+  // Case 2: principal canonical missing even though a secondary canonical matched.
+
+  function isPrincipalCanonical(canonicalName) {
+    const entry = dictionary[canonicalName];
+    if (!entry) return false;
+    return entry.type === 'dish' || (entry.strong_matches && entry.strong_matches.length > 0);
+  }
+
+  const principalsInQuestion = concepts.canonical_foods.filter(isPrincipalCanonical);
+  const missingPrincipals = principalsInQuestion.filter(c => !best.hits.canonical.includes(c));
+
+  let prefix = '';
+  if (missingPrincipals.length > 0) {
+    // Case 2 (multi-canonical) OR case 1 when the missing canonical is principal.
+    const head = missingPrincipals[0];
+    const dishEntry = dictionary[head] || {};
+    const validIngredients = (dishEntry.strong_matches || []).filter(s =>
+      best.hits.strong.includes(s)
+    );
+    const ingredient = validIngredients[0] || best.hits.strong[0] || best.hits.related[0] || '';
+    if (ingredient) {
+      prefix = `لم أجد كلاماً مباشراً للدكتور ضياء عن "${head}" تحديداً، لكنّه تكلّم عن المكوّن الأساسي (${ingredient}):\n\n`;
+    } else {
+      prefix = `لم أجد كلاماً مباشراً للدكتور ضياء عن "${head}" تحديداً، لكن:\n\n`;
+    }
+  } else if (concepts.canonical_foods.length > 0 && best.hits.canonical.length === 0) {
+    // Edge case: canonicals detected, none are "principal" (e.g., all are simple foods
+    // like السكر), AND none matched the block. Use the first canonical.
+    const head = concepts.canonical_foods[0];
+    const ingredient = best.hits.strong[0] || best.hits.related[0] || '';
+    if (ingredient) {
+      prefix = `لم أجد كلاماً مباشراً للدكتور ضياء عن "${head}" تحديداً، لكنّه تكلّم عن المكوّن الأساسي (${ingredient}):\n\n`;
+    } else {
+      prefix = `لم أجد كلاماً مباشراً للدكتور ضياء عن "${head}" تحديداً، لكن:\n\n`;
+    }
+  }
+
+  const intro = dbResume
+    ? 'بحسب كلام الدكتور ضياء:\n\n' + dbResume
+    : 'وجدت مقطعاً من كلام الدكتور ضياء:\n\n' + `"${rawSnippet}"`;
 
   const answer = [
-    'وجدت مقطعاً من كلام الدكتور ضياء:',
-    '',
-    `"${quote}"`,
+    prefix + intro,
     '',
     `📍 ${blk.timestamp} — ${vid.title_original || blk.video_id}`,
-    `🔗 ${link}`,
+    `🔗 ${video_url}`,
   ].join('\n');
 
   const sources = results.map(({ score, block }) => {
-    const v  = videoMap.get(block.video_id) || {};
+    const v = videoMap.get(block.video_id) || {};
     const ts = Math.floor(block.timestamp_s || 0);
     const rid = block.video_id.replace('yt-', '');
     return {
-      id:         block.video_id,
-      title:      v.title_original || block.video_id,
-      url:        `https://youtu.be/${rid}?t=${ts}`,
-      timestamp:  block.timestamp,
-      summary_ar: block.summary_ar || '',
-      quote:      buildSnippet(block.raw_quote, anchors, 300),
-      domain:     block.domain,
-      topic:      block.topic,
+      id: block.id,
+      title: v.title_original || block.video_id,
+      url: `https://youtu.be/${rid}?t=${ts}`,
+      timestamp: block.timestamp,
+      summary_ar: '',                                    // ignored Phase A
+      quote: buildSnippet(block.raw_quote, anchors, 300),
+      domain: block.domain,
+      topic: block.topic,
       score,
     };
   });
 
-  return {
+  const evidence = results.map(({ score, block, confidence_source }) => {
+    const ts = Math.floor(block.timestamp_s || 0);
+    const rid = block.video_id.replace('yt-', '');
+    return {
+      block_id: block.id,
+      timestamp: block.timestamp,
+      timestamp_s: block.timestamp_s,
+      video_id: block.video_id,
+      video_url: `https://youtu.be/${rid}?t=${ts}`,
+      score,
+      pool_tier: confidence_source === 'fallback' ? 2 : 1,
+    };
+  });
+
+  const score = best.score;
+  const confidence_retrieval =
+    score >= 30 ? 'high' :
+    score >= 15 ? 'medium' :
+    'low';
+
+  const mode = dbResume ? 'v3_db_resume' : 'v3_raw_fallback';
+
+  const payload = {
     answer,
     sources,
-    mode:       'v2_raw',
-    confidence: bestScore >= 15 ? 'high' : bestScore >= 8 ? 'medium' : 'low',
+    mode,
+    confidence_retrieval,
+    confidence_source: best.confidence_source,
+    understanding: {
+      canonical_foods: concepts.canonical_foods,
+      strong_matches: concepts.strong_matches,
+      related_concepts: concepts.related_concepts,
+      expanded_terms: concepts.expanded_terms,
+      human_readable_ar: concepts.human_readable_ar,
+      dialect_hint: concepts.dialect_hint,
+    },
+    raw_quote: rawSnippet,
+    db_resume: dbResume,
+    evidence,
+    video_url,
   };
+
+  if (debug) {
+    payload.debug = {
+      pool_tier: best.confidence_source === 'fallback' ? 2 : 1,
+      anchors_question: concepts.expanded_terms,
+      tier1_pool_size: results.filter(r => r.confidence_source !== 'fallback').length,
+      tier2_pool_size: results.filter(r => r.confidence_source === 'fallback').length,
+      excluded_count: -1, // not tracked at this layer; leave -1
+      top_scores: results.map(r => r.score),
+      winning_block_id: blk.id,
+      has_db_resume: !!dbResume,
+      hits: best.hits,
+    };
+  }
+
+  return payload;
 }
