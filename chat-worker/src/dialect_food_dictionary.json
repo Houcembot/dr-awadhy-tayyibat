@@ -1,0 +1,102 @@
+{
+  "الخبز": {
+    "type": "food",
+    "category": "نشويات",
+    "synonyms": ["خبز", "عيش", "رغيف", "خبزة", "كسرة", "صمون"],
+    "ingredients": ["دقيق", "قمح", "ماء", "ملح"],
+    "strong_matches": ["دقيق", "قمح"],
+    "related_concepts": ["نشويات"],
+    "confidence": "high",
+    "dialect": null
+  },
+  "الرز": {
+    "type": "food",
+    "category": "نشويات",
+    "synonyms": ["رز", "ارز", "أرز"],
+    "ingredients": ["رز"],
+    "strong_matches": ["رز"],
+    "related_concepts": ["نشويات"],
+    "confidence": "high",
+    "dialect": null
+  },
+  "السكر": {
+    "type": "food",
+    "category": "سكريات",
+    "synonyms": ["سكر", "سكريات"],
+    "ingredients": ["سكر"],
+    "strong_matches": ["سكر"],
+    "related_concepts": ["سكريات", "جلوكوز"],
+    "confidence": "high",
+    "dialect": null
+  },
+  "التمر": {
+    "type": "food",
+    "category": "فواكه",
+    "synonyms": ["تمر", "بلح", "رطب"],
+    "ingredients": ["تمر"],
+    "strong_matches": ["تمر"],
+    "related_concepts": ["فواكه", "سكريات"],
+    "confidence": "high",
+    "dialect": null
+  },
+  "العسل": {
+    "type": "food",
+    "category": "سكريات",
+    "synonyms": ["عسل"],
+    "ingredients": ["عسل"],
+    "strong_matches": ["عسل"],
+    "related_concepts": ["سكريات"],
+    "confidence": "high",
+    "dialect": null
+  },
+  "البطاطس": {
+    "type": "food",
+    "category": "نشويات",
+    "synonyms": ["بطاطس", "بطاطا", "بطاط"],
+    "ingredients": ["بطاطس"],
+    "strong_matches": ["بطاطس"],
+    "related_concepts": ["نشويات"],
+    "confidence": "high",
+    "dialect": null
+  },
+  "البيض": {
+    "type": "food",
+    "category": "بروتين",
+    "synonyms": ["بيض", "بيضة"],
+    "ingredients": ["بيض"],
+    "strong_matches": ["بيض"],
+    "related_concepts": ["بروتين"],
+    "confidence": "high",
+    "dialect": null
+  },
+  "اللبن": {
+    "type": "food",
+    "category": "ألبان",
+    "synonyms": ["لبن", "حليب", "لبنة"],
+    "ingredients": ["لبن"],
+    "strong_matches": ["لبن"],
+    "related_concepts": ["ألبان", "بروتين"],
+    "confidence": "high",
+    "dialect": null
+  },
+  "الزيت": {
+    "type": "food",
+    "category": "دهون",
+    "synonyms": ["زيت", "زيت زيتون", "زيت نباتي"],
+    "ingredients": ["زيت"],
+    "strong_matches": ["زيت"],
+    "related_concepts": ["دهون"],
+    "confidence": "high",
+    "dialect": null
+  },
+  "اللحم": {
+    "type": "food",
+    "category": "بروتين",
+    "synonyms": ["لحم", "لحمة"],
+    "ingredients": ["لحم"],
+    "strong_matches": ["لحم"],
+    "related_concepts": ["بروتين", "دهون"],
+    "confidence": "high",
+    "dialect": null
+  }
+}
