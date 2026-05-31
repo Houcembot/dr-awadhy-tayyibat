@@ -268,5 +268,55 @@
     "related_concepts": ["نشويات", "بروتين"],
     "confidence": "high",
     "dialect": "khaliji"
+  },
+  "البقلاوة": {
+    "type": "dish",
+    "category": "سكريات",
+    "synonyms": ["بقلاوة", "بكلاوة"],
+    "ingredients": ["دقيق", "سكر", "مكسرات", "سمنة"],
+    "strong_matches": ["دقيق", "سكر"],
+    "related_concepts": ["سكريات", "نشويات", "دهون"],
+    "confidence": "high",
+    "dialect": null
+  },
+  "الزلابية": {
+    "type": "dish",
+    "category": "سكريات",
+    "synonyms": ["زلابية", "زلابيه"],
+    "ingredients": ["دقيق", "سكر", "زيت", "خميرة"],
+    "strong_matches": ["دقيق", "سكر"],
+    "related_concepts": ["سكريات", "نشويات", "دهون"],
+    "confidence": "high",
+    "dialect": null
+  },
+  "الكنافة": {
+    "type": "dish",
+    "category": "سكريات",
+    "synonyms": ["كنافة", "كنافه"],
+    "ingredients": ["دقيق", "سكر", "جبن", "سمنة"],
+    "strong_matches": ["دقيق", "سكر"],
+    "related_concepts": ["سكريات", "نشويات", "ألبان"],
+    "confidence": "high",
+    "dialect": null
+  },
+  "الشاي": {
+    "type": "food",
+    "category": "مشروبات",
+    "synonyms": ["شاي", "شاي أحمر", "شاي أخضر"],
+    "ingredients": ["شاي"],
+    "strong_matches": ["شاي"],
+    "related_concepts": ["مشروبات"],
+    "confidence": "high",
+    "dialect": null
+  },
+  "القهوة": {
+    "type": "food",
+    "category": "مشروبات",
+    "synonyms": ["قهوة", "قهوه", "قهوة عربية"],
+    "ingredients": ["قهوة"],
+    "strong_matches": ["قهوة"],
+    "related_concepts": ["مشروبات"],
+    "confidence": "high",
+    "dialect": null
   }
 }
