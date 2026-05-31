@@ -67,6 +67,21 @@ def extract_json(text):
         except json.JSONDecodeError:
             pass
 
+    # 4. First BALANCED {...} substring (handles trailing garbage like `\n"}`)
+    if start != -1:
+        depth = 0
+        for i in range(start, len(text)):
+            ch = text[i]
+            if ch == '{': depth += 1
+            elif ch == '}':
+                depth -= 1
+                if depth == 0:
+                    try:
+                        return json.loads(text[start:i + 1])
+                    except json.JSONDecodeError:
+                        break
+                    break
+
     err = ValueError(f'Cannot parse JSON from Gemini response')
     err.raw_response = text
     raise err
@@ -221,19 +236,17 @@ def main():
     sep = '─' * 56
     print(f'\n{sep}')
     print(f'  Générés  : {ok}  |  Erreurs : {errors}{"  (arrêt quota)" if stopped_early else ""}')
-    print(f'  Coverage : {n_total}/{len(blocks)} blocs avec summary_ar')
-    print(f'  Fichier  : {INDEX}')
+    print(f'  Patch    : {n_total} db_resume au total')
+    print(f'  Fichier  : {PATCH}')
     print(sep)
 
-    # Échantillon qualité : 10 summaries aléatoires parmi tous les blocs traités
-    all_done = [b for b in blocks if b.get('summary_ar')]
-    if all_done:
-        sample = random.sample(all_done, min(10, len(all_done)))
-        print(f'\n=== Échantillon qualité ({len(sample)} summaries aléatoires) ===')
-        for b in sample:
-            topics = ', '.join(b.get('topic', []))[:40]
-            print(f'  [{b["id"][:30]}] [{topics}]')
-            print(f'  → {b["summary_ar"]}')
+    # Échantillon qualité : jusqu'à 5 db_resume du patch
+    if patch:
+        sample_ids = random.sample(list(patch.keys()), min(5, len(patch)))
+        print(f'\n=== Échantillon qualité ({len(sample_ids)} db_resume) ===')
+        for bid in sample_ids:
+            print(f'  [{bid}]')
+            print(f'  → {patch[bid]}')
             print()
 
 if __name__ == '__main__':

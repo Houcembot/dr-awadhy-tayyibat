@@ -212,7 +212,14 @@ export function buildV2Response(question, results, videoMap, opts = {}) {
   const video_url = `https://youtu.be/${rawId}?t=${t}`;
 
   const rawSnippet = buildSnippet(blk.raw_quote, anchors, 400);
-  const dbResume = dbResumePatch[blk.id] || null;
+
+  // db_resume patch: object {verdict, simple, explanation?} per Phase Finale.
+  // Legacy string entries are coerced to {verdict: 'PASS_SIMPLE', simple: <string>}.
+  let dbResume = dbResumePatch[blk.id] || null;
+  if (typeof dbResume === 'string') {
+    dbResume = { verdict: 'PASS_SIMPLE', simple: dbResume };
+  }
+  const dbResumeSimple = dbResume?.simple || null;
 
   // ── Composed-dish prefix (extended logic per Task 5 TODO) ─────────────────
   // Case 1: canonical detected but no canonical matched in best block.
@@ -253,8 +260,8 @@ export function buildV2Response(question, results, videoMap, opts = {}) {
     }
   }
 
-  const intro = dbResume
-    ? 'بحسب كلام الدكتور ضياء:\n\n' + dbResume
+  const intro = dbResumeSimple
+    ? 'بحسب كلام الدكتور ضياء:\n\n' + dbResumeSimple
     : 'وجدت مقطعاً من كلام الدكتور ضياء:\n\n' + `"${rawSnippet}"`;
 
   const answer = [
@@ -301,7 +308,7 @@ export function buildV2Response(question, results, videoMap, opts = {}) {
     score >= 15 ? 'medium' :
     'low';
 
-  const mode = dbResume ? 'v3_db_resume' : 'v3_raw_fallback';
+  const mode = dbResumeSimple ? 'v3_db_resume' : 'v3_raw_fallback';
 
   const payload = {
     answer,
