@@ -63,35 +63,70 @@ export function buildSnippet(rawQuote, anchors, maxLen = 400) {
   return out;
 }
 
+// ── Scoring V3 ──────────────────────────────────────────────────────────────
+// Concept-aware: each matched concept category contributes a different bonus.
+// Returns { score, hits: { canonical, strong, related, generic } } so the
+// acceptance rule (Task 4) can inspect WHICH category was hit.
+const GENERIC_SYNONYMS = ['سكر','سكري','جلوكوز','هيموجلوبين','hba1c','سكريات'];
+
+function scoreBlockV3(block, concepts) {
+  const hits = {
+    canonical: [],
+    strong:    [],
+    related:   [],
+    generic:   [],
+  };
+
+  for (const c of concepts.canonical_foods) {
+    if (textHasAnchor(block.raw_quote, normalizeArabic(c))) {
+      hits.canonical.push(c);
+    }
+  }
+  for (const s of concepts.strong_matches) {
+    if (textHasAnchor(block.raw_quote, normalizeArabic(s))) {
+      hits.strong.push(s);
+    }
+  }
+  for (const r of concepts.related_concepts) {
+    if (textHasAnchor(block.raw_quote, normalizeArabic(r))) {
+      hits.related.push(r);
+    }
+  }
+  for (const g of GENERIC_SYNONYMS) {
+    if (textHasAnchor(block.raw_quote, normalizeArabic(g))) {
+      hits.generic.push(g);
+    }
+  }
+
+  let score = 0;
+  score += hits.canonical.length * 30;
+  score += hits.strong.length    * 20;
+  score += hits.related.length   * 10;
+  score += hits.generic.length   *  5;
+  score += DOMAIN_SCORE[block.domain] ?? 0;
+
+  return { score, hits };
+}
+
 // ── Main retrieval ────────────────────────────────────────────────────────────
 export function retrieveBlocks(question, topN = 3) {
   const concepts = detectConcepts(question, dictionary);
 
-  // Transitional: if dictionary detects nothing, fall back to a minimal
-  // bag-of-words over the question to keep working on out-of-dictionary
-  // queries. Task 4 will tighten this with the acceptance rule.
-  const matchTerms = new Set([
-    ...concepts.canonical_foods.map(normalizeArabic),
-    ...concepts.strong_matches.map(normalizeArabic),
-    ...concepts.related_concepts.map(normalizeArabic),
-  ]);
-
   // Out-of-dictionary question → no_result direct. Avoids stop-word
-  // false positives (هل/ما/هو/في as +5 scorers). The chatbot is
+  // false positives (هل/ما/هو/في as scorers). The chatbot is
   // intentionally food-focused; non-food questions return v3_no_result.
-  if (matchTerms.size === 0) {
+  const hasAnyConcept = concepts.canonical_foods.length > 0
+                    || concepts.strong_matches.length > 0
+                    || concepts.related_concepts.length > 0;
+  if (!hasAnyConcept) {
     return [];
   }
 
   const scored = knowledgeRaw
     .filter(b => b.domain !== 'off_topic')
     .map(b => {
-      let score = 0;
-      for (const term of matchTerms) {
-        if (textHasAnchor(b.raw_quote, term)) score += 5;
-      }
-      score += DOMAIN_SCORE[b.domain] ?? 0;
-      return { score, block: b, concepts };
+      const { score, hits } = scoreBlockV3(b, concepts);
+      return { score, hits, block: b, concepts };
     })
     .filter(x => x.score > 0)
     .sort((a, b) => b.score - a.score);
