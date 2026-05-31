@@ -1,0 +1,139 @@
+{
+  "sugar": {
+    "question_ar": "هل السكر صحي؟",
+    "top_block_id": "yt-GtEYhlcVZBI_1856",
+    "mode": "v3_db_resume",
+    "confidence_retrieval": "high",
+    "confidence_source": "direct",
+    "db_resume": {
+      "verdict": "PASS_WITH_EXPLANATION",
+      "simple": "بحسب كلام الدكتور ضياء، تناول البروتين بكميات كبيرة لا يبني العضلات تلقائياً كما يعتقد كثيرون.",
+      "explanation": "شرح مبسط: الكبد يكسر الأحماض الأمينية (وحدات البروتين) وينتج منها إما جلوكوز (طاقة) أو ألبومين (بروتين الدم)، فلا تذهب مباشرة إلى العضلات."
+    }
+  },
+  "rice": {
+    "question_ar": "هل الرز صحي؟",
+    "top_block_id": "yt-h4iNUew0djI_645",
+    "mode": "v3_db_resume",
+    "confidence_retrieval": "high",
+    "confidence_source": "direct",
+    "db_resume": {
+      "verdict": "PASS_SIMPLE",
+      "simple": "بحسب كلام الدكتور ضياء، الدقيق الأبيض يلتصق بجدار المعدة ولا يتركها بسهولة، بينما الطحين لا يلتصق بنفس الدرجة."
+    }
+  },
+  "green_salad": {
+    "question_ar": "هل السلطة الخضراء صحية؟",
+    "top_block_id": "yt--tXrfHfeQIo_2017",
+    "mode": "v3_db_resume",
+    "confidence_retrieval": "high",
+    "confidence_source": "direct",
+    "db_resume": {
+      "verdict": "PASS_WITH_EXPLANATION",
+      "simple": "بحسب كلام الدكتور ضياء، أحد المرضى كان يعاني من غدة وضغط وسكر وكوليسترول، وتحسّن بعد اتباع نظام الدكتور.",
+      "explanation": "شرح مبسط: هذا المريض جاء إلى الدكتور بعد سنوات من تراكم الأمراض (مشاكل غدة، ضغط، سكري، كوليسترول)، وبيّن كيف تحسّن بعد اعتماد المنهج الغذائي."
+    }
+  },
+  "egg": {
+    "question_ar": "هل البيض صحي؟",
+    "top_block_id": "yt-9vv6x9B9Am8_1500",
+    "mode": "v3_raw_fallback",
+    "confidence_retrieval": "high",
+    "confidence_source": "direct",
+    "db_resume": null
+  },
+  "butter_smen": {
+    "question_ar": "هل الزبدة أو السمن صحي؟",
+    "top_block_id": null,
+    "mode": "v3_no_result",
+    "confidence_retrieval": "none",
+    "confidence_source": null,
+    "db_resume": null
+  },
+  "fish": {
+    "question_ar": "هل السمك صحي؟",
+    "top_block_id": null,
+    "mode": "v3_no_result",
+    "confidence_retrieval": "none",
+    "confidence_source": null,
+    "db_resume": null
+  },
+  "white_bread": {
+    "question_ar": "هل الخبز الأبيض صحي؟",
+    "top_block_id": "yt-2aUKZrCeOII_7400",
+    "mode": "v3_db_resume",
+    "confidence_retrieval": "high",
+    "confidence_source": "direct",
+    "db_resume": {
+      "verdict": "PASS_SIMPLE",
+      "simple": "بحسب كلام الدكتور ضياء، الأكل الأصلي للإنسان كان حبوب ولحوم وفي النص الشحوم بتاعتها، والخبز في الزيت كان يفي الجسم بكل ما يحتاجه."
+    }
+  },
+  "whole_bread": {
+    "question_ar": "هل الخبز كامل الحبة صحي؟",
+    "top_block_id": "yt-2aUKZrCeOII_7400",
+    "mode": "v3_db_resume",
+    "confidence_retrieval": "high",
+    "confidence_source": "direct",
+    "db_resume": {
+      "verdict": "PASS_SIMPLE",
+      "simple": "بحسب كلام الدكتور ضياء، الأكل الأصلي للإنسان كان حبوب ولحوم وفي النص الشحوم بتاعتها، والخبز في الزيت كان يفي الجسم بكل ما يحتاجه."
+    }
+  },
+  "industrial_chicken": {
+    "question_ar": "هل الدجاج الصناعي صحي؟",
+    "top_block_id": null,
+    "mode": "v3_no_result",
+    "confidence_retrieval": "none",
+    "confidence_source": null,
+    "db_resume": null
+  },
+  "milk": {
+    "question_ar": "هل اللبن غذاء مناسب للإنسان؟",
+    "top_block_id": "yt-8AYaSqh52XY_824",
+    "mode": "v3_raw_fallback",
+    "confidence_retrieval": "high",
+    "confidence_source": "direct",
+    "db_resume": null
+  },
+  "melting_cheese": {
+    "question_ar": "هل الجبن الذي يذوب صحي؟",
+    "top_block_id": null,
+    "mode": "v3_no_result",
+    "confidence_retrieval": "none",
+    "confidence_source": null,
+    "db_resume": null
+  },
+  "lentils": {
+    "question_ar": "هل العدس صحي؟",
+    "top_block_id": null,
+    "mode": "v3_no_result",
+    "confidence_retrieval": "none",
+    "confidence_source": null,
+    "db_resume": null
+  },
+  "chickpeas": {
+    "question_ar": "هل الحمص صحي؟",
+    "top_block_id": "yt-Wn2ZmDoPku8_5143",
+    "mode": "v3_raw_fallback",
+    "confidence_retrieval": "high",
+    "confidence_source": "direct",
+    "db_resume": null
+  },
+  "tomato": {
+    "question_ar": "هل الطماطم صحية؟",
+    "top_block_id": null,
+    "mode": "v3_no_result",
+    "confidence_retrieval": "none",
+    "confidence_source": null,
+    "db_resume": null
+  },
+  "best_diet": {
+    "question_ar": "ما هو أفضل نظام غذائي؟",
+    "top_block_id": null,
+    "mode": "v3_no_result",
+    "confidence_retrieval": "none",
+    "confidence_source": null,
+    "db_resume": null
+  }
+}
