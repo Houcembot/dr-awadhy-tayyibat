@@ -260,8 +260,11 @@ export function buildV2Response(question, results, videoMap, opts = {}) {
     }
   }
 
+  // db_resume.simple already starts with the canonical prefix "بحسب كلام الدكتور ضياء،"
+  // (enforced by the soft-check test). Use it directly, no extra intro.
+  // For raw snippet fallback, prepend an intro line.
   const intro = dbResumeSimple
-    ? 'بحسب كلام الدكتور ضياء:\n\n' + dbResumeSimple
+    ? dbResumeSimple
     : 'وجدت مقطعاً من كلام الدكتور ضياء:\n\n' + `"${rawSnippet}"`;
 
   const answer = [
