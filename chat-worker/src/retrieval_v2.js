@@ -108,41 +108,64 @@ function scoreBlockV3(block, concepts) {
   return { score, hits };
 }
 
+// ── Acceptance rule (Tier strict) ────────────────────────────────────────────
+// Returns 'direct' | 'ingredient' | 'fallback' | null.
+// null means the block is rejected (excluded from results).
+function classifyBlock(hits) {
+  const conceptHits = hits.canonical.length + hits.strong.length + hits.related.length;
+
+  // DIRECT: 1+ canonical hit is enough.
+  if (hits.canonical.length > 0) return 'direct';
+
+  // INGREDIENT: no canonical, but a strong match AND >=2 distinct concepts total.
+  if (hits.strong.length > 0 && conceptHits >= 2) return 'ingredient';
+
+  // FALLBACK: no canonical AND no strong, but >=2 distinct related concepts.
+  if (hits.strong.length === 0 && hits.canonical.length === 0 && hits.related.length >= 2) {
+    return 'fallback';
+  }
+
+  return null;
+}
+
 // ── Main retrieval ────────────────────────────────────────────────────────────
 export function retrieveBlocks(question, topN = 3) {
   const concepts = detectConcepts(question, dictionary);
 
-  // Out-of-dictionary question → no_result direct. Avoids stop-word
-  // false positives (هل/ما/هو/في as scorers). The chatbot is
-  // intentionally food-focused; non-food questions return v3_no_result.
   const hasAnyConcept = concepts.canonical_foods.length > 0
                     || concepts.strong_matches.length > 0
                     || concepts.related_concepts.length > 0;
-  if (!hasAnyConcept) {
-    return [];
-  }
+  if (!hasAnyConcept) return [];
 
-  const scored = knowledgeRaw
+  const scoredAll = knowledgeRaw
     .filter(b => b.domain !== 'off_topic')
     .map(b => {
       const { score, hits } = scoreBlockV3(b, concepts);
-      return { score, hits, block: b, concepts };
+      const source = classifyBlock(hits);
+      return { score, hits, block: b, concepts, confidence_source: source };
     })
-    .filter(x => x.score > 0)
+    .filter(x => x.confidence_source !== null && x.score > 0)
     .sort((a, b) => b.score - a.score);
 
-  // Diversity dedup (existing pattern, kept from V2)
+  // Tier pools: direct > ingredient > fallback.
+  const poolDirect     = scoredAll.filter(x => x.confidence_source === 'direct');
+  const poolIngredient = scoredAll.filter(x => x.confidence_source === 'ingredient');
+  const poolFallback   = scoredAll.filter(x => x.confidence_source === 'fallback');
+
+  let activePool;
+  if      (poolDirect.length     > 0) activePool = poolDirect;
+  else if (poolIngredient.length > 0) activePool = poolIngredient;
+  else if (poolFallback.length   > 0) activePool = poolFallback;
+  else                                activePool = [];
+
+  // Diversity dedup on the active pool.
   const seen = new Set();
   const primary = [];
   const backup = [];
-  for (const item of scored) {
+  for (const item of activePool) {
     const vid = item.block.video_id;
-    if (!seen.has(vid)) {
-      seen.add(vid);
-      primary.push(item);
-    } else {
-      backup.push(item);
-    }
+    if (!seen.has(vid)) { seen.add(vid); primary.push(item); }
+    else                { backup.push(item); }
   }
   const seenPrefix = new Set();
   const candidates = [];
