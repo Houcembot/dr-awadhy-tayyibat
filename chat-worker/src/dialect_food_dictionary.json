@@ -148,5 +148,55 @@
     "related_concepts": ["نشويات"],
     "confidence": "low",
     "dialect": "maghrebi"
+  },
+  "الكشري": {
+    "type": "dish",
+    "category": "نشويات",
+    "synonyms": ["كشري", "كوشري"],
+    "ingredients": ["رز", "عدس", "مكرونة", "بصل", "صلصة"],
+    "strong_matches": ["رز", "عدس", "مكرونة"],
+    "related_concepts": ["نشويات", "بروتين"],
+    "confidence": "high",
+    "dialect": "egyptian"
+  },
+  "الملوخية": {
+    "type": "dish",
+    "category": "خضار",
+    "synonyms": ["ملوخية", "مولوخية"],
+    "ingredients": ["ملوخية", "ثوم", "كزبرة"],
+    "strong_matches": ["ملوخية"],
+    "related_concepts": ["خضار"],
+    "confidence": "high",
+    "dialect": "egyptian"
+  },
+  "المحشي": {
+    "type": "dish",
+    "category": "نشويات",
+    "synonyms": ["محشي", "محشى"],
+    "ingredients": ["رز", "خضار"],
+    "strong_matches": ["رز"],
+    "related_concepts": ["نشويات", "خضار"],
+    "confidence": "high",
+    "dialect": "egyptian"
+  },
+  "الفول": {
+    "type": "food",
+    "category": "بروتين",
+    "synonyms": ["فول", "فول مدمس"],
+    "ingredients": ["فول"],
+    "strong_matches": ["فول"],
+    "related_concepts": ["بروتين", "بقوليات"],
+    "confidence": "high",
+    "dialect": "egyptian"
+  },
+  "الطعمية": {
+    "type": "dish",
+    "category": "بروتين",
+    "synonyms": ["طعمية", "فلافل مصري"],
+    "ingredients": ["فول", "بقدونس", "كزبرة"],
+    "strong_matches": ["فول"],
+    "related_concepts": ["بروتين", "بقوليات"],
+    "confidence": "high",
+    "dialect": "egyptian"
   }
 }
