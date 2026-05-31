@@ -33,6 +33,30 @@ for (const [anchor, ids] of Object.entries(foodInvertedIndex)) {
   ANCHOR_BLOCK_SETS[anchor] = new Set(ids);
 }
 
+// Pre-computed raw_quote dedup keys (avoids normalizeArabic on full raw_quote at
+// retrieval time — each block's key is computed once at module load).
+const BLOCK_RAW_QUOTE_KEY = new Map();
+for (const [id, block] of BLOCK_MAP) {
+  BLOCK_RAW_QUOTE_KEY.set(id, normalizeArabic(block.raw_quote).slice(0, 100));
+}
+
+// Per-question detectConcepts cache (bounded at 256 entries — safe for Workers).
+// Eliminates repeated dictionary scan when the same question hits the endpoint
+// multiple times (retries, parallel requests, benchmark warm-up).
+const _conceptsCache = new Map();
+function detectConceptsCached(question) {
+  let result = _conceptsCache.get(question);
+  if (!result) {
+    result = detectConcepts(question, dictionary);
+    if (_conceptsCache.size >= 256) {
+      // Evict the oldest entry to stay bounded.
+      _conceptsCache.delete(_conceptsCache.keys().next().value);
+    }
+    _conceptsCache.set(question, result);
+  }
+  return result;
+}
+
 // ── Snippet centering ─────────────────────────────────────────────────────────
 // When the question targets a specific food/concept, show the part of the
 // raw_quote AROUND that anchor instead of the first 400 chars (which is often
@@ -86,6 +110,10 @@ export function buildSnippet(rawQuote, anchors, maxLen = 400) {
 // acceptance rule (Task 4) can inspect WHICH category was hit.
 const GENERIC_SYNONYMS = ['سكر','سكري','جلوكوز','هيموجلوبين','hba1c','سكريات'];
 
+// Pre-normalize GENERIC_SYNONYMS once at module load (optimization: avoids
+// calling normalizeArabic on each per-request invocation of retrieveBlocks).
+const GENERIC_SYNONYMS_NORM = GENERIC_SYNONYMS.map(normalizeArabic);
+
 // ── Acceptance rule (Tier strict) ────────────────────────────────────────────
 // Returns 'direct' | 'ingredient' | 'fallback' | null.
 // null means the block is rejected (excluded from results).
@@ -108,7 +136,7 @@ function classifyBlock(hits) {
 
 // ── Main retrieval ────────────────────────────────────────────────────────────
 export function retrieveBlocks(question, topN = 3) {
-  const concepts = detectConcepts(question, dictionary);
+  const concepts = detectConceptsCached(question);
 
   const hasAnyConcept = concepts.canonical_foods.length > 0
                     || concepts.strong_matches.length > 0
@@ -117,15 +145,21 @@ export function retrieveBlocks(question, topN = 3) {
 
   // ── Candidate selection via inverted index (replaces full scan) ──────────
   // Union all blocks that contain ANY of the question's concepts (any category).
+  // Pre-normalize concept terms once here (avoids repeated normalizeArabic calls
+  // during the per-block scoring loop below).
+  const canonicalNorm  = concepts.canonical_foods.map(normalizeArabic);
+  const strongNorm     = concepts.strong_matches.map(normalizeArabic);
+  const relatedNorm    = concepts.related_concepts.map(normalizeArabic);
+
   const candidateIds = new Set();
-  const allTerms = [
-    ...concepts.canonical_foods,
-    ...concepts.strong_matches,
-    ...concepts.related_concepts,
-    ...GENERIC_SYNONYMS,
+  const allTermsNorm = [
+    ...canonicalNorm,
+    ...strongNorm,
+    ...relatedNorm,
+    ...GENERIC_SYNONYMS_NORM,
   ];
-  for (const t of allTerms) {
-    const set = ANCHOR_BLOCK_SETS[normalizeArabic(t)];
+  for (const tn of allTermsNorm) {
+    const set = ANCHOR_BLOCK_SETS[tn];
     if (!set) continue;
     for (const id of set) candidateIds.add(id);
   }
@@ -138,18 +172,19 @@ export function retrieveBlocks(question, topN = 3) {
     const block = BLOCK_MAP.get(id);
     if (!block) continue;
 
+    // Use pre-normalized arrays — O(1) set lookups, no normalizeArabic per block.
     const hits = {
-      canonical: concepts.canonical_foods.filter(c =>
-        ANCHOR_BLOCK_SETS[normalizeArabic(c)]?.has(id)
+      canonical: concepts.canonical_foods.filter((_, i) =>
+        ANCHOR_BLOCK_SETS[canonicalNorm[i]]?.has(id)
       ),
-      strong: concepts.strong_matches.filter(s =>
-        ANCHOR_BLOCK_SETS[normalizeArabic(s)]?.has(id)
+      strong: concepts.strong_matches.filter((_, i) =>
+        ANCHOR_BLOCK_SETS[strongNorm[i]]?.has(id)
       ),
-      related: concepts.related_concepts.filter(r =>
-        ANCHOR_BLOCK_SETS[normalizeArabic(r)]?.has(id)
+      related: concepts.related_concepts.filter((_, i) =>
+        ANCHOR_BLOCK_SETS[relatedNorm[i]]?.has(id)
       ),
-      generic: GENERIC_SYNONYMS.filter(g =>
-        ANCHOR_BLOCK_SETS[normalizeArabic(g)]?.has(id)
+      generic: GENERIC_SYNONYMS.filter((_, i) =>
+        ANCHOR_BLOCK_SETS[GENERIC_SYNONYMS_NORM[i]]?.has(id)
       ),
     };
 
@@ -193,7 +228,7 @@ export function retrieveBlocks(question, topN = 3) {
   const seenPrefix = new Set();
   const candidates = [];
   for (const item of [...primary, ...backup]) {
-    const key = normalizeArabic(item.block.raw_quote).slice(0, 100);
+    const key = BLOCK_RAW_QUOTE_KEY.get(item.block.id) ?? normalizeArabic(item.block.raw_quote).slice(0, 100);
     if (seenPrefix.has(key)) continue;
     seenPrefix.add(key);
     candidates.push(item);
