@@ -334,4 +334,20 @@ describe('detectConcepts — skeleton', () => {
       'تم فهم الطبق:\n\nمعمول (سكريات)\n↳ مرتبط بـنشويات، سكريات'
     );
   });
+
+  it('returns dialect_hint from the first matched entry that has one', () => {
+    const result = detectConcepts('هل الكسكسي ينفع؟', TEST_DICT);
+    expect(result.dialect_hint).toBe('maghrebi');
+  });
+
+  it('returns null when no matched entry declares a dialect', () => {
+    // العسل entry has dialect: null in TEST_DICT
+    const result = detectConcepts('هل العسل صحي؟', TEST_DICT);
+    expect(result.dialect_hint).toBe(null);
+  });
+
+  it('returns null when nothing matches', () => {
+    const result = detectConcepts('xyz', TEST_DICT);
+    expect(result.dialect_hint).toBe(null);
+  });
 });

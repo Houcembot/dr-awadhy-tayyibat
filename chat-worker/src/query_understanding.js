@@ -103,7 +103,7 @@ export function detectConcepts(question, dictionary) {
     related_concepts,
     expanded_terms,
     human_readable_ar: buildHumanReadable(matched),
-    dialect_hint: null,       // Task 8
+    dialect_hint: matched.find(m => m.entry.dialect)?.entry.dialect || null,
   };
 }
 
