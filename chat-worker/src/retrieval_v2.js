@@ -6,6 +6,7 @@
 import knowledgeRaw from './knowledge_index.json';
 import dictionary from './dialect_food_dictionary.json';
 import dbResumePatch from './knowledge_db_resume_patch.json';
+import foodInvertedIndex from './food_inverted_index.json';
 import {
   normalizeArabic,
   anchorMatchesToken,
@@ -15,6 +16,22 @@ import {
 
 // ── Scoring ───────────────────────────────────────────────────────────────────
 const DOMAIN_SCORE = { nutrition: 3, medical: 1, off_topic: -20, general: 0 };
+
+// ── Module-level pre-computation (one-time, at worker startup) ──────────────
+// BUILD HEAVY / RUNTIME LIGHT: everything below is computed once when the
+// module loads, never per request.
+
+// Block lookup by id (avoids array scans)
+const BLOCK_MAP = new Map();
+for (const b of knowledgeRaw) {
+  if (b.domain !== 'off_topic') BLOCK_MAP.set(b.id, b);
+}
+
+// Inverted index converted to Sets for O(1) "block contains anchor" checks
+const ANCHOR_BLOCK_SETS = {};
+for (const [anchor, ids] of Object.entries(foodInvertedIndex)) {
+  ANCHOR_BLOCK_SETS[anchor] = new Set(ids);
+}
 
 // ── Snippet centering ─────────────────────────────────────────────────────────
 // When the question targets a specific food/concept, show the part of the
@@ -69,45 +86,6 @@ export function buildSnippet(rawQuote, anchors, maxLen = 400) {
 // acceptance rule (Task 4) can inspect WHICH category was hit.
 const GENERIC_SYNONYMS = ['سكر','سكري','جلوكوز','هيموجلوبين','hba1c','سكريات'];
 
-function scoreBlockV3(block, concepts) {
-  const hits = {
-    canonical: [],
-    strong:    [],
-    related:   [],
-    generic:   [],
-  };
-
-  for (const c of concepts.canonical_foods) {
-    if (textHasAnchor(block.raw_quote, normalizeArabic(c))) {
-      hits.canonical.push(c);
-    }
-  }
-  for (const s of concepts.strong_matches) {
-    if (textHasAnchor(block.raw_quote, normalizeArabic(s))) {
-      hits.strong.push(s);
-    }
-  }
-  for (const r of concepts.related_concepts) {
-    if (textHasAnchor(block.raw_quote, normalizeArabic(r))) {
-      hits.related.push(r);
-    }
-  }
-  for (const g of GENERIC_SYNONYMS) {
-    if (textHasAnchor(block.raw_quote, normalizeArabic(g))) {
-      hits.generic.push(g);
-    }
-  }
-
-  let score = 0;
-  score += hits.canonical.length * 30;
-  score += hits.strong.length    * 20;
-  score += hits.related.length   * 10;
-  score += hits.generic.length   *  5;
-  score += DOMAIN_SCORE[block.domain] ?? 0;
-
-  return { score, hits };
-}
-
 // ── Acceptance rule (Tier strict) ────────────────────────────────────────────
 // Returns 'direct' | 'ingredient' | 'fallback' | null.
 // null means the block is rejected (excluded from results).
@@ -137,17 +115,62 @@ export function retrieveBlocks(question, topN = 3) {
                     || concepts.related_concepts.length > 0;
   if (!hasAnyConcept) return [];
 
-  const scoredAll = knowledgeRaw
-    .filter(b => b.domain !== 'off_topic')
-    .map(b => {
-      const { score, hits } = scoreBlockV3(b, concepts);
-      const source = classifyBlock(hits);
-      return { score, hits, block: b, concepts, confidence_source: source };
-    })
-    .filter(x => x.confidence_source !== null && x.score > 0)
-    .sort((a, b) => b.score - a.score);
+  // ── Candidate selection via inverted index (replaces full scan) ──────────
+  // Union all blocks that contain ANY of the question's concepts (any category).
+  const candidateIds = new Set();
+  const allTerms = [
+    ...concepts.canonical_foods,
+    ...concepts.strong_matches,
+    ...concepts.related_concepts,
+    ...GENERIC_SYNONYMS,
+  ];
+  for (const t of allTerms) {
+    const set = ANCHOR_BLOCK_SETS[normalizeArabic(t)];
+    if (!set) continue;
+    for (const id of set) candidateIds.add(id);
+  }
 
-  // Tier pools: direct > ingredient > fallback.
+  if (candidateIds.size === 0) return [];
+
+  // ── Scoring (replaces text-scan scoreBlockV3 with set-membership checks) ──
+  const scoredAll = [];
+  for (const id of candidateIds) {
+    const block = BLOCK_MAP.get(id);
+    if (!block) continue;
+
+    const hits = {
+      canonical: concepts.canonical_foods.filter(c =>
+        ANCHOR_BLOCK_SETS[normalizeArabic(c)]?.has(id)
+      ),
+      strong: concepts.strong_matches.filter(s =>
+        ANCHOR_BLOCK_SETS[normalizeArabic(s)]?.has(id)
+      ),
+      related: concepts.related_concepts.filter(r =>
+        ANCHOR_BLOCK_SETS[normalizeArabic(r)]?.has(id)
+      ),
+      generic: GENERIC_SYNONYMS.filter(g =>
+        ANCHOR_BLOCK_SETS[normalizeArabic(g)]?.has(id)
+      ),
+    };
+
+    let score = 0;
+    score += hits.canonical.length * 30;
+    score += hits.strong.length    * 20;
+    score += hits.related.length   * 10;
+    score += hits.generic.length   *  5;
+    score += DOMAIN_SCORE[block.domain] ?? 0;
+
+    if (score <= 0) continue;
+
+    const source = classifyBlock(hits);
+    if (source === null) continue;
+
+    scoredAll.push({ score, hits, block, concepts, confidence_source: source });
+  }
+
+  scoredAll.sort((a, b) => b.score - a.score);
+
+  // Tier pools: direct > ingredient > fallback. Same logic as previous V3.
   const poolDirect     = scoredAll.filter(x => x.confidence_source === 'direct');
   const poolIngredient = scoredAll.filter(x => x.confidence_source === 'ingredient');
   const poolFallback   = scoredAll.filter(x => x.confidence_source === 'fallback');
@@ -158,7 +181,7 @@ export function retrieveBlocks(question, topN = 3) {
   else if (poolFallback.length   > 0) activePool = poolFallback;
   else                                activePool = [];
 
-  // Diversity dedup on the active pool.
+  // Diversity dedup on the active pool (same as V3).
   const seen = new Set();
   const primary = [];
   const backup = [];
