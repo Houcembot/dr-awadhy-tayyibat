@@ -1,0 +1,92 @@
+[
+  {
+    "id": "sugar",
+    "expected_position": "good",
+    "must_include_any":   ["مفيد", "ليس عدوا", "حل", "يحتاجه الجسم", "سكر"],
+    "must_not_include_any": ["مضر", "احذر", "بكميات قليلة", "استشر الطبيب"]
+  },
+  {
+    "id": "rice",
+    "expected_position": "good",
+    "must_include_any":   ["الرز", "جيد", "مفيد", "صحي"],
+    "must_not_include_any": ["مضر", "يرفع السكر", "تجنب"]
+  },
+  {
+    "id": "green_salad",
+    "expected_position": "bad",
+    "must_include_any":   ["مضر", "ليست صحية", "سيئة", "غير مفيدة"],
+    "must_not_include_any": ["مفيدة", "غنية بالألياف", "فيتامينات", "صحية"]
+  },
+  {
+    "id": "egg",
+    "expected_position": "bad",
+    "must_include_any":   ["مضر", "سيء", "غير مناسب", "ليس صحياً"],
+    "must_not_include_any": ["بروتين جيد", "مفيد", "صحي"]
+  },
+  {
+    "id": "butter_smen",
+    "expected_position": "good",
+    "must_include_any":   ["مفيد", "صحي", "جيد", "دهون مفيدة", "طاقة"],
+    "must_not_include_any": ["مضر", "تجنب", "كوليسترول ضار"]
+  },
+  {
+    "id": "fish",
+    "expected_position": "good",
+    "must_include_any":   ["مفيد", "صحي", "جيد", "السمك"],
+    "must_not_include_any": ["مضر", "تجنب"]
+  },
+  {
+    "id": "white_bread",
+    "expected_position": "bad",
+    "must_include_any":   ["مضر", "غير صحي", "الدقيق الأبيض", "ليس جيداً"],
+    "must_not_include_any": ["مفيد", "صحي"]
+  },
+  {
+    "id": "whole_bread",
+    "expected_position": "good",
+    "must_include_any":   ["كامل الحبة", "أفضل", "مفيد", "صحي"],
+    "must_not_include_any": ["مضر", "تجنب"]
+  },
+  {
+    "id": "industrial_chicken",
+    "expected_position": "bad",
+    "must_include_any":   ["مضر", "غير صحي", "صناعي", "الفراخ"],
+    "must_not_include_any": ["بروتين جيد", "مفيد", "صحي"]
+  },
+  {
+    "id": "milk",
+    "expected_position": "bad",
+    "must_include_any":   ["ليس غذاء للإنسان", "غير مناسب", "مخصص لصغير الحيوان", "ليس مناسباً"],
+    "must_not_include_any": ["كالسيوم", "مفيد", "صحي"]
+  },
+  {
+    "id": "melting_cheese",
+    "expected_position": "good",
+    "must_include_any":   ["مفيد", "صحي", "يذوب", "جيد"],
+    "must_not_include_any": ["مضر", "لأنه من اللبن"]
+  },
+  {
+    "id": "lentils",
+    "expected_position": "bad",
+    "must_include_any":   ["مضر", "غير صحي", "غير مناسب", "سيء"],
+    "must_not_include_any": ["بروتين نباتي", "مفيد", "صحي"]
+  },
+  {
+    "id": "chickpeas",
+    "expected_position": "bad",
+    "must_include_any":   ["مضر", "غير صحي", "غير مناسب", "سيء"],
+    "must_not_include_any": ["مفيد", "صحي"]
+  },
+  {
+    "id": "tomato",
+    "expected_position": "bad",
+    "must_include_any":   ["مضر", "غير صحي", "الطماطم", "سيئة"],
+    "must_not_include_any": ["مفيدة", "صحية", "مضادات أكسدة"]
+  },
+  {
+    "id": "best_diet",
+    "expected_position": "fasting",
+    "must_include_any":   ["الصيام", "اقفل بقك", "أفضل نظام", "إيقاف الأكل"],
+    "must_not_include_any": ["نظام متوازن", "خضار وفواكه", "حمية متنوعة"]
+  }
+]

@@ -1,0 +1,17 @@
+[
+  { "id": "sugar",              "question_ar": "هل السكر صحي؟" },
+  { "id": "rice",               "question_ar": "هل الرز صحي؟" },
+  { "id": "green_salad",        "question_ar": "هل السلطة الخضراء صحية؟" },
+  { "id": "egg",                "question_ar": "هل البيض صحي؟" },
+  { "id": "butter_smen",        "question_ar": "هل الزبدة أو السمن صحي؟" },
+  { "id": "fish",               "question_ar": "هل السمك صحي؟" },
+  { "id": "white_bread",        "question_ar": "هل الخبز الأبيض صحي؟" },
+  { "id": "whole_bread",        "question_ar": "هل الخبز كامل الحبة صحي؟" },
+  { "id": "industrial_chicken", "question_ar": "هل الدجاج الصناعي صحي؟" },
+  { "id": "milk",               "question_ar": "هل اللبن غذاء مناسب للإنسان؟" },
+  { "id": "melting_cheese",     "question_ar": "هل الجبن الذي يذوب صحي؟" },
+  { "id": "lentils",            "question_ar": "هل العدس صحي؟" },
+  { "id": "chickpeas",          "question_ar": "هل الحمص صحي؟" },
+  { "id": "tomato",             "question_ar": "هل الطماطم صحية؟" },
+  { "id": "best_diet",          "question_ar": "ما هو أفضل نظام غذائي؟" }
+]
