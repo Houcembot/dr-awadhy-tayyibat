@@ -198,5 +198,45 @@
     "related_concepts": ["بروتين", "بقوليات"],
     "confidence": "high",
     "dialect": "egyptian"
+  },
+  "الفلافل": {
+    "type": "dish",
+    "category": "بروتين",
+    "synonyms": ["فلافل"],
+    "ingredients": ["حمص", "بقدونس", "كزبرة"],
+    "strong_matches": ["حمص"],
+    "related_concepts": ["بروتين", "بقوليات"],
+    "confidence": "high",
+    "dialect": "levant"
+  },
+  "الحمص": {
+    "type": "dish",
+    "category": "بروتين",
+    "synonyms": ["حمص", "حمص بطحينة"],
+    "ingredients": ["حمص", "طحينة", "ليمون", "ثوم"],
+    "strong_matches": ["حمص", "طحينة"],
+    "related_concepts": ["بروتين", "بقوليات"],
+    "confidence": "high",
+    "dialect": "levant"
+  },
+  "التبولة": {
+    "type": "dish",
+    "category": "خضار",
+    "synonyms": ["تبولة"],
+    "ingredients": ["برغل", "بقدونس", "نعناع", "طماطم", "ليمون", "زيت"],
+    "strong_matches": ["برغل", "بقدونس"],
+    "related_concepts": ["خضار", "نشويات"],
+    "confidence": "high",
+    "dialect": "levant"
+  },
+  "المنسف": {
+    "type": "dish",
+    "category": "بروتين",
+    "synonyms": ["منسف"],
+    "ingredients": ["لحم", "رز", "لبن"],
+    "strong_matches": ["لحم", "رز"],
+    "related_concepts": ["بروتين", "نشويات"],
+    "confidence": "high",
+    "dialect": "levant"
   }
 }
