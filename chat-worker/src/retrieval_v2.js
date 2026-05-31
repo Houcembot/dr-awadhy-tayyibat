@@ -8,7 +8,6 @@ import dictionary from './dialect_food_dictionary.json';
 import dbResumePatch from './knowledge_db_resume_patch.json';
 import {
   normalizeArabic,
-  tokenize,
   anchorMatchesToken,
   textHasAnchor,
   detectConcepts,
@@ -77,10 +76,11 @@ export function retrieveBlocks(question, topN = 3) {
     ...concepts.related_concepts.map(normalizeArabic),
   ]);
 
+  // Out-of-dictionary question → no_result direct. Avoids stop-word
+  // false positives (هل/ما/هو/في as +5 scorers). The chatbot is
+  // intentionally food-focused; non-food questions return v3_no_result.
   if (matchTerms.size === 0) {
-    // Fallback: split the question into tokens and use them directly
-    const qTokens = tokenize(question);
-    for (const t of qTokens) matchTerms.add(t);
+    return [];
   }
 
   const scored = knowledgeRaw
