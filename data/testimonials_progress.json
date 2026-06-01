@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-01T20:20:32",
+  "updated_at": "2026-06-01T20:30:21",
   "total": 208,
-  "downloaded": 5,
+  "downloaded": 6,
   "failed": 0,
-  "pending": 201,
-  "archive_gib": 0.1,
+  "pending": 200,
+  "archive_gib": 0.11,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "liJR1u-WBnc",
-    "url": "https://www.youtube.com/watch?v=liJR1u-WBnc",
-    "title": "تجربتي مع #نظام#الطيبات# #للدكتور #ضياء_العوضي والنتيجة #الحمد لله احسن بكتير#اكسبلور ",
-    "duration_seconds": 441,
+    "id": "Kv_TANbe2Yg",
+    "url": "https://www.youtube.com/watch?v=Kv_TANbe2Yg",
+    "title": "شهادة و تجربة طبيب ل  نظام الطيبات .  دكتور باسم على خبرة 10 سنين في الجراحه ",
+    "duration_seconds": 474,
     "status": "downloaded",
     "triage_subject": "testimonial_testimonial_general",
     "triage_priority": 116,
     "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; duree exploitable",
-    "started_at": "2026-06-01T20:20:01",
-    "finished_at": "2026-06-01T20:20:32"
+    "started_at": "2026-06-01T20:30:01",
+    "finished_at": "2026-06-01T20:30:21"
   },
   "recent": [
-    {
-      "id": "9sSQwQYgIRM",
-      "title": "شهاده حق من مريضه شفيت من نظام الطيبات نظام الدكتور ضياء العوضي  #مطبخ_هانى_وهبه ",
-      "duration_seconds": 1002
-    },
     {
       "id": "oOK-XAimU8Q",
       "title": "تجربتي مع نظام الطيبات بعد 50 يوم: هل تغيرت حياتي فعلاً؟ 🤔 | نتائج مذهلة!",
@@ -38,6 +33,11 @@
       "id": "liJR1u-WBnc",
       "title": "تجربتي مع #نظام#الطيبات# #للدكتور #ضياء_العوضي والنتيجة #الحمد لله احسن بكتير#اكسبلور ",
       "duration_seconds": 441
+    },
+    {
+      "id": "Kv_TANbe2Yg",
+      "title": "شهادة و تجربة طبيب ل  نظام الطيبات .  دكتور باسم على خبرة 10 سنين في الجراحه ",
+      "duration_seconds": 474
     },
     {
       "id": "F14WbxGzDmQ",
