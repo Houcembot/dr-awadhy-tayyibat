@@ -36,8 +36,20 @@ for (const [anchor, ids] of Object.entries(foodInvertedIndex)) {
 // Pre-computed raw_quote dedup keys (avoids normalizeArabic on full raw_quote at
 // retrieval time — each block's key is computed once at module load).
 const BLOCK_RAW_QUOTE_KEY = new Map();
+// Pre-normalized full raw_quote per block, for runtime occurrence-count density bonus.
+const BLOCK_NORM_RAW = new Map();
 for (const [id, block] of BLOCK_MAP) {
-  BLOCK_RAW_QUOTE_KEY.set(id, normalizeArabic(block.raw_quote).slice(0, 100));
+  const norm = normalizeArabic(block.raw_quote);
+  BLOCK_RAW_QUOTE_KEY.set(id, norm.slice(0, 100));
+  BLOCK_NORM_RAW.set(id, norm);
+}
+// Pre-normalized db_resume.simple text — used at scoring time to verify a
+// curated block is actually ABOUT the queried canonical before granting the
+// +25 doctrine boost. Prevents bread-doctrine blocks from stealing sugar
+// queries just because they have a db_resume.
+const DB_RESUME_NORM = new Map();
+for (const [id, entry] of Object.entries(dbResumePatch)) {
+  if (entry && entry.simple) DB_RESUME_NORM.set(id, normalizeArabic(entry.simple));
 }
 
 // Per-question detectConcepts cache (bounded at 256 entries — safe for Workers).
@@ -194,6 +206,35 @@ export function retrieveBlocks(question, topN = 3) {
     score += hits.related.length   * 10;
     score += hits.generic.length   *  5;
     score += DOMAIN_SCORE[block.domain] ?? 0;
+
+    // Density bonus: a block that mentions the canonical/strong food N times is
+    // more "about" it than one that mentions it once. Multipliers are small
+    // (3/2) to avoid drowning out the curated db_resume blocks. Curated blocks
+    // get a +25 doctrine boost so they keep ranking priority over high-density
+    // raw blocks.
+    if (hits.canonical.length > 0 || hits.strong.length > 0) {
+      const normRaw = BLOCK_NORM_RAW.get(id);
+      if (normRaw) {
+        let densityBonus = 0;
+        for (let i = 0; i < canonicalNorm.length; i++) {
+          if (!ANCHOR_BLOCK_SETS[canonicalNorm[i]]?.has(id)) continue;
+          const occ = normRaw.split(canonicalNorm[i]).length - 1;
+          densityBonus += Math.min(occ, 6) * 3;
+        }
+        for (let i = 0; i < strongNorm.length; i++) {
+          if (!ANCHOR_BLOCK_SETS[strongNorm[i]]?.has(id)) continue;
+          const occ = normRaw.split(strongNorm[i]).length - 1;
+          densityBonus += Math.min(occ, 6) * 2;
+        }
+        score += densityBonus;
+      }
+      const simpleNorm = DB_RESUME_NORM.get(id);
+      if (simpleNorm) {
+        for (const cn of canonicalNorm) {
+          if (simpleNorm.includes(cn)) { score += 25; break; }
+        }
+      }
+    }
 
     if (score <= 0) continue;
 

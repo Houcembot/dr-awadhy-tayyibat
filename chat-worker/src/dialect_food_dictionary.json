@@ -50,7 +50,11 @@
     "type": "food",
     "category": "سكريات",
     "synonyms": [
+      "السكريات",
       "سكر",
+      "سكر ابيض",
+      "سكر بني",
+      "سكر طبيعي",
       "سكريات"
     ],
     "ingredients": [
@@ -70,8 +74,12 @@
     "type": "food",
     "category": "فواكه",
     "synonyms": [
-      "تمر",
+      "البلح",
+      "التمور",
+      "الرطب",
       "بلح",
+      "تمر",
+      "تمور",
       "رطب"
     ],
     "ingredients": [
@@ -148,9 +156,13 @@
     "type": "food",
     "category": "ألبان",
     "synonyms": [
-      "لبن",
+      "الحليب",
       "حليب",
-      "لبنة"
+      "لبن",
+      "لبن البقر",
+      "لبن الماعز",
+      "لبنة",
+      "لبنه"
     ],
     "ingredients": [
       "لبن"
@@ -169,9 +181,12 @@
     "type": "food",
     "category": "دهون",
     "synonyms": [
+      "الزيتون",
       "زيت",
+      "زيت الزيتون",
       "زيت زيتون",
-      "زيت نباتي"
+      "زيت نباتي",
+      "زيتون"
     ],
     "ingredients": [
       "زيت"
@@ -189,8 +204,20 @@
     "type": "food",
     "category": "بروتين",
     "synonyms": [
+      "البقر",
+      "الخروف",
+      "الضاني",
+      "المعز",
       "لحم",
-      "لحمة"
+      "لحم بقر",
+      "لحم جمل",
+      "لحم خروف",
+      "لحم ضاني",
+      "لحم معز",
+      "لحمة",
+      "لحمه",
+      "لحوم",
+      "لحوم المعز"
     ],
     "ingredients": [
       "لحم"
@@ -710,6 +737,214 @@
     "related_concepts": [
       "خضار",
       "ألياف"
+    ],
+    "confidence": "high",
+    "dialect": null
+  },
+  "الزبدة": {
+    "type": "food",
+    "category": "دهون",
+    "synonyms": [
+      "زبدة",
+      "زبده",
+      "السمن",
+      "سمن",
+      "سمنه"
+    ],
+    "ingredients": [
+      "زبدة",
+      "دهون"
+    ],
+    "strong_matches": [
+      "زبدة"
+    ],
+    "related_concepts": [
+      "دهون",
+      "طاقة"
+    ],
+    "confidence": "high",
+    "dialect": null
+  },
+  "الصيام": {
+    "type": "food",
+    "category": "نظام غذائي",
+    "synonyms": [
+      "صيام",
+      "صوم",
+      "صايم",
+      "رمضان",
+      "متقطع",
+      "انترمتنت"
+    ],
+    "ingredients": [
+      "صيام"
+    ],
+    "strong_matches": [
+      "صيام"
+    ],
+    "related_concepts": [
+      "نظام",
+      "حمية"
+    ],
+    "confidence": "high",
+    "dialect": null
+  },
+  "السمك": {
+    "type": "food",
+    "category": "بروتين",
+    "synonyms": [
+      "سمك",
+      "السمكه",
+      "اسماك"
+    ],
+    "ingredients": [
+      "سمك"
+    ],
+    "strong_matches": [
+      "سمك"
+    ],
+    "related_concepts": [
+      "بروتين"
+    ],
+    "confidence": "high",
+    "dialect": null
+  },
+  "الدجاج": {
+    "type": "food",
+    "category": "بروتين",
+    "synonyms": [
+      "دجاج",
+      "الفراخ",
+      "فراخ",
+      "دجاجه",
+      "فرخ",
+      "دجاج صناعي",
+      "دجاج بلدي"
+    ],
+    "ingredients": [
+      "دجاج"
+    ],
+    "strong_matches": [
+      "دجاج"
+    ],
+    "related_concepts": [
+      "بروتين",
+      "صناعي"
+    ],
+    "confidence": "high",
+    "dialect": null
+  },
+  "الزيتون": {
+    "type": "food",
+    "category": "دهون",
+    "synonyms": [
+      "زيتون",
+      "الزيت",
+      "زيت زيتون",
+      "زيت الزيتون"
+    ],
+    "ingredients": [
+      "زيتون",
+      "زيت"
+    ],
+    "strong_matches": [
+      "زيتون"
+    ],
+    "related_concepts": [
+      "دهون"
+    ],
+    "confidence": "high",
+    "dialect": null
+  },
+  "الخضار": {
+    "type": "food",
+    "category": "خضار",
+    "synonyms": [
+      "خضار",
+      "خضراوات",
+      "الخضراوات",
+      "خضروات",
+      "الخضروات"
+    ],
+    "ingredients": [
+      "خضار"
+    ],
+    "strong_matches": [
+      "خضار"
+    ],
+    "related_concepts": [
+      "خضار",
+      "الياف"
+    ],
+    "confidence": "high",
+    "dialect": null
+  },
+  "الجبن": {
+    "type": "food",
+    "category": "البان",
+    "synonyms": [
+      "جبن",
+      "الجبنه",
+      "جبنه",
+      "جبنة",
+      "جبن ابيض",
+      "جبن قريش",
+      "جبن رومي",
+      "جبن يذوب"
+    ],
+    "ingredients": [
+      "جبن",
+      "لبن"
+    ],
+    "strong_matches": [
+      "جبن"
+    ],
+    "related_concepts": [
+      "البان",
+      "بروتين"
+    ],
+    "confidence": "high",
+    "dialect": null
+  },
+  "العدس": {
+    "type": "food",
+    "category": "بقوليات",
+    "synonyms": [
+      "عدس",
+      "العدس البني",
+      "عدس بني",
+      "عدس اصفر"
+    ],
+    "ingredients": [
+      "عدس"
+    ],
+    "strong_matches": [
+      "عدس"
+    ],
+    "related_concepts": [
+      "بقوليات",
+      "نشويات"
+    ],
+    "confidence": "high",
+    "dialect": null
+  },
+  "الطماطم": {
+    "type": "food",
+    "category": "خضار",
+    "synonyms": [
+      "طماطم",
+      "طماطه",
+      "بندوره",
+      "البندوره"
+    ],
+    "ingredients": [
+      "طماطم"
+    ],
+    "strong_matches": [
+      "طماطم"
+    ],
+    "related_concepts": [
+      "خضار"
     ],
     "confidence": "high",
     "dialect": null

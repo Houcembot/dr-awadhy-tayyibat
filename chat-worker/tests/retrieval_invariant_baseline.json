@@ -1,14 +1,15 @@
 {
   "sugar": {
     "question_ar": "هل السكر صحي؟",
-    "top_block_id": "yt-GtEYhlcVZBI_1856",
+    "top_block_id": "yt-KWBFuJ_EIN4_2053",
     "mode": "v3_db_resume",
     "confidence_retrieval": "high",
     "confidence_source": "direct",
     "db_resume": {
-      "verdict": "PASS_WITH_EXPLANATION",
-      "simple": "بحسب كلام الدكتور ضياء، تناول البروتين بكميات كبيرة لا يبني العضلات تلقائياً كما يعتقد كثيرون.",
-      "explanation": "شرح مبسط: الكبد يكسر الأحماض الأمينية (وحدات البروتين) وينتج منها إما جلوكوز (طاقة) أو ألبومين (بروتين الدم)، فلا تذهب مباشرة إلى العضلات."
+      "verdict": "EXPERT_ONLY",
+      "doctrine_position": "neutral",
+      "simple": "بحسب كلام الدكتور ضياء، كل عنصر غذائي يدخل الخلايا بطريقة خاصة، فالأملاح والمعادن تمر بسهولة بينما البروتينات والسكريات تحتاج ناقلات.",
+      "explanation": "شرح مبسط: البروتينات والسكريات المعقدة تحتاج إلى ناقلات (transporters) خاصة داخل الخلية للانتقال."
     }
   },
   "rice": {
@@ -19,7 +20,8 @@
     "confidence_source": "direct",
     "db_resume": {
       "verdict": "PASS_SIMPLE",
-      "simple": "بحسب كلام الدكتور ضياء، الدقيق الأبيض يلتصق بجدار المعدة ولا يتركها بسهولة، بينما الطحين لا يلتصق بنفس الدرجة."
+      "doctrine_position": "bad_industrial",
+      "simple": "بحسب كلام الدكتور ضياء، الدقيق الأبيض المُكرَّر يلتصق بجدار المعدة ولا يفي الجسم، عكس الحبوب الكاملة الأصلية: الخبز كامل الحبة، الرز الأسمر، البقول. هذه أفضل."
     }
   },
   "green_salad": {
@@ -30,32 +32,42 @@
     "confidence_source": "direct",
     "db_resume": {
       "verdict": "PASS_WITH_EXPLANATION",
-      "simple": "بحسب كلام الدكتور ضياء، أحد المرضى كان يعاني من غدة وضغط وسكر وكوليسترول، وتحسّن بعد اتباع نظام الدكتور.",
-      "explanation": "شرح مبسط: هذا المريض جاء إلى الدكتور بعد سنوات من تراكم الأمراض (مشاكل غدة، ضغط، سكري، كوليسترول)، وبيّن كيف تحسّن بعد اعتماد المنهج الغذائي."
+      "doctrine_position": "good_for_dr_dia_system",
+      "simple": "بحسب كلام الدكتور ضياء، نظام الطيبات يحسّن مرضى الغدة والضغط والسكر والكوليسترول، وهذا مريض من مرضاه أكد تحسّنه.",
+      "explanation": "شرح مبسط: هذا المريض جاء بعد سنوات من تراكم الأمراض، وتحسّن بعد اعتماد نظام الطيبات."
     }
   },
   "egg": {
     "question_ar": "هل البيض صحي؟",
     "top_block_id": "yt-9vv6x9B9Am8_1500",
-    "mode": "v3_raw_fallback",
+    "mode": "v3_db_resume",
     "confidence_retrieval": "high",
     "confidence_source": "direct",
-    "db_resume": null
+    "db_resume": {
+      "verdict": "PASS_SIMPLE",
+      "doctrine_position": "bad_industrial",
+      "simple": "بحسب كلام الدكتور ضياء، البيض ليس المصدر الرئيسي للبروتين كما يُروَّج إعلانياً، والاعتماد عليه غير مناسب كأساس غذائي."
+    }
   },
   "butter_smen": {
     "question_ar": "هل الزبدة أو السمن صحي؟",
-    "top_block_id": null,
-    "mode": "v3_no_result",
-    "confidence_retrieval": "none",
-    "confidence_source": null,
-    "db_resume": null
+    "top_block_id": "yt-cZ7C3KVUYfM_000",
+    "mode": "v3_db_resume",
+    "confidence_retrieval": "high",
+    "confidence_source": "direct",
+    "db_resume": {
+      "verdict": "PASS_WITH_EXPLANATION",
+      "doctrine_position": "good",
+      "simple": "بحسب كلام الدكتور ضياء، الدهون الطبيعية (الزبدة، السمن، الشحوم) مفيدة وضرورية للجسم لإنتاج الطاقة، فهي ليست عدو الجسم.",
+      "explanation": "شرح مبسط: عندما يحرق الجسم الدهون، ينتج طاقة على شكل أسيتيل كو أيه، وهي نفس المادة التي تُصنع منها الأحماض العضوية الطبيعية مثل الخل."
+    }
   },
   "fish": {
     "question_ar": "هل السمك صحي؟",
-    "top_block_id": null,
-    "mode": "v3_no_result",
-    "confidence_retrieval": "none",
-    "confidence_source": null,
+    "top_block_id": "yt-g9CpntsLpt8_000",
+    "mode": "v3_raw_fallback",
+    "confidence_retrieval": "high",
+    "confidence_source": "direct",
     "db_resume": null
   },
   "white_bread": {
@@ -66,7 +78,8 @@
     "confidence_source": "direct",
     "db_resume": {
       "verdict": "PASS_SIMPLE",
-      "simple": "بحسب كلام الدكتور ضياء، الأكل الأصلي للإنسان كان حبوب ولحوم وفي النص الشحوم بتاعتها، والخبز في الزيت كان يفي الجسم بكل ما يحتاجه."
+      "doctrine_position": "good",
+      "simple": "بحسب كلام الدكتور ضياء، الخبز كامل الحبة مع الزيت كان غذاء الإنسان الأصلي وهو أفضل من الخبز المُصنَّع من الدقيق الأبيض المُكرَّر."
     }
   },
   "whole_bread": {
@@ -77,55 +90,64 @@
     "confidence_source": "direct",
     "db_resume": {
       "verdict": "PASS_SIMPLE",
-      "simple": "بحسب كلام الدكتور ضياء، الأكل الأصلي للإنسان كان حبوب ولحوم وفي النص الشحوم بتاعتها، والخبز في الزيت كان يفي الجسم بكل ما يحتاجه."
+      "doctrine_position": "good",
+      "simple": "بحسب كلام الدكتور ضياء، الخبز كامل الحبة مع الزيت كان غذاء الإنسان الأصلي وهو أفضل من الخبز المُصنَّع من الدقيق الأبيض المُكرَّر."
     }
   },
   "industrial_chicken": {
     "question_ar": "هل الدجاج الصناعي صحي؟",
-    "top_block_id": null,
-    "mode": "v3_no_result",
-    "confidence_retrieval": "none",
-    "confidence_source": null,
+    "top_block_id": "yt-Jgc1oVhmczI_834",
+    "mode": "v3_raw_fallback",
+    "confidence_retrieval": "medium",
+    "confidence_source": "fallback",
     "db_resume": null
   },
   "milk": {
     "question_ar": "هل اللبن غذاء مناسب للإنسان؟",
     "top_block_id": "yt-8AYaSqh52XY_824",
+    "mode": "v3_db_resume",
+    "confidence_retrieval": "high",
+    "confidence_source": "direct",
+    "db_resume": {
+      "verdict": "PASS_SIMPLE",
+      "doctrine_position": "bad",
+      "simple": "بحسب كلام الدكتور ضياء، اللبن ليس غذاء للإنسان البالغ، وادعاءات أنه يبني العظام والاعتماد عليه كلام إعلاني، والحل في نظام الطيبات."
+    }
+  },
+  "melting_cheese": {
+    "question_ar": "هل الجبن الذي يذوب صحي؟",
+    "top_block_id": "yt-uj0_wxTtvA0_4939",
     "mode": "v3_raw_fallback",
     "confidence_retrieval": "high",
     "confidence_source": "direct",
     "db_resume": null
   },
-  "melting_cheese": {
-    "question_ar": "هل الجبن الذي يذوب صحي؟",
-    "top_block_id": null,
-    "mode": "v3_no_result",
-    "confidence_retrieval": "none",
-    "confidence_source": null,
-    "db_resume": null
-  },
   "lentils": {
     "question_ar": "هل العدس صحي؟",
-    "top_block_id": null,
-    "mode": "v3_no_result",
-    "confidence_retrieval": "none",
-    "confidence_source": null,
+    "top_block_id": "yt-UMS3P_o9SoY_4344",
+    "mode": "v3_raw_fallback",
+    "confidence_retrieval": "high",
+    "confidence_source": "direct",
     "db_resume": null
   },
   "chickpeas": {
     "question_ar": "هل الحمص صحي؟",
     "top_block_id": "yt-Wn2ZmDoPku8_5143",
-    "mode": "v3_raw_fallback",
+    "mode": "v3_db_resume",
     "confidence_retrieval": "high",
     "confidence_source": "direct",
-    "db_resume": null
+    "db_resume": {
+      "verdict": "PASS_SIMPLE",
+      "doctrine_position": "bad",
+      "simple": "بحسب كلام الدكتور ضياء، البقول مثل الحمص والفول قد تكون مضرة لبعض الأشخاص (مرض الفافيزم)، وهي غير مناسبة كغذاء أساسي."
+    }
   },
   "tomato": {
     "question_ar": "هل الطماطم صحية؟",
-    "top_block_id": null,
-    "mode": "v3_no_result",
-    "confidence_retrieval": "none",
-    "confidence_source": null,
+    "top_block_id": "yt-2aUKZrCeOII_9747",
+    "mode": "v3_raw_fallback",
+    "confidence_retrieval": "high",
+    "confidence_source": "ingredient",
     "db_resume": null
   },
   "best_diet": {
