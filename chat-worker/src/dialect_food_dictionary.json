@@ -704,19 +704,22 @@
     "type": "food",
     "category": "مشروبات",
     "synonyms": [
-      "قهوة",
       "قهوه",
-      "قهوة عربية"
+      "القهوه",
+      "الكافيين",
+      "كافيين",
+      "caffe",
+      "coffee"
     ],
     "ingredients": [
-      "قهوة"
+      "قهوه"
     ],
     "strong_matches": [
-      "قهوة"
+      "قهوه",
+      "القهوه",
+      "الكافيين"
     ],
-    "related_concepts": [
-      "مشروبات"
-    ],
+    "related_concepts": [],
     "confidence": "high",
     "dialect": null
   },
@@ -1120,6 +1123,182 @@
     ],
     "related_concepts": [
       "الطب",
+      "الادويه"
+    ],
+    "confidence": "high",
+    "dialect": null
+  },
+  "المعكرونة": {
+    "type": "food",
+    "category": "نشويات",
+    "synonyms": [
+      "معكرونة",
+      "المكرونة",
+      "مكرونة",
+      "مكرونه",
+      "المعكرونه",
+      "معكرونه",
+      "سباغيتي",
+      "سباجيتي",
+      "ماكاروني",
+      "macaroni",
+      "pasta"
+    ],
+    "ingredients": [
+      "مكرونه",
+      "معكرونه"
+    ],
+    "strong_matches": [
+      "مكرونه",
+      "معكرونه",
+      "مكرونة"
+    ],
+    "related_concepts": [
+      "نشويات",
+      "دقيق"
+    ],
+    "confidence": "high",
+    "dialect": null
+  },
+  "القمح": {
+    "type": "food",
+    "category": "نشويات",
+    "synonyms": [
+      "قمح",
+      "حبوب القمح"
+    ],
+    "ingredients": [
+      "قمح"
+    ],
+    "strong_matches": [
+      "قمح"
+    ],
+    "related_concepts": [
+      "الخبز",
+      "دقيق",
+      "نشويات"
+    ],
+    "confidence": "high",
+    "dialect": null
+  },
+  "الكوليسترول": {
+    "type": "medical",
+    "category": "بيولوجي",
+    "synonyms": [
+      "كوليسترول",
+      "الكولسترول",
+      "cholesterol"
+    ],
+    "ingredients": [
+      "كوليسترول"
+    ],
+    "strong_matches": [
+      "كوليسترول",
+      "الكوليسترول"
+    ],
+    "related_concepts": [
+      "الدهون",
+      "شحوم"
+    ],
+    "confidence": "high",
+    "dialect": null
+  },
+  "الغدة": {
+    "type": "medical",
+    "category": "اعضاء",
+    "synonyms": [
+      "غده",
+      "الغده",
+      "غدة",
+      "غدد",
+      "الغدد",
+      "الدرقيه",
+      "غده درقيه",
+      "thyroid"
+    ],
+    "ingredients": [
+      "الغده"
+    ],
+    "strong_matches": [
+      "الغده",
+      "غده",
+      "الدرقيه"
+    ],
+    "related_concepts": [
+      "الطيبات",
+      "نظام"
+    ],
+    "confidence": "high",
+    "dialect": null
+  },
+  "الرياضة": {
+    "type": "concept",
+    "category": "نمط حياه",
+    "synonyms": [
+      "رياضه",
+      "رياضة",
+      "الجم",
+      "gym",
+      "تمارين",
+      "رياضات"
+    ],
+    "ingredients": [
+      "الرياضه"
+    ],
+    "strong_matches": [
+      "الرياضه",
+      "رياضه",
+      "الجم",
+      "تمارين"
+    ],
+    "related_concepts": [],
+    "confidence": "high",
+    "dialect": null
+  },
+  "الضغط": {
+    "type": "medical",
+    "category": "مرض",
+    "synonyms": [
+      "ضغط الدم",
+      "ضغط",
+      "الضغط العالي",
+      "الضغط المرتفع",
+      "hypertension",
+      "blood pressure"
+    ],
+    "ingredients": [
+      "الضغط"
+    ],
+    "strong_matches": [
+      "الضغط",
+      "ضغط الدم"
+    ],
+    "related_concepts": [
+      "الطيبات"
+    ],
+    "confidence": "high",
+    "dialect": null
+  },
+  "السرطان": {
+    "type": "medical",
+    "category": "مرض",
+    "synonyms": [
+      "سرطان",
+      "السرطان",
+      "cancer",
+      "ورم",
+      "الاورام"
+    ],
+    "ingredients": [
+      "السرطان"
+    ],
+    "strong_matches": [
+      "السرطان",
+      "سرطان",
+      "ورم"
+    ],
+    "related_concepts": [
+      "الخضار",
       "الادويه"
     ],
     "confidence": "high",

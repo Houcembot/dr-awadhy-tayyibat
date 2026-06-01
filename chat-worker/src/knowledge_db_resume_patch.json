@@ -199,5 +199,40 @@
     "verdict": "PASS_SIMPLE",
     "doctrine_position": "good_for_dr_dia_system",
     "simple": "نعم، الدور بياديه، اتقبل دوره، وعيش الدور بتاعك بس بلاش هتتقمسه."
+  },
+  "yt-2aUKZrCeOII_9240": {
+    "verdict": "PASS_SIMPLE",
+    "doctrine_position": "good",
+    "simple": "لا. القمحه \"ما بقتش هي قمحه سيدنا يوسف الصديق\"، ده \"قمحه ملعوف فيها\" و\"انا ماعرفش اعيش على التوس ده لوحده\"."
+  },
+  "yt-2aUKZrCeOII_7927": {
+    "verdict": "PASS_SIMPLE",
+    "doctrine_position": "good",
+    "simple": "لا، المضاد الحيوي \"بتخلي الحيوان يرمي لحمه فمش مهم اللحمه دي\"، و\"اللحمه بقى شكلها غريب دلوقتي ما بقتش لحمه سرحه\"."
+  },
+  "yt-VnXha6mPg5U_3326": {
+    "verdict": "PASS_SIMPLE",
+    "doctrine_position": "neutral",
+    "simple": "يعتمد، جسمك محتاج سكر اكتر وسكري يعلى مع الرياضه مع الصيام الكتير، حتى لو ما باكلش حاجه."
+  },
+  "yt-vnTAVlNmwDg_1221": {
+    "verdict": "PASS_SIMPLE",
+    "doctrine_position": "bad",
+    "simple": "لا، الخلايا السرطانية هي نفس الخلية الجسدية. هذه الخلايا الجسدية صدر لها أمر بالتحول وكان ضروري لحياة حضرتك."
+  },
+  "yt-uj0_wxTtvA0_4311": {
+    "verdict": "PASS_SIMPLE",
+    "doctrine_position": "good",
+    "simple": "نعم، الكوليسترول \"هو ده يا باشا الكوليسترول اللي بيترشق جوه هو الغشاء الخلوي\". \"مديه الغشاء الخلوي قوه ومخلياه فيه ميوعه عشان ما يتقطعش ما يتهربتش\" و\"دعامات شمعيه\"."
+  },
+  "yt-5gmJPBT-fnQ_322": {
+    "verdict": "PASS_SIMPLE",
+    "doctrine_position": "good_for_dr_dia_system",
+    "simple": "نعم، \"الغده ما بقتش تاخد دوا الغده\" و\"بتحسن اثناء الكيماوي\"."
+  },
+  "yt-Wn2ZmDoPku8_1008": {
+    "verdict": "PASS_SIMPLE",
+    "doctrine_position": "good_for_dr_dia_system",
+    "simple": "لا، ادويه الضغط من الحاجات ال مش محببه ليه لانها بتموت، وبتقلل الترويه لاماكن مهمه. انت اما بتوطي ضغطك في دراعك اعرف ان ضغطك في حتت تانيه قفل، وبيحصل كريتيكال بريشر."
   }
 }

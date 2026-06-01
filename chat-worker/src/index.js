@@ -214,11 +214,24 @@ export default {
         return Response.json({ error: 'missing_question' }, { status: 400, headers: corsHeaders(request) });
       const client2 = getClientInfo(request);
       if (env.RATE_LIMIT_KV) {
-        const { allowed } = await checkRateLimitV2(env.RATE_LIMIT_KV, client2.ip);
+        const { allowed } = await checkRateLimitV2(env.RATE_LIMIT_KV, client2.ip, request);
         if (!allowed)
           return Response.json({ answer: 'يرجى التمهل قليلاً.', sources: [], mode: 'v2_rate_limited' },
             { headers: corsHeaders(request) });
       }
+      // Greeting / small-talk handler — short messages with no food canonical
+      // should get a friendly response instead of "no result".
+      const qNorm = q2.replace(/[أإآ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي').toLowerCase();
+      const GREETINGS = ['سلام','السلام','مرحبا','اهلا','صباح','مساء','هاي','يا دكتور','شكرا','شكراً','شكر'];
+      if (q2.length <= 25 && GREETINGS.some(g => qNorm.includes(g.replace(/[أإآ]/g,'ا').replace(/ة/g,'ه')))) {
+        return Response.json({
+          answer: 'وعليكم السلام! أنا مساعد نظام الطيبات. اسألني عن صحتك أو أي طعام، مثلاً: "هل السكر صحي؟" أو "ما رأي الدكتور ضياء في الأنسولين؟"',
+          sources: [], mode: 'v3_greeting', confidence_retrieval: 'greeting',
+          confidence_source: null, understanding: null, db_resume: null,
+          raw_quote: null, evidence: [], video_url: null,
+        }, { headers: corsHeaders(request) });
+      }
+
       const results  = retrieveBlocks(q2);
       const debugAllowed = (url.searchParams.get('debug') === '1') || (env.DEBUG === 'true');
       const payload  = buildV2Response(q2, results, videoMap, { debug: debugAllowed });
@@ -252,7 +265,7 @@ export default {
 
     // Rate limit (burst + daily)
     if (env.RATE_LIMIT_KV) {
-      const { allowed, reason, usage: rateUsage } = await checkRateLimit(env.RATE_LIMIT_KV, client.ip);
+      const { allowed, reason, usage: rateUsage } = await checkRateLimit(env.RATE_LIMIT_KV, client.ip, request);
       usage = rateUsage;
       if (!allowed) {
         const msg = {
