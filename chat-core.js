@@ -1,4 +1,5 @@
-export const WORKER_URL = 'https://tayyibat-chat.houcemben.workers.dev/api/chat';
+export const WORKER_URL    = 'https://tayyibat-chat.houcemben.workers.dev/api/chat';
+export const WORKER_URL_V2 = 'https://tayyibat-chat.houcemben.workers.dev/api/chat_v2';
 
 const I18N = {
   fr: {
@@ -57,7 +58,16 @@ export async function fetchChat(question, lang) {
   return res.json();
 }
 
-function escapeHtml(str) {
+export async function fetchChatV2(question) {
+  const res = await fetch(WORKER_URL_V2, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ question })
+  });
+  return res.json();
+}
+
+export function escapeHtml(str) {
   return String(str || '').replace(/[&<>"']/g, c =>
     ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[c])
   );
