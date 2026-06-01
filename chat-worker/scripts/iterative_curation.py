@@ -33,24 +33,27 @@ def drift_check(simple, raw_quote, min_ratio=0.80):
     """Returns (passed, ratio, missing_words). Words ≥4 chars in simple
     must appear in raw_quote (normalized). Quoted strings get stricter check."""
     raw_norm = normalize_ar(raw_quote)
-    # Check quoted strings — must be near-verbatim
+
+    def in_raw(w):
+        if w in raw_norm: return True
+        if w.startswith('ال') and len(w) > 3 and w[2:] in raw_norm: return True
+        if w.startswith('و') and len(w) > 2 and w[1:] in raw_norm: return True
+        if w.startswith('ف') and len(w) > 2 and w[1:] in raw_norm: return True
+        return False
+
+    # Check quoted strings — must be near-verbatim (≥85%)
     for q in re.findall(r'"([^"]+)"', simple):
         if len(q) < 5: continue
         qn = normalize_ar(q)
         words = qn.split()
-        hits = sum(1 for w in words if w in raw_norm)
+        hits = sum(1 for w in words if in_raw(w))
         if hits / max(1, len(words)) < 0.85:
-            return False, hits / max(1, len(words)), [w for w in words if w not in raw_norm]
+            return False, hits / max(1, len(words)), [w for w in words if not in_raw(w)]
     # Check whole simple's non-trivial words
     sn = normalize_ar(simple)
-    STOPWORDS = {'بحسب','كلام','الدكتور','ضياء','يقول','حسب','حرفيا','حرفياً','الدكتور','نعم','لا','هذا','هذه','هو','هي','من','في','على','الذي','التي','كما','وهو','وهي','مع','عن','لان','لأن','يعتبر','يصف','وهو','بأن'}
+    STOPWORDS = {'بحسب','كلام','الدكتور','ضياء','يقول','حسب','حرفيا','حرفياً','الدكتور','نعم','لا','هذا','هذه','هو','هي','من','في','على','الذي','التي','كما','وهو','وهي','مع','عن','لان','لأن','يعتبر','يصف','وهو','بأن','حسب','كلام'}
     words = [w for w in sn.split() if len(w) >= 4 and w not in STOPWORDS]
     if not words: return True, 1.0, []
-    def in_raw(w):
-        if w in raw_norm: return True
-        if w.startswith('ال') and w[2:] in raw_norm: return True
-        if w.startswith('و') and w[1:] in raw_norm: return True
-        return False
     hits = sum(1 for w in words if in_raw(w))
     ratio = hits / len(words)
     missing = [w for w in words if not in_raw(w)]
