@@ -729,13 +729,15 @@
     ],
     "ingredients": [
       "سلطة",
-      "خضار"
+      "خضار",
+      "خضروات"
     ],
     "strong_matches": [
-      "سلطة"
+      "سلطة",
+      "خضار",
+      "خضروات"
     ],
     "related_concepts": [
-      "خضار",
       "ألياف"
     ],
     "confidence": "high",
@@ -945,6 +947,180 @@
     ],
     "related_concepts": [
       "خضار"
+    ],
+    "confidence": "high",
+    "dialect": null
+  },
+  "الأنسولين": {
+    "type": "medical",
+    "category": "دواء",
+    "synonyms": [
+      "انسولين",
+      "الانسولين",
+      "الإنسولين"
+    ],
+    "ingredients": [
+      "انسولين"
+    ],
+    "strong_matches": [
+      "انسولين",
+      "الانسولين"
+    ],
+    "related_concepts": [
+      "السكر",
+      "الدوا",
+      "صيدله"
+    ],
+    "confidence": "high",
+    "dialect": null
+  },
+  "مرض السكر": {
+    "type": "disease",
+    "category": "مرض",
+    "synonyms": [
+      "السكري",
+      "داء السكر",
+      "السكري النوع الاول",
+      "النوع الاول"
+    ],
+    "ingredients": [
+      "السكر"
+    ],
+    "strong_matches": [
+      "مرض السكر",
+      "السكري",
+      "السكر مرض"
+    ],
+    "related_concepts": [
+      "انسولين",
+      "البنكرياس"
+    ],
+    "confidence": "high",
+    "dialect": null
+  },
+  "نظام الطيبات": {
+    "type": "system",
+    "category": "نظام",
+    "synonyms": [
+      "الطيبات",
+      "النظام",
+      "نظام",
+      "التطيبات"
+    ],
+    "ingredients": [
+      "الطيبات"
+    ],
+    "strong_matches": [
+      "الطيبات",
+      "نظام الطيبات"
+    ],
+    "related_concepts": [
+      "الصيام",
+      "الفطره"
+    ],
+    "confidence": "high",
+    "dialect": null
+  },
+  "الأدوية": {
+    "type": "medical",
+    "category": "دواء",
+    "synonyms": [
+      "الادويه",
+      "الدوا",
+      "دواء",
+      "شركات الادويه",
+      "الفارما",
+      "الطب",
+      "الطب التقليدي",
+      "الطب الرسمي"
+    ],
+    "ingredients": [
+      "الدوا",
+      "الادويه"
+    ],
+    "strong_matches": [
+      "الادويه",
+      "الدوا",
+      "الطب"
+    ],
+    "related_concepts": [
+      "تجاره",
+      "شركات",
+      "نقابه"
+    ],
+    "confidence": "high",
+    "dialect": null
+  },
+  "الخلايا": {
+    "type": "medical",
+    "category": "بيولوجي",
+    "synonyms": [
+      "خلايا",
+      "الخليه",
+      "خليه"
+    ],
+    "ingredients": [
+      "الخلايا"
+    ],
+    "strong_matches": [
+      "الخلايا",
+      "خلايا",
+      "الخليه"
+    ],
+    "related_concepts": [
+      "السكر",
+      "طاقه",
+      "جلوكوز"
+    ],
+    "confidence": "high",
+    "dialect": null
+  },
+  "الفطرة": {
+    "type": "concept",
+    "category": "فلسفه",
+    "synonyms": [
+      "الفطره",
+      "فطره",
+      "الاكل الاصلي",
+      "الاصلي",
+      "طبيعي"
+    ],
+    "ingredients": [
+      "الفطره",
+      "الاكل الاصلي"
+    ],
+    "strong_matches": [
+      "الفطره",
+      "الاكل الاصلي"
+    ],
+    "related_concepts": [
+      "الطيبات",
+      "حبوب",
+      "لحوم"
+    ],
+    "confidence": "high",
+    "dialect": null
+  },
+  "النقابة": {
+    "type": "institutional",
+    "category": "مؤسسه",
+    "synonyms": [
+      "نقابه",
+      "نقابة الاطباء",
+      "رخصه",
+      "الرخصه",
+      "الاوقاف"
+    ],
+    "ingredients": [
+      "نقابه"
+    ],
+    "strong_matches": [
+      "نقابه",
+      "رخصه"
+    ],
+    "related_concepts": [
+      "الطب",
+      "الادويه"
     ],
     "confidence": "high",
     "dialect": null

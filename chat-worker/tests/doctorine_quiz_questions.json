@@ -13,5 +13,5 @@
   { "id": "lentils",            "question_ar": "هل العدس صحي؟" },
   { "id": "chickpeas",          "question_ar": "هل الحمص صحي؟" },
   { "id": "tomato",             "question_ar": "هل الطماطم صحية؟" },
-  { "id": "best_diet",          "question_ar": "ما هو أفضل نظام غذائي؟" }
+  { "id": "best_diet",          "question_ar": "هل الصيام هو أفضل نظام غذائي؟" }
 ]

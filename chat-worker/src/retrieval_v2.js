@@ -48,8 +48,14 @@ for (const [id, block] of BLOCK_MAP) {
 // +25 doctrine boost. Prevents bread-doctrine blocks from stealing sugar
 // queries just because they have a db_resume.
 const DB_RESUME_NORM = new Map();
+// Set of block ids whose doctrine_position is a clear verdict (good/bad/
+// natural/bad_industrial/good_natural/good_for_dr_dia_system). Blocks with a
+// clear stance outrank "neutral" expert blocks on doctrine queries.
+const VERDICT_BLOCKS = new Set();
+const NEUTRAL_POSITIONS = new Set(['neutral', null, undefined, '']);
 for (const [id, entry] of Object.entries(dbResumePatch)) {
   if (entry && entry.simple) DB_RESUME_NORM.set(id, normalizeArabic(entry.simple));
+  if (entry && !NEUTRAL_POSITIONS.has(entry.doctrine_position)) VERDICT_BLOCKS.add(id);
 }
 
 // Per-question detectConcepts cache (bounded at 256 entries — safe for Workers).
@@ -132,11 +138,14 @@ const GENERIC_SYNONYMS_NORM = GENERIC_SYNONYMS.map(normalizeArabic);
 function classifyBlock(hits) {
   const conceptHits = hits.canonical.length + hits.strong.length + hits.related.length;
 
-  // DIRECT: 1+ canonical hit is enough.
+  // DIRECT: 1+ canonical hit, OR 2+ strong matches (dish→ingredient routing).
   if (hits.canonical.length > 0) return 'direct';
+  if (hits.strong.length >= 2)  return 'direct';
 
-  // INGREDIENT: no canonical, but a strong match AND >=2 distinct concepts total.
-  if (hits.strong.length > 0 && conceptHits >= 2) return 'ingredient';
+  // INGREDIENT: a strong match counts on its own (density + verdict bonuses
+  // handle relevance ranking). Previously required 2 concept hits total which
+  // discarded blocks where Dr Dia talks ABOUT the ingredient densely.
+  if (hits.strong.length > 0) return 'ingredient';
 
   // FALLBACK: no canonical AND no strong, but >=2 distinct related concepts.
   if (hits.strong.length === 0 && hits.canonical.length === 0 && hits.related.length >= 2) {
@@ -146,6 +155,15 @@ function classifyBlock(hits) {
   return null;
 }
 
+// ── Intent detection ─────────────────────────────────────────────────────────
+// Cheap pre-normalize-once detection: positive intent (whole/natural/original)
+// or negative intent (white/refined/industrial). Used to bias scoring toward
+// blocks whose doctrine_position aligns with the user's framing.
+const POSITIVE_QUERY_TOKENS = ['كامل', 'الاصلي', 'اصلي', 'طبيعي', 'حبه كامله'];
+const NEGATIVE_QUERY_TOKENS = ['ابيض', 'الابيض', 'مكرر', 'المكرر', 'صناعي', 'الصناعي', 'مصنع'];
+const GOOD_POSITIONS = new Set(['good', 'good_natural', 'good_for_dr_dia_system', 'natural', 'fasting']);
+const BAD_POSITIONS  = new Set(['bad', 'bad_industrial']);
+
 // ── Main retrieval ────────────────────────────────────────────────────────────
 export function retrieveBlocks(question, topN = 3) {
   const concepts = detectConceptsCached(question);
@@ -154,6 +172,11 @@ export function retrieveBlocks(question, topN = 3) {
                     || concepts.strong_matches.length > 0
                     || concepts.related_concepts.length > 0;
   if (!hasAnyConcept) return [];
+
+  // Detect query polarity intent.
+  const qn = normalizeArabic(question);
+  const isPositiveQuery = POSITIVE_QUERY_TOKENS.some(t => qn.includes(t));
+  const isNegativeQuery = NEGATIVE_QUERY_TOKENS.some(t => qn.includes(t));
 
   // ── Candidate selection via inverted index (replaces full scan) ──────────
   // Union all blocks that contain ANY of the question's concepts (any category).
@@ -230,8 +253,26 @@ export function retrieveBlocks(question, topN = 3) {
       }
       const simpleNorm = DB_RESUME_NORM.get(id);
       if (simpleNorm) {
+        let relevant = false;
         for (const cn of canonicalNorm) {
-          if (simpleNorm.includes(cn)) { score += 25; break; }
+          if (simpleNorm.includes(cn)) { relevant = true; break; }
+        }
+        if (!relevant) {
+          for (const sn of strongNorm) {
+            if (simpleNorm.includes(sn)) { relevant = true; break; }
+          }
+        }
+        if (relevant) {
+          score += 25;
+          // Verdict blocks (good/bad/natural) outrank neutral expert blocks
+          // when both have a relevant db_resume.
+          if (VERDICT_BLOCKS.has(id)) score += 35;
+          // Intent alignment: positive query → boost good-doctrine blocks,
+          // negative query → boost bad-doctrine blocks. Disambiguates
+          // ambiguous topics (whole vs white bread, natural vs industrial sugar).
+          const pos = dbResumePatch[id]?.doctrine_position;
+          if (isPositiveQuery && GOOD_POSITIONS.has(pos)) score += 30;
+          if (isNegativeQuery && BAD_POSITIONS.has(pos))  score += 30;
         }
       }
     }
@@ -252,8 +293,15 @@ export function retrieveBlocks(question, topN = 3) {
   const poolFallback   = scoredAll.filter(x => x.confidence_source === 'fallback');
 
   let activePool;
-  if      (poolDirect.length     > 0) activePool = poolDirect;
+  // If poolDirect's best is weak (< 90 — no verdict block won) AND
+  // poolIngredient has a stronger candidate, prefer ingredient pool. This
+  // lets a high-density verdict block (e.g., الخضار for السلطة query) beat
+  // a low-relevance direct match (e.g., testimonial mentioning سلطة once).
+  const topDirect     = poolDirect[0]?.score     ?? 0;
+  const topIngredient = poolIngredient[0]?.score ?? 0;
+  if      (poolDirect.length > 0 && (topDirect >= 90 || topDirect >= topIngredient)) activePool = poolDirect;
   else if (poolIngredient.length > 0) activePool = poolIngredient;
+  else if (poolDirect.length     > 0) activePool = poolDirect;
   else if (poolFallback.length   > 0) activePool = poolFallback;
   else                                activePool = [];
 

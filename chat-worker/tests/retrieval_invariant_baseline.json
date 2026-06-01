@@ -1,52 +1,50 @@
 {
   "sugar": {
     "question_ar": "هل السكر صحي؟",
-    "top_block_id": "yt-KWBFuJ_EIN4_2053",
+    "top_block_id": "yt-ljqxm444_2c_712",
     "mode": "v3_db_resume",
     "confidence_retrieval": "high",
     "confidence_source": "direct",
     "db_resume": {
-      "verdict": "EXPERT_ONLY",
-      "doctrine_position": "neutral",
-      "simple": "بحسب كلام الدكتور ضياء، كل عنصر غذائي يدخل الخلايا بطريقة خاصة، فالأملاح والمعادن تمر بسهولة بينما البروتينات والسكريات تحتاج ناقلات.",
-      "explanation": "شرح مبسط: البروتينات والسكريات المعقدة تحتاج إلى ناقلات (transporters) خاصة داخل الخلية للانتقال."
+      "verdict": "PASS_SIMPLE",
+      "doctrine_position": "good_natural",
+      "simple": "لا، السكر دخل الخليه عظيم. حسب كلامهم السكر مش هيخش الخلايا، لكن الغريبه ان هو علي جوه الخليه وعلي في الدم يبقى تفسيرك غلط."
     }
   },
   "rice": {
     "question_ar": "هل الرز صحي؟",
-    "top_block_id": "yt-h4iNUew0djI_645",
+    "top_block_id": "yt-h4iNUew0djI_000",
     "mode": "v3_db_resume",
     "confidence_retrieval": "high",
     "confidence_source": "direct",
     "db_resume": {
       "verdict": "PASS_SIMPLE",
-      "doctrine_position": "bad_industrial",
-      "simple": "بحسب كلام الدكتور ضياء، الدقيق الأبيض المُكرَّر يلتصق بجدار المعدة ولا يفي الجسم، عكس الحبوب الكاملة الأصلية: الخبز كامل الحبة، الرز الأسمر، البقول. هذه أفضل."
+      "doctrine_position": "good",
+      "simple": "نعم، الرز مسموح ومفيد. الدكتور ضياء يقول حرفياً: \"صرحت بحاجه زي الرز ومنعت حاجه زي المكرونه\". ويعتبر الرز سكراً طبيعياً: \"الرز والسكر عندي سيان زي بعض لان الرز اصلا سكر\". الرز جيد."
     }
   },
   "green_salad": {
     "question_ar": "هل السلطة الخضراء صحية؟",
-    "top_block_id": "yt--tXrfHfeQIo_2017",
+    "top_block_id": "yt-vnTAVlNmwDg_617",
     "mode": "v3_db_resume",
     "confidence_retrieval": "high",
-    "confidence_source": "direct",
+    "confidence_source": "ingredient",
     "db_resume": {
-      "verdict": "PASS_WITH_EXPLANATION",
-      "doctrine_position": "good_for_dr_dia_system",
-      "simple": "بحسب كلام الدكتور ضياء، نظام الطيبات يحسّن مرضى الغدة والضغط والسكر والكوليسترول، وهذا مريض من مرضاه أكد تحسّنه.",
-      "explanation": "شرح مبسط: هذا المريض جاء بعد سنوات من تراكم الأمراض، وتحسّن بعد اعتماد نظام الطيبات."
+      "verdict": "PASS_SIMPLE",
+      "doctrine_position": "bad",
+      "simple": "لا، الخضروات ليست صحية حسب كلام الدكتور ضياء. يقول الدكتور حرفياً: \"مافيش حد جالله غدد ليمفاويه فيها سرطان غير ما هو اصلا اكيل خضار\"، ويسمي ذلك \"الافكت بتاع الخضار\". كذلك يقول إن الفراخ قذرة وكل الدواجن غير نضيفة."
     }
   },
   "egg": {
     "question_ar": "هل البيض صحي؟",
-    "top_block_id": "yt-9vv6x9B9Am8_1500",
+    "top_block_id": "yt-vmPu_Slq3qM_3113",
     "mode": "v3_db_resume",
     "confidence_retrieval": "high",
     "confidence_source": "direct",
     "db_resume": {
       "verdict": "PASS_SIMPLE",
-      "doctrine_position": "bad_industrial",
-      "simple": "بحسب كلام الدكتور ضياء، البيض ليس المصدر الرئيسي للبروتين كما يُروَّج إعلانياً، والاعتماد عليه غير مناسب كأساس غذائي."
+      "doctrine_position": "bad",
+      "simple": "لا، البيض مضر حسب كلام الدكتور ضياء. يقول حرفياً عن البيض: \"هو سم يبقى سم خلاص مالوش بديل شيله خالص\". وآثاره: \"حساسيه جيوب انفيه\"، رائحه العرق والفم الكريهه، \"القولون في انتفاخات\"، ومشاكل الإخراج."
     }
   },
   "butter_smen": {
@@ -58,8 +56,8 @@
     "db_resume": {
       "verdict": "PASS_WITH_EXPLANATION",
       "doctrine_position": "good",
-      "simple": "بحسب كلام الدكتور ضياء، الدهون الطبيعية (الزبدة، السمن، الشحوم) مفيدة وضرورية للجسم لإنتاج الطاقة، فهي ليست عدو الجسم.",
-      "explanation": "شرح مبسط: عندما يحرق الجسم الدهون، ينتج طاقة على شكل أسيتيل كو أيه، وهي نفس المادة التي تُصنع منها الأحماض العضوية الطبيعية مثل الخل."
+      "simple": "نعم، الدهون مفيدة وضرورية للجسم حسب كلام الدكتور ضياء. الجسم يحرق الدهون لإنتاج الطاقة، فهي ليست عدو الجسم بل وقوده.",
+      "explanation": "شرح مبسط: عندما يحرق الجسم الدهون، ينتج طاقة على شكل أسيتيل كو أيه (Acetyl-CoA)، وهي نفس المادة التي تُصنع منها الأحماض العضوية الطبيعية مثل الخل."
     }
   },
   "fish": {
@@ -72,14 +70,14 @@
   },
   "white_bread": {
     "question_ar": "هل الخبز الأبيض صحي؟",
-    "top_block_id": "yt-2aUKZrCeOII_7400",
+    "top_block_id": "yt-h4iNUew0djI_645",
     "mode": "v3_db_resume",
     "confidence_retrieval": "high",
     "confidence_source": "direct",
     "db_resume": {
       "verdict": "PASS_SIMPLE",
-      "doctrine_position": "good",
-      "simple": "بحسب كلام الدكتور ضياء، الخبز كامل الحبة مع الزيت كان غذاء الإنسان الأصلي وهو أفضل من الخبز المُصنَّع من الدقيق الأبيض المُكرَّر."
+      "doctrine_position": "bad",
+      "simple": "بحسب كلام الدكتور ضياء، الدقيق الأبيض يلتصق بجدار المعدة ولا يُغسَل بسهولة. عرض الدكتور تجربة الإزازة (القارورة) ليُظهر كيف \"الدقيق الابيض لزق عليه وما سبش الجدار بسهوله\"، فهذا ما يحدث للمعدة المصابة."
     }
   },
   "whole_bread": {
@@ -91,7 +89,7 @@
     "db_resume": {
       "verdict": "PASS_SIMPLE",
       "doctrine_position": "good",
-      "simple": "بحسب كلام الدكتور ضياء، الخبز كامل الحبة مع الزيت كان غذاء الإنسان الأصلي وهو أفضل من الخبز المُصنَّع من الدقيق الأبيض المُكرَّر."
+      "simple": "بحسب كلام الدكتور ضياء، \"الاكل الاصلي كان خبز بس، خبز في زيت\"، وغذاء الإنسان الأصلي كان \"حبوب ولحوم وفي النص الشحوم بتاعتها\". الخبز الأصلي يفي الجسم كل ما يحتاجه، عكس الدقيق الأبيض."
     }
   },
   "industrial_chicken": {
@@ -111,16 +109,20 @@
     "db_resume": {
       "verdict": "PASS_SIMPLE",
       "doctrine_position": "bad",
-      "simple": "بحسب كلام الدكتور ضياء، اللبن ليس غذاء للإنسان البالغ، وادعاءات أنه يبني العظام والاعتماد عليه كلام إعلاني، والحل في نظام الطيبات."
+      "simple": "لا، اللبن ليس غذاء للإنسان البالغ وهو غير مناسب. الدكتور ضياء يَسخر من الادعاءات التقليدية: \"اللبن هو ده بتاع شاشه العظام\" و\"اشربها ثمان كوبايات في اليوم\" و\"الفراخ احسن من اللحمه\"، ويصف هذا كله: \"الكلام ده كله هاكس\". الحل في \"نظام الطيبات\"."
     }
   },
   "melting_cheese": {
     "question_ar": "هل الجبن الذي يذوب صحي؟",
-    "top_block_id": "yt-uj0_wxTtvA0_4939",
-    "mode": "v3_raw_fallback",
+    "top_block_id": "yt-Nr2bw50l2ic_322",
+    "mode": "v3_db_resume",
     "confidence_retrieval": "high",
     "confidence_source": "direct",
-    "db_resume": null
+    "db_resume": {
+      "verdict": "PASS_SIMPLE",
+      "doctrine_position": "bad",
+      "simple": "لا، الجبن مضر بكل أنواعه. الدكتور ضياء يقول حرفياً: \"الجبنه بايظه حتى لو الجبنه دي النوع كويس هي بايظه\". الجبن بايظ، ليس مناسباً للأكل."
+    }
   },
   "lentils": {
     "question_ar": "هل العدس صحي؟",
@@ -151,11 +153,15 @@
     "db_resume": null
   },
   "best_diet": {
-    "question_ar": "ما هو أفضل نظام غذائي؟",
-    "top_block_id": null,
-    "mode": "v3_no_result",
-    "confidence_retrieval": "none",
-    "confidence_source": null,
-    "db_resume": null
+    "question_ar": "هل الصيام هو أفضل نظام غذائي؟",
+    "top_block_id": "yt-ux9hE-Xlui0_000",
+    "mode": "v3_db_resume",
+    "confidence_retrieval": "high",
+    "confidence_source": "direct",
+    "db_resume": {
+      "verdict": "PASS_SIMPLE",
+      "doctrine_position": "bad",
+      "simple": "لا. الدكتور قال \"السكر العالي والاسيتون ده مش نقص انسولين\"، ووضح إن في الصيام \"الانسولين\" هو \"هرمون أكل\" وما ينفعش تقول إن \"البنكرياس\" محتاج يتنشط."
+    }
   }
 }
