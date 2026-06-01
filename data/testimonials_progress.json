@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-01T23:10:33",
+  "updated_at": "2026-06-01T23:20:35",
   "total": 208,
-  "downloaded": 22,
+  "downloaded": 23,
   "failed": 0,
-  "pending": 184,
-  "archive_gib": 0.64,
+  "pending": 183,
+  "archive_gib": 0.66,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "-Z1S7mgZvBQ",
-    "url": "https://www.youtube.com/watch?v=-Z1S7mgZvBQ",
-    "title": "تجربتي الشخصية في نظام الطيبات وشهاده حق عن تجربه شخصية رحمة الله علي الدكتور ضياء العوضي ",
-    "duration_seconds": 690,
+    "id": "iX9JEln2gYk",
+    "url": "https://www.youtube.com/watch?v=iX9JEln2gYk",
+    "title": "مواطن عربي رياضي يحكي تجربته مع نظام الطيبات للدكتور ضياء العوضي ومشاكل القولون.. راحة مو طبيعية!",
+    "duration_seconds": 769,
     "status": "downloaded",
-    "triage_subject": "testimonial_testimonial_general",
+    "triage_subject": "testimonial_colon",
     "triage_priority": 116,
     "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; duree exploitable",
-    "started_at": "2026-06-01T23:10:01",
-    "finished_at": "2026-06-01T23:10:33"
+    "started_at": "2026-06-01T23:20:01",
+    "finished_at": "2026-06-01T23:20:35"
   },
   "recent": [
-    {
-      "id": "ID9QUIqoK04",
-      "title": "تجربتي مع الصيام المتقطع وبرنامج د. ضياء العوضي | كيف يتغير الجسم والعقل تلقائيًا؟",
-      "duration_seconds": 658
-    },
     {
       "id": "GinkSV1-lxA",
       "title": "مريض سكر بعد جلطات بالقلب و بتر جرب نظام الطيبات لدكتور ضياء العوضي و بحكي تجربته مه د ضياء العوضي",
@@ -38,6 +33,11 @@
       "id": "-Z1S7mgZvBQ",
       "title": "تجربتي الشخصية في نظام الطيبات وشهاده حق عن تجربه شخصية رحمة الله علي الدكتور ضياء العوضي ",
       "duration_seconds": 690
+    },
+    {
+      "id": "iX9JEln2gYk",
+      "title": "مواطن عربي رياضي يحكي تجربته مع نظام الطيبات للدكتور ضياء العوضي ومشاكل القولون.. راحة مو طبيعية!",
+      "duration_seconds": 769
     },
     {
       "id": "F14WbxGzDmQ",
