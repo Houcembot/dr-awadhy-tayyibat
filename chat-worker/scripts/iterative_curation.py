@@ -43,13 +43,17 @@ def drift_check(simple, raw_quote, min_ratio=0.80):
             return False, hits / max(1, len(words)), [w for w in words if w not in raw_norm]
     # Check whole simple's non-trivial words
     sn = normalize_ar(simple)
-    # Strip common Arabic structural words that don't carry topical content
     STOPWORDS = {'بحسب','كلام','الدكتور','ضياء','يقول','حسب','حرفيا','حرفياً','الدكتور','نعم','لا','هذا','هذه','هو','هي','من','في','على','الذي','التي','كما','وهو','وهي','مع','عن','لان','لأن','يعتبر','يصف','وهو','بأن'}
     words = [w for w in sn.split() if len(w) >= 4 and w not in STOPWORDS]
     if not words: return True, 1.0, []
-    hits = sum(1 for w in words if w in raw_norm)
+    def in_raw(w):
+        if w in raw_norm: return True
+        if w.startswith('ال') and w[2:] in raw_norm: return True
+        if w.startswith('و') and w[1:] in raw_norm: return True
+        return False
+    hits = sum(1 for w in words if in_raw(w))
     ratio = hits / len(words)
-    missing = [w for w in words if w not in raw_norm]
+    missing = [w for w in words if not in_raw(w)]
     return ratio >= min_ratio, ratio, missing[:8]
 
 def find_candidates(topic_terms, verdict_markers, blocks, top_n=5):
