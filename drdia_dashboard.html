@@ -49,6 +49,23 @@ a{color:#7ec8e3;text-decoration:none}a:hover{text-decoration:underline}
 <h1>🎙️ DrDia — Tableau de bord</h1>
 <div class="meta">Mis à jour : 2026-05-29 10:20 &nbsp;·&nbsp; <a href="javascript:location.reload()">↺ Rafraîchir</a></div>
 
+<!-- ───────── Section Videos Expérience (testimonials) ───────── -->
+<h2>📼 Vidéos expérience — téléchargement RocBot</h2>
+<div id="testimonials-card" style="background:#f7f7f9;border:1px solid #e0e0e8;border-radius:10px;padding:18px 22px;margin-bottom:24px">
+  <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+    <div style="flex:0 0 auto;font-size:2.2em">📼</div>
+    <div style="flex:1;min-width:300px">
+      <div style="font-weight:600;font-size:1.05em" id="te-title">Chargement…</div>
+      <div id="te-bar-wrap" style="margin-top:10px;background:#e2e2ea;border-radius:6px;height:18px;overflow:hidden;position:relative">
+        <div id="te-bar" style="background:linear-gradient(90deg,#5b8def,#7b6cf8);height:100%;width:0%;transition:width 600ms ease"></div>
+        <div id="te-bar-label" style="position:absolute;top:0;left:0;right:0;line-height:18px;text-align:center;color:#111;font-size:.85em;font-weight:600"></div>
+      </div>
+      <div style="margin-top:6px;color:#666;font-size:.88em" id="te-meta"></div>
+    </div>
+  </div>
+  <div id="te-recent" style="margin-top:14px;color:#444;font-size:.9em"></div>
+</div>
+
 <h2>📋 Rapport de travail — 48h (2026-05-27 → 2026-05-29)</h2>
 <div class="timeline">
 
@@ -673,7 +690,20 @@ a{color:#7ec8e3;text-decoration:none}a:hover{text-decoration:underline}
 const PWD='tayyibat2026';
 const K='drdia_auth';
 function check(){const v=document.getElementById('pwd').value;if(v===PWD){localStorage.setItem(K,'1');unlock()}else document.getElementById('err').textContent='Mot de passe incorrect';}
-function unlock(){document.getElementById('lock').style.display='none';document.getElementById('content').style.display='block';loadChatStats();}
+function unlock(){document.getElementById('lock').style.display='none';document.getElementById('content').style.display='block';loadChatStats();loadTestimonials();}
+function loadTestimonials(){
+  fetch('data/testimonials_progress.json?t='+Date.now()).then(r=>r.ok?r.json():null).then(d=>{
+    if(!d){document.getElementById('te-title').textContent='Pas encore de données';return;}
+    const pct=Math.round(100*d.downloaded/d.total);
+    document.getElementById('te-title').textContent=d.downloaded+' / '+d.total+' vidéos expérience téléchargées';
+    document.getElementById('te-bar').style.width=pct+'%';
+    document.getElementById('te-bar-label').textContent=pct+'%';
+    document.getElementById('te-meta').textContent='Archive : '+d.archive_gib.toFixed(1)+' GiB / '+d.max_gib+' GiB · Pending: '+d.pending+(d.failed?(' · Failed: '+d.failed):'')+' · Mis à jour : '+d.updated_at;
+    const esc=v=>String(v||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
+    const recent=(d.recent||[]).slice().reverse().map(v=>'<div style="margin:3px 0">→ <a href="https://youtu.be/'+esc(v.id)+'" target="_blank" style="color:#5b8def">'+esc(v.id)+'</a> &nbsp;<span style="color:#888">'+esc(v.title)+'</span></div>').join('');
+    document.getElementById('te-recent').innerHTML=recent?('<div style="font-weight:600;margin-bottom:6px">Derniers téléchargements :</div>'+recent):'';
+  }).catch(e=>{document.getElementById('te-title').textContent='Erreur chargement progression';});
+}
 if(localStorage.getItem(K)==='1') unlock();
 function loadChatStats(){
   const root=document.getElementById('chat-stats'); if(!root || root.dataset.loaded) return; root.dataset.loaded='1';

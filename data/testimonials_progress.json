@@ -1,0 +1,38 @@
+{
+  "updated_at": "2026-06-01T19:23:16",
+  "total": 208,
+  "downloaded": 3,
+  "failed": 0,
+  "pending": 205,
+  "archive_gib": 0.06,
+  "max_gib": 100.0,
+  "last_downloaded": {
+    "id": "oOK-XAimU8Q",
+    "url": "https://www.youtube.com/watch?v=oOK-XAimU8Q",
+    "title": "تجربتي مع نظام الطيبات بعد 50 يوم: هل تغيرت حياتي فعلاً؟ 🤔 | نتائج مذهلة!",
+    "duration_seconds": 188,
+    "status": "downloaded",
+    "triage_subject": "testimonial_testimonial_general",
+    "triage_priority": 116,
+    "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; duree exploitable",
+    "started_at": "2026-06-01T19:22:49",
+    "finished_at": "2026-06-01T19:23:16"
+  },
+  "recent": [
+    {
+      "id": "9sSQwQYgIRM",
+      "title": "شهاده حق من مريضه شفيت من نظام الطيبات نظام الدكتور ضياء العوضي  #مطبخ_هانى_وهبه ",
+      "duration_seconds": 1002
+    },
+    {
+      "id": "oOK-XAimU8Q",
+      "title": "تجربتي مع نظام الطيبات بعد 50 يوم: هل تغيرت حياتي فعلاً؟ 🤔 | نتائج مذهلة!",
+      "duration_seconds": 188
+    },
+    {
+      "id": "F14WbxGzDmQ",
+      "title": "دي حالة الحمي المتكررة الغير مشخصةمن قبل جهات صحية حكومية و خاصةو فشل في التشخيص",
+      "duration_seconds": 432
+    }
+  ]
+}
