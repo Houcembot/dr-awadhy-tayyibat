@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-01T21:50:21",
+  "updated_at": "2026-06-01T22:01:25",
   "total": 208,
-  "downloaded": 14,
+  "downloaded": 15,
   "failed": 0,
-  "pending": 192,
-  "archive_gib": 0.38,
+  "pending": 191,
+  "archive_gib": 0.45,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "JAsqp3juKsw",
-    "url": "https://www.youtube.com/watch?v=JAsqp3juKsw",
-    "title": "ظهور جديد للمهندس المتشافي مجرب نظام الطيبات لدكتور ضياء العوضي و يحكي تجربته مع مرض السكر و الضغط",
-    "duration_seconds": 582,
+    "id": "tWI46nahUvE",
+    "url": "https://www.youtube.com/watch?v=tWI46nahUvE",
+    "title": "My Experience & Guide To The Tayyibat System Dr  Diaa Al Awady  تجربتي مع نظام الطيبات د ضياء العوضي",
+    "duration_seconds": 584,
     "status": "downloaded",
-    "triage_subject": "testimonial_diabetes",
+    "triage_subject": "testimonial_systeme-tayyibat",
     "triage_priority": 116,
     "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; duree exploitable",
-    "started_at": "2026-06-01T21:50:01",
-    "finished_at": "2026-06-01T21:50:21"
+    "started_at": "2026-06-01T22:00:01",
+    "finished_at": "2026-06-01T22:01:25"
   },
   "recent": [
-    {
-      "id": "z4SaOzdjBak",
-      "title": "تجربتي مع داء كرونز ونظام الإستشفاء الذاتي المطابق لنظام الطيبات| الجزء ١| داء كرونز| علاج داء كرونز",
-      "duration_seconds": 549
-    },
     {
       "id": "VuYq0E7c4vE",
       "title": "تجربتي مع نظام الطيبات للدكتور ضياء العوضي… هل هي معجزات حقيقية أم خداع؟ لن تصدق ما حدث!",
@@ -38,6 +33,11 @@
       "id": "JAsqp3juKsw",
       "title": "ظهور جديد للمهندس المتشافي مجرب نظام الطيبات لدكتور ضياء العوضي و يحكي تجربته مع مرض السكر و الضغط",
       "duration_seconds": 582
+    },
+    {
+      "id": "tWI46nahUvE",
+      "title": "My Experience & Guide To The Tayyibat System Dr  Diaa Al Awady  تجربتي مع نظام الطيبات د ضياء العوضي",
+      "duration_seconds": 584
     },
     {
       "id": "F14WbxGzDmQ",
