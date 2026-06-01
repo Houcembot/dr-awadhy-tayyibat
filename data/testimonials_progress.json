@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-01T22:10:28",
+  "updated_at": "2026-06-01T22:20:29",
   "total": 208,
-  "downloaded": 16,
+  "downloaded": 17,
   "failed": 0,
-  "pending": 190,
-  "archive_gib": 0.47,
+  "pending": 189,
+  "archive_gib": 0.49,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "GK6N4iNZPoA",
-    "url": "https://www.youtube.com/watch?v=GK6N4iNZPoA",
-    "title": "مريضة سرطان متشافية من مجربات نظام الطيبات لدكتور ضياء العوضي تحكي عن تجربتها مع نظام الطيبات",
-    "duration_seconds": 595,
+    "id": "9sQlt_ARqGU",
+    "url": "https://www.youtube.com/watch?v=9sQlt_ARqGU",
+    "title": "بعد شتم الدكتور ضياء العوضي عاد واعتذر ويحكي تجربتة مع نظام الطيبات ",
+    "duration_seconds": 612,
     "status": "downloaded",
-    "triage_subject": "testimonial_cancer",
+    "triage_subject": "testimonial_tayyibat_theory",
     "triage_priority": 116,
     "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; duree exploitable",
-    "started_at": "2026-06-01T22:10:01",
-    "finished_at": "2026-06-01T22:10:28"
+    "started_at": "2026-06-01T22:20:02",
+    "finished_at": "2026-06-01T22:20:29"
   },
   "recent": [
-    {
-      "id": "IhMTNeYX_hU",
-      "title": "تجربتي بعد10 أيام من نظام الطيبات للطبيب البروفيسور الطيب الحبيب دكتور ضياء العوضي❤️🙏",
-      "duration_seconds": 576
-    },
     {
       "id": "JAsqp3juKsw",
       "title": "ظهور جديد للمهندس المتشافي مجرب نظام الطيبات لدكتور ضياء العوضي و يحكي تجربته مع مرض السكر و الضغط",
@@ -38,6 +33,11 @@
       "id": "GK6N4iNZPoA",
       "title": "مريضة سرطان متشافية من مجربات نظام الطيبات لدكتور ضياء العوضي تحكي عن تجربتها مع نظام الطيبات",
       "duration_seconds": 595
+    },
+    {
+      "id": "9sQlt_ARqGU",
+      "title": "بعد شتم الدكتور ضياء العوضي عاد واعتذر ويحكي تجربتة مع نظام الطيبات ",
+      "duration_seconds": 612
     },
     {
       "id": "F14WbxGzDmQ",
