@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-02T01:00:14",
+  "updated_at": "2026-06-02T01:10:16",
   "total": 208,
-  "downloaded": 33,
+  "downloaded": 34,
   "failed": 0,
-  "pending": 173,
-  "archive_gib": 1.16,
+  "pending": 172,
+  "archive_gib": 1.17,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "QHoHEdYyW4Q",
-    "url": "https://www.youtube.com/watch?v=QHoHEdYyW4Q",
-    "title": "من مرضى دكتور ضياء العوضي و مجربات نظام الطيبات تحكي تجربة نظام الطيبات لدكتور ضياء العوضي",
-    "duration_seconds": 274,
+    "id": "vKXMYYgU-9Q",
+    "url": "https://www.youtube.com/watch?v=vKXMYYgU-9Q",
+    "title": "يستحق المشاهده دكتور ضياء العوضي.واحد المرضى شفيت من السرطان تعمل تجربة على الجبن المسموحة والممنوعة",
+    "duration_seconds": 298,
     "status": "downloaded",
-    "triage_subject": "testimonial_testimonial_general",
+    "triage_subject": "testimonial_cancer",
     "triage_priority": 110,
     "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; duree exploitable",
-    "started_at": "2026-06-02T01:00:01",
-    "finished_at": "2026-06-02T01:00:14"
+    "started_at": "2026-06-02T01:10:01",
+    "finished_at": "2026-06-02T01:10:16"
   },
   "recent": [
-    {
-      "id": "5ge3sDKKLh4",
-      "title": "الدكتور ضياء العوضي من الإمارات وحالات تجربتها مع مرض السكر ",
-      "duration_seconds": 3032
-    },
     {
       "id": "VBww31t1Dn0",
       "title": "تجربة رياضي لنظام الطيبات لدكتور ضياء العوضي .. تجربته مع الضغط و جيوب الأنفية و الجروح",
@@ -38,6 +33,11 @@
       "id": "QHoHEdYyW4Q",
       "title": "من مرضى دكتور ضياء العوضي و مجربات نظام الطيبات تحكي تجربة نظام الطيبات لدكتور ضياء العوضي",
       "duration_seconds": 274
+    },
+    {
+      "id": "vKXMYYgU-9Q",
+      "title": "يستحق المشاهده دكتور ضياء العوضي.واحد المرضى شفيت من السرطان تعمل تجربة على الجبن المسموحة والممنوعة",
+      "duration_seconds": 298
     },
     {
       "id": "F14WbxGzDmQ",
