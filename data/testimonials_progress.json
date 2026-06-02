@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-02T14:10:15",
+  "updated_at": "2026-06-02T14:20:54",
   "total": 208,
-  "downloaded": 111,
+  "downloaded": 112,
   "failed": 1,
-  "pending": 94,
-  "archive_gib": 5.52,
+  "pending": 93,
+  "archive_gib": 5.56,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "sTiY7el6fpc",
-    "url": "https://www.youtube.com/watch?v=sTiY7el6fpc",
-    "title": "نظام الطيبات: راب يجمع بين العلم والتجربة 🔥 (إهداء لروح الدكتور ضياء العوضي)",
-    "duration_seconds": 129,
+    "id": "cR91vQqf9RY",
+    "url": "https://www.youtube.com/watch?v=cR91vQqf9RY",
+    "title": "رأي صريح في نظام الطيبات والدكتور ضياء العوضي | هل يستحق التجربة؟",
+    "duration_seconds": 165,
     "status": "downloaded",
     "triage_subject": "testimonial_testimonial_general",
     "triage_priority": 92,
     "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat",
-    "started_at": "2026-06-02T14:10:01",
-    "finished_at": "2026-06-02T14:10:15"
+    "started_at": "2026-06-02T14:20:01",
+    "finished_at": "2026-06-02T14:20:54"
   },
   "recent": [
-    {
-      "id": "JnG9VR25ivI",
-      "title": "لايف جديد ((🔴)) | تجربة كده | الدكتور ضياء العوضي ",
-      "duration_seconds": 2172
-    },
     {
       "id": "OpZI6hzUgmE",
       "title": "Dr Diaa Al Awady د ضياء العوضي is live! ناهد و تجربة تستحق السماع",
@@ -38,6 +33,11 @@
       "id": "sTiY7el6fpc",
       "title": "نظام الطيبات: راب يجمع بين العلم والتجربة 🔥 (إهداء لروح الدكتور ضياء العوضي)",
       "duration_seconds": 129
+    },
+    {
+      "id": "cR91vQqf9RY",
+      "title": "رأي صريح في نظام الطيبات والدكتور ضياء العوضي | هل يستحق التجربة؟",
+      "duration_seconds": 165
     },
     {
       "id": "F14WbxGzDmQ",
