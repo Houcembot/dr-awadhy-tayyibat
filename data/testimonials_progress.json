@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-02T23:12:13",
+  "updated_at": "2026-06-02T23:20:28",
   "total": 208,
-  "downloaded": 164,
+  "downloaded": 165,
   "failed": 1,
-  "pending": 41,
-  "archive_gib": 9.49,
+  "pending": 40,
+  "archive_gib": 9.51,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "eOC5PNYRSJQ",
-    "url": "https://www.youtube.com/watch?v=eOC5PNYRSJQ",
-    "title": "ضياء العوضى ! و كشف المستور: و حقيقة نظام الطيبات و معجزة\" السرطان الوهمية! 🤷‍♂️",
-    "duration_seconds": 412,
+    "id": "W-3NWl0t9UY",
+    "url": "https://www.youtube.com/watch?v=W-3NWl0t9UY",
+    "title": "مفاجأة.. إعادة تشريح الجثة.. مصطفى مجدي محامي الراحل د. ضياء العوضي يفجر مفاجأة ويكشف تفاصيل هامة",
+    "duration_seconds": 432,
     "status": "downloaded",
-    "triage_subject": "testimonial_cancer",
+    "triage_subject": "testimonial_testimonial_general",
     "triage_priority": 73,
     "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; risque video debat/controverse plutot que temoignage; duree exploitable",
-    "started_at": "2026-06-02T23:10:01",
-    "finished_at": "2026-06-02T23:12:13"
+    "started_at": "2026-06-02T23:20:01",
+    "finished_at": "2026-06-02T23:20:28"
   },
   "recent": [
-    {
-      "id": "qsIGNuDPvHA",
-      "title": "سموم في أطباقنا! د.ضياء العوضي يكشف المستور عن 95% من الأمراض مجهولة السبب.#خطوات_بودكاست #حنان_موج ",
-      "duration_seconds": 329
-    },
     {
       "id": "BL06ui5zbdE",
       "title": "كيميائية تشافت من ورم على المخ تحكي عن الجانب الإنساني لدكتور ضياء العوضي بعد وفاة ضياء العوضي",
@@ -38,6 +33,11 @@
       "id": "eOC5PNYRSJQ",
       "title": "ضياء العوضى ! و كشف المستور: و حقيقة نظام الطيبات و معجزة\" السرطان الوهمية! 🤷‍♂️",
       "duration_seconds": 412
+    },
+    {
+      "id": "W-3NWl0t9UY",
+      "title": "مفاجأة.. إعادة تشريح الجثة.. مصطفى مجدي محامي الراحل د. ضياء العوضي يفجر مفاجأة ويكشف تفاصيل هامة",
+      "duration_seconds": 432
     },
     {
       "id": "F14WbxGzDmQ",
