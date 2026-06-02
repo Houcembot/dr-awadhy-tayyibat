@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-02T03:50:15",
+  "updated_at": "2026-06-02T04:00:37",
   "total": 208,
-  "downloaded": 50,
+  "downloaded": 51,
   "failed": 0,
-  "pending": 156,
-  "archive_gib": 2.05,
+  "pending": 155,
+  "archive_gib": 2.08,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "HLDfGtE65J8",
-    "url": "https://www.youtube.com/watch?v=HLDfGtE65J8",
-    "title": "نظام الطيبات دكتور ضياء العوضي وحديث مع مريضة سرطان الثدي وصفة طبية والنظام الاكل ",
-    "duration_seconds": 493,
+    "id": "CL8LLeM1KEw",
+    "url": "https://www.youtube.com/watch?v=CL8LLeM1KEw",
+    "title": "My Experience with Dr. Diaa El-Awadi's \"Tayyibat\" Diet: Miracles or Deception? You Won't Believe ...",
+    "duration_seconds": 533,
     "status": "downloaded",
-    "triage_subject": "testimonial_cancer",
+    "triage_subject": "testimonial_testimonial_general",
     "triage_priority": 104,
     "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; duree exploitable",
-    "started_at": "2026-06-02T03:50:01",
-    "finished_at": "2026-06-02T03:50:15"
+    "started_at": "2026-06-02T04:00:01",
+    "finished_at": "2026-06-02T04:00:37"
   },
   "recent": [
-    {
-      "id": "7l1zsd1U42I",
-      "title": "جربت نظام الدكتور ضياء العوضي لمده اسبوعين والكارثه هي",
-      "duration_seconds": 447
-    },
     {
       "id": "gwVGAk3gIMo",
       "title": "\"نقاط الاتفاق والاختلاف بيني وبين د. ضياء العوضي | بعد 7 سنين تجربة\"",
@@ -38,6 +33,11 @@
       "id": "HLDfGtE65J8",
       "title": "نظام الطيبات دكتور ضياء العوضي وحديث مع مريضة سرطان الثدي وصفة طبية والنظام الاكل ",
       "duration_seconds": 493
+    },
+    {
+      "id": "CL8LLeM1KEw",
+      "title": "My Experience with Dr. Diaa El-Awadi's \"Tayyibat\" Diet: Miracles or Deception? You Won't Believe ...",
+      "duration_seconds": 533
     },
     {
       "id": "F14WbxGzDmQ",
