@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-02T21:46:28",
+  "updated_at": "2026-06-02T21:59:53",
   "total": 208,
-  "downloaded": 155,
+  "downloaded": 156,
   "failed": 1,
-  "pending": 50,
-  "archive_gib": 8.85,
+  "pending": 49,
+  "archive_gib": 9.29,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "QfrQIVrgO0o",
-    "url": "https://www.youtube.com/watch?v=QfrQIVrgO0o",
-    "title": "كشف المستور عن نظام الطيبات (د. ضياء العوضي) تجربة حقيقية | الإجابة علي أسئلتكم ",
-    "duration_seconds": 3855,
+    "id": "hyPgR_Hg8pc",
+    "url": "https://www.youtube.com/watch?v=hyPgR_Hg8pc",
+    "title": "كشف المستور عن نظام الطيبات( د ضياء العوضي ) ... تجربة واقعية بدون تجميل",
+    "duration_seconds": 4651,
     "status": "downloaded",
-    "triage_subject": "testimonial_testimonial_general",
+    "triage_subject": "testimonial_systeme-tayyibat",
     "triage_priority": 77,
     "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; risque video debat/controverse plutot que temoignage; long temoignage",
-    "started_at": "2026-06-02T21:40:01",
-    "finished_at": "2026-06-02T21:46:28"
+    "started_at": "2026-06-02T21:50:01",
+    "finished_at": "2026-06-02T21:59:53"
   },
   "recent": [
-    {
-      "id": "SxLqZcEezlk",
-      "title": "حقيقة الصراع بين د/ ضياء العوضي ومنظمة الصحة العالمية وماذا قال ابن سينا تغذية حسناء من قلب التجربة",
-      "duration_seconds": 845
-    },
     {
       "id": "wuQcp7Qw4tQ",
       "title": "علاج الامراض المناعية / لماذا تصاب وطريق الشفاء بدون ادوية",
@@ -38,6 +33,11 @@
       "id": "QfrQIVrgO0o",
       "title": "كشف المستور عن نظام الطيبات (د. ضياء العوضي) تجربة حقيقية | الإجابة علي أسئلتكم ",
       "duration_seconds": 3855
+    },
+    {
+      "id": "hyPgR_Hg8pc",
+      "title": "كشف المستور عن نظام الطيبات( د ضياء العوضي ) ... تجربة واقعية بدون تجميل",
+      "duration_seconds": 4651
     },
     {
       "id": "F14WbxGzDmQ",
