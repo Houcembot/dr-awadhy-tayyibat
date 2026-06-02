@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-02T06:00:12",
+  "updated_at": "2026-06-02T06:10:15",
   "total": 208,
-  "downloaded": 63,
+  "downloaded": 64,
   "failed": 0,
-  "pending": 143,
-  "archive_gib": 2.52,
+  "pending": 142,
+  "archive_gib": 2.53,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "dzOYRfHrqmA",
-    "url": "https://www.youtube.com/watch?v=dzOYRfHrqmA",
-    "title": "Personal Experience With Dr Diaa Al Awady Taybat Egyptian Diet .. Tayebat System 💌نظام الطيبات",
-    "duration_seconds": 184,
+    "id": "ojhMILLonNQ",
+    "url": "https://www.youtube.com/watch?v=ojhMILLonNQ",
+    "title": "قصة \"اليد\" التي أرعبت والده! ذكريات دكتور ضياء العوضي مع دراسة التشريح في جامعة عين شمس.",
+    "duration_seconds": 229,
     "status": "downloaded",
-    "triage_subject": "testimonial_systeme-tayyibat",
+    "triage_subject": "testimonial_testimonial_general",
     "triage_priority": 98,
     "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; duree exploitable",
-    "started_at": "2026-06-02T06:00:01",
-    "finished_at": "2026-06-02T06:00:12"
+    "started_at": "2026-06-02T06:10:01",
+    "finished_at": "2026-06-02T06:10:15"
   },
   "recent": [
-    {
-      "id": "5bqPjUXFQJA",
-      "title": "الحلقه الكامله..تجربه شيماء النقيب مع نظام الطيبات وازاي خفت من سرطان اللسان",
-      "duration_seconds": 5280
-    },
     {
       "id": "1EEz1UxTi48",
       "title": "#MyExperienceWithTheTayibatDiet _Dr. Diaa El-Awadi Day 8 I feel better day by day, thanks to the ...",
@@ -38,6 +33,11 @@
       "id": "dzOYRfHrqmA",
       "title": "Personal Experience With Dr Diaa Al Awady Taybat Egyptian Diet .. Tayebat System 💌نظام الطيبات",
       "duration_seconds": 184
+    },
+    {
+      "id": "ojhMILLonNQ",
+      "title": "قصة \"اليد\" التي أرعبت والده! ذكريات دكتور ضياء العوضي مع دراسة التشريح في جامعة عين شمس.",
+      "duration_seconds": 229
     },
     {
       "id": "F14WbxGzDmQ",
