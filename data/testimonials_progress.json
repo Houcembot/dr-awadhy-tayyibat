@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-02T18:20:24",
+  "updated_at": "2026-06-02T18:33:24",
   "total": 208,
-  "downloaded": 135,
+  "downloaded": 136,
   "failed": 1,
-  "pending": 70,
-  "archive_gib": 7.95,
+  "pending": 69,
+  "archive_gib": 7.98,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "PxCK8sRYfwg",
-    "url": "https://www.youtube.com/watch?v=PxCK8sRYfwg",
-    "title": "رسالة مريضة سرطان من مجربات نظام الطيبات لدكتور ضياء العوضي إلى مرضى السرطان بعد وفاة ضياء العوضي",
-    "duration_seconds": 564,
+    "id": "9w0SluqkaYs",
+    "url": "https://www.youtube.com/watch?v=9w0SluqkaYs",
+    "title": "مريضة غدة درقية مغربية تكشف سر في نظام الطيبات لدكتور ضياء العوضي بعد وفاة ضياء العوضي",
+    "duration_seconds": 884,
     "status": "downloaded",
-    "triage_subject": "testimonial_cancer",
+    "triage_subject": "testimonial_thyroid",
     "triage_priority": 85,
     "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; risque video debat/controverse plutot que temoignage; duree exploitable",
-    "started_at": "2026-06-02T18:20:01",
-    "finished_at": "2026-06-02T18:20:24"
+    "started_at": "2026-06-02T18:30:01",
+    "finished_at": "2026-06-02T18:33:24"
   },
   "recent": [
-    {
-      "id": "1NeQPPk4Ww4",
-      "title": "حاله شفاء من بعد اتباع نظام الطيبات للدكتور (( ضياء العوضي ))",
-      "duration_seconds": 137
-    },
     {
       "id": "1jUjKIugNDQ",
       "title": "أغنية الدكتور ضياء العوضي | رسول الشفاء",
@@ -38,6 +33,11 @@
       "id": "PxCK8sRYfwg",
       "title": "رسالة مريضة سرطان من مجربات نظام الطيبات لدكتور ضياء العوضي إلى مرضى السرطان بعد وفاة ضياء العوضي",
       "duration_seconds": 564
+    },
+    {
+      "id": "9w0SluqkaYs",
+      "title": "مريضة غدة درقية مغربية تكشف سر في نظام الطيبات لدكتور ضياء العوضي بعد وفاة ضياء العوضي",
+      "duration_seconds": 884
     },
     {
       "id": "F14WbxGzDmQ",
