@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-02T18:33:24",
+  "updated_at": "2026-06-02T18:40:47",
   "total": 208,
-  "downloaded": 136,
+  "downloaded": 137,
   "failed": 1,
-  "pending": 69,
-  "archive_gib": 7.98,
+  "pending": 68,
+  "archive_gib": 8.02,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "9w0SluqkaYs",
-    "url": "https://www.youtube.com/watch?v=9w0SluqkaYs",
-    "title": "مريضة غدة درقية مغربية تكشف سر في نظام الطيبات لدكتور ضياء العوضي بعد وفاة ضياء العوضي",
-    "duration_seconds": 884,
+    "id": "Jh7PYWFPNtA",
+    "url": "https://www.youtube.com/watch?v=Jh7PYWFPNtA",
+    "title": "بكاء و إنهيار مهندس مريض سكر و ضغط  بعد وفاة دكتور ضياء و يحكي تجربته مع نظام الطيبات لـ ضياء العوضي",
+    "duration_seconds": 1835,
     "status": "downloaded",
-    "triage_subject": "testimonial_thyroid",
-    "triage_priority": 85,
-    "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; risque video debat/controverse plutot que temoignage; duree exploitable",
-    "started_at": "2026-06-02T18:30:01",
-    "finished_at": "2026-06-02T18:33:24"
+    "triage_subject": "testimonial_diabetes",
+    "triage_priority": 83,
+    "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; risque video debat/controverse plutot que temoignage; long temoignage",
+    "started_at": "2026-06-02T18:40:01",
+    "finished_at": "2026-06-02T18:40:47"
   },
   "recent": [
-    {
-      "id": "1jUjKIugNDQ",
-      "title": "أغنية الدكتور ضياء العوضي | رسول الشفاء",
-      "duration_seconds": 140
-    },
     {
       "id": "H_aF5edIgzs",
       "title": "كلام مهم من مريضة غدة درقية من مجربات نظام الطيبات عن دكتور ضياء العوضي بعد وفاة ضياء العوضي",
@@ -38,6 +33,11 @@
       "id": "9w0SluqkaYs",
       "title": "مريضة غدة درقية مغربية تكشف سر في نظام الطيبات لدكتور ضياء العوضي بعد وفاة ضياء العوضي",
       "duration_seconds": 884
+    },
+    {
+      "id": "Jh7PYWFPNtA",
+      "title": "بكاء و إنهيار مهندس مريض سكر و ضغط  بعد وفاة دكتور ضياء و يحكي تجربته مع نظام الطيبات لـ ضياء العوضي",
+      "duration_seconds": 1835
     },
     {
       "id": "F14WbxGzDmQ",
