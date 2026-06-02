@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-02T06:30:15",
+  "updated_at": "2026-06-02T06:40:17",
   "total": 208,
-  "downloaded": 66,
+  "downloaded": 67,
   "failed": 0,
-  "pending": 140,
-  "archive_gib": 2.54,
+  "pending": 139,
+  "archive_gib": 2.56,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "tiAEHTavaiY",
-    "url": "https://www.youtube.com/watch?v=tiAEHTavaiY",
-    "title": "الصدفيه ـ الغده الدرقيه ـ الشفاء منها مع د.ضياء العوضي",
-    "duration_seconds": 238,
+    "id": "ThYAo7JNnIo",
+    "url": "https://www.youtube.com/watch?v=ThYAo7JNnIo",
+    "title": "د.ضياء العوضي كشف سر عظيم لم يتنبه له أحد نظام الطيبات والتمرد العالمي",
+    "duration_seconds": 243,
     "status": "downloaded",
-    "triage_subject": "testimonial_testimonial_general",
+    "triage_subject": "testimonial_systeme-tayyibat",
     "triage_priority": 98,
     "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; duree exploitable",
-    "started_at": "2026-06-02T06:30:02",
-    "finished_at": "2026-06-02T06:30:15"
+    "started_at": "2026-06-02T06:40:01",
+    "finished_at": "2026-06-02T06:40:17"
   },
   "recent": [
-    {
-      "id": "dzOYRfHrqmA",
-      "title": "Personal Experience With Dr Diaa Al Awady Taybat Egyptian Diet .. Tayebat System 💌نظام الطيبات",
-      "duration_seconds": 184
-    },
     {
       "id": "ojhMILLonNQ",
       "title": "قصة \"اليد\" التي أرعبت والده! ذكريات دكتور ضياء العوضي مع دراسة التشريح في جامعة عين شمس.",
@@ -38,6 +33,11 @@
       "id": "tiAEHTavaiY",
       "title": "الصدفيه ـ الغده الدرقيه ـ الشفاء منها مع د.ضياء العوضي",
       "duration_seconds": 238
+    },
+    {
+      "id": "ThYAo7JNnIo",
+      "title": "د.ضياء العوضي كشف سر عظيم لم يتنبه له أحد نظام الطيبات والتمرد العالمي",
+      "duration_seconds": 243
     },
     {
       "id": "F14WbxGzDmQ",
