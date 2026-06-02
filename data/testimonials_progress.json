@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-02T10:41:40",
+  "updated_at": "2026-06-02T10:51:14",
   "total": 208,
-  "downloaded": 90,
+  "downloaded": 91,
   "failed": 1,
-  "pending": 115,
-  "archive_gib": 3.51,
+  "pending": 114,
+  "archive_gib": 3.57,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "UlOLnaAY5G4",
-    "url": "https://www.youtube.com/watch?v=UlOLnaAY5G4",
-    "title": "يلا نجرب مع بعض نظام الطيبات /لل أ د/ضياء العوضى عليه رحمه الله",
-    "duration_seconds": 756,
+    "id": "4THvtU1PhrM",
+    "url": "https://www.youtube.com/watch?v=4THvtU1PhrM",
+    "title": "قصة ضياء العوضي و ماهو نظام الطيبات ؟",
+    "duration_seconds": 769,
     "status": "downloaded",
-    "triage_subject": "testimonial_testimonial_general",
+    "triage_subject": "testimonial_tayyibat_theory",
     "triage_priority": 98,
     "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; duree exploitable",
-    "started_at": "2026-06-02T10:40:01",
-    "finished_at": "2026-06-02T10:41:40"
+    "started_at": "2026-06-02T10:50:01",
+    "finished_at": "2026-06-02T10:51:14"
   },
   "recent": [
-    {
-      "id": "LhWsJ3D1AaE",
-      "title": "حقائق مذهلة عن ضياء العوضي ونظام الطيبات.. هل صدقت توقعات مصطفى محمود؟ فما القصة ؟dr. diaa Elawadi ",
-      "duration_seconds": 687
-    },
     {
       "id": "UiiztkkEUps",
       "title": "🍀 The Good Deeds System by Dr. Diaa Al-Awadi: My first day of experience!",
@@ -38,6 +33,11 @@
       "id": "UlOLnaAY5G4",
       "title": "يلا نجرب مع بعض نظام الطيبات /لل أ د/ضياء العوضى عليه رحمه الله",
       "duration_seconds": 756
+    },
+    {
+      "id": "4THvtU1PhrM",
+      "title": "قصة ضياء العوضي و ماهو نظام الطيبات ؟",
+      "duration_seconds": 769
     },
     {
       "id": "F14WbxGzDmQ",
