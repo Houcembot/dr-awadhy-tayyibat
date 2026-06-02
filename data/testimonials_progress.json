@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-02T21:00:39",
+  "updated_at": "2026-06-02T21:10:54",
   "total": 208,
-  "downloaded": 151,
+  "downloaded": 152,
   "failed": 1,
-  "pending": 54,
-  "archive_gib": 8.36,
+  "pending": 53,
+  "archive_gib": 8.4,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "PDmdmN-qPFw",
-    "url": "https://www.youtube.com/watch?v=PDmdmN-qPFw",
-    "title": "شهادة سأحاسب عليها أمام الله: الحقيقة الكاملة عن نظام الطيبات؟",
-    "duration_seconds": 788,
+    "id": "SxLqZcEezlk",
+    "url": "https://www.youtube.com/watch?v=SxLqZcEezlk",
+    "title": "حقيقة الصراع بين د/ ضياء العوضي ومنظمة الصحة العالمية وماذا قال ابن سينا تغذية حسناء من قلب التجربة",
+    "duration_seconds": 845,
     "status": "downloaded",
     "triage_subject": "testimonial_testimonial_general",
     "triage_priority": 79,
     "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; risque video debat/controverse plutot que temoignage; duree exploitable",
-    "started_at": "2026-06-02T21:00:01",
-    "finished_at": "2026-06-02T21:00:39"
+    "started_at": "2026-06-02T21:10:01",
+    "finished_at": "2026-06-02T21:10:54"
   },
   "recent": [
-    {
-      "id": "i4pMplbGEVU",
-      "title": "تفاصيل وفاة الطبيب ضياء العوضي | عمرو أديب يكشف القصة الكاملة",
-      "duration_seconds": 621
-    },
     {
       "id": "1dAhJn-gQ2g",
       "title": "حالة شفاء من الروماتويد⁉️ بنظام الطيبات لدكتور ضياء العوضي #مع عمل وجبة سريعة",
@@ -38,6 +33,11 @@
       "id": "PDmdmN-qPFw",
       "title": "شهادة سأحاسب عليها أمام الله: الحقيقة الكاملة عن نظام الطيبات؟",
       "duration_seconds": 788
+    },
+    {
+      "id": "SxLqZcEezlk",
+      "title": "حقيقة الصراع بين د/ ضياء العوضي ومنظمة الصحة العالمية وماذا قال ابن سينا تغذية حسناء من قلب التجربة",
+      "duration_seconds": 845
     },
     {
       "id": "F14WbxGzDmQ",
