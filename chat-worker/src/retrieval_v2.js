@@ -230,6 +230,17 @@ export function retrieveBlocks(question, topN = 3) {
     score += hits.generic.length   *  5;
     score += DOMAIN_SCORE[block.domain] ?? 0;
 
+    // Honor explicit block.score, but normalize by topic.length so focused
+    // blocks (e.g. milk_forbidden: 6 topics) outrank broad philosophy blocks
+    // (tayyibat_philosophy: 9 topics) on narrow queries.
+    if (typeof block.score === 'number' && block.score > 0 && Array.isArray(block.topic) && block.topic.length > 0) {
+      const topicNorm = block.topic.map(t => normalizeArabic(t));
+      const conceptOverlap =
+        canonicalNorm.some(c => topicNorm.some(t => t.includes(c) || c.includes(t))) ||
+        strongNorm.some(s    => topicNorm.some(t => t.includes(s) || s.includes(t)));
+      if (conceptOverlap) score += Math.min(block.score / topicNorm.length, 100);
+    }
+
     // Density bonus: a block that mentions the canonical/strong food N times is
     // more "about" it than one that mentions it once. Multipliers are small
     // (3/2) to avoid drowning out the curated db_resume blocks. Curated blocks

@@ -1303,5 +1303,123 @@
     ],
     "confidence": "high",
     "dialect": null
+  },
+  "الحلويات": {
+    "type": "food",
+    "category": "سكريات",
+    "synonyms": [
+      "حلويات",
+      "حلوى",
+      "الحلوى",
+      "الشيكولاتة",
+      "شيكولاتة",
+      "نوتيلا",
+      "النوتيلا",
+      "مربى",
+      "المربى"
+    ],
+    "ingredients": [
+      "حلويات",
+      "سكر"
+    ],
+    "strong_matches": [
+      "حلويات",
+      "شيكولاتة",
+      "نوتيلا",
+      "مربى"
+    ],
+    "related_concepts": [
+      "السكر",
+      "العسل"
+    ],
+    "confidence": "high",
+    "dialect": null
+  },
+  "الجرجير": {
+    "type": "food",
+    "category": "خضار",
+    "synonyms": [
+      "جرجير",
+      "الجرجير"
+    ],
+    "ingredients": [
+      "جرجير"
+    ],
+    "strong_matches": [
+      "جرجير",
+      "الجرجير"
+    ],
+    "related_concepts": [
+      "الخضار",
+      "ورقيات"
+    ],
+    "confidence": "high",
+    "dialect": null
+  },
+  "الكرنب": {
+    "type": "food",
+    "category": "خضار",
+    "synonyms": [
+      "كرنب",
+      "الكرنب",
+      "ملفوف",
+      "الملفوف"
+    ],
+    "ingredients": [
+      "كرنب"
+    ],
+    "strong_matches": [
+      "كرنب",
+      "الكرنب",
+      "ملفوف"
+    ],
+    "related_concepts": [
+      "الخضار",
+      "ورقيات"
+    ],
+    "confidence": "high",
+    "dialect": null
+  },
+  "الخس": {
+    "type": "food",
+    "category": "خضار",
+    "synonyms": [
+      "خس",
+      "الخس"
+    ],
+    "ingredients": [
+      "خس"
+    ],
+    "strong_matches": [
+      "خس",
+      "الخس"
+    ],
+    "related_concepts": [
+      "الخضار",
+      "ورقيات"
+    ],
+    "confidence": "high",
+    "dialect": null
+  },
+  "ورقيات": {
+    "type": "food",
+    "category": "خضار",
+    "synonyms": [
+      "الورقيات",
+      "ورق العنب",
+      "ورق"
+    ],
+    "ingredients": [
+      "ورقيات"
+    ],
+    "strong_matches": [
+      "ورقيات",
+      "الورقيات"
+    ],
+    "related_concepts": [
+      "الخضار"
+    ],
+    "confidence": "high",
+    "dialect": null
   }
 }

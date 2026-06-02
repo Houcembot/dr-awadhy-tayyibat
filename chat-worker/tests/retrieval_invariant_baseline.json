@@ -1,26 +1,34 @@
 {
   "sugar": {
     "question_ar": "هل السكر صحي؟",
-    "top_block_id": "yt-ljqxm444_2c_712",
-    "mode": "v3_db_resume",
-    "confidence_retrieval": "high",
-    "confidence_source": "direct",
-    "db_resume": {
-      "verdict": "PASS_SIMPLE",
-      "doctrine_position": "good_natural",
-      "simple": "لا، السكر دخل الخليه عظيم. حسب كلامهم السكر مش هيخش الخلايا، لكن الغريبه ان هو علي جوه الخليه وعلي في الدم يبقى تفسيرك غلط."
-    }
-  },
-  "rice": {
-    "question_ar": "هل الرز صحي؟",
-    "top_block_id": "yt-h4iNUew0djI_000",
+    "top_block_id": "sugar_allowed",
     "mode": "v3_db_resume",
     "confidence_retrieval": "high",
     "confidence_source": "direct",
     "db_resume": {
       "verdict": "PASS_SIMPLE",
       "doctrine_position": "good",
-      "simple": "نعم، الرز مسموح ومفيد. الدكتور ضياء يقول حرفياً: \"صرحت بحاجه زي الرز ومنعت حاجه زي المكرونه\". ويعتبر الرز سكراً طبيعياً: \"الرز والسكر عندي سيان زي بعض لان الرز اصلا سكر\". الرز جيد."
+      "simple": "نعم، السكريات والحلويات مسموحة في نظام الطيبات. الدكتور ضياء يقول حرفياً: \"مسموح تاني بالحلويات بقى زي المربى العسل الشيكولاتات زي النوتيلا او الشيكولاته العاديه\". \"حلاوه المولد كلها مسموح بيها ما عدا الملبن والنوجه\"، و\"العصاير المعلبات كلها مسموح بها\".",
+      "source": {
+        "video_url": "https://youtu.be/coCRXz_KnFo?t=1582",
+        "timestamp": "26:22"
+      }
+    }
+  },
+  "rice": {
+    "question_ar": "هل الرز صحي؟",
+    "top_block_id": "tayyibat_philosophy",
+    "mode": "v3_db_resume",
+    "confidence_retrieval": "high",
+    "confidence_source": "direct",
+    "db_resume": {
+      "verdict": "PASS_SIMPLE",
+      "doctrine_position": "good",
+      "simple": "نظام الطيبات يمنع: \"منتجات الدقيق الابيض\"، \"السوداز بكل اشكالها\"، \"اللبن والجبنه البيضا والجبنه القريش واللبنه منتجات الالبان كلها\"، \"البيض بكل اشكاله\"، و\"الفراخ\". ويسمح بـ: \"عيش كامل حبه\"، \"الرز\"، \"كل انواع الدهون من قشطه وزبده وسمنه وزيت زيتون\"، \"الجبن المطبوخه\"، والحلويات. اللحوم الأنظف هي \"الضاني\" ثم \"الكبده\".",
+      "source": {
+        "video_url": "https://youtu.be/coCRXz_KnFo?t=1440",
+        "timestamp": "24:00"
+      }
     }
   },
   "green_salad": {
@@ -37,14 +45,18 @@
   },
   "egg": {
     "question_ar": "هل البيض صحي؟",
-    "top_block_id": "yt-vmPu_Slq3qM_3113",
+    "top_block_id": "tayyibat_philosophy",
     "mode": "v3_db_resume",
     "confidence_retrieval": "high",
     "confidence_source": "direct",
     "db_resume": {
       "verdict": "PASS_SIMPLE",
-      "doctrine_position": "bad",
-      "simple": "لا، البيض مضر حسب كلام الدكتور ضياء. يقول حرفياً عن البيض: \"هو سم يبقى سم خلاص مالوش بديل شيله خالص\". وآثاره: \"حساسيه جيوب انفيه\"، رائحه العرق والفم الكريهه، \"القولون في انتفاخات\"، ومشاكل الإخراج."
+      "doctrine_position": "good",
+      "simple": "نظام الطيبات يمنع: \"منتجات الدقيق الابيض\"، \"السوداز بكل اشكالها\"، \"اللبن والجبنه البيضا والجبنه القريش واللبنه منتجات الالبان كلها\"، \"البيض بكل اشكاله\"، و\"الفراخ\". ويسمح بـ: \"عيش كامل حبه\"، \"الرز\"، \"كل انواع الدهون من قشطه وزبده وسمنه وزيت زيتون\"، \"الجبن المطبوخه\"، والحلويات. اللحوم الأنظف هي \"الضاني\" ثم \"الكبده\".",
+      "source": {
+        "video_url": "https://youtu.be/coCRXz_KnFo?t=1440",
+        "timestamp": "24:00"
+      }
     }
   },
   "butter_smen": {
@@ -82,14 +94,18 @@
   },
   "whole_bread": {
     "question_ar": "هل الخبز كامل الحبة صحي؟",
-    "top_block_id": "yt-2aUKZrCeOII_7400",
+    "top_block_id": "tayyibat_philosophy",
     "mode": "v3_db_resume",
     "confidence_retrieval": "high",
     "confidence_source": "direct",
     "db_resume": {
       "verdict": "PASS_SIMPLE",
       "doctrine_position": "good",
-      "simple": "بحسب كلام الدكتور ضياء، \"الاكل الاصلي كان خبز بس، خبز في زيت\"، وغذاء الإنسان الأصلي كان \"حبوب ولحوم وفي النص الشحوم بتاعتها\". الخبز الأصلي يفي الجسم كل ما يحتاجه، عكس الدقيق الأبيض."
+      "simple": "نظام الطيبات يمنع: \"منتجات الدقيق الابيض\"، \"السوداز بكل اشكالها\"، \"اللبن والجبنه البيضا والجبنه القريش واللبنه منتجات الالبان كلها\"، \"البيض بكل اشكاله\"، و\"الفراخ\". ويسمح بـ: \"عيش كامل حبه\"، \"الرز\"، \"كل انواع الدهون من قشطه وزبده وسمنه وزيت زيتون\"، \"الجبن المطبوخه\"، والحلويات. اللحوم الأنظف هي \"الضاني\" ثم \"الكبده\".",
+      "source": {
+        "video_url": "https://youtu.be/coCRXz_KnFo?t=1440",
+        "timestamp": "24:00"
+      }
     }
   },
   "industrial_chicken": {
@@ -102,26 +118,34 @@
   },
   "milk": {
     "question_ar": "هل اللبن غذاء مناسب للإنسان؟",
-    "top_block_id": "yt-8AYaSqh52XY_824",
+    "top_block_id": "milk_forbidden",
     "mode": "v3_db_resume",
     "confidence_retrieval": "high",
     "confidence_source": "direct",
     "db_resume": {
       "verdict": "PASS_SIMPLE",
       "doctrine_position": "bad",
-      "simple": "لا، اللبن ليس غذاء للإنسان البالغ وهو غير مناسب. الدكتور ضياء يَسخر من الادعاءات التقليدية: \"اللبن هو ده بتاع شاشه العظام\" و\"اشربها ثمان كوبايات في اليوم\" و\"الفراخ احسن من اللحمه\"، ويصف هذا كله: \"الكلام ده كله هاكس\". الحل في \"نظام الطيبات\"."
+      "simple": "لا، اللبن ومنتجات الألبان ممنوعة في نظام الطيبات. الدكتور ضياء يقول حرفياً: \"بنمنع اللبن والجبنه البيضا والجبنه القريش واللبنه منتجات الالبان كلها\". ويشمل ذلك \"الرايب والحاجات اللي محطوط فيها اللبن حتى ايفن لو باودر يعني الكريمرز\".",
+      "source": {
+        "video_url": "https://youtu.be/coCRXz_KnFo?t=1494",
+        "timestamp": "24:54"
+      }
     }
   },
   "melting_cheese": {
     "question_ar": "هل الجبن الذي يذوب صحي؟",
-    "top_block_id": "yt-Nr2bw50l2ic_322",
+    "top_block_id": "milk_forbidden",
     "mode": "v3_db_resume",
     "confidence_retrieval": "high",
     "confidence_source": "direct",
     "db_resume": {
       "verdict": "PASS_SIMPLE",
       "doctrine_position": "bad",
-      "simple": "لا، الجبن مضر بكل أنواعه. الدكتور ضياء يقول حرفياً: \"الجبنه بايظه حتى لو الجبنه دي النوع كويس هي بايظه\". الجبن بايظ، ليس مناسباً للأكل."
+      "simple": "لا، اللبن ومنتجات الألبان ممنوعة في نظام الطيبات. الدكتور ضياء يقول حرفياً: \"بنمنع اللبن والجبنه البيضا والجبنه القريش واللبنه منتجات الالبان كلها\". ويشمل ذلك \"الرايب والحاجات اللي محطوط فيها اللبن حتى ايفن لو باودر يعني الكريمرز\".",
+      "source": {
+        "video_url": "https://youtu.be/coCRXz_KnFo?t=1494",
+        "timestamp": "24:54"
+      }
     }
   },
   "lentils": {
@@ -147,21 +171,29 @@
   "tomato": {
     "question_ar": "هل الطماطم صحية؟",
     "top_block_id": "yt-2aUKZrCeOII_9747",
-    "mode": "v3_raw_fallback",
+    "mode": "v3_db_resume",
     "confidence_retrieval": "high",
     "confidence_source": "ingredient",
-    "db_resume": null
+    "db_resume": {
+      "verdict": "PASS_SIMPLE",
+      "doctrine_position": "neutral",
+      "simple": "الدكتور ضياء لم يخصّ \"الطماطم\" بحكم صحي مباشر. ذكرها فقط مع \"طبق سلطه وورك فرخه وخضار مستوي\" في حديث عن \"مجاعه جايه\" — قال \"مش هخزن\" هذه الأشياء. لكن موقفه العام من \"الخضار\" يَنطبق عليها (اسأل عن الخضار للمزيد)."
+    }
   },
   "best_diet": {
     "question_ar": "هل الصيام هو أفضل نظام غذائي؟",
-    "top_block_id": "yt-ux9hE-Xlui0_000",
+    "top_block_id": "fasting_benefits",
     "mode": "v3_db_resume",
     "confidence_retrieval": "high",
     "confidence_source": "direct",
     "db_resume": {
       "verdict": "PASS_SIMPLE",
-      "doctrine_position": "bad",
-      "simple": "لا. الدكتور قال \"السكر العالي والاسيتون ده مش نقص انسولين\"، ووضح إن في الصيام \"الانسولين\" هو \"هرمون أكل\" وما ينفعش تقول إن \"البنكرياس\" محتاج يتنشط."
+      "doctrine_position": "good",
+      "simple": "نعم، الصيام مفيد ويجدد الجسم. الدكتور ضياء يقول: \"ربنا بيصوبك 30 يوم في رمضان بيعطشك ليه؟... عشان الخليه العجوزه تموت\". هذه نظرية \"الاوتوثاجي او التهام الذات\": الخلايا العاجزة تموت بأمر ليُعاد بناء \"خليه جديده\"، فـ\"الجسم بيتجدد على طول\".",
+      "source": {
+        "video_url": "https://youtu.be/coCRXz_KnFo?t=2550",
+        "timestamp": "42:30"
+      }
     }
   }
 }

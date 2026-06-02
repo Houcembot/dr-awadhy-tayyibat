@@ -28,6 +28,13 @@ for (const [canonical, entry] of Object.entries(dictionary)) {
 }
 for (const g of GENERIC_SYNONYMS) anchorSet.add(g);
 
+// Also add per-block extra keywords / topics if present (for enriched blocks
+// like sugar_allowed, tayyibat_philosophy, etc.).
+for (const block of knowledgeRaw) {
+  for (const k of (block.keywords || [])) anchorSet.add(k);
+  for (const t of (block.topic || []))    anchorSet.add(t);
+}
+
 // Normalize all anchors (so the lookup table keys match what runtime would compute).
 const normalizedAnchors = [...anchorSet].map(a => normalizeArabic(a))
   .filter(a => a.length > 0);
@@ -52,6 +59,21 @@ for (const anchor of uniqueAnchors) {
   if (matchingBlocks.length > 0) {
     invertedIndex[anchor] = matchingBlocks;
     totalEdges += matchingBlocks.length;
+  }
+}
+
+// Force enriched blocks' declared keywords/topic into the index even if the
+// surface form doesn't appear verbatim in raw_quote (e.g. أوتوفاجي vs اوتوثاجي).
+for (const block of knowledgeRaw) {
+  if (block.domain === 'off_topic') continue;
+  for (const term of [...(block.keywords || []), ...(block.topic || [])]) {
+    const n = normalizeArabic(term);
+    if (!n) continue;
+    if (!invertedIndex[n]) invertedIndex[n] = [];
+    if (!invertedIndex[n].includes(block.id)) {
+      invertedIndex[n].push(block.id);
+      totalEdges++;
+    }
   }
 }
 

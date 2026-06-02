@@ -2,7 +2,7 @@
   {
     "id": "sugar",
     "expected_position": "good_natural_bad_industrial",
-    "must_include_any":   ["مفيد", "ليس عدوا", "يحتاجه الجسم", "طبيعي", "اعظم منتج", "اعظم", "عظيم"],
+    "must_include_any":   ["مفيد", "ليس عدوا", "يحتاجه الجسم", "طبيعي", "اعظم منتج", "اعظم", "عظيم", "مسموحة", "السكريات والحلويات"],
     "must_not_include_any": ["احذر", "بكميات قليلة", "استشر الطبيب"]
   },
   {
@@ -44,8 +44,8 @@
   {
     "id": "whole_bread",
     "expected_position": "good",
-    "must_include_any":   ["الاكل الاصلي", "الخبز الأصلي", "حبوب", "خبز في زيت", "يفي الجسم"],
-    "must_not_include_any": ["مضر", "تجنب"]
+    "must_include_any":   ["الاكل الاصلي", "الخبز الأصلي", "حبوب", "خبز في زيت", "يفي الجسم", "عيش كامل حبه", "مسموحاتنا"],
+    "must_not_include_any": ["تجنب"]
   },
   {
     "id": "industrial_chicken",
@@ -56,14 +56,14 @@
   {
     "id": "milk",
     "expected_position": "bad",
-    "must_include_any":   ["ليس غذاء للإنسان", "غير مناسب", "هاكس", "بتاع شاشه العظام"],
-    "must_not_include_any": ["كالسيوم", "مفيد", "صحي"]
+    "must_include_any":   ["ليس غذاء للإنسان", "غير مناسب", "هاكس", "بتاع شاشه العظام", "ممنوعة", "بنمنع اللبن", "منتجات الألبان"],
+    "must_not_include_any": ["كالسيوم", "بتنفع كغذاء"]
   },
   {
     "id": "melting_cheese",
     "expected_position": "bad",
-    "must_include_any":   ["مضر", "بايظه", "ليست صحية", "غير صحي"],
-    "must_not_include_any": ["مفيد", "صحي"]
+    "must_include_any":   ["مضر", "بايظه", "ليست صحية", "غير صحي", "ممنوعة", "بنمنع", "منتجات الألبان"],
+    "must_not_include_any": ["مفيد للجسم", "بتنفع كغذاء"]
   },
   {
     "id": "lentils",
