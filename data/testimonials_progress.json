@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-02T11:22:39",
+  "updated_at": "2026-06-02T11:31:02",
   "total": 208,
-  "downloaded": 94,
+  "downloaded": 95,
   "failed": 1,
-  "pending": 111,
-  "archive_gib": 3.88,
+  "pending": 110,
+  "archive_gib": 3.93,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "hFInq3yXu8w",
-    "url": "https://www.youtube.com/watch?v=hFInq3yXu8w",
-    "title": "متصدقوش انا عملت اللي عليا د. ضياء العوضي يعتذر لكشفه نظام الطيبات هما عملوا كده السرطان يبدأ هنا ",
-    "duration_seconds": 781,
+    "id": "3clQFR1YwQw",
+    "url": "https://www.youtube.com/watch?v=3clQFR1YwQw",
+    "title": "مفاجاة..أنباء عن مقتل الدكتور زياد فى دبي بعد كشف شخصيته واتهامه بالتورط فى مقتل ضياء العوضي",
+    "duration_seconds": 800,
     "status": "downloaded",
-    "triage_subject": "testimonial_cancer",
+    "triage_subject": "testimonial_testimonial_general",
     "triage_priority": 98,
     "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; duree exploitable",
-    "started_at": "2026-06-02T11:20:01",
-    "finished_at": "2026-06-02T11:22:39"
+    "started_at": "2026-06-02T11:30:01",
+    "finished_at": "2026-06-02T11:31:02"
   },
   "recent": [
-    {
-      "id": "4THvtU1PhrM",
-      "title": "قصة ضياء العوضي و ماهو نظام الطيبات ؟",
-      "duration_seconds": 769
-    },
     {
       "id": "yqpYrSRdnOE",
       "title": "بسبوسة نظام الطيبات - 5 طرق للقضاء على الإلتهاب لدكتور ضياء العوضي لسرعة شفاء الجسم ",
@@ -38,6 +33,11 @@
       "id": "hFInq3yXu8w",
       "title": "متصدقوش انا عملت اللي عليا د. ضياء العوضي يعتذر لكشفه نظام الطيبات هما عملوا كده السرطان يبدأ هنا ",
       "duration_seconds": 781
+    },
+    {
+      "id": "3clQFR1YwQw",
+      "title": "مفاجاة..أنباء عن مقتل الدكتور زياد فى دبي بعد كشف شخصيته واتهامه بالتورط فى مقتل ضياء العوضي",
+      "duration_seconds": 800
     },
     {
       "id": "F14WbxGzDmQ",
