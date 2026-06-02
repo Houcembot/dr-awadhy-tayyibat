@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-02T10:00:30",
+  "updated_at": "2026-06-02T10:10:51",
   "total": 208,
-  "downloaded": 86,
+  "downloaded": 87,
   "failed": 1,
-  "pending": 119,
-  "archive_gib": 3.16,
+  "pending": 118,
+  "archive_gib": 3.2,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "xrLzVdmISS8",
-    "url": "https://www.youtube.com/watch?v=xrLzVdmISS8",
-    "title": "⚠️السر الخطير: السم في اللحمة! واحذر من دواء الكوليسترول | د. ضياء العوضي نظام الطيبات والشفاء التام",
-    "duration_seconds": 671,
+    "id": "LhWsJ3D1AaE",
+    "url": "https://www.youtube.com/watch?v=LhWsJ3D1AaE",
+    "title": "حقائق مذهلة عن ضياء العوضي ونظام الطيبات.. هل صدقت توقعات مصطفى محمود؟ فما القصة ؟dr. diaa Elawadi ",
+    "duration_seconds": 687,
     "status": "downloaded",
-    "triage_subject": "testimonial_cholesterol_fats",
+    "triage_subject": "testimonial_testimonial_general",
     "triage_priority": 98,
     "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; duree exploitable",
-    "started_at": "2026-06-02T10:00:01",
-    "finished_at": "2026-06-02T10:00:30"
+    "started_at": "2026-06-02T10:10:01",
+    "finished_at": "2026-06-02T10:10:51"
   },
   "recent": [
-    {
-      "id": "q9E88j1IkWk",
-      "title": "3 خطوات وهتلاقي افضل نتيجة في نظام الطيبات -ليه الممنوعات ممنوعة - الغدة الدرقية",
-      "duration_seconds": 640
-    },
     {
       "id": "ZlwpbJXq2mA",
       "title": "نظام الطيبات: اكتشف سر إنقاص الوزن و التخلص من الأمراض",
@@ -38,6 +33,11 @@
       "id": "xrLzVdmISS8",
       "title": "⚠️السر الخطير: السم في اللحمة! واحذر من دواء الكوليسترول | د. ضياء العوضي نظام الطيبات والشفاء التام",
       "duration_seconds": 671
+    },
+    {
+      "id": "LhWsJ3D1AaE",
+      "title": "حقائق مذهلة عن ضياء العوضي ونظام الطيبات.. هل صدقت توقعات مصطفى محمود؟ فما القصة ؟dr. diaa Elawadi ",
+      "duration_seconds": 687
     },
     {
       "id": "F14WbxGzDmQ",
