@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-02T16:33:08",
+  "updated_at": "2026-06-02T16:45:25",
   "total": 208,
-  "downloaded": 125,
+  "downloaded": 126,
   "failed": 1,
-  "pending": 80,
-  "archive_gib": 6.71,
+  "pending": 79,
+  "archive_gib": 6.93,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "cQDeBiG1mk4",
-    "url": "https://www.youtube.com/watch?v=cQDeBiG1mk4",
-    "title": "From Founder of the Tayibat Group to a Victim of the Tayibat System.. A Testimony Published for t...",
-    "duration_seconds": 4311,
+    "id": "ARMZpruUTB4",
+    "url": "https://www.youtube.com/watch?v=ARMZpruUTB4",
+    "title": "اللقاء الأخير لضياء العوضي قبل رحيله: كشف الخديعة الكبرى .. وهم الأدوية وخرافة المرض المزمن؟",
+    "duration_seconds": 4501,
     "status": "downloaded",
-    "triage_subject": "testimonial_testimonial_general",
+    "triage_subject": "testimonial_inflammation-douleurs-articulations",
     "triage_priority": 90,
     "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; long temoignage",
-    "started_at": "2026-06-02T16:30:01",
-    "finished_at": "2026-06-02T16:33:08"
+    "started_at": "2026-06-02T16:40:01",
+    "finished_at": "2026-06-02T16:45:25"
   },
   "recent": [
-    {
-      "id": "H57qEuGAdwg",
-      "title": "تحريم الدجاج الأبيض؟! أخطر ما كشفه ضياء العوضي عن نظام الطيبات!",
-      "duration_seconds": 3475
-    },
     {
       "id": "zONTeKHBLjg",
       "title": "\"العطش الحقيقي: من خرافة 3 لتر يوميًا إلى نظام الطيبات | ماذا كشف د. ضياء العوضي؟!\"",
@@ -38,6 +33,11 @@
       "id": "cQDeBiG1mk4",
       "title": "From Founder of the Tayibat Group to a Victim of the Tayibat System.. A Testimony Published for t...",
       "duration_seconds": 4311
+    },
+    {
+      "id": "ARMZpruUTB4",
+      "title": "اللقاء الأخير لضياء العوضي قبل رحيله: كشف الخديعة الكبرى .. وهم الأدوية وخرافة المرض المزمن؟",
+      "duration_seconds": 4501
     },
     {
       "id": "F14WbxGzDmQ",
