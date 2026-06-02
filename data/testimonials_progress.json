@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-02T18:00:10",
+  "updated_at": "2026-06-02T18:10:19",
   "total": 208,
-  "downloaded": 133,
+  "downloaded": 134,
   "failed": 1,
-  "pending": 72,
-  "archive_gib": 7.92,
+  "pending": 71,
+  "archive_gib": 7.93,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "1jUjKIugNDQ",
-    "url": "https://www.youtube.com/watch?v=1jUjKIugNDQ",
-    "title": "أغنية الدكتور ضياء العوضي | رسول الشفاء",
-    "duration_seconds": 140,
+    "id": "H_aF5edIgzs",
+    "url": "https://www.youtube.com/watch?v=H_aF5edIgzs",
+    "title": "كلام مهم من مريضة غدة درقية من مجربات نظام الطيبات عن دكتور ضياء العوضي بعد وفاة ضياء العوضي",
+    "duration_seconds": 499,
     "status": "downloaded",
-    "triage_subject": "testimonial_testimonial_general",
-    "triage_priority": 86,
-    "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat",
-    "started_at": "2026-06-02T18:00:01",
-    "finished_at": "2026-06-02T18:00:10"
+    "triage_subject": "testimonial_thyroid",
+    "triage_priority": 85,
+    "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; risque video debat/controverse plutot que temoignage; duree exploitable",
+    "started_at": "2026-06-02T18:10:01",
+    "finished_at": "2026-06-02T18:10:19"
   },
   "recent": [
-    {
-      "id": "SafjZp72hCo",
-      "title": "علاج تضخم البروستات بدون جراحة؟ 🤔 اكتشف أسرار الدكتور ضياء العوضي للتعافي الطبيعي!",
-      "duration_seconds": 103
-    },
     {
       "id": "gtSYlXT-68Q",
       "title": "حاله شفاء من مرض السكر . مع نظام الطيبات للدكتور (( ضياء العوضي ))",
@@ -38,6 +33,11 @@
       "id": "1jUjKIugNDQ",
       "title": "أغنية الدكتور ضياء العوضي | رسول الشفاء",
       "duration_seconds": 140
+    },
+    {
+      "id": "H_aF5edIgzs",
+      "title": "كلام مهم من مريضة غدة درقية من مجربات نظام الطيبات عن دكتور ضياء العوضي بعد وفاة ضياء العوضي",
+      "duration_seconds": 499
     },
     {
       "id": "F14WbxGzDmQ",
