@@ -587,6 +587,7 @@
     "yt-ux9hE-Xlui0_3506",
     "sugar_allowed",
     "diabetes_cure",
+    "diseases_cure",
     "yt-1GtaW3WvabI_3849",
     "yt-1GtaW3WvabI_7046",
     "yt-2aUKZrCeOII_5056",
@@ -1005,7 +1006,8 @@
     "yt-ux9hE-Xlui0_1037",
     "yt-ux9hE-Xlui0_3506",
     "sugar_allowed",
-    "diabetes_cure"
+    "diabetes_cure",
+    "diseases_cure"
   ],
   "سكريات": [
     "yt-9vv6x9B9Am8_1500",
@@ -1154,6 +1156,7 @@
     "yt-rzCkNA6txis_4055",
     "yt-vmPu_Slq3qM_2145",
     "yt-1GtaW3WvabI_5859",
+    "fruits_allowed",
     "yt-2boWj4jU1YY_8724",
     "yt-6T7S4CEKswY_7030",
     "yt-GtEYhlcVZBI_3056",
@@ -1190,7 +1193,8 @@
     "yt-1GtaW3WvabI_5859",
     "yt-49nWEoUQzLI_000",
     "yt-6-qWOj0AXhc_938",
-    "yt-Nr2bw50l2ic_3524"
+    "yt-Nr2bw50l2ic_3524",
+    "fruits_allowed"
   ],
   "رطب": [
     "yt-GtEYhlcVZBI_3056",
@@ -1198,7 +1202,8 @@
   ],
   "فواكه": [
     "yt-VnXha6mPg5U_008",
-    "yt-VnXha6mPg5U_8201"
+    "yt-VnXha6mPg5U_8201",
+    "fruits_allowed"
   ],
   "العسل": [
     "yt-2aUKZrCeOII_9525",
@@ -3502,6 +3507,7 @@
     "yt-82gHEaqOOto_2559",
     "yt-82gHEaqOOto_4318",
     "yt-d-YRDz7CDZ4_819",
+    "diseases_cure",
     "yt-0ScIsnGw5cU_302",
     "yt-2boWj4jU1YY_000",
     "yt-2boWj4jU1YY_1854",
@@ -3633,7 +3639,8 @@
     "yt-j4KdD0KTGyE_5723",
     "yt-j4KdD0KTGyE_5901",
     "yt-o8BWuF9wmoM_325",
-    "diabetes_cure"
+    "diabetes_cure",
+    "diseases_cure"
   ],
   "الطب": [
     "yt--tXrfHfeQIo_1118",
@@ -5002,7 +5009,8 @@
     "yt-vmPu_Slq3qM_3422",
     "yt-vmPu_Slq3qM_3835",
     "yt-vmPu_Slq3qM_4212",
-    "diabetes_cure"
+    "diabetes_cure",
+    "diseases_cure"
   ],
   "ضغط": [
     "yt--tXrfHfeQIo_2017",
@@ -5172,7 +5180,8 @@
     "yt-vmPu_Slq3qM_3422",
     "yt-vmPu_Slq3qM_3835",
     "yt-vmPu_Slq3qM_4212",
-    "diabetes_cure"
+    "diabetes_cure",
+    "diseases_cure"
   ],
   "السرطان": [
     "yt--tXrfHfeQIo_000",
@@ -5581,7 +5590,8 @@
   "الشفاء": [
     "yt-6T7S4CEKswY_147",
     "yt-6T7S4CEKswY_532",
-    "diabetes_cure"
+    "diabetes_cure",
+    "diseases_cure"
   ],
   "شفاء": [
     "yt-2boWj4jU1YY_000",
@@ -5592,7 +5602,8 @@
     "yt-6T7S4CEKswY_532",
     "yt-F14WbxGzDmQ_000",
     "yt-d-YRDz7CDZ4_526",
-    "diabetes_cure"
+    "diabetes_cure",
+    "diseases_cure"
   ],
   "العلاج": [
     "yt-1GtaW3WvabI_1427",
@@ -5697,7 +5708,8 @@
     "yt-v3Wg4Buxq0I_000",
     "yt-v3Wg4Buxq0I_219",
     "yt-vmPu_Slq3qM_000",
-    "diabetes_cure"
+    "diabetes_cure",
+    "diseases_cure"
   ],
   "يشفي": [
     "yt-49nWEoUQzLI_1236",
@@ -5706,6 +5718,431 @@
   "التداوي": [
     "yt-2boWj4jU1YY_000",
     "yt-2boWj4jU1YY_1854"
+  ],
+  "الفواكه": [
+    "yt-VnXha6mPg5U_008",
+    "yt-VnXha6mPg5U_8201",
+    "fruits_allowed",
+    "yt-1GtaW3WvabI_2128",
+    "yt-1GtaW3WvabI_5812",
+    "yt-2aUKZrCeOII_9747",
+    "yt-49nWEoUQzLI_1236",
+    "yt-O0drepKHKGI_9747",
+    "yt-OcwhGGxCIsI_4218",
+    "yt-OcwhGGxCIsI_5409",
+    "yt-ewomX3wxOXk_1217",
+    "yt-ewomX3wxOXk_2657",
+    "yt-ewomX3wxOXk_3048",
+    "yt-j4KdD0KTGyE_8908",
+    "yt-o8BWuF9wmoM_1512",
+    "yt-ux9hE-Xlui0_649",
+    "yt-vmPu_Slq3qM_2145",
+    "yt-xQ0fVMDUO38_654"
+  ],
+  "الفاكهه": [
+    "yt-1GtaW3WvabI_5812",
+    "yt-8AYaSqh52XY_000",
+    "yt-8AYaSqh52XY_243",
+    "yt-VnXha6mPg5U_8201",
+    "fruits_allowed"
+  ],
+  "فاكهه": [
+    "yt-1GtaW3WvabI_2128",
+    "yt-1GtaW3WvabI_5812",
+    "yt-49nWEoUQzLI_1236",
+    "yt-8AYaSqh52XY_000",
+    "yt-8AYaSqh52XY_243",
+    "yt-BafvXAEfnQ8_600",
+    "yt-OcwhGGxCIsI_5409",
+    "yt-VnXha6mPg5U_8201",
+    "fruits_allowed"
+  ],
+  "الموز": [
+    "yt-OcwhGGxCIsI_937",
+    "yt-VnXha6mPg5U_6359",
+    "yt-6T7S4CEKswY_6836",
+    "fruits_allowed"
+  ],
+  "موز": [
+    "yt-OcwhGGxCIsI_937",
+    "yt-OcwhGGxCIsI_4218",
+    "yt-VnXha6mPg5U_6359",
+    "yt-o8BWuF9wmoM_1512",
+    "yt-vmPu_Slq3qM_4541",
+    "yt-xQ0fVMDUO38_654",
+    "yt-6T7S4CEKswY_6836",
+    "fruits_allowed"
+  ],
+  "العنب": [
+    "yt-2aUKZrCeOII_9747",
+    "yt-O0drepKHKGI_9747",
+    "yt-OcwhGGxCIsI_4218",
+    "yt-VnXha6mPg5U_8201",
+    "yt-kLCAX5OKjF4_329",
+    "yt-6-qWOj0AXhc_2114",
+    "yt-xQ0fVMDUO38_1550",
+    "leafy_greens_forbidden",
+    "fruits_allowed"
+  ],
+  "عنب": [
+    "yt-2aUKZrCeOII_9747",
+    "yt-O0drepKHKGI_9747",
+    "yt-OcwhGGxCIsI_4218",
+    "yt-OcwhGGxCIsI_5409",
+    "yt-VnXha6mPg5U_008",
+    "yt-VnXha6mPg5U_8201",
+    "yt-ewomX3wxOXk_1217",
+    "yt-ewomX3wxOXk_2657",
+    "yt-ewomX3wxOXk_3048",
+    "yt-j4KdD0KTGyE_8908",
+    "yt-kLCAX5OKjF4_329",
+    "yt-ux9hE-Xlui0_649",
+    "yt-6-qWOj0AXhc_2114",
+    "yt-xQ0fVMDUO38_1550",
+    "leafy_greens_forbidden",
+    "fruits_allowed"
+  ],
+  "التفاح": [
+    "yt-2hH1BmmYF-c_1017",
+    "yt-9mC8oDN2abw_4053"
+  ],
+  "تفاح": [
+    "yt-2hH1BmmYF-c_1017",
+    "yt-ux9hE-Xlui0_649",
+    "yt-9mC8oDN2abw_4053"
+  ],
+  "برتقال": [
+    "yt-vmPu_Slq3qM_2145"
+  ],
+  "الليمون": [
+    "yt-6-qWOj0AXhc_2114"
+  ],
+  "التين": [
+    "yt-krDaRakKmn8_627",
+    "fruits_allowed"
+  ],
+  "تين": [
+    "yt-7So1qoMShcA_000",
+    "yt-krDaRakKmn8_627",
+    "yt--tXrfHfeQIo_1716",
+    "yt-vmPu_Slq3qM_3422",
+    "fruits_allowed"
+  ],
+  "البطيخ": [
+    "yt-1GtaW3WvabI_001",
+    "yt-ux9hE-Xlui0_3506",
+    "fruits_allowed"
+  ],
+  "بطيخ": [
+    "yt-1GtaW3WvabI_001",
+    "yt-2boWj4jU1YY_000",
+    "yt-7So1qoMShcA_327",
+    "yt-kLCAX5OKjF4_5755",
+    "yt-2boWj4jU1YY_1521",
+    "yt-ux9hE-Xlui0_3506",
+    "fruits_allowed"
+  ],
+  "ممنوع": [
+    "yt-2boWj4jU1YY_000",
+    "yt-2boWj4jU1YY_1854",
+    "yt-5gmJPBT-fnQ_000",
+    "yt-82gHEaqOOto_4459",
+    "yt-8AYaSqh52XY_000",
+    "yt-Jgc1oVhmczI_243",
+    "yt-Jgc1oVhmczI_2432",
+    "yt-VnXha6mPg5U_6359",
+    "yt-XIOrJAAtACc_600",
+    "yt-YVOQHGTxmAw_5649",
+    "yt-_FV9KtyMIFA_2434",
+    "yt-krDaRakKmn8_627",
+    "yt-q9jaZYBnWII_305",
+    "yt-ux9hE-Xlui0_3211",
+    "yt-VnXha6mPg5U_7301",
+    "tayyibat_philosophy",
+    "leafy_greens_forbidden",
+    "soda_forbidden",
+    "shrimp_forbidden",
+    "fruits_allowed",
+    "milk_forbidden"
+  ],
+  "الشمام": [
+    "fruits_allowed"
+  ],
+  "شمام": [
+    "yt-Nr2bw50l2ic_4142",
+    "fruits_allowed"
+  ],
+  "المانجا": [
+    "yt-OcwhGGxCIsI_6344",
+    "yt-BafvXAEfnQ8_249",
+    "yt-o8BWuF9wmoM_000",
+    "fruits_allowed"
+  ],
+  "مانجا": [
+    "yt-OcwhGGxCIsI_6344",
+    "yt-BafvXAEfnQ8_249",
+    "yt-o8BWuF9wmoM_000",
+    "fruits_allowed"
+  ],
+  "البرقوق": [
+    "fruits_allowed"
+  ],
+  "برقوق": [
+    "fruits_allowed"
+  ],
+  "الخوخ": [
+    "fruits_allowed"
+  ],
+  "خوخ": [
+    "fruits_allowed"
+  ],
+  "الفراوله": [
+    "yt-dF37UMXeM3I_000",
+    "fruits_allowed"
+  ],
+  "فراوله": [
+    "yt-7So1qoMShcA_327",
+    "yt-Ji4i5VHNAZs_934",
+    "yt-dF37UMXeM3I_000",
+    "fruits_allowed"
+  ],
+  "الجوافه": [
+    "fruits_allowed"
+  ],
+  "جوافه": [
+    "yt-KWBFuJ_EIN4_2433",
+    "yt-ewomX3wxOXk_1217",
+    "fruits_allowed"
+  ],
+  "الكيوي": [
+    "fruits_allowed"
+  ],
+  "كيوي": [
+    "fruits_allowed"
+  ],
+  "القولون": [
+    "yt--tXrfHfeQIo_2351",
+    "yt-49nWEoUQzLI_611",
+    "yt-4rD8mRU1AKg_4436",
+    "yt-7So1qoMShcA_327",
+    "yt-BafvXAEfnQ8_600",
+    "yt-E8MVNdW9_00_4003",
+    "yt-Jgc1oVhmczI_243",
+    "yt-KWBFuJ_EIN4_2804",
+    "yt-OcwhGGxCIsI_3142",
+    "yt-OcwhGGxCIsI_4218",
+    "yt-OcwhGGxCIsI_7054",
+    "yt-OfWv4ujloWY_317",
+    "yt-OfWv4ujloWY_627",
+    "yt-UqDR-_6w88s_1314",
+    "yt-UqDR-_6w88s_1618",
+    "yt-YVOQHGTxmAw_4001",
+    "yt-_FV9KtyMIFA_1803",
+    "yt-ewomX3wxOXk_2657",
+    "yt-ewomX3wxOXk_3048",
+    "yt-g9CpntsLpt8_334",
+    "yt-j4KdD0KTGyE_1611",
+    "yt-kLCAX5OKjF4_1453",
+    "yt-lSBvJKra-z0_3459",
+    "yt-lSBvJKra-z0_3829",
+    "yt-o8BWuF9wmoM_1831",
+    "yt-o8BWuF9wmoM_2835",
+    "yt-rH1o2Q1lmQc_2736",
+    "yt-uj0_wxTtvA0_3205",
+    "yt-vEbq_mOZNCI_2151",
+    "yt-vEbq_mOZNCI_3401",
+    "yt-vmPu_Slq3qM_3113",
+    "yt-vmPu_Slq3qM_4541",
+    "yt-xQ0fVMDUO38_353",
+    "yt-xQ0fVMDUO38_654",
+    "yt-xQ0fVMDUO38_1304",
+    "yt--tXrfHfeQIo_257",
+    "yt-0ScIsnGw5cU_1431",
+    "yt-1GtaW3WvabI_1113",
+    "yt-49nWEoUQzLI_1535",
+    "yt-4rD8mRU1AKg_000",
+    "yt-4rD8mRU1AKg_4105",
+    "yt-6-qWOj0AXhc_2114",
+    "yt-9mC8oDN2abw_3037",
+    "yt-9mC8oDN2abw_3416",
+    "yt-9mC8oDN2abw_4412",
+    "yt-GtEYhlcVZBI_309",
+    "yt-GtEYhlcVZBI_559",
+    "yt-KWBFuJ_EIN4_000",
+    "yt-XIOrJAAtACc_000",
+    "yt-YVOQHGTxmAw_3507",
+    "yt-_FV9KtyMIFA_3804",
+    "yt-ewomX3wxOXk_2346",
+    "yt-kLCAX5OKjF4_724",
+    "yt-o8BWuF9wmoM_2145",
+    "yt-qbZDdH6AhNg_338",
+    "yt-qbZDdH6AhNg_715",
+    "yt-qbZDdH6AhNg_1041",
+    "yt-qbZDdH6AhNg_1428",
+    "yt-vEbq_mOZNCI_000",
+    "yt-vEbq_mOZNCI_632",
+    "yt-vEbq_mOZNCI_1842",
+    "yt-vEbq_mOZNCI_2749",
+    "yt-vmPu_Slq3qM_3835",
+    "yt-vnTAVlNmwDg_1548",
+    "yt-xQ0fVMDUO38_001",
+    "yt-xQ0fVMDUO38_1005",
+    "yt-xQ0fVMDUO38_1550"
+  ],
+  "قولون": [
+    "yt--tXrfHfeQIo_2351",
+    "yt-49nWEoUQzLI_611",
+    "yt-4rD8mRU1AKg_4436",
+    "yt-7So1qoMShcA_327",
+    "yt-8AYaSqh52XY_1052",
+    "yt-9mC8oDN2abw_2109",
+    "yt-BafvXAEfnQ8_600",
+    "yt-E8MVNdW9_00_4003",
+    "yt-HF8hrBdMV6E_3658",
+    "yt-Jgc1oVhmczI_243",
+    "yt-Ji4i5VHNAZs_1559",
+    "yt-Ji4i5VHNAZs_1858",
+    "yt-KWBFuJ_EIN4_1718",
+    "yt-KWBFuJ_EIN4_2804",
+    "yt-OU8AdUhK-LM_3659",
+    "yt-OcwhGGxCIsI_3142",
+    "yt-OcwhGGxCIsI_4218",
+    "yt-OcwhGGxCIsI_5409",
+    "yt-OcwhGGxCIsI_7054",
+    "yt-OfWv4ujloWY_317",
+    "yt-OfWv4ujloWY_627",
+    "yt-OfWv4ujloWY_3118",
+    "yt-UqDR-_6w88s_1314",
+    "yt-UqDR-_6w88s_1618",
+    "yt-YVOQHGTxmAw_3100",
+    "yt-YVOQHGTxmAw_4001",
+    "yt-YVOQHGTxmAw_4442",
+    "yt-YVOQHGTxmAw_4819",
+    "yt-YVOQHGTxmAw_5258",
+    "yt-YVOQHGTxmAw_6036",
+    "yt-YVOQHGTxmAw_6852",
+    "yt-_A-6-7-NHOo_408",
+    "yt-_FV9KtyMIFA_1803",
+    "yt-dF37UMXeM3I_251",
+    "yt-ewomX3wxOXk_2657",
+    "yt-ewomX3wxOXk_3048",
+    "yt-g9CpntsLpt8_334",
+    "yt-j4KdD0KTGyE_1611",
+    "yt-kLCAX5OKjF4_1453",
+    "yt-lSBvJKra-z0_3459",
+    "yt-lSBvJKra-z0_3829",
+    "yt-lSBvJKra-z0_4831",
+    "yt-o8BWuF9wmoM_1831",
+    "yt-o8BWuF9wmoM_2835",
+    "yt-rH1o2Q1lmQc_312",
+    "yt-rH1o2Q1lmQc_616",
+    "yt-rH1o2Q1lmQc_1307",
+    "yt-rH1o2Q1lmQc_2736",
+    "yt-uj0_wxTtvA0_3205",
+    "yt-ux9hE-Xlui0_1402",
+    "yt-ux9hE-Xlui0_1711",
+    "yt-vEbq_mOZNCI_2151",
+    "yt-vEbq_mOZNCI_3401",
+    "yt-vmPu_Slq3qM_2534",
+    "yt-vmPu_Slq3qM_3113",
+    "yt-vmPu_Slq3qM_4541",
+    "yt-vnTAVlNmwDg_326",
+    "yt-xQ0fVMDUO38_353",
+    "yt-xQ0fVMDUO38_654",
+    "yt-xQ0fVMDUO38_1304",
+    "yt--tXrfHfeQIo_257",
+    "yt-0ScIsnGw5cU_547",
+    "yt-0ScIsnGw5cU_1431",
+    "yt-1GtaW3WvabI_1113",
+    "yt-49nWEoUQzLI_1535",
+    "yt-4rD8mRU1AKg_000",
+    "yt-4rD8mRU1AKg_4105",
+    "yt-6-qWOj0AXhc_2114",
+    "yt-6daCdPenKTA_1102",
+    "yt-9mC8oDN2abw_3037",
+    "yt-9mC8oDN2abw_3416",
+    "yt-9mC8oDN2abw_4412",
+    "yt-GtEYhlcVZBI_309",
+    "yt-GtEYhlcVZBI_559",
+    "yt-Ji4i5VHNAZs_1246",
+    "yt-KWBFuJ_EIN4_000",
+    "yt-VnXha6mPg5U_2000",
+    "yt-XIOrJAAtACc_000",
+    "yt-YVOQHGTxmAw_1833",
+    "yt-YVOQHGTxmAw_2245",
+    "yt-YVOQHGTxmAw_3507",
+    "yt-_FV9KtyMIFA_3804",
+    "yt-d-YRDz7CDZ4_819",
+    "yt-ewomX3wxOXk_2346",
+    "yt-kLCAX5OKjF4_724",
+    "yt-kLCAX5OKjF4_2225",
+    "yt-khw1PTnCL-M_2855",
+    "yt-khw1PTnCL-M_4642",
+    "yt-krDaRakKmn8_000",
+    "yt-nup8nqCiMBc_1541",
+    "yt-o8BWuF9wmoM_2145",
+    "yt-qbZDdH6AhNg_338",
+    "yt-qbZDdH6AhNg_715",
+    "yt-qbZDdH6AhNg_1041",
+    "yt-qbZDdH6AhNg_1428",
+    "yt-vEbq_mOZNCI_000",
+    "yt-vEbq_mOZNCI_632",
+    "yt-vEbq_mOZNCI_930",
+    "yt-vEbq_mOZNCI_1842",
+    "yt-vEbq_mOZNCI_2749",
+    "yt-vmPu_Slq3qM_3835",
+    "yt-vmPu_Slq3qM_4212",
+    "yt-vnTAVlNmwDg_1548",
+    "yt-xQ0fVMDUO38_001",
+    "yt-xQ0fVMDUO38_1005",
+    "yt-xQ0fVMDUO38_1550",
+    "leafy_greens_forbidden",
+    "diabetes_cure",
+    "diseases_cure"
+  ],
+  "الارتجاع": [
+    "yt-Ji4i5VHNAZs_255",
+    "yt-OcwhGGxCIsI_6708",
+    "yt-YVOQHGTxmAw_3100",
+    "yt-aEbRfVSJIOw_423",
+    "yt-1GtaW3WvabI_1113",
+    "yt-6daCdPenKTA_000",
+    "yt-KWBFuJ_EIN4_000",
+    "yt-YVOQHGTxmAw_3507"
+  ],
+  "ارتجاع": [
+    "yt-6daCdPenKTA_529",
+    "yt-9mC8oDN2abw_2109",
+    "yt-E8MVNdW9_00_4003",
+    "yt-Ji4i5VHNAZs_255",
+    "yt-OcwhGGxCIsI_6708",
+    "yt-UqDR-_6w88s_322",
+    "yt-UqDR-_6w88s_1314",
+    "yt-V_5iiSHggDI_007",
+    "yt-YVOQHGTxmAw_3100",
+    "yt-YVOQHGTxmAw_4001",
+    "yt-YVOQHGTxmAw_4819",
+    "yt-YVOQHGTxmAw_6852",
+    "yt-aEbRfVSJIOw_423",
+    "yt-h4iNUew0djI_307",
+    "yt-kLCAX5OKjF4_6922",
+    "yt-q9jaZYBnWII_000",
+    "yt-rH1o2Q1lmQc_2434",
+    "yt-0ScIsnGw5cU_547",
+    "yt-1GtaW3WvabI_1113",
+    "yt-6daCdPenKTA_000",
+    "yt-6daCdPenKTA_1102",
+    "yt-KWBFuJ_EIN4_000",
+    "yt-OU8AdUhK-LM_3125",
+    "yt-XIOrJAAtACc_000",
+    "yt-YVOQHGTxmAw_000",
+    "yt-YVOQHGTxmAw_3507",
+    "yt-khw1PTnCL-M_2855",
+    "yt-khw1PTnCL-M_4642",
+    "yt-vmPu_Slq3qM_3835",
+    "yt-vmPu_Slq3qM_4212",
+    "diabetes_cure",
+    "diseases_cure"
   ],
   "سكري": [
     "yt-4rD8mRU1AKg_1420",
@@ -7885,35 +8322,6 @@
     "yt-vnTAVlNmwDg_326",
     "yt-vnTAVlNmwDg_617"
   ],
-  "فاكهه": [
-    "yt-1GtaW3WvabI_2128",
-    "yt-1GtaW3WvabI_5812",
-    "yt-49nWEoUQzLI_1236",
-    "yt-8AYaSqh52XY_000",
-    "yt-8AYaSqh52XY_243",
-    "yt-BafvXAEfnQ8_600",
-    "yt-OcwhGGxCIsI_5409",
-    "yt-VnXha6mPg5U_8201"
-  ],
-  "الفواكه": [
-    "yt-VnXha6mPg5U_008",
-    "yt-VnXha6mPg5U_8201",
-    "yt-1GtaW3WvabI_2128",
-    "yt-1GtaW3WvabI_5812",
-    "yt-2aUKZrCeOII_9747",
-    "yt-49nWEoUQzLI_1236",
-    "yt-O0drepKHKGI_9747",
-    "yt-OcwhGGxCIsI_4218",
-    "yt-OcwhGGxCIsI_5409",
-    "yt-ewomX3wxOXk_1217",
-    "yt-ewomX3wxOXk_2657",
-    "yt-ewomX3wxOXk_3048",
-    "yt-j4KdD0KTGyE_8908",
-    "yt-o8BWuF9wmoM_1512",
-    "yt-ux9hE-Xlui0_649",
-    "yt-vmPu_Slq3qM_2145",
-    "yt-xQ0fVMDUO38_654"
-  ],
   "وزن": [
     "yt--tXrfHfeQIo_1409",
     "yt-2aUKZrCeOII_255",
@@ -8048,23 +8456,6 @@
     "yt-uj0_wxTtvA0_740",
     "yt-uj0_wxTtvA0_2207",
     "yt-uj0_wxTtvA0_3536"
-  ],
-  "عنب": [
-    "yt-2aUKZrCeOII_9747",
-    "yt-O0drepKHKGI_9747",
-    "yt-OcwhGGxCIsI_4218",
-    "yt-OcwhGGxCIsI_5409",
-    "yt-VnXha6mPg5U_008",
-    "yt-VnXha6mPg5U_8201",
-    "yt-ewomX3wxOXk_1217",
-    "yt-ewomX3wxOXk_2657",
-    "yt-ewomX3wxOXk_3048",
-    "yt-j4KdD0KTGyE_8908",
-    "yt-kLCAX5OKjF4_329",
-    "yt-ux9hE-Xlui0_649",
-    "yt-6-qWOj0AXhc_2114",
-    "yt-xQ0fVMDUO38_1550",
-    "leafy_greens_forbidden"
   ],
   "كبده": [
     "yt-2boWj4jU1YY_10656",
@@ -8560,15 +8951,6 @@
     "yt-KWBFuJ_EIN4_1718",
     "yt-_FV9KtyMIFA_1803"
   ],
-  "موز": [
-    "yt-OcwhGGxCIsI_937",
-    "yt-OcwhGGxCIsI_4218",
-    "yt-VnXha6mPg5U_6359",
-    "yt-o8BWuF9wmoM_1512",
-    "yt-vmPu_Slq3qM_4541",
-    "yt-xQ0fVMDUO38_654",
-    "yt-6T7S4CEKswY_6836"
-  ],
   "رياضي": [
     "yt-4rD8mRU1AKg_2129",
     "yt-OfWv4ujloWY_2439",
@@ -8626,14 +9008,6 @@
     "yt-uj0_wxTtvA0_4939",
     "yt-uj0_wxTtvA0_5304"
   ],
-  "تفاح": [
-    "yt-2hH1BmmYF-c_1017",
-    "yt-ux9hE-Xlui0_649",
-    "yt-9mC8oDN2abw_4053"
-  ],
-  "برتقال": [
-    "yt-vmPu_Slq3qM_2145"
-  ],
   "تمرين": [
     "yt-em-0cRNlCK0_823",
     "yt-j4KdD0KTGyE_3114",
@@ -8657,7 +9031,8 @@
     "yt-VnXha6mPg5U_7301",
     "sugar_allowed",
     "tayyibat_philosophy",
-    "potatoes_allowed"
+    "potatoes_allowed",
+    "fruits_allowed"
   ],
   "رايب": [
     "yt-Jgc1oVhmczI_2432",
@@ -8665,142 +9040,10 @@
     "tayyibat_philosophy",
     "milk_forbidden"
   ],
-  "ممنوع": [
-    "yt-2boWj4jU1YY_000",
-    "yt-2boWj4jU1YY_1854",
-    "yt-5gmJPBT-fnQ_000",
-    "yt-82gHEaqOOto_4459",
-    "yt-8AYaSqh52XY_000",
-    "yt-Jgc1oVhmczI_243",
-    "yt-Jgc1oVhmczI_2432",
-    "yt-VnXha6mPg5U_6359",
-    "yt-XIOrJAAtACc_600",
-    "yt-YVOQHGTxmAw_5649",
-    "yt-_FV9KtyMIFA_2434",
-    "yt-krDaRakKmn8_627",
-    "yt-q9jaZYBnWII_305",
-    "yt-ux9hE-Xlui0_3211",
-    "yt-VnXha6mPg5U_7301",
-    "tayyibat_philosophy",
-    "leafy_greens_forbidden",
-    "soda_forbidden",
-    "shrimp_forbidden",
-    "milk_forbidden"
-  ],
   "كريمرز": [
     "yt-Jgc1oVhmczI_2432",
     "tayyibat_philosophy",
     "milk_forbidden"
-  ],
-  "قولون": [
-    "yt--tXrfHfeQIo_2351",
-    "yt-49nWEoUQzLI_611",
-    "yt-4rD8mRU1AKg_4436",
-    "yt-7So1qoMShcA_327",
-    "yt-8AYaSqh52XY_1052",
-    "yt-9mC8oDN2abw_2109",
-    "yt-BafvXAEfnQ8_600",
-    "yt-E8MVNdW9_00_4003",
-    "yt-HF8hrBdMV6E_3658",
-    "yt-Jgc1oVhmczI_243",
-    "yt-Ji4i5VHNAZs_1559",
-    "yt-Ji4i5VHNAZs_1858",
-    "yt-KWBFuJ_EIN4_1718",
-    "yt-KWBFuJ_EIN4_2804",
-    "yt-OU8AdUhK-LM_3659",
-    "yt-OcwhGGxCIsI_3142",
-    "yt-OcwhGGxCIsI_4218",
-    "yt-OcwhGGxCIsI_5409",
-    "yt-OcwhGGxCIsI_7054",
-    "yt-OfWv4ujloWY_317",
-    "yt-OfWv4ujloWY_627",
-    "yt-OfWv4ujloWY_3118",
-    "yt-UqDR-_6w88s_1314",
-    "yt-UqDR-_6w88s_1618",
-    "yt-YVOQHGTxmAw_3100",
-    "yt-YVOQHGTxmAw_4001",
-    "yt-YVOQHGTxmAw_4442",
-    "yt-YVOQHGTxmAw_4819",
-    "yt-YVOQHGTxmAw_5258",
-    "yt-YVOQHGTxmAw_6036",
-    "yt-YVOQHGTxmAw_6852",
-    "yt-_A-6-7-NHOo_408",
-    "yt-_FV9KtyMIFA_1803",
-    "yt-dF37UMXeM3I_251",
-    "yt-ewomX3wxOXk_2657",
-    "yt-ewomX3wxOXk_3048",
-    "yt-g9CpntsLpt8_334",
-    "yt-j4KdD0KTGyE_1611",
-    "yt-kLCAX5OKjF4_1453",
-    "yt-lSBvJKra-z0_3459",
-    "yt-lSBvJKra-z0_3829",
-    "yt-lSBvJKra-z0_4831",
-    "yt-o8BWuF9wmoM_1831",
-    "yt-o8BWuF9wmoM_2835",
-    "yt-rH1o2Q1lmQc_312",
-    "yt-rH1o2Q1lmQc_616",
-    "yt-rH1o2Q1lmQc_1307",
-    "yt-rH1o2Q1lmQc_2736",
-    "yt-uj0_wxTtvA0_3205",
-    "yt-ux9hE-Xlui0_1402",
-    "yt-ux9hE-Xlui0_1711",
-    "yt-vEbq_mOZNCI_2151",
-    "yt-vEbq_mOZNCI_3401",
-    "yt-vmPu_Slq3qM_2534",
-    "yt-vmPu_Slq3qM_3113",
-    "yt-vmPu_Slq3qM_4541",
-    "yt-vnTAVlNmwDg_326",
-    "yt-xQ0fVMDUO38_353",
-    "yt-xQ0fVMDUO38_654",
-    "yt-xQ0fVMDUO38_1304",
-    "yt--tXrfHfeQIo_257",
-    "yt-0ScIsnGw5cU_547",
-    "yt-0ScIsnGw5cU_1431",
-    "yt-1GtaW3WvabI_1113",
-    "yt-49nWEoUQzLI_1535",
-    "yt-4rD8mRU1AKg_000",
-    "yt-4rD8mRU1AKg_4105",
-    "yt-6-qWOj0AXhc_2114",
-    "yt-6daCdPenKTA_1102",
-    "yt-9mC8oDN2abw_3037",
-    "yt-9mC8oDN2abw_3416",
-    "yt-9mC8oDN2abw_4412",
-    "yt-GtEYhlcVZBI_309",
-    "yt-GtEYhlcVZBI_559",
-    "yt-Ji4i5VHNAZs_1246",
-    "yt-KWBFuJ_EIN4_000",
-    "yt-VnXha6mPg5U_2000",
-    "yt-XIOrJAAtACc_000",
-    "yt-YVOQHGTxmAw_1833",
-    "yt-YVOQHGTxmAw_2245",
-    "yt-YVOQHGTxmAw_3507",
-    "yt-_FV9KtyMIFA_3804",
-    "yt-d-YRDz7CDZ4_819",
-    "yt-ewomX3wxOXk_2346",
-    "yt-kLCAX5OKjF4_724",
-    "yt-kLCAX5OKjF4_2225",
-    "yt-khw1PTnCL-M_2855",
-    "yt-khw1PTnCL-M_4642",
-    "yt-krDaRakKmn8_000",
-    "yt-nup8nqCiMBc_1541",
-    "yt-o8BWuF9wmoM_2145",
-    "yt-qbZDdH6AhNg_338",
-    "yt-qbZDdH6AhNg_715",
-    "yt-qbZDdH6AhNg_1041",
-    "yt-qbZDdH6AhNg_1428",
-    "yt-vEbq_mOZNCI_000",
-    "yt-vEbq_mOZNCI_632",
-    "yt-vEbq_mOZNCI_930",
-    "yt-vEbq_mOZNCI_1842",
-    "yt-vEbq_mOZNCI_2749",
-    "yt-vmPu_Slq3qM_3835",
-    "yt-vmPu_Slq3qM_4212",
-    "yt-vnTAVlNmwDg_1548",
-    "yt-xQ0fVMDUO38_001",
-    "yt-xQ0fVMDUO38_1005",
-    "yt-xQ0fVMDUO38_1550",
-    "leafy_greens_forbidden",
-    "diabetes_cure"
   ],
   "قاتل": [
     "yt--tXrfHfeQIo_2017",
@@ -9012,7 +9255,8 @@
     "sugar_allowed"
   ],
   "نظام الطيبات": [
-    "tayyibat_philosophy"
+    "tayyibat_philosophy",
+    "diseases_cure"
   ],
   "دقيق ابيض": [
     "tayyibat_philosophy"
@@ -9075,7 +9319,8 @@
     "diabetes_cure"
   ],
   "وقفنا الدواء": [
-    "diabetes_cure"
+    "diabetes_cure",
+    "diseases_cure"
   ],
   "عالجته بالاكل": [
     "diabetes_cure"
@@ -9094,5 +9339,26 @@
   ],
   "النوع الاول": [
     "diabetes_cure"
+  ],
+  "اجاص": [
+    "fruits_allowed"
+  ],
+  "قولون عصبي": [
+    "diseases_cure"
+  ],
+  "التب العصبي": [
+    "diseases_cure"
+  ],
+  "الامراض المزمنه": [
+    "diseases_cure"
+  ],
+  "علاج الامراض": [
+    "diseases_cure"
+  ],
+  "ارتجاع المريء": [
+    "diseases_cure"
+  ],
+  "القولون العصبي": [
+    "diseases_cure"
   ]
 }

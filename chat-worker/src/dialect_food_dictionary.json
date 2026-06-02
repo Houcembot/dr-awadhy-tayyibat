@@ -1512,5 +1512,355 @@
     ],
     "confidence": "high",
     "dialect": null
+  },
+  "الفواكه": {
+    "type": "food",
+    "category": "فواكه",
+    "synonyms": [
+      "فواكه",
+      "الفاكهه",
+      "فاكهه",
+      "الفاكهة",
+      "فاكهة"
+    ],
+    "ingredients": [
+      "فاكهة"
+    ],
+    "strong_matches": [
+      "فواكه",
+      "الفاكهه",
+      "الفاكهة"
+    ],
+    "related_concepts": [
+      "السكر"
+    ],
+    "confidence": "high",
+    "dialect": null
+  },
+  "الموز": {
+    "type": "food",
+    "category": "فواكه",
+    "synonyms": [
+      "موز",
+      "الموز"
+    ],
+    "ingredients": [
+      "موز"
+    ],
+    "strong_matches": [
+      "موز",
+      "الموز"
+    ],
+    "related_concepts": [
+      "الفواكه",
+      "السكر"
+    ],
+    "confidence": "high",
+    "dialect": null
+  },
+  "العنب": {
+    "type": "food",
+    "category": "فواكه",
+    "synonyms": [
+      "عنب",
+      "العنب"
+    ],
+    "ingredients": [
+      "عنب"
+    ],
+    "strong_matches": [
+      "عنب",
+      "العنب"
+    ],
+    "related_concepts": [
+      "الفواكه",
+      "السكر"
+    ],
+    "confidence": "high",
+    "dialect": null
+  },
+  "التفاح": {
+    "type": "food",
+    "category": "فواكه",
+    "synonyms": [
+      "تفاح",
+      "التفاح"
+    ],
+    "ingredients": [
+      "تفاح"
+    ],
+    "strong_matches": [
+      "تفاح",
+      "التفاح"
+    ],
+    "related_concepts": [
+      "الفواكه"
+    ],
+    "confidence": "medium",
+    "dialect": null
+  },
+  "البرتقال": {
+    "type": "food",
+    "category": "فواكه",
+    "synonyms": [
+      "برتقال",
+      "البرتقال",
+      "البرتقاله",
+      "يوسفي",
+      "اليوسفي"
+    ],
+    "ingredients": [
+      "برتقال"
+    ],
+    "strong_matches": [
+      "برتقال",
+      "البرتقال"
+    ],
+    "related_concepts": [
+      "الفواكه"
+    ],
+    "confidence": "medium",
+    "dialect": null
+  },
+  "الليمون": {
+    "type": "food",
+    "category": "فواكه",
+    "synonyms": [
+      "ليمون",
+      "الليمون"
+    ],
+    "ingredients": [
+      "ليمون"
+    ],
+    "strong_matches": [
+      "ليمون",
+      "الليمون"
+    ],
+    "related_concepts": [
+      "الفواكه"
+    ],
+    "confidence": "medium",
+    "dialect": null
+  },
+  "التين": {
+    "type": "food",
+    "category": "فواكه",
+    "synonyms": [
+      "تين",
+      "التين"
+    ],
+    "ingredients": [
+      "تين"
+    ],
+    "strong_matches": [
+      "تين",
+      "التين"
+    ],
+    "related_concepts": [
+      "الفواكه",
+      "السكر"
+    ],
+    "confidence": "high",
+    "dialect": null
+  },
+  "البطيخ": {
+    "type": "food",
+    "category": "فواكه",
+    "synonyms": [
+      "بطيخ",
+      "البطيخ",
+      "الرقي"
+    ],
+    "ingredients": [
+      "بطيخ"
+    ],
+    "strong_matches": [
+      "بطيخ",
+      "البطيخ"
+    ],
+    "related_concepts": [
+      "الفواكه",
+      "ممنوع"
+    ],
+    "confidence": "high",
+    "dialect": null
+  },
+  "الشمام": {
+    "type": "food",
+    "category": "فواكه",
+    "synonyms": [
+      "شمام",
+      "الشمام",
+      "الكنتالوب"
+    ],
+    "ingredients": [
+      "شمام"
+    ],
+    "strong_matches": [
+      "شمام",
+      "الشمام"
+    ],
+    "related_concepts": [
+      "الفواكه",
+      "ممنوع"
+    ],
+    "confidence": "high",
+    "dialect": null
+  },
+  "المانجا": {
+    "type": "food",
+    "category": "فواكه",
+    "synonyms": [
+      "مانجا",
+      "المانجا",
+      "المانجو"
+    ],
+    "ingredients": [
+      "مانجا"
+    ],
+    "strong_matches": [
+      "مانجا",
+      "المانجا"
+    ],
+    "related_concepts": [
+      "الفواكه"
+    ],
+    "confidence": "high",
+    "dialect": null
+  },
+  "البرقوق": {
+    "type": "food",
+    "category": "فواكه",
+    "synonyms": [
+      "برقوق",
+      "البرقوق",
+      "الخوخ",
+      "خوخ"
+    ],
+    "ingredients": [
+      "برقوق"
+    ],
+    "strong_matches": [
+      "برقوق",
+      "البرقوق",
+      "خوخ"
+    ],
+    "related_concepts": [
+      "الفواكه"
+    ],
+    "confidence": "high",
+    "dialect": null
+  },
+  "الفراولة": {
+    "type": "food",
+    "category": "فواكه",
+    "synonyms": [
+      "فراوله",
+      "الفراوله",
+      "فراولة",
+      "الفراولة"
+    ],
+    "ingredients": [
+      "فراولة"
+    ],
+    "strong_matches": [
+      "فراوله",
+      "الفراوله"
+    ],
+    "related_concepts": [
+      "الفواكه"
+    ],
+    "confidence": "high",
+    "dialect": null
+  },
+  "الجوافة": {
+    "type": "food",
+    "category": "فواكه",
+    "synonyms": [
+      "جوافه",
+      "الجوافه",
+      "جوافة",
+      "الجوافة"
+    ],
+    "ingredients": [
+      "جوافة"
+    ],
+    "strong_matches": [
+      "جوافه",
+      "الجوافه"
+    ],
+    "related_concepts": [
+      "الفواكه"
+    ],
+    "confidence": "high",
+    "dialect": null
+  },
+  "الكيوي": {
+    "type": "food",
+    "category": "فواكه",
+    "synonyms": [
+      "كيوي",
+      "الكيوي"
+    ],
+    "ingredients": [
+      "كيوي"
+    ],
+    "strong_matches": [
+      "كيوي",
+      "الكيوي"
+    ],
+    "related_concepts": [
+      "الفواكه"
+    ],
+    "confidence": "medium",
+    "dialect": null
+  },
+  "القولون": {
+    "type": "medical",
+    "category": "اعضاء",
+    "synonyms": [
+      "قولون",
+      "القولون",
+      "قولون عصبي",
+      "القولون العصبي",
+      "التب العصبي",
+      "colon"
+    ],
+    "ingredients": [
+      "قولون"
+    ],
+    "strong_matches": [
+      "قولون",
+      "القولون",
+      "قولون عصبي"
+    ],
+    "related_concepts": [
+      "الشفاء"
+    ],
+    "confidence": "high",
+    "dialect": null
+  },
+  "الارتجاع": {
+    "type": "medical",
+    "category": "مرض",
+    "synonyms": [
+      "ارتجاع",
+      "الارتجاع",
+      "ارتجاع المريء",
+      "ارتجاع المريق",
+      "reflux"
+    ],
+    "ingredients": [
+      "ارتجاع"
+    ],
+    "strong_matches": [
+      "ارتجاع",
+      "الارتجاع"
+    ],
+    "related_concepts": [
+      "الشفاء"
+    ],
+    "confidence": "high",
+    "dialect": null
   }
 }
