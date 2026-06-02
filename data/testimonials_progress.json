@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-02T02:01:39",
+  "updated_at": "2026-06-02T02:13:19",
   "total": 208,
-  "downloaded": 39,
+  "downloaded": 40,
   "failed": 0,
-  "pending": 167,
-  "archive_gib": 1.45,
+  "pending": 166,
+  "archive_gib": 1.62,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "Q6k0g8yjLSA",
-    "url": "https://www.youtube.com/watch?v=Q6k0g8yjLSA",
-    "title": "الذهب 💥ومن ذهب ✋️تجربتى وقراءة في نظام الطيبات للدكتور ضياء العوضي.٩ مايو ٢٠٢٦",
-    "duration_seconds": 1272,
+    "id": "fBsjvCPeMlo",
+    "url": "https://www.youtube.com/watch?v=fBsjvCPeMlo",
+    "title": "تجربتي مع نظام الطيبات وقصتي مع د.ضياء العوضي رحمة الله عليه وسر مقتله",
+    "duration_seconds": 1914,
     "status": "downloaded",
     "triage_subject": "testimonial_testimonial_general",
-    "triage_priority": 110,
-    "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; duree exploitable",
-    "started_at": "2026-06-02T02:00:01",
-    "finished_at": "2026-06-02T02:01:39"
+    "triage_priority": 108,
+    "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; long temoignage",
+    "started_at": "2026-06-02T02:10:01",
+    "finished_at": "2026-06-02T02:13:19"
   },
   "recent": [
-    {
-      "id": "C8qnx1RpgWA",
-      "title": "قصتي مع نظام الطيبات شهادة حق أسأل عنها يوم القيامة",
-      "duration_seconds": 524
-    },
     {
       "id": "6yfdUzCABoI",
       "title": "تجربتى  مع دكتور  ضياء العوضي  صاحب نظرية الطيبات",
@@ -38,6 +33,11 @@
       "id": "Q6k0g8yjLSA",
       "title": "الذهب 💥ومن ذهب ✋️تجربتى وقراءة في نظام الطيبات للدكتور ضياء العوضي.٩ مايو ٢٠٢٦",
       "duration_seconds": 1272
+    },
+    {
+      "id": "fBsjvCPeMlo",
+      "title": "تجربتي مع نظام الطيبات وقصتي مع د.ضياء العوضي رحمة الله عليه وسر مقتله",
+      "duration_seconds": 1914
     },
     {
       "id": "F14WbxGzDmQ",
