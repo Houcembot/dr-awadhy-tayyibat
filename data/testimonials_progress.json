@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-02T08:20:30",
+  "updated_at": "2026-06-02T08:30:41",
   "total": 208,
-  "downloaded": 77,
+  "downloaded": 78,
   "failed": 0,
-  "pending": 129,
-  "archive_gib": 2.74,
+  "pending": 128,
+  "archive_gib": 2.78,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "Pt_6D9A4Ck4",
-    "url": "https://www.youtube.com/watch?v=Pt_6D9A4Ck4",
-    "title": "Part Two... An Egyptian mother's experience after following the Tayyibat diet, Dr. Diaa El-Awady,...",
-    "duration_seconds": 447,
+    "id": "-C36m9AL2nE",
+    "url": "https://www.youtube.com/watch?v=-C36m9AL2nE",
+    "title": "🥛اللبن مفيد أم ضار؟ | اعرف أعراضك صح مع د. ضياء العوضي ونظام الطيبات للشفاء التام",
+    "duration_seconds": 489,
     "status": "downloaded",
-    "triage_subject": "testimonial_testimonial_general",
+    "triage_subject": "testimonial_permitted_forbidden_foods",
     "triage_priority": 98,
     "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; duree exploitable",
-    "started_at": "2026-06-02T08:20:01",
-    "finished_at": "2026-06-02T08:20:30"
+    "started_at": "2026-06-02T08:30:01",
+    "finished_at": "2026-06-02T08:30:41"
   },
   "recent": [
-    {
-      "id": "N9n45yU3_pQ",
-      "title": "Controversy surrounds sugar in the Tayyibat diet... Dr. Ahmed Anwar recounts his experience with ...",
-      "duration_seconds": 405
-    },
     {
       "id": "EA-_Inwals0",
       "title": "رحيمة الشريف تكشف أفضل طريقة لاتباع نظام الطيبات لدكتور ضياء العوضي #دويتو #اكسبلور #youtubeshorts ",
@@ -38,6 +33,11 @@
       "id": "Pt_6D9A4Ck4",
       "title": "Part Two... An Egyptian mother's experience after following the Tayyibat diet, Dr. Diaa El-Awady,...",
       "duration_seconds": 447
+    },
+    {
+      "id": "-C36m9AL2nE",
+      "title": "🥛اللبن مفيد أم ضار؟ | اعرف أعراضك صح مع د. ضياء العوضي ونظام الطيبات للشفاء التام",
+      "duration_seconds": 489
     },
     {
       "id": "F14WbxGzDmQ",
