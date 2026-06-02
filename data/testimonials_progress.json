@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-02T16:45:25",
+  "updated_at": "2026-06-02T16:56:13",
   "total": 208,
-  "downloaded": 126,
+  "downloaded": 127,
   "failed": 1,
-  "pending": 79,
-  "archive_gib": 6.93,
+  "pending": 78,
+  "archive_gib": 7.16,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "ARMZpruUTB4",
-    "url": "https://www.youtube.com/watch?v=ARMZpruUTB4",
-    "title": "اللقاء الأخير لضياء العوضي قبل رحيله: كشف الخديعة الكبرى .. وهم الأدوية وخرافة المرض المزمن؟",
-    "duration_seconds": 4501,
+    "id": "mI9wrM2e5Fo",
+    "url": "https://www.youtube.com/watch?v=mI9wrM2e5Fo",
+    "title": "شيماء والسرطان: رحلة الشفاء بنظام الطيبات",
+    "duration_seconds": 5280,
     "status": "downloaded",
-    "triage_subject": "testimonial_inflammation-douleurs-articulations",
+    "triage_subject": "testimonial_cancer",
     "triage_priority": 90,
     "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; long temoignage",
-    "started_at": "2026-06-02T16:40:01",
-    "finished_at": "2026-06-02T16:45:25"
+    "started_at": "2026-06-02T16:50:01",
+    "finished_at": "2026-06-02T16:56:13"
   },
   "recent": [
-    {
-      "id": "zONTeKHBLjg",
-      "title": "\"العطش الحقيقي: من خرافة 3 لتر يوميًا إلى نظام الطيبات | ماذا كشف د. ضياء العوضي؟!\"",
-      "duration_seconds": 3610
-    },
     {
       "id": "46LvFWA5E5s",
       "title": "ضياء العوضي من داخل فندق الجميرا بالامارات الحقيقه تنكشف واخر لايف للدكتور ضياء العوضي من داخل غرفته",
@@ -38,6 +33,11 @@
       "id": "ARMZpruUTB4",
       "title": "اللقاء الأخير لضياء العوضي قبل رحيله: كشف الخديعة الكبرى .. وهم الأدوية وخرافة المرض المزمن؟",
       "duration_seconds": 4501
+    },
+    {
+      "id": "mI9wrM2e5Fo",
+      "title": "شيماء والسرطان: رحلة الشفاء بنظام الطيبات",
+      "duration_seconds": 5280
     },
     {
       "id": "F14WbxGzDmQ",
