@@ -1421,5 +1421,96 @@
     ],
     "confidence": "high",
     "dialect": null
+  },
+  "البيبسي": {
+    "type": "food",
+    "category": "مشروبات",
+    "synonyms": [
+      "بيبسي",
+      "البيبسي",
+      "السبرايت",
+      "سبرايت",
+      "كولا",
+      "الكولا",
+      "البيريل",
+      "الامست",
+      "المست",
+      "سودا",
+      "السودا",
+      "سوداز",
+      "Pepsi",
+      "Coca",
+      "Cola"
+    ],
+    "ingredients": [
+      "بيبسي",
+      "سودا"
+    ],
+    "strong_matches": [
+      "بيبسي",
+      "سبرايت",
+      "سودا",
+      "كولا"
+    ],
+    "related_concepts": [
+      "مشروبات غازيه"
+    ],
+    "confidence": "high",
+    "dialect": null
+  },
+  "الجمبري": {
+    "type": "food",
+    "category": "بحريات",
+    "synonyms": [
+      "جمبري",
+      "الجمبري",
+      "الصبيت",
+      "صبيت",
+      "روبيان",
+      "كركند",
+      "قشريات"
+    ],
+    "ingredients": [
+      "جمبري"
+    ],
+    "strong_matches": [
+      "جمبري",
+      "الجمبري",
+      "صبيت",
+      "الصبيت"
+    ],
+    "related_concepts": [
+      "السمك",
+      "بحريات"
+    ],
+    "confidence": "high",
+    "dialect": null
+  },
+  "الشفاء": {
+    "type": "concept",
+    "category": "طب",
+    "synonyms": [
+      "شفاء",
+      "العلاج",
+      "علاج",
+      "الشفاء",
+      "يشفى",
+      "التداوي"
+    ],
+    "ingredients": [
+      "الشفاء"
+    ],
+    "strong_matches": [
+      "الشفاء",
+      "شفاء",
+      "العلاج",
+      "علاج"
+    ],
+    "related_concepts": [
+      "السكر",
+      "الادويه"
+    ],
+    "confidence": "high",
+    "dialect": null
   }
 }

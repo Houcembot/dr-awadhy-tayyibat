@@ -230,15 +230,24 @@ export function retrieveBlocks(question, topN = 3) {
     score += hits.generic.length   *  5;
     score += DOMAIN_SCORE[block.domain] ?? 0;
 
-    // Honor explicit block.score, but normalize by topic.length so focused
-    // blocks (e.g. milk_forbidden: 6 topics) outrank broad philosophy blocks
-    // (tayyibat_philosophy: 9 topics) on narrow queries.
+    // Honor explicit block.score with word-exact topic match (avoids
+    // substring false positives where "السكري" or "السكر النوع الثاني"
+    // would incorrectly match canonical "السكر"). Normalized by topic.length
+    // so focused blocks outrank broad philosophy blocks on narrow queries.
     if (typeof block.score === 'number' && block.score > 0 && Array.isArray(block.topic) && block.topic.length > 0) {
-      const topicNorm = block.topic.map(t => normalizeArabic(t));
+      const topicWords = new Set();
+      for (const t of block.topic) {
+        for (const w of normalizeArabic(t).split(/\s+/)) {
+          if (w.length >= 3) topicWords.add(w);
+        }
+      }
+      // ال-prefix-tolerant matching (e.g. "خضار" query matches "الخضار" topic).
+      const inTopic = (w) => topicWords.has(w)
+        || (w.length > 3 && w.startsWith('ال') && topicWords.has(w.slice(2)))
+        || topicWords.has('ال' + w);
       const conceptOverlap =
-        canonicalNorm.some(c => topicNorm.some(t => t.includes(c) || c.includes(t))) ||
-        strongNorm.some(s    => topicNorm.some(t => t.includes(s) || s.includes(t)));
-      if (conceptOverlap) score += Math.min(block.score / topicNorm.length, 100);
+        canonicalNorm.some(inTopic) || strongNorm.some(inTopic);
+      if (conceptOverlap) score += Math.min(block.score / block.topic.length, 100);
     }
 
     // Density bonus: a block that mentions the canonical/strong food N times is
