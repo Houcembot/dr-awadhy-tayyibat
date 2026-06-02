@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-02T19:40:32",
+  "updated_at": "2026-06-02T19:50:16",
   "total": 208,
-  "downloaded": 143,
+  "downloaded": 144,
   "failed": 1,
-  "pending": 62,
-  "archive_gib": 8.16,
+  "pending": 61,
+  "archive_gib": 8.18,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "3j91a5v-BoI",
-    "url": "https://www.youtube.com/watch?v=3j91a5v-BoI",
-    "title": "مريضة سرطان متعافية تشرح الأكل والشرب في نظام الطيبات لضياء العوضي بعد وفاة ضياء العوضي",
-    "duration_seconds": 339,
+    "id": "L8oPcQc9u1o",
+    "url": "https://www.youtube.com/watch?v=L8oPcQc9u1o",
+    "title": "مريضة السرطان المتشافية توجه رسالة إلى محبين و متابعين دكتور ضياء العوضي بعد وفاة ضياء العوضي",
+    "duration_seconds": 366,
     "status": "downloaded",
     "triage_subject": "testimonial_cancer",
     "triage_priority": 79,
     "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; risque video debat/controverse plutot que temoignage; duree exploitable",
-    "started_at": "2026-06-02T19:40:01",
-    "finished_at": "2026-06-02T19:40:32"
+    "started_at": "2026-06-02T19:50:01",
+    "finished_at": "2026-06-02T19:50:16"
   },
   "recent": [
-    {
-      "id": "OXjYiRNTni0",
-      "title": "ضياء العوضي القصة الكاملة | كيف انتهى نظام الطيبات | باختصار",
-      "duration_seconds": 911
-    },
     {
       "id": "Da1qzp-LgVk",
       "title": "مريضة السرطان المتشافية تشرح الأكل و الشرب في نظام الطيبات لدكتور ضياء العوضي بعد وفاة ضياء العوضي",
@@ -38,6 +33,11 @@
       "id": "3j91a5v-BoI",
       "title": "مريضة سرطان متعافية تشرح الأكل والشرب في نظام الطيبات لضياء العوضي بعد وفاة ضياء العوضي",
       "duration_seconds": 339
+    },
+    {
+      "id": "L8oPcQc9u1o",
+      "title": "مريضة السرطان المتشافية توجه رسالة إلى محبين و متابعين دكتور ضياء العوضي بعد وفاة ضياء العوضي",
+      "duration_seconds": 366
     },
     {
       "id": "F14WbxGzDmQ",
