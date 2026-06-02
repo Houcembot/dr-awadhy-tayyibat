@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-02T21:10:54",
+  "updated_at": "2026-06-02T21:22:26",
   "total": 208,
-  "downloaded": 152,
+  "downloaded": 153,
   "failed": 1,
-  "pending": 53,
-  "archive_gib": 8.4,
+  "pending": 52,
+  "archive_gib": 8.48,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "SxLqZcEezlk",
-    "url": "https://www.youtube.com/watch?v=SxLqZcEezlk",
-    "title": "حقيقة الصراع بين د/ ضياء العوضي ومنظمة الصحة العالمية وماذا قال ابن سينا تغذية حسناء من قلب التجربة",
-    "duration_seconds": 845,
+    "id": "wuQcp7Qw4tQ",
+    "url": "https://www.youtube.com/watch?v=wuQcp7Qw4tQ",
+    "title": "علاج الامراض المناعية / لماذا تصاب وطريق الشفاء بدون ادوية",
+    "duration_seconds": 1014,
     "status": "downloaded",
     "triage_subject": "testimonial_testimonial_general",
-    "triage_priority": 79,
-    "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; risque video debat/controverse plutot que temoignage; duree exploitable",
-    "started_at": "2026-06-02T21:10:01",
-    "finished_at": "2026-06-02T21:10:54"
+    "triage_priority": 78,
+    "triage_reason": "retour experience explicite; duree exploitable",
+    "started_at": "2026-06-02T21:20:01",
+    "finished_at": "2026-06-02T21:22:26"
   },
   "recent": [
-    {
-      "id": "1dAhJn-gQ2g",
-      "title": "حالة شفاء من الروماتويد⁉️ بنظام الطيبات لدكتور ضياء العوضي #مع عمل وجبة سريعة",
-      "duration_seconds": 629
-    },
     {
       "id": "1x5Qo2Xj0nc",
       "title": "شوف ده قبل ماتجرب نظام الطيبات دكتور ضياء العوضي ",
@@ -38,6 +33,11 @@
       "id": "SxLqZcEezlk",
       "title": "حقيقة الصراع بين د/ ضياء العوضي ومنظمة الصحة العالمية وماذا قال ابن سينا تغذية حسناء من قلب التجربة",
       "duration_seconds": 845
+    },
+    {
+      "id": "wuQcp7Qw4tQ",
+      "title": "علاج الامراض المناعية / لماذا تصاب وطريق الشفاء بدون ادوية",
+      "duration_seconds": 1014
     },
     {
       "id": "F14WbxGzDmQ",
