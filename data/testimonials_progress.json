@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-02T17:03:36",
+  "updated_at": "2026-06-02T17:20:22",
   "total": 208,
-  "downloaded": 128,
+  "downloaded": 129,
   "failed": 1,
-  "pending": 77,
-  "archive_gib": 7.32,
+  "pending": 75,
+  "archive_gib": 7.82,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "zjeotgiL9NE",
-    "url": "https://www.youtube.com/watch?v=zjeotgiL9NE",
-    "title": "لقاء دكتور ضياء العوضي الاخير وكشف اسرار التغذية وعلاج الامراض كاملة",
-    "duration_seconds": 6820,
+    "id": "SafjZp72hCo",
+    "url": "https://www.youtube.com/watch?v=SafjZp72hCo",
+    "title": "علاج تضخم البروستات بدون جراحة؟ 🤔 اكتشف أسرار الدكتور ضياء العوضي للتعافي الطبيعي!",
+    "duration_seconds": 103,
     "status": "downloaded",
     "triage_subject": "testimonial_testimonial_general",
-    "triage_priority": 90,
-    "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; long temoignage",
-    "started_at": "2026-06-02T17:00:01",
-    "finished_at": "2026-06-02T17:03:36"
+    "triage_priority": 86,
+    "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat",
+    "started_at": "2026-06-02T17:20:01",
+    "finished_at": "2026-06-02T17:20:22"
   },
   "recent": [
-    {
-      "id": "cQDeBiG1mk4",
-      "title": "From Founder of the Tayibat Group to a Victim of the Tayibat System.. A Testimony Published for t...",
-      "duration_seconds": 4311
-    },
     {
       "id": "ARMZpruUTB4",
       "title": "اللقاء الأخير لضياء العوضي قبل رحيله: كشف الخديعة الكبرى .. وهم الأدوية وخرافة المرض المزمن؟",
@@ -38,6 +33,11 @@
       "id": "zjeotgiL9NE",
       "title": "لقاء دكتور ضياء العوضي الاخير وكشف اسرار التغذية وعلاج الامراض كاملة",
       "duration_seconds": 6820
+    },
+    {
+      "id": "SafjZp72hCo",
+      "title": "علاج تضخم البروستات بدون جراحة؟ 🤔 اكتشف أسرار الدكتور ضياء العوضي للتعافي الطبيعي!",
+      "duration_seconds": 103
     },
     {
       "id": "F14WbxGzDmQ",
