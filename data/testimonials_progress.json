@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-02T13:51:18",
+  "updated_at": "2026-06-02T14:02:34",
   "total": 208,
-  "downloaded": 109,
+  "downloaded": 110,
   "failed": 1,
-  "pending": 96,
-  "archive_gib": 5.4,
+  "pending": 95,
+  "archive_gib": 5.51,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "OpZI6hzUgmE",
-    "url": "https://www.youtube.com/watch?v=OpZI6hzUgmE",
-    "title": "Dr Diaa Al Awady د ضياء العوضي is live! ناهد و تجربة تستحق السماع",
-    "duration_seconds": 2245,
+    "id": "yko-7dJOBGo",
+    "url": "https://www.youtube.com/watch?v=yko-7dJOBGo",
+    "title": "بكل جراءة شهادة عوني حدادين احد المتشافين من نظام الطيبات للشهيد الدكتور ضياء العوضي",
+    "duration_seconds": 3201,
     "status": "downloaded",
     "triage_subject": "testimonial_testimonial_general",
     "triage_priority": 96,
     "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; long temoignage",
-    "started_at": "2026-06-02T13:50:01",
-    "finished_at": "2026-06-02T13:51:18"
+    "started_at": "2026-06-02T14:00:01",
+    "finished_at": "2026-06-02T14:02:34"
   },
   "recent": [
-    {
-      "id": "18ddCHLZ2v4",
-      "title": "طبيب أسنان بعد تجربة نظام الطيبات",
-      "duration_seconds": 2003
-    },
     {
       "id": "I4vhNnr8548",
       "title": "تجربة و تحديات اول يوم  في نظام الطيبات للدكتور ضياء العوضي",
@@ -38,6 +33,11 @@
       "id": "OpZI6hzUgmE",
       "title": "Dr Diaa Al Awady د ضياء العوضي is live! ناهد و تجربة تستحق السماع",
       "duration_seconds": 2245
+    },
+    {
+      "id": "yko-7dJOBGo",
+      "title": "بكل جراءة شهادة عوني حدادين احد المتشافين من نظام الطيبات للشهيد الدكتور ضياء العوضي",
+      "duration_seconds": 3201
     },
     {
       "id": "F14WbxGzDmQ",
