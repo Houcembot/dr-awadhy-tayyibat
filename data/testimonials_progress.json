@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-02T09:40:52",
+  "updated_at": "2026-06-02T09:51:29",
   "total": 208,
-  "downloaded": 84,
+  "downloaded": 85,
   "failed": 1,
-  "pending": 121,
-  "archive_gib": 3.06,
+  "pending": 120,
+  "archive_gib": 3.13,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "ZlwpbJXq2mA",
-    "url": "https://www.youtube.com/watch?v=ZlwpbJXq2mA",
-    "title": "نظام الطيبات: اكتشف سر إنقاص الوزن و التخلص من الأمراض",
-    "duration_seconds": 663,
+    "id": "Un0QsP19hpE",
+    "url": "https://www.youtube.com/watch?v=Un0QsP19hpE",
+    "title": "دكتور ضياء العوضي كشف السر -الأدوية المسموحة لآلام المفاصل-علاج نهائي للذئبة الحمرا وأمراض المناعة",
+    "duration_seconds": 666,
     "status": "downloaded",
     "triage_subject": "testimonial_testimonial_general",
     "triage_priority": 98,
     "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; duree exploitable",
-    "started_at": "2026-06-02T09:40:01",
-    "finished_at": "2026-06-02T09:40:52"
+    "started_at": "2026-06-02T09:50:01",
+    "finished_at": "2026-06-02T09:51:29"
   },
   "recent": [
-    {
-      "id": "BGvT_U_Lkkk",
-      "title": "شيماءالنقيب المتعافيةمن مرض السرطان رحلتي مع نظام الطيبات حتى شفانيﷲ د. ضياء العوضي رحمه الله عليه💔",
-      "duration_seconds": 567
-    },
     {
       "id": "6tjnmrxaUVo",
       "title": "نظام الطيبات للدكتور ضياء العوضي! هل فعلا يشفي الامراض؟",
@@ -38,6 +33,11 @@
       "id": "ZlwpbJXq2mA",
       "title": "نظام الطيبات: اكتشف سر إنقاص الوزن و التخلص من الأمراض",
       "duration_seconds": 663
+    },
+    {
+      "id": "Un0QsP19hpE",
+      "title": "دكتور ضياء العوضي كشف السر -الأدوية المسموحة لآلام المفاصل-علاج نهائي للذئبة الحمرا وأمراض المناعة",
+      "duration_seconds": 666
     },
     {
       "id": "F14WbxGzDmQ",
