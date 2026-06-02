@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-02T11:41:13",
+  "updated_at": "2026-06-02T11:51:14",
   "total": 208,
-  "downloaded": 96,
+  "downloaded": 97,
   "failed": 1,
-  "pending": 109,
-  "archive_gib": 3.98,
+  "pending": 108,
+  "archive_gib": 4.04,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "o7Ra05BpzdA",
-    "url": "https://www.youtube.com/watch?v=o7Ra05BpzdA",
-    "title": "طبيب الطيبات ... القصه الكامله التي لم تحكي",
-    "duration_seconds": 802,
+    "id": "LJ10opKBRWg",
+    "url": "https://www.youtube.com/watch?v=LJ10opKBRWg",
+    "title": "انفراد كاميرات المراقبة تكشف مافيا الأدوية فى اغتيال الدكتور ضياء العوضي والطب الشرعي يؤكد الواقعه ",
+    "duration_seconds": 813,
     "status": "downloaded",
     "triage_subject": "testimonial_testimonial_general",
     "triage_priority": 98,
     "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; duree exploitable",
-    "started_at": "2026-06-02T11:40:01",
-    "finished_at": "2026-06-02T11:41:13"
+    "started_at": "2026-06-02T11:50:01",
+    "finished_at": "2026-06-02T11:51:14"
   },
   "recent": [
-    {
-      "id": "1ff3csa-Q3s",
-      "title": "قصتي مع نظام الطيبات ( الدكتور ضياء العوضي) ",
-      "duration_seconds": 775
-    },
     {
       "id": "hFInq3yXu8w",
       "title": "متصدقوش انا عملت اللي عليا د. ضياء العوضي يعتذر لكشفه نظام الطيبات هما عملوا كده السرطان يبدأ هنا ",
@@ -38,6 +33,11 @@
       "id": "o7Ra05BpzdA",
       "title": "طبيب الطيبات ... القصه الكامله التي لم تحكي",
       "duration_seconds": 802
+    },
+    {
+      "id": "LJ10opKBRWg",
+      "title": "انفراد كاميرات المراقبة تكشف مافيا الأدوية فى اغتيال الدكتور ضياء العوضي والطب الشرعي يؤكد الواقعه ",
+      "duration_seconds": 813
     },
     {
       "id": "F14WbxGzDmQ",
