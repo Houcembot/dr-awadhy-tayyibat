@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-02T05:50:13",
+  "updated_at": "2026-06-02T06:00:12",
   "total": 208,
-  "downloaded": 62,
+  "downloaded": 63,
   "failed": 0,
-  "pending": 144,
-  "archive_gib": 2.51,
+  "pending": 143,
+  "archive_gib": 2.52,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "Ys3Wy9q3Axg",
-    "url": "https://www.youtube.com/watch?v=Ys3Wy9q3Axg",
-    "title": "نظام الطيبات بيرجع الحريم 😂 مريض سكر لدكتور ضياء العوضي أنا المعجزة اللي ماحصلتش",
-    "duration_seconds": 182,
+    "id": "dzOYRfHrqmA",
+    "url": "https://www.youtube.com/watch?v=dzOYRfHrqmA",
+    "title": "Personal Experience With Dr Diaa Al Awady Taybat Egyptian Diet .. Tayebat System 💌نظام الطيبات",
+    "duration_seconds": 184,
     "status": "downloaded",
-    "triage_subject": "testimonial_diabetes",
+    "triage_subject": "testimonial_systeme-tayyibat",
     "triage_priority": 98,
     "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; duree exploitable",
-    "started_at": "2026-06-02T05:50:01",
-    "finished_at": "2026-06-02T05:50:13"
+    "started_at": "2026-06-02T06:00:01",
+    "finished_at": "2026-06-02T06:00:12"
   },
   "recent": [
-    {
-      "id": "XwFLhCbn7Yg",
-      "title": "تجربة الراقصه دينا مع نظام الطيبات للدكتور ضياء العوضي ",
-      "duration_seconds": 1037
-    },
     {
       "id": "5bqPjUXFQJA",
       "title": "الحلقه الكامله..تجربه شيماء النقيب مع نظام الطيبات وازاي خفت من سرطان اللسان",
@@ -38,6 +33,11 @@
       "id": "Ys3Wy9q3Axg",
       "title": "نظام الطيبات بيرجع الحريم 😂 مريض سكر لدكتور ضياء العوضي أنا المعجزة اللي ماحصلتش",
       "duration_seconds": 182
+    },
+    {
+      "id": "dzOYRfHrqmA",
+      "title": "Personal Experience With Dr Diaa Al Awady Taybat Egyptian Diet .. Tayebat System 💌نظام الطيبات",
+      "duration_seconds": 184
     },
     {
       "id": "F14WbxGzDmQ",
