@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-02T04:40:35",
+  "updated_at": "2026-06-02T04:50:32",
   "total": 208,
-  "downloaded": 55,
+  "downloaded": 56,
   "failed": 0,
-  "pending": 151,
-  "archive_gib": 2.18,
+  "pending": 150,
+  "archive_gib": 2.2,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "YEMQ_cEkhnk",
-    "url": "https://www.youtube.com/watch?v=YEMQ_cEkhnk",
-    "title": "مريضة السرطان المتشافية تشرح  الممنوعات و المسموحات في نظام الطيبات لدكتور ضياء العوضي",
-    "duration_seconds": 717,
+    "id": "L-UmKt6KkZQ",
+    "url": "https://www.youtube.com/watch?v=L-UmKt6KkZQ",
+    "title": "My experience with Dr. Diaa Al-Awadi's Tayyibat system",
+    "duration_seconds": 784,
     "status": "downloaded",
-    "triage_subject": "testimonial_cancer",
+    "triage_subject": "testimonial_testimonial_general",
     "triage_priority": 104,
     "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; duree exploitable",
-    "started_at": "2026-06-02T04:40:01",
-    "finished_at": "2026-06-02T04:40:35"
+    "started_at": "2026-06-02T04:50:01",
+    "finished_at": "2026-06-02T04:50:32"
   },
   "recent": [
-    {
-      "id": "D5PFkH27b3E",
-      "title": "My Experience with the Tayyibat Diet by Dr. Diaa El-Awadi: A Cancer Patient Tells Her Story",
-      "duration_seconds": 567
-    },
     {
       "id": "4i0B1W1OOGc",
       "title": "هدية لكل مريض: نظام الدكتور ضياء العوضي للتشافي وقصة نجاح حقيقية من متابعينا",
@@ -38,6 +33,11 @@
       "id": "YEMQ_cEkhnk",
       "title": "مريضة السرطان المتشافية تشرح  الممنوعات و المسموحات في نظام الطيبات لدكتور ضياء العوضي",
       "duration_seconds": 717
+    },
+    {
+      "id": "L-UmKt6KkZQ",
+      "title": "My experience with Dr. Diaa Al-Awadi's Tayyibat system",
+      "duration_seconds": 784
     },
     {
       "id": "F14WbxGzDmQ",
