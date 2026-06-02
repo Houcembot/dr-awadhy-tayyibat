@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-02T18:10:19",
+  "updated_at": "2026-06-02T18:20:24",
   "total": 208,
-  "downloaded": 134,
+  "downloaded": 135,
   "failed": 1,
-  "pending": 71,
-  "archive_gib": 7.93,
+  "pending": 70,
+  "archive_gib": 7.95,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "H_aF5edIgzs",
-    "url": "https://www.youtube.com/watch?v=H_aF5edIgzs",
-    "title": "كلام مهم من مريضة غدة درقية من مجربات نظام الطيبات عن دكتور ضياء العوضي بعد وفاة ضياء العوضي",
-    "duration_seconds": 499,
+    "id": "PxCK8sRYfwg",
+    "url": "https://www.youtube.com/watch?v=PxCK8sRYfwg",
+    "title": "رسالة مريضة سرطان من مجربات نظام الطيبات لدكتور ضياء العوضي إلى مرضى السرطان بعد وفاة ضياء العوضي",
+    "duration_seconds": 564,
     "status": "downloaded",
-    "triage_subject": "testimonial_thyroid",
+    "triage_subject": "testimonial_cancer",
     "triage_priority": 85,
     "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; risque video debat/controverse plutot que temoignage; duree exploitable",
-    "started_at": "2026-06-02T18:10:01",
-    "finished_at": "2026-06-02T18:10:19"
+    "started_at": "2026-06-02T18:20:01",
+    "finished_at": "2026-06-02T18:20:24"
   },
   "recent": [
-    {
-      "id": "gtSYlXT-68Q",
-      "title": "حاله شفاء من مرض السكر . مع نظام الطيبات للدكتور (( ضياء العوضي ))",
-      "duration_seconds": 104
-    },
     {
       "id": "1NeQPPk4Ww4",
       "title": "حاله شفاء من بعد اتباع نظام الطيبات للدكتور (( ضياء العوضي ))",
@@ -38,6 +33,11 @@
       "id": "H_aF5edIgzs",
       "title": "كلام مهم من مريضة غدة درقية من مجربات نظام الطيبات عن دكتور ضياء العوضي بعد وفاة ضياء العوضي",
       "duration_seconds": 499
+    },
+    {
+      "id": "PxCK8sRYfwg",
+      "title": "رسالة مريضة سرطان من مجربات نظام الطيبات لدكتور ضياء العوضي إلى مرضى السرطان بعد وفاة ضياء العوضي",
+      "duration_seconds": 564
     },
     {
       "id": "F14WbxGzDmQ",
