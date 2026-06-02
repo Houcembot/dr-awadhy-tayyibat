@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-02T05:33:02",
+  "updated_at": "2026-06-02T05:40:12",
   "total": 208,
-  "downloaded": 60,
+  "downloaded": 61,
   "failed": 0,
-  "pending": 146,
-  "archive_gib": 2.49,
+  "pending": 145,
+  "archive_gib": 2.5,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "5bqPjUXFQJA",
-    "url": "https://www.youtube.com/watch?v=5bqPjUXFQJA",
-    "title": "الحلقه الكامله..تجربه شيماء النقيب مع نظام الطيبات وازاي خفت من سرطان اللسان",
-    "duration_seconds": 5280,
+    "id": "1EEz1UxTi48",
+    "url": "https://www.youtube.com/watch?v=1EEz1UxTi48",
+    "title": "#MyExperienceWithTheTayibatDiet _Dr. Diaa El-Awadi Day 8 I feel better day by day, thanks to the ...",
+    "duration_seconds": 182,
     "status": "downloaded",
-    "triage_subject": "testimonial_cancer",
-    "triage_priority": 102,
-    "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; long temoignage",
-    "started_at": "2026-06-02T05:30:02",
-    "finished_at": "2026-06-02T05:33:02"
+    "triage_subject": "testimonial_testimonial_general",
+    "triage_priority": 98,
+    "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; duree exploitable",
+    "started_at": "2026-06-02T05:40:01",
+    "finished_at": "2026-06-02T05:40:12"
   },
   "recent": [
-    {
-      "id": "l_nQHVfIGJY",
-      "title": "جربت نظام الطيبات لمدة سيمانة..ودكشي لي وقع ليا صادم!",
-      "duration_seconds": 872
-    },
     {
       "id": "GgXMVJBeI5Y",
       "title": "تجربة نظام الطيبات في علاج الصداع والارق وضغط الدم",
@@ -38,6 +33,11 @@
       "id": "5bqPjUXFQJA",
       "title": "الحلقه الكامله..تجربه شيماء النقيب مع نظام الطيبات وازاي خفت من سرطان اللسان",
       "duration_seconds": 5280
+    },
+    {
+      "id": "1EEz1UxTi48",
+      "title": "#MyExperienceWithTheTayibatDiet _Dr. Diaa El-Awadi Day 8 I feel better day by day, thanks to the ...",
+      "duration_seconds": 182
     },
     {
       "id": "F14WbxGzDmQ",
