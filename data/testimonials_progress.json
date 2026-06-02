@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-02T05:20:53",
+  "updated_at": "2026-06-02T05:33:02",
   "total": 208,
-  "downloaded": 59,
+  "downloaded": 60,
   "failed": 0,
-  "pending": 147,
-  "archive_gib": 2.34,
+  "pending": 146,
+  "archive_gib": 2.49,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "XwFLhCbn7Yg",
-    "url": "https://www.youtube.com/watch?v=XwFLhCbn7Yg",
-    "title": "تجربة الراقصه دينا مع نظام الطيبات للدكتور ضياء العوضي ",
-    "duration_seconds": 1037,
+    "id": "5bqPjUXFQJA",
+    "url": "https://www.youtube.com/watch?v=5bqPjUXFQJA",
+    "title": "الحلقه الكامله..تجربه شيماء النقيب مع نظام الطيبات وازاي خفت من سرطان اللسان",
+    "duration_seconds": 5280,
     "status": "downloaded",
-    "triage_subject": "testimonial_testimonial_general",
-    "triage_priority": 104,
-    "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; duree exploitable",
-    "started_at": "2026-06-02T05:20:01",
-    "finished_at": "2026-06-02T05:20:53"
+    "triage_subject": "testimonial_cancer",
+    "triage_priority": 102,
+    "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; long temoignage",
+    "started_at": "2026-06-02T05:30:02",
+    "finished_at": "2026-06-02T05:33:02"
   },
   "recent": [
-    {
-      "id": "L-UmKt6KkZQ",
-      "title": "My experience with Dr. Diaa Al-Awadi's Tayyibat system",
-      "duration_seconds": 784
-    },
     {
       "id": "l_nQHVfIGJY",
       "title": "جربت نظام الطيبات لمدة سيمانة..ودكشي لي وقع ليا صادم!",
@@ -38,6 +33,11 @@
       "id": "XwFLhCbn7Yg",
       "title": "تجربة الراقصه دينا مع نظام الطيبات للدكتور ضياء العوضي ",
       "duration_seconds": 1037
+    },
+    {
+      "id": "5bqPjUXFQJA",
+      "title": "الحلقه الكامله..تجربه شيماء النقيب مع نظام الطيبات وازاي خفت من سرطان اللسان",
+      "duration_seconds": 5280
     },
     {
       "id": "F14WbxGzDmQ",
