@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-02T18:51:30",
+  "updated_at": "2026-06-02T19:00:10",
   "total": 208,
-  "downloaded": 138,
+  "downloaded": 139,
   "failed": 1,
-  "pending": 67,
-  "archive_gib": 8.08,
+  "pending": 66,
+  "archive_gib": 8.09,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "HqXXNVFsrG4",
-    "url": "https://www.youtube.com/watch?v=HqXXNVFsrG4",
-    "title": "مريضة سرطان و مجربين نظام الطيبات لدكتور ضياء العوضي يحكون تجربة الشفاء بعد وفاة دكتور ضياء العوضي",
-    "duration_seconds": 2616,
+    "id": "ikqDgkJ2Vjk",
+    "url": "https://www.youtube.com/watch?v=ikqDgkJ2Vjk",
+    "title": "الدكتور ضياء العوضي يتحدث عن الفراخ البلدي في نظام الطيبات و مريضة تسأل أمي تربيها في البيت اكلها",
+    "duration_seconds": 63,
     "status": "downloaded",
-    "triage_subject": "testimonial_cancer",
-    "triage_priority": 83,
-    "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; risque video debat/controverse plutot que temoignage; long temoignage",
-    "started_at": "2026-06-02T18:50:01",
-    "finished_at": "2026-06-02T18:51:30"
+    "triage_subject": "testimonial_systeme-tayyibat",
+    "triage_priority": 82,
+    "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; tres court",
+    "started_at": "2026-06-02T19:00:01",
+    "finished_at": "2026-06-02T19:00:10"
   },
   "recent": [
-    {
-      "id": "PxCK8sRYfwg",
-      "title": "رسالة مريضة سرطان من مجربات نظام الطيبات لدكتور ضياء العوضي إلى مرضى السرطان بعد وفاة ضياء العوضي",
-      "duration_seconds": 564
-    },
     {
       "id": "9w0SluqkaYs",
       "title": "مريضة غدة درقية مغربية تكشف سر في نظام الطيبات لدكتور ضياء العوضي بعد وفاة ضياء العوضي",
@@ -38,6 +33,11 @@
       "id": "HqXXNVFsrG4",
       "title": "مريضة سرطان و مجربين نظام الطيبات لدكتور ضياء العوضي يحكون تجربة الشفاء بعد وفاة دكتور ضياء العوضي",
       "duration_seconds": 2616
+    },
+    {
+      "id": "ikqDgkJ2Vjk",
+      "title": "الدكتور ضياء العوضي يتحدث عن الفراخ البلدي في نظام الطيبات و مريضة تسأل أمي تربيها في البيت اكلها",
+      "duration_seconds": 63
     },
     {
       "id": "F14WbxGzDmQ",
