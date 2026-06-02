@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-02T22:10:18",
+  "updated_at": "2026-06-02T22:20:19",
   "total": 208,
-  "downloaded": 158,
+  "downloaded": 159,
   "failed": 1,
-  "pending": 47,
-  "archive_gib": 9.3,
+  "pending": 46,
+  "archive_gib": 9.32,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "2SIEjKB9wQk",
-    "url": "https://www.youtube.com/watch?v=2SIEjKB9wQk",
-    "title": "كشف المستور عن نظام الطيبات: الإنصاف العزيز في إرث الدكتور ضياء العوضي",
-    "duration_seconds": 197,
+    "id": "c2-2JGfhSMU",
+    "url": "https://www.youtube.com/watch?v=c2-2JGfhSMU",
+    "title": "الاكثر جدلا في مصر.. الدكتور ضياء العوضي توقع وفاته في اخر ظهور ومحاميه يكشف التفاصيل مع عمرو اديب",
+    "duration_seconds": 221,
     "status": "downloaded",
     "triage_subject": "testimonial_testimonial_general",
     "triage_priority": 73,
     "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; risque video debat/controverse plutot que temoignage; duree exploitable",
-    "started_at": "2026-06-02T22:10:01",
-    "finished_at": "2026-06-02T22:10:18"
+    "started_at": "2026-06-02T22:20:02",
+    "finished_at": "2026-06-02T22:20:19"
   },
   "recent": [
-    {
-      "id": "QfrQIVrgO0o",
-      "title": "كشف المستور عن نظام الطيبات (د. ضياء العوضي) تجربة حقيقية | الإجابة علي أسئلتكم ",
-      "duration_seconds": 3855
-    },
     {
       "id": "hyPgR_Hg8pc",
       "title": "كشف المستور عن نظام الطيبات( د ضياء العوضي ) ... تجربة واقعية بدون تجميل",
@@ -38,6 +33,11 @@
       "id": "2SIEjKB9wQk",
       "title": "كشف المستور عن نظام الطيبات: الإنصاف العزيز في إرث الدكتور ضياء العوضي",
       "duration_seconds": 197
+    },
+    {
+      "id": "c2-2JGfhSMU",
+      "title": "الاكثر جدلا في مصر.. الدكتور ضياء العوضي توقع وفاته في اخر ظهور ومحاميه يكشف التفاصيل مع عمرو اديب",
+      "duration_seconds": 221
     },
     {
       "id": "F14WbxGzDmQ",
