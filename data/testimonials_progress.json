@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-02T12:31:38",
+  "updated_at": "2026-06-02T12:42:21",
   "total": 208,
-  "downloaded": 101,
+  "downloaded": 102,
   "failed": 1,
-  "pending": 104,
-  "archive_gib": 4.38,
+  "pending": 103,
+  "archive_gib": 4.46,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "JTZQ4g4TAlY",
-    "url": "https://www.youtube.com/watch?v=JTZQ4g4TAlY",
-    "title": "\"كشف القـ ـاتل الهارب لاول مرة\" فتاة تكشف فيديو القاتل الحقيقي للدكتور ضياء العوضي بعد تفريغ تليفونه",
-    "duration_seconds": 1113,
+    "id": "ix1I6Y1Ro2I",
+    "url": "https://www.youtube.com/watch?v=ix1I6Y1Ro2I",
+    "title": "مريض سكر يكسر إبر الانسولين بعد نظام الطيبات ويدعو للدكتور ضياء العوضي ",
+    "duration_seconds": 1663,
     "status": "downloaded",
-    "triage_subject": "testimonial_testimonial_general",
+    "triage_subject": "testimonial_diabetes",
     "triage_priority": 98,
     "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; duree exploitable",
-    "started_at": "2026-06-02T12:30:01",
-    "finished_at": "2026-06-02T12:31:38"
+    "started_at": "2026-06-02T12:40:01",
+    "finished_at": "2026-06-02T12:42:21"
   },
   "recent": [
-    {
-      "id": "Amnlr97T6cQ",
-      "title": "كيف عالج ضياء العوضي سكر النوع الاول في نظام الطيبات، و كيف يتبع مريض السكر نظام الطيبات !!",
-      "duration_seconds": 814
-    },
     {
       "id": "DgnvPtdgbLo",
       "title": "Allowed and Prohibited Foods in Dr. Diaa El-Awady's Tayibat Diet / 26-Day Experience and Answer t...",
@@ -38,6 +33,11 @@
       "id": "JTZQ4g4TAlY",
       "title": "\"كشف القـ ـاتل الهارب لاول مرة\" فتاة تكشف فيديو القاتل الحقيقي للدكتور ضياء العوضي بعد تفريغ تليفونه",
       "duration_seconds": 1113
+    },
+    {
+      "id": "ix1I6Y1Ro2I",
+      "title": "مريض سكر يكسر إبر الانسولين بعد نظام الطيبات ويدعو للدكتور ضياء العوضي ",
+      "duration_seconds": 1663
     },
     {
       "id": "F14WbxGzDmQ",
