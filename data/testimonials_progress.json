@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-02T16:05:03",
+  "updated_at": "2026-06-02T16:17:19",
   "total": 208,
-  "downloaded": 122,
+  "downloaded": 123,
   "failed": 1,
-  "pending": 83,
-  "archive_gib": 5.97,
+  "pending": 82,
+  "archive_gib": 6.31,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "H57qEuGAdwg",
-    "url": "https://www.youtube.com/watch?v=H57qEuGAdwg",
-    "title": "تحريم الدجاج الأبيض؟! أخطر ما كشفه ضياء العوضي عن نظام الطيبات!",
-    "duration_seconds": 3475,
+    "id": "zONTeKHBLjg",
+    "url": "https://www.youtube.com/watch?v=zONTeKHBLjg",
+    "title": "\"العطش الحقيقي: من خرافة 3 لتر يوميًا إلى نظام الطيبات | ماذا كشف د. ضياء العوضي؟!\"",
+    "duration_seconds": 3610,
     "status": "downloaded",
     "triage_subject": "testimonial_testimonial_general",
     "triage_priority": 90,
     "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; long temoignage",
-    "started_at": "2026-06-02T16:00:01",
-    "finished_at": "2026-06-02T16:05:03"
+    "started_at": "2026-06-02T16:10:01",
+    "finished_at": "2026-06-02T16:17:19"
   },
   "recent": [
-    {
-      "id": "UuSKwj1xSUQ",
-      "title": "مريضة ضغط و العصب السابع من مجربات نظام الطيبات لدكتور ضياء العوضي تحكي تجربتها بعد وفاة ضياء العوضي",
-      "duration_seconds": 567
-    },
     {
       "id": "BkSe88RqxAA",
       "title": "من مجربات نظام الطيبات لدكتور ضياء العوضي تحكي تجربتها بعد وفاة ضياء العوضي",
@@ -38,6 +33,11 @@
       "id": "H57qEuGAdwg",
       "title": "تحريم الدجاج الأبيض؟! أخطر ما كشفه ضياء العوضي عن نظام الطيبات!",
       "duration_seconds": 3475
+    },
+    {
+      "id": "zONTeKHBLjg",
+      "title": "\"العطش الحقيقي: من خرافة 3 لتر يوميًا إلى نظام الطيبات | ماذا كشف د. ضياء العوضي؟!\"",
+      "duration_seconds": 3610
     },
     {
       "id": "F14WbxGzDmQ",
