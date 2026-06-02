@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-02T14:20:54",
+  "updated_at": "2026-06-02T14:30:16",
   "total": 208,
-  "downloaded": 112,
+  "downloaded": 113,
   "failed": 1,
-  "pending": 93,
-  "archive_gib": 5.56,
+  "pending": 92,
+  "archive_gib": 5.57,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "cR91vQqf9RY",
-    "url": "https://www.youtube.com/watch?v=cR91vQqf9RY",
-    "title": "رأي صريح في نظام الطيبات والدكتور ضياء العوضي | هل يستحق التجربة؟",
-    "duration_seconds": 165,
+    "id": "-VFsWP9BnXY",
+    "url": "https://www.youtube.com/watch?v=-VFsWP9BnXY",
+    "title": "قصة مريضة غدة درقية بعد نظام الطيبات – تجربة مع دكتور ضياء العوضي وفاة ضياء العوضي",
+    "duration_seconds": 210,
     "status": "downloaded",
-    "triage_subject": "testimonial_testimonial_general",
-    "triage_priority": 92,
-    "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat",
-    "started_at": "2026-06-02T14:20:01",
-    "finished_at": "2026-06-02T14:20:54"
+    "triage_subject": "testimonial_thyroid",
+    "triage_priority": 91,
+    "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; risque video debat/controverse plutot que temoignage; duree exploitable",
+    "started_at": "2026-06-02T14:30:01",
+    "finished_at": "2026-06-02T14:30:16"
   },
   "recent": [
-    {
-      "id": "OpZI6hzUgmE",
-      "title": "Dr Diaa Al Awady د ضياء العوضي is live! ناهد و تجربة تستحق السماع",
-      "duration_seconds": 2245
-    },
     {
       "id": "yko-7dJOBGo",
       "title": "بكل جراءة شهادة عوني حدادين احد المتشافين من نظام الطيبات للشهيد الدكتور ضياء العوضي",
@@ -38,6 +33,11 @@
       "id": "cR91vQqf9RY",
       "title": "رأي صريح في نظام الطيبات والدكتور ضياء العوضي | هل يستحق التجربة؟",
       "duration_seconds": 165
+    },
+    {
+      "id": "-VFsWP9BnXY",
+      "title": "قصة مريضة غدة درقية بعد نظام الطيبات – تجربة مع دكتور ضياء العوضي وفاة ضياء العوضي",
+      "duration_seconds": 210
     },
     {
       "id": "F14WbxGzDmQ",
