@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-02T15:20:21",
+  "updated_at": "2026-06-02T15:30:22",
   "total": 208,
-  "downloaded": 118,
+  "downloaded": 119,
   "failed": 1,
-  "pending": 87,
-  "archive_gib": 5.65,
+  "pending": 86,
+  "archive_gib": 5.67,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "9pccFrp-T30",
-    "url": "https://www.youtube.com/watch?v=9pccFrp-T30",
-    "title": "مريضة ضغط والعصب السابع تروي تجربتها مع نظام الطيبات | ماذا قالت بعد وفاة د. ضياء العوضي؟",
+    "id": "UuSKwj1xSUQ",
+    "url": "https://www.youtube.com/watch?v=UuSKwj1xSUQ",
+    "title": "مريضة ضغط و العصب السابع من مجربات نظام الطيبات لدكتور ضياء العوضي تحكي تجربتها بعد وفاة ضياء العوضي",
     "duration_seconds": 567,
     "status": "downloaded",
     "triage_subject": "testimonial_pressure",
     "triage_priority": 91,
     "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; risque video debat/controverse plutot que temoignage; duree exploitable",
-    "started_at": "2026-06-02T15:20:01",
-    "finished_at": "2026-06-02T15:20:21"
+    "started_at": "2026-06-02T15:30:01",
+    "finished_at": "2026-06-02T15:30:22"
   },
   "recent": [
-    {
-      "id": "VVJIHVbmw6M",
-      "title": "مريضة غدة درقية تحكي تجربة نظام الطيبات لدكتور ضياء العوضي بعد وفاة ضياء العوضي",
-      "duration_seconds": 322
-    },
     {
       "id": "-uRgKdhWZMQ",
       "title": "مريضة سرطان تحكي عن تجربتها مع نظام الطيبات لدكتور ضياء العوضي بعد وفاة ضياء العوضي",
@@ -37,6 +32,11 @@
     {
       "id": "9pccFrp-T30",
       "title": "مريضة ضغط والعصب السابع تروي تجربتها مع نظام الطيبات | ماذا قالت بعد وفاة د. ضياء العوضي؟",
+      "duration_seconds": 567
+    },
+    {
+      "id": "UuSKwj1xSUQ",
+      "title": "مريضة ضغط و العصب السابع من مجربات نظام الطيبات لدكتور ضياء العوضي تحكي تجربتها بعد وفاة ضياء العوضي",
       "duration_seconds": 567
     },
     {
