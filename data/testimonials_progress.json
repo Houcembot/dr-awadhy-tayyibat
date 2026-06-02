@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-02T14:40:26",
+  "updated_at": "2026-06-02T14:50:34",
   "total": 208,
-  "downloaded": 114,
+  "downloaded": 115,
   "failed": 1,
-  "pending": 91,
-  "archive_gib": 5.59,
+  "pending": 90,
+  "archive_gib": 5.61,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "Qe1naETrn_4",
-    "url": "https://www.youtube.com/watch?v=Qe1naETrn_4",
-    "title": "مريض سكر يحكي تجربته مع نظام الطيبات و دكتور ضياء العوضي بعد وفاة ضياء العوضي",
-    "duration_seconds": 285,
+    "id": "VVJIHVbmw6M",
+    "url": "https://www.youtube.com/watch?v=VVJIHVbmw6M",
+    "title": "مريضة غدة درقية تحكي تجربة نظام الطيبات لدكتور ضياء العوضي بعد وفاة ضياء العوضي",
+    "duration_seconds": 322,
     "status": "downloaded",
-    "triage_subject": "testimonial_diabetes",
+    "triage_subject": "testimonial_thyroid",
     "triage_priority": 91,
     "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; risque video debat/controverse plutot que temoignage; duree exploitable",
-    "started_at": "2026-06-02T14:40:01",
-    "finished_at": "2026-06-02T14:40:26"
+    "started_at": "2026-06-02T14:50:01",
+    "finished_at": "2026-06-02T14:50:34"
   },
   "recent": [
-    {
-      "id": "sTiY7el6fpc",
-      "title": "نظام الطيبات: راب يجمع بين العلم والتجربة 🔥 (إهداء لروح الدكتور ضياء العوضي)",
-      "duration_seconds": 129
-    },
     {
       "id": "cR91vQqf9RY",
       "title": "رأي صريح في نظام الطيبات والدكتور ضياء العوضي | هل يستحق التجربة؟",
@@ -38,6 +33,11 @@
       "id": "Qe1naETrn_4",
       "title": "مريض سكر يحكي تجربته مع نظام الطيبات و دكتور ضياء العوضي بعد وفاة ضياء العوضي",
       "duration_seconds": 285
+    },
+    {
+      "id": "VVJIHVbmw6M",
+      "title": "مريضة غدة درقية تحكي تجربة نظام الطيبات لدكتور ضياء العوضي بعد وفاة ضياء العوضي",
+      "duration_seconds": 322
     },
     {
       "id": "F14WbxGzDmQ",
