@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-02T07:50:30",
+  "updated_at": "2026-06-02T08:00:19",
   "total": 208,
-  "downloaded": 74,
+  "downloaded": 75,
   "failed": 0,
-  "pending": 132,
-  "archive_gib": 2.68,
+  "pending": 131,
+  "archive_gib": 2.69,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "N9n45yU3_pQ",
-    "url": "https://www.youtube.com/watch?v=N9n45yU3_pQ",
-    "title": "Controversy surrounds sugar in the Tayyibat diet... Dr. Ahmed Anwar recounts his experience with ...",
-    "duration_seconds": 405,
+    "id": "EA-_Inwals0",
+    "url": "https://www.youtube.com/watch?v=EA-_Inwals0",
+    "title": "رحيمة الشريف تكشف أفضل طريقة لاتباع نظام الطيبات لدكتور ضياء العوضي #دويتو #اكسبلور #youtubeshorts ",
+    "duration_seconds": 408,
     "status": "downloaded",
     "triage_subject": "testimonial_testimonial_general",
     "triage_priority": 98,
     "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; duree exploitable",
-    "started_at": "2026-06-02T07:50:01",
-    "finished_at": "2026-06-02T07:50:30"
+    "started_at": "2026-06-02T08:00:01",
+    "finished_at": "2026-06-02T08:00:19"
   },
   "recent": [
-    {
-      "id": "mnjllgmz024",
-      "title": "Shams Al-Kuwaitiah reveals her experience with Dr. Diaa Al-Awadi's Tayyibat diet #ShamsAlKuwaitia...",
-      "duration_seconds": 329
-    },
     {
       "id": "Eeg8iF_LyNU",
       "title": "See Dr. Diaa Al-Awadi before and after following the Tayyibat system, how his features changed, a...",
@@ -38,6 +33,11 @@
       "id": "N9n45yU3_pQ",
       "title": "Controversy surrounds sugar in the Tayyibat diet... Dr. Ahmed Anwar recounts his experience with ...",
       "duration_seconds": 405
+    },
+    {
+      "id": "EA-_Inwals0",
+      "title": "رحيمة الشريف تكشف أفضل طريقة لاتباع نظام الطيبات لدكتور ضياء العوضي #دويتو #اكسبلور #youtubeshorts ",
+      "duration_seconds": 408
     },
     {
       "id": "F14WbxGzDmQ",
