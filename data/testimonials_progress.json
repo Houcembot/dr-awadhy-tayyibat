@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-02T17:30:03",
+  "updated_at": "2026-06-02T17:40:06",
   "total": 208,
-  "downloaded": 130,
+  "downloaded": 131,
   "failed": 1,
-  "pending": 75,
+  "pending": 74,
   "archive_gib": 7.91,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "SafjZp72hCo",
-    "url": "https://www.youtube.com/watch?v=SafjZp72hCo",
-    "title": "علاج تضخم البروستات بدون جراحة؟ 🤔 اكتشف أسرار الدكتور ضياء العوضي للتعافي الطبيعي!",
-    "duration_seconds": 103,
+    "id": "gtSYlXT-68Q",
+    "url": "https://www.youtube.com/watch?v=gtSYlXT-68Q",
+    "title": "حاله شفاء من مرض السكر . مع نظام الطيبات للدكتور (( ضياء العوضي ))",
+    "duration_seconds": 104,
     "status": "downloaded",
-    "triage_subject": "testimonial_testimonial_general",
+    "triage_subject": "testimonial_diabetes",
     "triage_priority": 86,
     "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat",
-    "started_at": "2026-06-02T17:30:01",
-    "finished_at": "2026-06-02T17:30:03"
+    "started_at": "2026-06-02T17:40:01",
+    "finished_at": "2026-06-02T17:40:06"
   },
   "recent": [
-    {
-      "id": "mI9wrM2e5Fo",
-      "title": "شيماء والسرطان: رحلة الشفاء بنظام الطيبات",
-      "duration_seconds": 5280
-    },
     {
       "id": "zjeotgiL9NE",
       "title": "لقاء دكتور ضياء العوضي الاخير وكشف اسرار التغذية وعلاج الامراض كاملة",
@@ -38,6 +33,11 @@
       "id": "SafjZp72hCo",
       "title": "علاج تضخم البروستات بدون جراحة؟ 🤔 اكتشف أسرار الدكتور ضياء العوضي للتعافي الطبيعي!",
       "duration_seconds": 103
+    },
+    {
+      "id": "gtSYlXT-68Q",
+      "title": "حاله شفاء من مرض السكر . مع نظام الطيبات للدكتور (( ضياء العوضي ))",
+      "duration_seconds": 104
     },
     {
       "id": "F14WbxGzDmQ",
