@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-02T10:31:20",
+  "updated_at": "2026-06-02T10:41:40",
   "total": 208,
-  "downloaded": 89,
+  "downloaded": 90,
   "failed": 1,
-  "pending": 116,
-  "archive_gib": 3.43,
+  "pending": 115,
+  "archive_gib": 3.51,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "9px7wi4eJRQ",
-    "url": "https://www.youtube.com/watch?v=9px7wi4eJRQ",
-    "title": "مشترياتي لتطبيق نظام الطيبات انا وإبني لمريض للدكتور ضياء العوضي",
+    "id": "UlOLnaAY5G4",
+    "url": "https://www.youtube.com/watch?v=UlOLnaAY5G4",
+    "title": "يلا نجرب مع بعض نظام الطيبات /لل أ د/ضياء العوضى عليه رحمه الله",
     "duration_seconds": 756,
     "status": "downloaded",
-    "triage_subject": "testimonial_tayyibat_theory",
+    "triage_subject": "testimonial_testimonial_general",
     "triage_priority": 98,
     "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; duree exploitable",
-    "started_at": "2026-06-02T10:30:01",
-    "finished_at": "2026-06-02T10:31:20"
+    "started_at": "2026-06-02T10:40:01",
+    "finished_at": "2026-06-02T10:41:40"
   },
   "recent": [
-    {
-      "id": "xrLzVdmISS8",
-      "title": "⚠️السر الخطير: السم في اللحمة! واحذر من دواء الكوليسترول | د. ضياء العوضي نظام الطيبات والشفاء التام",
-      "duration_seconds": 671
-    },
     {
       "id": "LhWsJ3D1AaE",
       "title": "حقائق مذهلة عن ضياء العوضي ونظام الطيبات.. هل صدقت توقعات مصطفى محمود؟ فما القصة ؟dr. diaa Elawadi ",
@@ -37,6 +32,11 @@
     {
       "id": "9px7wi4eJRQ",
       "title": "مشترياتي لتطبيق نظام الطيبات انا وإبني لمريض للدكتور ضياء العوضي",
+      "duration_seconds": 756
+    },
+    {
+      "id": "UlOLnaAY5G4",
+      "title": "يلا نجرب مع بعض نظام الطيبات /لل أ د/ضياء العوضى عليه رحمه الله",
       "duration_seconds": 756
     },
     {
