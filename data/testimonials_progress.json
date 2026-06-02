@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-02T07:20:24",
+  "updated_at": "2026-06-02T07:30:29",
   "total": 208,
-  "downloaded": 71,
+  "downloaded": 72,
   "failed": 0,
-  "pending": 135,
-  "archive_gib": 2.62,
+  "pending": 134,
+  "archive_gib": 2.64,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "mnjllgmz024",
-    "url": "https://www.youtube.com/watch?v=mnjllgmz024",
-    "title": "Shams Al-Kuwaitiah reveals her experience with Dr. Diaa Al-Awadi's Tayyibat diet #ShamsAlKuwaitia...",
-    "duration_seconds": 329,
+    "id": "Eeg8iF_LyNU",
+    "url": "https://www.youtube.com/watch?v=Eeg8iF_LyNU",
+    "title": "See Dr. Diaa Al-Awadi before and after following the Tayyibat system, how his features changed, a...",
+    "duration_seconds": 378,
     "status": "downloaded",
     "triage_subject": "testimonial_testimonial_general",
     "triage_priority": 98,
     "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; duree exploitable",
-    "started_at": "2026-06-02T07:20:01",
-    "finished_at": "2026-06-02T07:20:24"
+    "started_at": "2026-06-02T07:30:01",
+    "finished_at": "2026-06-02T07:30:29"
   },
   "recent": [
-    {
-      "id": "HqtgW-_QX0k",
-      "title": "مريض على نظام الطيبات وسكرها وصل 400 😳 إيه اللي حصل؟!",
-      "duration_seconds": 258
-    },
     {
       "id": "ki2GfwbPovY",
       "title": "الجزائر 😱😱 شاهد طبيبة جزائرية تكشف نظام الطيبات للدكتور ضياء العوضي هل هو نافع أم ضار",
@@ -38,6 +33,11 @@
       "id": "mnjllgmz024",
       "title": "Shams Al-Kuwaitiah reveals her experience with Dr. Diaa Al-Awadi's Tayyibat diet #ShamsAlKuwaitia...",
       "duration_seconds": 329
+    },
+    {
+      "id": "Eeg8iF_LyNU",
+      "title": "See Dr. Diaa Al-Awadi before and after following the Tayyibat system, how his features changed, a...",
+      "duration_seconds": 378
     },
     {
       "id": "F14WbxGzDmQ",
