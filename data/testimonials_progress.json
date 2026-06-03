@@ -1,22 +1,22 @@
 {
-  "updated_at": "2026-06-03T06:00:17",
+  "updated_at": "2026-06-03T06:27:28",
   "total": 208,
   "downloaded": 204,
   "failed": 1,
-  "pending": 0,
-  "archive_gib": 13.08,
+  "pending": 1,
+  "archive_gib": 14.45,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "39q8G5oJsbA",
-    "url": "https://www.youtube.com/watch?v=39q8G5oJsbA",
-    "title": "محامي الدكتور ضياء العوضي يعلن وفاته رسميًأ  بعد اختفائه اسبوع ويحكي عن تفاصيل الوفاة .. محدش مصدق",
-    "duration_seconds": 179,
+    "id": "7ivc62AEFr0",
+    "url": "https://www.youtube.com/watch?v=7ivc62AEFr0",
+    "title": "نظام الطيبات بعد رحيل د.ضياء العوضي...القصة والحقيقة؟!",
+    "duration_seconds": 8576,
     "status": "downloaded",
     "triage_subject": "testimonial_testimonial_general",
-    "triage_priority": 61,
-    "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; risque video debat/controverse plutot que temoignage",
-    "started_at": "2026-06-03T06:00:01",
-    "finished_at": "2026-06-03T06:00:17"
+    "triage_priority": 65,
+    "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; risque video debat/controverse plutot que temoignage; long temoignage",
+    "started_at": "2026-06-03T05:50:01",
+    "finished_at": "2026-06-03T06:27:28"
   },
   "recent": [
     {
@@ -35,9 +35,9 @@
       "duration_seconds": 6882
     },
     {
-      "id": "39q8G5oJsbA",
-      "title": "محامي الدكتور ضياء العوضي يعلن وفاته رسميًأ  بعد اختفائه اسبوع ويحكي عن تفاصيل الوفاة .. محدش مصدق",
-      "duration_seconds": 179
+      "id": "7ivc62AEFr0",
+      "title": "نظام الطيبات بعد رحيل د.ضياء العوضي...القصة والحقيقة؟!",
+      "duration_seconds": 8576
     },
     {
       "id": "F14WbxGzDmQ",
