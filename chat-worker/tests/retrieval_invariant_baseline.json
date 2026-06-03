@@ -106,11 +106,15 @@
   },
   "industrial_chicken": {
     "question_ar": "هل الدجاج الصناعي صحي؟",
-    "top_block_id": "yt-Jgc1oVhmczI_834",
-    "mode": "v3_raw_fallback",
-    "confidence_retrieval": "medium",
-    "confidence_source": "fallback",
-    "db_resume": null
+    "top_block_id": "yt-8AYaSqh52XY_824",
+    "mode": "v3_db_resume",
+    "confidence_retrieval": "high",
+    "confidence_source": "direct",
+    "db_resume": {
+      "verdict": "PASS_SIMPLE",
+      "doctrine_position": "bad",
+      "simple": "لا، اللبن ليس غذاء للإنسان البالغ وهو غير مناسب. الدكتور ضياء يَسخر من الادعاءات التقليدية: \"اللبن هو ده بتاع شاشه العظام\" و\"اشربها ثمان كوبايات في اليوم\" و\"الفراخ احسن من اللحمه\"، ويصف هذا كله: \"الكلام ده كله هاكس\". الحل في \"نظام الطيبات\"."
+    }
   },
   "milk": {
     "question_ar": "هل اللبن غذاء مناسب للإنسان؟",
