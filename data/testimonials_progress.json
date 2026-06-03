@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-03T03:13:00",
+  "updated_at": "2026-06-03T03:24:15",
   "total": 208,
-  "downloaded": 188,
+  "downloaded": 189,
   "failed": 1,
-  "pending": 17,
-  "archive_gib": 10.84,
+  "pending": 16,
+  "archive_gib": 11.06,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "S7u94uqPsVg",
-    "url": "https://www.youtube.com/watch?v=S7u94uqPsVg",
-    "title": "عمرو أديب يكشف أسرار وتفاصيل وفاة ضياء العوضي .. حقائق صادمة لأول مرة",
-    "duration_seconds": 1498,
+    "id": "38hduef6Us0",
+    "url": "https://www.youtube.com/watch?v=38hduef6Us0",
+    "title": "خلف الستار: \"كشف حقيقة نظام الطيبات للدكتور ضياء العوضى!\" الحقيقة المؤلمة",
+    "duration_seconds": 1577,
     "status": "downloaded",
     "triage_subject": "testimonial_testimonial_general",
     "triage_priority": 73,
     "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; risque video debat/controverse plutot que temoignage; duree exploitable",
-    "started_at": "2026-06-03T03:10:01",
-    "finished_at": "2026-06-03T03:13:00"
+    "started_at": "2026-06-03T03:20:01",
+    "finished_at": "2026-06-03T03:24:15"
   },
   "recent": [
-    {
-      "id": "eOJN0HY1UGU",
-      "title": "سر مناعتك القوية وعلاقتها بالأكل وفيتامين D | د. ضياء العوضي يكشف الحقائق! 🩺🍖",
-      "duration_seconds": 1128
-    },
     {
       "id": "mGzZHk3Ktp4",
       "title": "أيه الحقد ده! كشف المستور في نظام الطيبات (د. ضياء العوضي) وخطورة منع الأنسولين و مدح التدخين",
@@ -38,6 +33,11 @@
       "id": "S7u94uqPsVg",
       "title": "عمرو أديب يكشف أسرار وتفاصيل وفاة ضياء العوضي .. حقائق صادمة لأول مرة",
       "duration_seconds": 1498
+    },
+    {
+      "id": "38hduef6Us0",
+      "title": "خلف الستار: \"كشف حقيقة نظام الطيبات للدكتور ضياء العوضى!\" الحقيقة المؤلمة",
+      "duration_seconds": 1577
     },
     {
       "id": "F14WbxGzDmQ",
