@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-03T05:22:22",
+  "updated_at": "2026-06-03T05:34:23",
   "total": 208,
-  "downloaded": 201,
+  "downloaded": 202,
   "failed": 1,
-  "pending": 4,
-  "archive_gib": 12.2,
+  "pending": 3,
+  "archive_gib": 12.42,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "X73oFzQT_To",
-    "url": "https://www.youtube.com/watch?v=X73oFzQT_To",
-    "title": "نظام الطيبات.. علم حقيقي ولا مؤامرة خطيرة؟! 😳🔥 د.جمال شعبان يكشف اسرار لأول مرة عن د. ضياء العوضي ",
-    "duration_seconds": 3919,
+    "id": "v79llIdEhOw",
+    "url": "https://www.youtube.com/watch?v=v79llIdEhOw",
+    "title": "🔴لأول مرة|د.ضياء العوضي يكشف الفرق بين الحبة والثمرة..ومفاجأة عن الفترة القادمة ستغير مفهوم العلاج!",
+    "duration_seconds": 5348,
     "status": "downloaded",
     "triage_subject": "testimonial_testimonial_general",
     "triage_priority": 65,
     "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; risque video debat/controverse plutot que temoignage; long temoignage",
-    "started_at": "2026-06-03T05:20:01",
-    "finished_at": "2026-06-03T05:22:22"
+    "started_at": "2026-06-03T05:30:01",
+    "finished_at": "2026-06-03T05:34:23"
   },
   "recent": [
-    {
-      "id": "l4JxNML-yTs",
-      "title": "سر السائل البيني: الحقيقة المخفية وراء السرطان ومقاومة الإنسولين! د. ضياء العوضي يكشف الكلام الممنوع",
-      "duration_seconds": 2142
-    },
     {
       "id": "qC-r2s13e-k",
       "title": "بسبب نظام الطيبات لـ ضياء العوضي ..آلاف المصريين فى خطر.. حالات وفاة وتحذيرات من كارثة صحية",
@@ -38,6 +33,11 @@
       "id": "X73oFzQT_To",
       "title": "نظام الطيبات.. علم حقيقي ولا مؤامرة خطيرة؟! 😳🔥 د.جمال شعبان يكشف اسرار لأول مرة عن د. ضياء العوضي ",
       "duration_seconds": 3919
+    },
+    {
+      "id": "v79llIdEhOw",
+      "title": "🔴لأول مرة|د.ضياء العوضي يكشف الفرق بين الحبة والثمرة..ومفاجأة عن الفترة القادمة ستغير مفهوم العلاج!",
+      "duration_seconds": 5348
     },
     {
       "id": "F14WbxGzDmQ",
