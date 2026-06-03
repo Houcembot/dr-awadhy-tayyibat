@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-03T03:42:21",
+  "updated_at": "2026-06-03T03:55:55",
   "total": 208,
-  "downloaded": 191,
+  "downloaded": 192,
   "failed": 1,
-  "pending": 14,
-  "archive_gib": 11.25,
+  "pending": 13,
+  "archive_gib": 11.55,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "XvZJs9EX2ao",
-    "url": "https://www.youtube.com/watch?v=XvZJs9EX2ao",
-    "title": "الحقيقة الصادمة عن \" نظام الطيبات \" للدكتور ضياء العوضي.. الدكتور فائد يخرج عن صمته ويكشف المستور!",
-    "duration_seconds": 1679,
+    "id": "0_RDXO_vqnM",
+    "url": "https://www.youtube.com/watch?v=0_RDXO_vqnM",
+    "title": "الشفرة | مواجهة جريئة تكشف أسرار نظام الطيبات ضياء العوضي، شهادات صادمة وأدلة حصرية | كاملة",
+    "duration_seconds": 4100,
     "status": "downloaded",
-    "triage_subject": "testimonial_testimonial_general",
-    "triage_priority": 73,
-    "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; risque video debat/controverse plutot que temoignage; duree exploitable",
-    "started_at": "2026-06-03T03:40:01",
-    "finished_at": "2026-06-03T03:42:21"
+    "triage_subject": "testimonial_systeme-tayyibat",
+    "triage_priority": 71,
+    "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; risque video debat/controverse plutot que temoignage; long temoignage",
+    "started_at": "2026-06-03T03:50:02",
+    "finished_at": "2026-06-03T03:55:55"
   },
   "recent": [
-    {
-      "id": "S7u94uqPsVg",
-      "title": "عمرو أديب يكشف أسرار وتفاصيل وفاة ضياء العوضي .. حقائق صادمة لأول مرة",
-      "duration_seconds": 1498
-    },
     {
       "id": "38hduef6Us0",
       "title": "خلف الستار: \"كشف حقيقة نظام الطيبات للدكتور ضياء العوضى!\" الحقيقة المؤلمة",
@@ -38,6 +33,11 @@
       "id": "XvZJs9EX2ao",
       "title": "الحقيقة الصادمة عن \" نظام الطيبات \" للدكتور ضياء العوضي.. الدكتور فائد يخرج عن صمته ويكشف المستور!",
       "duration_seconds": 1679
+    },
+    {
+      "id": "0_RDXO_vqnM",
+      "title": "الشفرة | مواجهة جريئة تكشف أسرار نظام الطيبات ضياء العوضي، شهادات صادمة وأدلة حصرية | كاملة",
+      "duration_seconds": 4100
     },
     {
       "id": "F14WbxGzDmQ",
