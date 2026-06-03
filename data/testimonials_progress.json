@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-03T04:31:22",
+  "updated_at": "2026-06-03T04:41:41",
   "total": 208,
-  "downloaded": 196,
+  "downloaded": 197,
   "failed": 1,
-  "pending": 9,
-  "archive_gib": 11.7,
+  "pending": 8,
+  "archive_gib": 11.78,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "uvj5x82FlLg",
-    "url": "https://www.youtube.com/watch?v=uvj5x82FlLg",
-    "title": "احذر السكر و مقاومة الإنسولين! د. ضياء العوضي يكشف الحقيقة المخبأة وراء مرض السكر والعلاج الحقيقي 🔥",
-    "duration_seconds": 2013,
+    "id": "AnhQaBB1qVE",
+    "url": "https://www.youtube.com/watch?v=AnhQaBB1qVE",
+    "title": "🛑 صادم وخطير جداً | د. ضياء العوضي يكشف كواليس فصله وتشميع العيادة.. وما سيحدث بعد ذلك سيغير كل شيء!",
+    "duration_seconds": 2120,
     "status": "downloaded",
-    "triage_subject": "testimonial_diabetes",
+    "triage_subject": "testimonial_testimonial_general",
     "triage_priority": 65,
     "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; risque video debat/controverse plutot que temoignage; long temoignage",
-    "started_at": "2026-06-03T04:30:01",
-    "finished_at": "2026-06-03T04:31:22"
+    "started_at": "2026-06-03T04:40:01",
+    "finished_at": "2026-06-03T04:41:41"
   },
   "recent": [
-    {
-      "id": "-Wyxjk8I9LY",
-      "title": "إيه اللي بيحصل لجسمك بعد دواء السكر أو الأنسولين ؟الكورتيزون المنقذ لحياتك ـ وأهم حلقه لمريض السكر",
-      "duration_seconds": 1870
-    },
     {
       "id": "TxikAqcsGRk",
       "title": "نظام الطيبات ود. ضياء العوضي.. أحمد موسى يكشف تفاصيل خطيرة عن حالات وفاة بسبب هذا النظام",
@@ -38,6 +33,11 @@
       "id": "uvj5x82FlLg",
       "title": "احذر السكر و مقاومة الإنسولين! د. ضياء العوضي يكشف الحقيقة المخبأة وراء مرض السكر والعلاج الحقيقي 🔥",
       "duration_seconds": 2013
+    },
+    {
+      "id": "AnhQaBB1qVE",
+      "title": "🛑 صادم وخطير جداً | د. ضياء العوضي يكشف كواليس فصله وتشميع العيادة.. وما سيحدث بعد ذلك سيغير كل شيء!",
+      "duration_seconds": 2120
     },
     {
       "id": "F14WbxGzDmQ",
