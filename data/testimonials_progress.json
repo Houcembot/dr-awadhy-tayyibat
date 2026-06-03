@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-03T04:20:31",
+  "updated_at": "2026-06-03T04:31:22",
   "total": 208,
-  "downloaded": 195,
+  "downloaded": 196,
   "failed": 1,
-  "pending": 10,
-  "archive_gib": 11.64,
+  "pending": 9,
+  "archive_gib": 11.7,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "PuGb2nDOb2g",
-    "url": "https://www.youtube.com/watch?v=PuGb2nDOb2g",
-    "title": "مريض سكر و تعانى من تنميل اليدين و القدمين | هذا هو الحل البسيط و السبب",
-    "duration_seconds": 131,
+    "id": "uvj5x82FlLg",
+    "url": "https://www.youtube.com/watch?v=uvj5x82FlLg",
+    "title": "احذر السكر و مقاومة الإنسولين! د. ضياء العوضي يكشف الحقيقة المخبأة وراء مرض السكر والعلاج الحقيقي 🔥",
+    "duration_seconds": 2013,
     "status": "downloaded",
     "triage_subject": "testimonial_diabetes",
-    "triage_priority": 66,
-    "triage_reason": "retour experience explicite",
-    "started_at": "2026-06-03T04:20:01",
-    "finished_at": "2026-06-03T04:20:31"
+    "triage_priority": 65,
+    "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; risque video debat/controverse plutot que temoignage; long temoignage",
+    "started_at": "2026-06-03T04:30:01",
+    "finished_at": "2026-06-03T04:31:22"
   },
   "recent": [
-    {
-      "id": "0_RDXO_vqnM",
-      "title": "الشفرة | مواجهة جريئة تكشف أسرار نظام الطيبات ضياء العوضي، شهادات صادمة وأدلة حصرية | كاملة",
-      "duration_seconds": 4100
-    },
     {
       "id": "-Wyxjk8I9LY",
       "title": "إيه اللي بيحصل لجسمك بعد دواء السكر أو الأنسولين ؟الكورتيزون المنقذ لحياتك ـ وأهم حلقه لمريض السكر",
@@ -38,6 +33,11 @@
       "id": "PuGb2nDOb2g",
       "title": "مريض سكر و تعانى من تنميل اليدين و القدمين | هذا هو الحل البسيط و السبب",
       "duration_seconds": 131
+    },
+    {
+      "id": "uvj5x82FlLg",
+      "title": "احذر السكر و مقاومة الإنسولين! د. ضياء العوضي يكشف الحقيقة المخبأة وراء مرض السكر والعلاج الحقيقي 🔥",
+      "duration_seconds": 2013
     },
     {
       "id": "F14WbxGzDmQ",
