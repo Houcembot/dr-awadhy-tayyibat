@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-03T05:01:28",
+  "updated_at": "2026-06-03T05:11:28",
   "total": 208,
-  "downloaded": 199,
+  "downloaded": 200,
   "failed": 1,
-  "pending": 6,
-  "archive_gib": 12.01,
+  "pending": 5,
+  "archive_gib": 12.09,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "qC-r2s13e-k",
-    "url": "https://www.youtube.com/watch?v=qC-r2s13e-k",
-    "title": "بسبب نظام الطيبات لـ ضياء العوضي ..آلاف المصريين فى خطر.. حالات وفاة وتحذيرات من كارثة صحية",
-    "duration_seconds": 2260,
+    "id": "Olq41Tx56kk",
+    "url": "https://www.youtube.com/watch?v=Olq41Tx56kk",
+    "title": "د. ضياء العوضي يكشف عن الخلاف مع أخيه دكتور كريم 🔥 وأسرار الجدل الطبى حول السكري ودور الأنسولين",
+    "duration_seconds": 2322,
     "status": "downloaded",
-    "triage_subject": "testimonial_testimonial_general",
+    "triage_subject": "testimonial_diabetes",
     "triage_priority": 65,
     "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; risque video debat/controverse plutot que temoignage; long temoignage",
-    "started_at": "2026-06-03T05:00:01",
-    "finished_at": "2026-06-03T05:01:28"
+    "started_at": "2026-06-03T05:10:02",
+    "finished_at": "2026-06-03T05:11:28"
   },
   "recent": [
-    {
-      "id": "uvj5x82FlLg",
-      "title": "احذر السكر و مقاومة الإنسولين! د. ضياء العوضي يكشف الحقيقة المخبأة وراء مرض السكر والعلاج الحقيقي 🔥",
-      "duration_seconds": 2013
-    },
     {
       "id": "AnhQaBB1qVE",
       "title": "🛑 صادم وخطير جداً | د. ضياء العوضي يكشف كواليس فصله وتشميع العيادة.. وما سيحدث بعد ذلك سيغير كل شيء!",
@@ -38,6 +33,11 @@
       "id": "qC-r2s13e-k",
       "title": "بسبب نظام الطيبات لـ ضياء العوضي ..آلاف المصريين فى خطر.. حالات وفاة وتحذيرات من كارثة صحية",
       "duration_seconds": 2260
+    },
+    {
+      "id": "Olq41Tx56kk",
+      "title": "د. ضياء العوضي يكشف عن الخلاف مع أخيه دكتور كريم 🔥 وأسرار الجدل الطبى حول السكري ودور الأنسولين",
+      "duration_seconds": 2322
     },
     {
       "id": "F14WbxGzDmQ",
