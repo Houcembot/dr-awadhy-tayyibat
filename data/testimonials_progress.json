@@ -1,29 +1,24 @@
 {
-  "updated_at": "2026-06-03T02:22:04",
+  "updated_at": "2026-06-03T02:30:51",
   "total": 208,
-  "downloaded": 183,
+  "downloaded": 184,
   "failed": 1,
-  "pending": 22,
-  "archive_gib": 10.37,
+  "pending": 21,
+  "archive_gib": 10.41,
   "max_gib": 100.0,
   "last_downloaded": {
-    "id": "lzeByqb_PnA",
-    "url": "https://www.youtube.com/watch?v=lzeByqb_PnA",
-    "title": "هل السكر يسبب السرطان؟ ⚠️ اكتشف الحقيقة الكاملة مع د. ضياء العوضي ونظام الطيبات",
-    "duration_seconds": 1074,
+    "id": "vejEPcKatag",
+    "url": "https://www.youtube.com/watch?v=vejEPcKatag",
+    "title": "اتقوا الله ! غلط متعمد في نظام الطيبات دكتور ضياء العوضي يكشف خدعة المسموحات ويحذر منها",
+    "duration_seconds": 1084,
     "status": "downloaded",
-    "triage_subject": "testimonial_cancer",
+    "triage_subject": "testimonial_systeme-tayyibat",
     "triage_priority": 73,
     "triage_reason": "retour experience explicite; contexte Dr Dia/Tayyibat; risque video debat/controverse plutot que temoignage; duree exploitable",
-    "started_at": "2026-06-03T02:20:01",
-    "finished_at": "2026-06-03T02:22:04"
+    "started_at": "2026-06-03T02:30:01",
+    "finished_at": "2026-06-03T02:30:51"
   },
   "recent": [
-    {
-      "id": "5THkaZ-6wC4",
-      "title": "تفاعلكم | محامي الطبيب ضياء العوضي يكشف تفاصيل وفاته الغامضة",
-      "duration_seconds": 847
-    },
     {
       "id": "Y5xGvlz4wMY",
       "title": "تفاعلكم | محامي الطبيب ضياء العوضي يكشف تفاصيل وفاته الغامضة",
@@ -38,6 +33,11 @@
       "id": "lzeByqb_PnA",
       "title": "هل السكر يسبب السرطان؟ ⚠️ اكتشف الحقيقة الكاملة مع د. ضياء العوضي ونظام الطيبات",
       "duration_seconds": 1074
+    },
+    {
+      "id": "vejEPcKatag",
+      "title": "اتقوا الله ! غلط متعمد في نظام الطيبات دكتور ضياء العوضي يكشف خدعة المسموحات ويحذر منها",
+      "duration_seconds": 1084
     },
     {
       "id": "F14WbxGzDmQ",
