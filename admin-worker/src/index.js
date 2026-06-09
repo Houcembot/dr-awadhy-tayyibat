@@ -1,6 +1,6 @@
 import { handleLogin } from './routes/login.js';
 import { handleLogout } from './routes/logout.js';
-import { listVideos, addVideo } from './routes/videos.js';
+import { listVideos, addVideo, patchVideo } from './routes/videos.js';
 
 const CORS_HEADERS = {
   'Access-Control-Allow-Credentials': 'true',
@@ -36,6 +36,10 @@ export default {
         response = await listVideos(request, env);
       } else if (request.method === 'POST' && url.pathname === '/api/videos') {
         response = await addVideo(request, env);
+      } else if (url.pathname.match(/^\/api\/videos\/(\d+)$/)) {
+        const vid = parseInt(url.pathname.split('/')[3], 10);
+        if (request.method === 'PATCH') response = await patchVideo(request, env, vid);
+        else response = new Response('Method not allowed', { status: 405 });
       } else {
         response = new Response('Not found', { status: 404 });
       }

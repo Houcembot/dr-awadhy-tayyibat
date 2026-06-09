@@ -105,3 +105,42 @@ describe('POST /api/videos', () => {
     expect(res.status).toBe(409);
   });
 });
+
+describe('PATCH /api/videos/:id', () => {
+  it('toggles status pas_valide -> valide and logs validated', async () => {
+    const insert = await env.ADMIN_DB.prepare('SELECT id FROM videos WHERE external_id = ?').bind('t1').first();
+    const res = await call('PATCH', `/api/videos/${insert.id}`, { body: { status: 'valide', note: 'OK' } });
+    expect(res.status).toBe(200);
+    const row = await env.ADMIN_DB.prepare('SELECT status, note, status_changed_by FROM videos WHERE id = ?').bind(insert.id).first();
+    expect(row.status).toBe('valide');
+    expect(row.note).toBe('OK');
+    const log = await env.ADMIN_DB.prepare(`SELECT action FROM validation_log WHERE video_id = ? ORDER BY id DESC`).bind(insert.id).first();
+    expect(log.action).toBe('validated');
+  });
+
+  it('vérificateur can PATCH', async () => {
+    await env.ADMIN_DB.prepare('INSERT INTO users (id, email, display_name, password_hash, password_salt, role) VALUES (2, ?, ?, ?, ?, ?)')
+      .bind('v@x', 'V', 'h', 's', 'verificateur').run();
+    const v = await env.ADMIN_DB.prepare('SELECT id FROM videos WHERE external_id = ?').bind('t1').first();
+    const res = await call('PATCH', `/api/videos/${v.id}`, { body: { status: 'valide' }, role: 'verificateur', uid: 2 });
+    expect(res.status).toBe(200);
+  });
+
+  it('updates note only logs noted action', async () => {
+    const v = await env.ADMIN_DB.prepare('SELECT id FROM videos WHERE external_id = ?').bind('y1').first();
+    await call('PATCH', `/api/videos/${v.id}`, { body: { note: 'Just a note' } });
+    const log = await env.ADMIN_DB.prepare(`SELECT action FROM validation_log WHERE video_id = ? ORDER BY id DESC`).bind(v.id).first();
+    expect(log.action).toBe('noted');
+  });
+
+  it('rejects invalid status', async () => {
+    const v = await env.ADMIN_DB.prepare('SELECT id FROM videos LIMIT 1').first();
+    const res = await call('PATCH', `/api/videos/${v.id}`, { body: { status: 'maybe' } });
+    expect(res.status).toBe(400);
+  });
+
+  it('returns 404 for unknown id', async () => {
+    const res = await call('PATCH', '/api/videos/99999', { body: { status: 'valide' } });
+    expect(res.status).toBe(404);
+  });
+});

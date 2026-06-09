@@ -73,3 +73,44 @@ export async function addVideo(request, env) {
     throw e;
   }
 }
+
+export async function patchVideo(request, env, id) {
+  const auth = await requireAuth(request, env.JWT_SECRET, ['admin', 'verificateur']);
+  if (auth.error) return auth.error;
+
+  let body;
+  try { body = await request.json(); } catch { return new Response('Bad JSON', { status: 400 }); }
+
+  const newStatus = body.status;
+  const newNote = body.note;
+
+  if (newStatus !== undefined && !VALID_STATUS.has(newStatus)) {
+    return new Response('Invalid status', { status: 400 });
+  }
+  if (newNote !== undefined && (typeof newNote !== 'string' || newNote.length > 2000)) {
+    return new Response('Invalid note', { status: 400 });
+  }
+
+  const video = await env.ADMIN_DB.prepare('SELECT id, status FROM videos WHERE id = ?').bind(id).first();
+  if (!video) return new Response('Not found', { status: 404 });
+
+  let action = null;
+  if (newStatus !== undefined && newStatus !== video.status) {
+    action = newStatus === 'valide' ? 'validated' : 'unvalidated';
+    await env.ADMIN_DB.prepare(
+      `UPDATE videos SET status = ?, note = COALESCE(?, note), status_changed_by = ?, status_changed_at = CURRENT_TIMESTAMP WHERE id = ?`
+    ).bind(newStatus, newNote ?? null, auth.user.uid, id).run();
+  } else if (newNote !== undefined) {
+    action = 'noted';
+    await env.ADMIN_DB.prepare('UPDATE videos SET note = ? WHERE id = ?').bind(newNote, id).run();
+  } else {
+    return new Response('Nothing to update', { status: 400 });
+  }
+
+  await env.ADMIN_DB.prepare(
+    `INSERT INTO validation_log (video_id, user_id, action, previous_status, new_status, note) VALUES (?, ?, ?, ?, ?, ?)`
+  ).bind(id, auth.user.uid, action, video.status, newStatus ?? video.status, newNote ?? null).run();
+
+  const row = await env.ADMIN_DB.prepare('SELECT * FROM videos WHERE id = ?').bind(id).first();
+  return new Response(JSON.stringify(row), { headers: { 'Content-Type': 'application/json' } });
+}
