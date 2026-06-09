@@ -1,3 +1,5 @@
+import { parseCookie } from './cookie.js';
+
 const PBKDF2_ITERATIONS = 600_000;
 const KEY_LENGTH_BYTES = 32;
 const SALT_LENGTH_BYTES = 16;
@@ -100,4 +102,22 @@ export async function verifyJWT(token, secret) {
   }
   if (payload.exp && payload.exp < Math.floor(Date.now() / 1000)) throw new Error('Token expired');
   return payload;
+}
+
+export async function requireAuth(request, secret, allowedRoles) {
+  const cookies = parseCookie(request.headers.get('Cookie'));
+  const token = cookies.Auth;
+  if (!token) {
+    return { error: new Response('Unauthorized', { status: 401 }) };
+  }
+  let payload;
+  try {
+    payload = await verifyJWT(token, secret);
+  } catch {
+    return { error: new Response('Unauthorized', { status: 401 }) };
+  }
+  if (!allowedRoles.includes(payload.role)) {
+    return { error: new Response('Forbidden', { status: 403 }) };
+  }
+  return { user: payload };
 }
