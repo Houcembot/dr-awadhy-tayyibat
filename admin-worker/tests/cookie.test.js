@@ -19,7 +19,7 @@ describe('cookie helpers', () => {
     expect(c).toContain('Auth=jwt.value');
     expect(c).toContain('HttpOnly');
     expect(c).toContain('Secure');
-    expect(c).toContain('SameSite=Strict');
+    expect(c).toContain('SameSite=None');
     expect(c).toContain('Path=/');
     expect(c).toContain('Max-Age=28800');
   });

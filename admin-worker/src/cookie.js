@@ -12,9 +12,9 @@ export function parseCookie(header) {
 }
 
 export function formatAuthCookie(jwt) {
-  return `Auth=${jwt}; HttpOnly; Secure; SameSite=Strict; Path=/; Max-Age=28800`;
+  return `Auth=${jwt}; HttpOnly; Secure; SameSite=None; Path=/; Max-Age=28800`;
 }
 
 export function clearAuthCookie() {
-  return `Auth=; HttpOnly; Secure; SameSite=Strict; Path=/; Max-Age=0`;
+  return `Auth=; HttpOnly; Secure; SameSite=None; Path=/; Max-Age=0`;
 }
