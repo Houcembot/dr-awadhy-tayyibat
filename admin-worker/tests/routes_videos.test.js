@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeAll, beforeEach } from 'vitest';
+import { describe, it, expect, beforeAll, beforeEach, vi } from 'vitest';
 import { env, createExecutionContext, waitOnExecutionContext } from 'cloudflare:test';
 import worker from '../src/index.js';
 import { signJWT } from '../src/auth.js';
@@ -67,5 +67,41 @@ describe('GET /api/videos', () => {
   it('returns 401 without auth', async () => {
     const res = await call('GET', '/api/videos', { noAuth: true });
     expect(res.status).toBe(401);
+  });
+});
+
+describe('POST /api/videos', () => {
+  beforeEach(() => {
+    global.fetch = vi.fn().mockResolvedValue(new Response(JSON.stringify({
+      title: 'Test', thumbnail_url: 'https://i/x.jpg'
+    })));
+  });
+
+  it('adds a YouTube video with pas_valide status', async () => {
+    const res = await call('POST', '/api/videos', {
+      body: { url: 'https://www.youtube.com/watch?v=newvid12345' }
+    });
+    expect(res.status).toBe(201);
+    const j = await res.json();
+    expect(j.platform).toBe('youtube');
+    expect(j.external_id).toBe('newvid12345');
+    expect(j.status).toBe('pas_valide');
+  });
+
+  it('logs added action in validation_log', async () => {
+    await call('POST', '/api/videos', { body: { url: 'https://www.youtube.com/watch?v=newvid12345' } });
+    const log = await env.ADMIN_DB.prepare(`SELECT action FROM validation_log`).first();
+    expect(log.action).toBe('added');
+  });
+
+  it('rejects unsupported platform', async () => {
+    const res = await call('POST', '/api/videos', { body: { url: 'https://vimeo.com/123' } });
+    expect(res.status).toBe(400);
+  });
+
+  it('rejects duplicate (UNIQUE constraint)', async () => {
+    await call('POST', '/api/videos', { body: { url: 'https://www.youtube.com/watch?v=dupvid123456' } });
+    const res = await call('POST', '/api/videos', { body: { url: 'https://www.youtube.com/watch?v=dupvid123456' } });
+    expect(res.status).toBe(409);
   });
 });

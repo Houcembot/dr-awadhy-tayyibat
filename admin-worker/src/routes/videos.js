@@ -34,3 +34,42 @@ export async function listVideos(request, env) {
     page, per_page: perPage
   }), { headers: { 'Content-Type': 'application/json' } });
 }
+
+export async function addVideo(request, env) {
+  const auth = await requireAuth(request, env.JWT_SECRET, ['admin', 'verificateur']);
+  if (auth.error) return auth.error;
+
+  let body;
+  try { body = await request.json(); } catch { return new Response('Bad JSON', { status: 400 }); }
+  const url = String(body.url || '').trim();
+  if (!url) return new Response('Missing url', { status: 400 });
+
+  const parsed = parseUrl(url);
+  if (!parsed) return new Response('Unsupported platform or malformed URL', { status: 400 });
+
+  const meta = await fetchMeta(parsed.platform, parsed.parsed.external_id, parsed.parsed.normalized_url);
+
+  try {
+    const result = await env.ADMIN_DB.prepare(
+      `INSERT INTO videos (platform, external_id, url, embed_url, title, thumbnail_url, duration_seconds, added_by)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?)`
+    ).bind(
+      parsed.platform, parsed.parsed.external_id, parsed.parsed.normalized_url,
+      meta.embed_url, meta.title, meta.thumbnail_url, meta.duration_seconds,
+      auth.user.uid
+    ).run();
+    const id = result.meta.last_row_id;
+
+    await env.ADMIN_DB.prepare(
+      `INSERT INTO validation_log (video_id, user_id, action, new_status) VALUES (?, ?, 'added', 'pas_valide')`
+    ).bind(id, auth.user.uid).run();
+
+    const row = await env.ADMIN_DB.prepare('SELECT * FROM videos WHERE id = ?').bind(id).first();
+    return new Response(JSON.stringify(row), { status: 201, headers: { 'Content-Type': 'application/json' } });
+  } catch (e) {
+    if (String(e.message).includes('UNIQUE')) {
+      return new Response('Video already exists', { status: 409 });
+    }
+    throw e;
+  }
+}
