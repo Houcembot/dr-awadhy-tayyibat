@@ -2,6 +2,7 @@ import { handleLogin } from './routes/login.js';
 import { handleLogout } from './routes/logout.js';
 import { listVideos, addVideo, patchVideo, deleteVideo, getVideo } from './routes/videos.js';
 import { listUsers, createUser, patchUser, deleteUser } from './routes/users.js';
+import { listPublicVideos } from './routes/public.js';
 
 const CORS_HEADERS = {
   'Access-Control-Allow-Credentials': 'true',
@@ -29,7 +30,9 @@ export default {
     const url = new URL(request.url);
     let response;
     try {
-      if (request.method === 'POST' && url.pathname === '/api/login') {
+      if (request.method === 'GET' && url.pathname === '/api/public/videos') {
+        response = await listPublicVideos(request, env);
+      } else if (request.method === 'POST' && url.pathname === '/api/login') {
         response = await handleLogin(request, env);
       } else if (request.method === 'POST' && url.pathname === '/api/logout') {
         response = await handleLogout();
