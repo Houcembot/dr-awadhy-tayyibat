@@ -22,11 +22,28 @@ export async function listWhitelist(request, env) {
   const auth = await requireAuth(request, env.JWT_SECRET, ['admin', 'verificateur']);
   if (auth.error) return auth.error;
   const rows = await env.ADMIN_DB.prepare(
-    `SELECT w.external_id, w.title, w.added_at, u.email AS added_by_email
+    `SELECT w.external_id, w.title, w.approved, w.added_at, u.email AS added_by_email
      FROM video_whitelist w LEFT JOIN users u ON u.id = w.added_by
-     ORDER BY w.added_at DESC`
+     ORDER BY w.approved ASC, w.added_at DESC`
   ).all();
   return new Response(JSON.stringify({ items: rows.results, total: rows.results.length }), {
+    headers: { 'Content-Type': 'application/json' }
+  });
+}
+
+export async function patchWhitelist(request, env, external_id) {
+  const auth = await requireAuth(request, env.JWT_SECRET, ['admin']);
+  if (auth.error) return auth.error;
+  let body;
+  try { body = await request.json(); } catch { return new Response('Bad JSON', { status: 400 }); }
+  if (typeof body.approved !== 'boolean') {
+    return new Response('approved (boolean) required', { status: 400 });
+  }
+  const result = await env.ADMIN_DB.prepare(
+    `UPDATE video_whitelist SET approved = ? WHERE external_id = ?`
+  ).bind(body.approved ? 1 : 0, external_id).run();
+  if (result.meta.changes === 0) return new Response('Not found', { status: 404 });
+  return new Response(JSON.stringify({ external_id, approved: body.approved }), {
     headers: { 'Content-Type': 'application/json' }
   });
 }
@@ -41,9 +58,9 @@ export async function addWhitelist(request, env) {
   const title = String(body.title || '').slice(0, 500) || null;
   try {
     await env.ADMIN_DB.prepare(
-      `INSERT INTO video_whitelist (external_id, title, added_by) VALUES (?, ?, ?)`
+      `INSERT INTO video_whitelist (external_id, title, added_by, approved) VALUES (?, ?, ?, 0)`
     ).bind(external_id, title, auth.user.uid).run();
-    return new Response(JSON.stringify({ external_id, title }), {
+    return new Response(JSON.stringify({ external_id, title, approved: false }), {
       status: 201, headers: { 'Content-Type': 'application/json' }
     });
   } catch (e) {
@@ -66,7 +83,7 @@ export async function deleteWhitelist(request, env, external_id) {
 
 export async function listPublicWhitelist(request, env) {
   const rows = await env.ADMIN_DB.prepare(
-    `SELECT external_id FROM video_whitelist`
+    `SELECT external_id FROM video_whitelist WHERE approved = 1`
   ).all();
   const ids = rows.results.map(r => r.external_id);
   return new Response(JSON.stringify(ids), {

@@ -366,18 +366,24 @@
       ? whitelistState.items.filter(x => (x.external_id || '').toLowerCase().includes(filter) || (x.title || '').toLowerCase().includes(filter))
       : whitelistState.items;
 
+    const pending = whitelistState.items.filter(x => !x.approved).length;
+    const approved = whitelistState.items.length - pending;
     v.innerHTML = `
       <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; flex-wrap:wrap; gap:12px;">
-        <h2 style="font-family:Cairo,serif; margin:0;">Whitelist /videos (${whitelistState.items.length})</h2>
+        <h2 style="font-family:Cairo,serif; margin:0;">Whitelist /videos</h2>
         ${isAdmin ? `<button class="primary" id="add-wl-btn">+ Ajouter une vidéo</button>` : ''}
       </div>
-      <p style="color:var(--text-muted); font-size:14px;">Liste des IDs YouTube affichés sur la page publique <a href="/videos" target="_blank">/videos</a>. Une vidéo retirée ici disparaît côté public sous 60s (cache CDN).</p>
+      <p style="color:var(--text-muted); font-size:14px;">
+        <strong style="color:var(--ok)">${approved} approuvées</strong> (visibles sur <a href="/videos" target="_blank">/videos</a>) ·
+        <strong style="color:var(--danger)">${pending} en attente</strong> (visibles ici seulement, à valider).
+        Délai cache CDN public : ~60s après changement.
+      </p>
       <input type="text" id="wl-search" placeholder="Filtrer par ID ou titre..." value="${filter}" style="margin-bottom:16px;">
       <div style="overflow-x:auto;"><table>
-        <thead><tr><th>ID YouTube</th><th>Titre</th><th>Aperçu</th><th>Ajouté par</th><th>Date</th>${isAdmin ? '<th>Actions</th>' : ''}</tr></thead>
+        <thead><tr><th>Statut</th><th>ID YouTube</th><th>Titre</th><th>Aperçu</th><th>Ajouté par</th><th>Date</th>${isAdmin ? '<th>Actions</th>' : ''}</tr></thead>
         <tbody id="wl-tbody"></tbody>
       </table></div>
-      <p style="color:var(--text-muted); font-size:13px; margin-top:12px;">${filtered.length} résultat(s) affichés.</p>
+      <p style="color:var(--text-muted); font-size:13px; margin-top:12px;">${filtered.length} résultat(s) affichés (en attente d'abord).</p>
     `;
 
     document.getElementById('wl-search').addEventListener('input', (e) => {
@@ -396,7 +402,13 @@
     const tbody = document.getElementById('wl-tbody');
     tbody.innerHTML = '';
     for (const item of filtered.slice(0, 200)) {
+      const isApproved = !!item.approved;
       const tr = document.createElement('tr');
+      const statusCell = document.createElement('td');
+      const badge = document.createElement('span');
+      badge.className = 'badge ' + (isApproved ? 'valide' : 'pas_valide');
+      badge.textContent = isApproved ? 'approuvée' : 'en attente';
+      statusCell.appendChild(badge);
       const idCell = document.createElement('td');
       const idCode = document.createElement('code');
       idCode.style.fontSize = '12px';
@@ -425,6 +437,7 @@
       const dateCell = document.createElement('td');
       dateCell.textContent = (item.added_at || '').split(' ')[0] || '—';
       dateCell.style.fontSize = '12px';
+      tr.appendChild(statusCell);
       tr.appendChild(idCell);
       tr.appendChild(titleCell);
       tr.appendChild(thumbCell);
@@ -432,11 +445,24 @@
       tr.appendChild(dateCell);
       if (isAdmin) {
         const actionsCell = document.createElement('td');
+        const toggle = document.createElement('button');
+        toggle.className = isApproved ? 'subtle' : 'primary';
+        toggle.style.fontSize = '13px';
+        toggle.style.padding = '6px 12px';
+        toggle.textContent = isApproved ? '✗ Mettre en attente' : '✓ Approuver';
+        toggle.addEventListener('click', async () => {
+          try {
+            await api('PATCH', `/api/whitelist/${encodeURIComponent(item.external_id)}`, { approved: !isApproved });
+            loadWhitelist();
+          } catch (e) { alert(e.message); }
+        });
+        actionsCell.appendChild(toggle);
         const del = document.createElement('button');
         del.className = 'danger';
-        del.textContent = 'Retirer';
+        del.textContent = 'Supprimer';
+        del.style.marginLeft = '6px';
         del.addEventListener('click', async () => {
-          if (!confirm(`Retirer ${item.external_id} de la whitelist ?`)) return;
+          if (!confirm(`Supprimer définitivement ${item.external_id} de la whitelist ?`)) return;
           try {
             await api('DELETE', `/api/whitelist/${encodeURIComponent(item.external_id)}`);
             loadWhitelist();

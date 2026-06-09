@@ -3,7 +3,7 @@ import { handleLogout } from './routes/logout.js';
 import { listVideos, addVideo, patchVideo, deleteVideo, getVideo } from './routes/videos.js';
 import { listUsers, createUser, patchUser, deleteUser } from './routes/users.js';
 import { listPublicVideos } from './routes/public.js';
-import { listWhitelist, addWhitelist, deleteWhitelist, listPublicWhitelist } from './routes/whitelist.js';
+import { listWhitelist, addWhitelist, deleteWhitelist, listPublicWhitelist, patchWhitelist } from './routes/whitelist.js';
 
 const CORS_HEADERS = {
   'Access-Control-Allow-Credentials': 'true',
@@ -42,6 +42,9 @@ export default {
       } else if (url.pathname.match(/^\/api\/whitelist\/([^/]+)$/) && request.method === 'DELETE') {
         const id = decodeURIComponent(url.pathname.split('/')[3]);
         response = await deleteWhitelist(request, env, id);
+      } else if (url.pathname.match(/^\/api\/whitelist\/([^/]+)$/) && request.method === 'PATCH') {
+        const id = decodeURIComponent(url.pathname.split('/')[3]);
+        response = await patchWhitelist(request, env, id);
       } else if (request.method === 'POST' && url.pathname === '/api/login') {
         response = await handleLogin(request, env);
       } else if (request.method === 'POST' && url.pathname === '/api/logout') {
