@@ -54,3 +54,11 @@ describe('POST /api/login', () => {
     expect(res.status).toBe(429);
   });
 });
+
+describe('POST /api/logout', () => {
+  it('returns 200 + clearing Set-Cookie', async () => {
+    const res = await call('POST', '/api/logout');
+    expect(res.status).toBe(200);
+    expect(res.headers.get('Set-Cookie')).toContain('Max-Age=0');
+  });
+});

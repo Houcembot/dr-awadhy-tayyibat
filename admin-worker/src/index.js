@@ -1,4 +1,5 @@
 import { handleLogin } from './routes/login.js';
+import { handleLogout } from './routes/logout.js';
 
 const CORS_HEADERS = {
   'Access-Control-Allow-Credentials': 'true',
@@ -28,6 +29,8 @@ export default {
     try {
       if (request.method === 'POST' && url.pathname === '/api/login') {
         response = await handleLogin(request, env);
+      } else if (request.method === 'POST' && url.pathname === '/api/logout') {
+        response = await handleLogout();
       } else {
         response = new Response('Not found', { status: 404 });
       }
