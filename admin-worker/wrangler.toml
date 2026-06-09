@@ -1,0 +1,16 @@
+name = "tayyibat-admin"
+main = "src/index.js"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+[[d1_databases]]
+binding = "ADMIN_DB"
+database_name = "tayyibat-admin-db"
+database_id = "REPLACE_AFTER_D1_CREATE"
+
+[[kv_namespaces]]
+binding = "RATE_LIMIT_KV"
+id = "49981be2901d404b8f052e164b00b4d0"
+
+[vars]
+ALLOWED_ORIGIN = "https://tayyibat.pages.dev"
