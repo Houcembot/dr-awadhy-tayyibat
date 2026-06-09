@@ -1,6 +1,9 @@
+archive
 archive/
+archive/**
 chat-worker/
 docs/
-data/
-*.json
 README.md
+*.mp4
+*.mkv
+*.webm
