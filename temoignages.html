@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شهادات المرضى — نظام الطيبات | Dr Dhiaa Al Awadhy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Playfair+Display:wght@600;800&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-soft: #E6D18A;
+    --dark: #1A1A18;
+    --ink: #24231F;
+    --muted: #706D61;
+    --cream: #F5F0E8;
+    --cream-2: #EAE2D2;
+    --paper: #FFFCF4;
+    --green: #2D6A4F;
+    --line: rgba(26,26,24,0.12);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: "Cairo", sans-serif;
+    line-height: 1.55;
+  }
+  [lang="fr"] body, [lang="en"] body {
+    font-family: "Source Sans 3", sans-serif;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* ── TOPBAR ── */
+  .topbar {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(26,26,24,0.96);
+    border-bottom: 1px solid rgba(201,168,76,0.35);
+    color: var(--cream);
+  }
+  .topbar-inner {
+    max-width: 1180px; margin: 0 auto;
+    padding: 14px clamp(18px,4vw,36px);
+    display: flex; align-items: center; justify-content: space-between; gap: 18px;
+  }
+  .brand {
+    font-family: "Playfair Display", serif;
+    font-weight: 800; font-size: 1.15rem;
+    color: var(--gold-soft);
+  }
+  .navlinks { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .navlinks a {
+    font-size: 0.82rem; font-weight: 600; letter-spacing: .03em;
+    color: rgba(245,240,232,0.75);
+    text-transform: uppercase; transition: color .2s;
+  }
+  .navlinks a:hover { color: var(--gold-soft); }
+  .navlinks a.active { color: var(--gold-soft); }
+  .lang-switcher { display: flex; gap: 6px; margin-right: 8px; }
+  .lang-btn {
+    background: transparent; border: 1px solid rgba(201,168,76,0.4);
+    color: rgba(245,240,232,0.7); border-radius: 4px;
+    padding: 3px 9px; font-size: 0.75rem; font-weight: 700;
+    cursor: pointer; transition: all .2s; letter-spacing: .05em;
+  }
+  .lang-btn:hover, .lang-btn.active {
+    background: var(--gold); border-color: var(--gold); color: var(--dark);
+  }
+  [dir="ltr"] .lang-switcher { margin-right: 0; margin-left: 8px; }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--dark);
+    color: var(--cream);
+    padding: clamp(48px,8vw,80px) clamp(18px,4vw,60px) clamp(36px,5vw,56px);
+    text-align: center;
+  }
+  .hero-eyebrow {
+    font-size: 0.78rem; font-weight: 700; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-family: "Cairo", sans-serif; font-weight: 900;
+    font-size: clamp(1.8rem,4vw,3rem);
+    color: var(--cream); margin: 0 0 16px;
+    line-height: 1.2;
+  }
+  [lang="fr"] .hero h1, [lang="en"] .hero h1 {
+    font-family: "Playfair Display", serif;
+  }
+  .hero-sub {
+    font-size: clamp(0.95rem,2vw,1.1rem);
+    color: rgba(245,240,232,0.7); max-width: 580px; margin: 0 auto 28px;
+  }
+  .hero-count {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 24px; padding: 8px 22px;
+    font-size: 0.9rem; color: var(--gold-soft);
+  }
+  .hero-count strong { font-size: 1.3rem; font-weight: 900; }
+
+  /* ── SEARCH ── */
+  .controls {
+    max-width: 1180px; margin: 0 auto;
+    padding: 24px clamp(18px,4vw,36px) 8px;
+    display: flex; gap: 12px; flex-wrap: wrap; align-items: center;
+  }
+  .searchbox {
+    flex: 1; min-width: 220px;
+    background: var(--paper); border: 1.5px solid var(--line);
+    border-radius: 8px; padding: 11px 16px;
+    font-family: inherit; font-size: 0.95rem; color: var(--ink);
+    outline: none; transition: border-color .2s;
+    direction: rtl;
+  }
+  [lang="fr"] .searchbox, [lang="en"] .searchbox { direction: ltr; }
+  .searchbox:focus { border-color: var(--gold); }
+  .count-badge {
+    font-size: 0.82rem; color: var(--muted);
+    white-space: nowrap; padding: 0 4px;
+  }
+
+  /* ── GRID ── */
+  .grid-wrap {
+    max-width: 1180px; margin: 0 auto;
+    padding: 16px clamp(18px,4vw,36px) 64px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  /* ── CARD ── */
+  .card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 12px; overflow: hidden;
+    display: flex; flex-direction: column;
+    transition: transform .2s, box-shadow .2s;
+    cursor: pointer;
+  }
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 28px rgba(26,26,24,0.14);
+  }
+  .card-thumb {
+    position: relative; aspect-ratio: 16/9;
+    overflow: hidden; background: var(--dark);
+  }
+  .card-thumb img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform .3s;
+  }
+  .card:hover .card-thumb img { transform: scale(1.04); }
+  .play-btn {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(26,26,24,0.0);
+    transition: background .2s;
+  }
+  .card:hover .play-btn { background: rgba(26,26,24,0.35); }
+  .play-icon {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: rgba(201,168,76,0.9); display: flex;
+    align-items: center; justify-content: center;
+    opacity: 0; transform: scale(0.8);
+    transition: opacity .2s, transform .2s;
+  }
+  .card:hover .play-icon { opacity: 1; transform: scale(1); }
+  .play-icon svg { width: 18px; height: 18px; fill: var(--dark); margin-right: -2px; }
+  .dur-badge {
+    position: absolute; bottom: 8px; right: 8px;
+    background: rgba(26,26,24,0.82);
+    color: #fff; font-size: 0.72rem; font-weight: 700;
+    padding: 2px 7px; border-radius: 4px; letter-spacing: .03em;
+    font-family: "Source Sans 3", monospace;
+  }
+  [dir="rtl"] .dur-badge { right: auto; left: 8px; }
+
+  .card-body {
+    padding: 14px 16px 16px;
+    flex: 1; display: flex; flex-direction: column; gap: 10px;
+  }
+  .card-title {
+    font-size: 0.9rem; font-weight: 700; line-height: 1.4;
+    color: var(--ink);
+    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .card-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    margin-top: auto;
+    font-size: 0.78rem; font-weight: 700; letter-spacing: .04em;
+    color: var(--gold); text-transform: uppercase;
+    transition: color .15s;
+  }
+  .card-link:hover { color: var(--ink); }
+  .card-link svg { width: 13px; height: 13px; }
+
+  /* ── EMPTY STATE ── */
+  .empty {
+    grid-column: 1/-1; text-align: center;
+    padding: 60px 20px; color: var(--muted);
+    font-size: 1rem;
+  }
+  .empty-icon { font-size: 2.5rem; margin-bottom: 12px; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark); color: rgba(245,240,232,0.5);
+    text-align: center; padding: 32px 20px;
+    font-size: 0.8rem; line-height: 1.8;
+  }
+  footer a { color: var(--gold-soft); }
+
+  @media (max-width: 600px) {
+    .navlinks { gap: 10px; }
+    .navlinks a { font-size: 0.75rem; }
+    .grid-wrap { grid-template-columns: repeat(auto-fill, minmax(160px,1fr)); gap: 12px; }
+    .card-title { font-size: 0.82rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="brand">Dr Dhiaa Al Awadhy</a>
+    <nav class="navlinks">
+      <a href="index.html" data-i18n="nav_home">Accueil</a>
+      <a href="videos.html" data-i18n="nav_videos">Vidéos</a>
+      <a href="temoignages.html" class="active" data-i18n="nav_temoig">Témoignages</a>
+      <a href="chat.html" data-i18n="nav_chat">Chat IA</a>
+      <div class="lang-switcher">
+        <button class="lang-btn" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn active" data-lang="ar">AR</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow" data-i18n="hero_eyebrow">نظام الطيبات</p>
+  <h1 data-i18n="hero_h1">شهادات المرضى</h1>
+  <p class="hero-sub" data-i18n="hero_sub">تجارب حقيقية من مرضى اتبعوا نظام الطيبات للدكتور ضياء العوضي</p>
+  <div class="hero-count">
+    <strong>185</strong>
+    <span data-i18n="hero_count_label">شهادة موثقة</span>
+  </div>
+</section>
+
+<!-- CONTROLS -->
+<div class="controls">
+  <input class="searchbox" id="searchbox" type="search"
+    placeholder="ابحث في الشهادات..." data-placeholder-ar="ابحث في الشهادات..."
+    data-placeholder-fr="Rechercher un témoignage..."
+    data-placeholder-en="Search testimonials...">
+  <span class="count-badge" id="count-badge"></span>
+</div>
+
+<!-- GRID -->
+<main class="grid-wrap" id="grid"></main>
+
+<!-- FOOTER -->
+<footer>
+  <p data-i18n="footer_main">© 2026 — Hommage au Dr Dhiaa Al Awadhy — نظام الطيبات</p>
+  <p><a href="index.html">Accueil</a> · <a href="videos.html" data-i18n="nav_videos">Vidéos</a> · <a href="chat.html">Chat IA</a></p>
+</footer>
+
+<script>
+let VIDEOS = [];
+let videosLoaded = false;
+const API_URL = 'https://tayyibat-admin.houcemben.workers.dev/api/public/videos';
+
+async function loadVideos() {
+  try {
+    const r = await fetch(API_URL);
+    if (!r.ok) throw new Error('fetch failed');
+    const j = await r.json();
+    VIDEOS = (j.items || []).map(v => ({
+      id: v.external_id,
+      title: v.title || '',
+      url: v.url,
+      thumb: v.thumbnail_url || ('https://img.youtube.com/vi/' + v.external_id + '/mqdefault.jpg'),
+      dur: v.duration_seconds ? (Math.floor(v.duration_seconds/60) + ':' + String(v.duration_seconds%60).padStart(2,'0')) : ''
+    }));
+  } catch (e) {
+    console.warn('Failed to load testimonial videos', e);
+    VIDEOS = [];
+  }
+  videosLoaded = true;
+  if (typeof render === 'function') render();
+}
+
+const I18N = {
+  ar: {
+    nav_home: 'الرئيسية', nav_videos: 'الفيديوهات', nav_temoig: 'الشهادات', nav_chat: 'الدردشة الذكية',
+    hero_eyebrow: 'نظام الطيبات', hero_h1: 'شهادات المرضى',
+    hero_sub: 'تجارب حقيقية من مرضى اتبعوا نظام الطيبات للدكتور ضياء العوضي',
+    hero_count_label: 'شهادة موثقة',
+    watch_btn: 'شاهد الشهادة',
+    footer_main: '© 2026 — تكريماً للدكتور ضياء العوضي — نظام الطيبات',
+    empty: 'لا توجد نتائج لهذا البحث',
+  },
+  fr: {
+    nav_home: 'Accueil', nav_videos: 'Vidéos', nav_temoig: 'Témoignages', nav_chat: 'Chat IA',
+    hero_eyebrow: 'Système Tayyibat', hero_h1: 'Témoignages patients',
+    hero_sub: 'Des expériences réelles de patients ayant suivi le système du Dr Dhiaa Al Awadhy',
+    hero_count_label: 'témoignages documentés',
+    watch_btn: 'Voir le témoignage',
+    footer_main: '© 2026 — Hommage au Dr Dhiaa Al Awadhy — Système Tayyibat',
+    empty: 'Aucun résultat pour cette recherche.',
+  },
+  en: {
+    nav_home: 'Home', nav_videos: 'Videos', nav_temoig: 'Testimonials', nav_chat: 'AI Chat',
+    hero_eyebrow: 'Tayyibat System', hero_h1: 'Patient Testimonials',
+    hero_sub: 'Real experiences from patients who followed Dr Dhiaa Al Awadhy’s Tayyibat system',
+    hero_count_label: 'documented testimonials',
+    watch_btn: 'Watch testimony',
+    footer_main: '© 2026 — In memory of Dr Dhiaa Al Awadhy — Tayyibat System',
+    empty: 'No results found.',
+  }
+};
+
+let currentLang = localStorage.getItem('drdia_lang') || 'ar';
+let currentQuery = '';
+
+function t(key) { return (I18N[currentLang] || I18N.ar)[key] || key; }
+
+function applyLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('drdia_lang', lang);
+  const isRtl = lang === 'ar';
+  document.documentElement.lang = lang;
+  document.documentElement.dir = isRtl ? 'rtl' : 'ltr';
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.dataset.i18n;
+    if (I18N[lang]?.[k]) el.textContent = I18N[lang][k];
+  });
+  const sb = document.getElementById('searchbox');
+  sb.placeholder = sb.dataset['placeholder' + lang.charAt(0).toUpperCase() + lang.slice(1)] || sb.placeholder;
+  sb.dir = isRtl ? 'rtl' : 'ltr';
+  render();
+}
+
+function buildCard(v) {
+  const title = v.title || '';
+  return `<article class="card" onclick="window.open('${v.url}','_blank')">
+    <div class="card-thumb">
+      <img src="${v.thumb}" alt="${title.replace(/"/g,'&quot;')}" loading="lazy" onerror="this.src='https://img.youtube.com/vi/${v.id}/default.jpg'">
+      <div class="play-btn">
+        <div class="play-icon">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </div>
+      ${v.dur ? `<span class="dur-badge">${v.dur}</span>` : ''}
+    </div>
+    <div class="card-body">
+      <p class="card-title">${title.replace(/</g,'&lt;').replace(/>/g,'&gt;')}</p>
+      <span class="card-link">
+        ${t('watch_btn')}
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 11H6.83l3.58-3.59L9 6l-6 6 6 6 1.41-1.41L6.83 13H21z" transform="scale(-1,1) translate(-24,0)"/></svg>
+      </span>
+    </div>
+  </article>`;
+}
+
+function render() {
+  const q = currentQuery.trim().toLowerCase();
+  const filtered = q
+    ? VIDEOS.filter(v => v.title.toLowerCase().includes(q) || v.id.includes(q))
+    : VIDEOS;
+  const grid = document.getElementById('grid');
+  const badge = document.getElementById('count-badge');
+  badge.textContent = filtered.length + ' / ' + VIDEOS.length;
+  if (filtered.length === 0) {
+    grid.innerHTML = `<div class="empty"><div class="empty-icon">🔍</div><p>${t('empty')}</p></div>`;
+    return;
+  }
+  grid.innerHTML = filtered.map(buildCard).join('');
+}
+
+// Init
+document.querySelectorAll('.lang-btn').forEach(b => {
+  b.addEventListener('click', () => applyLang(b.dataset.lang));
+});
+document.getElementById('searchbox').addEventListener('input', e => {
+  currentQuery = e.target.value;
+  render();
+});
+
+applyLang(currentLang);
+loadVideos();
+</script>
+</body>
+</html>
