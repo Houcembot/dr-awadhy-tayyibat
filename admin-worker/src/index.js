@@ -1,5 +1,6 @@
 import { handleLogin } from './routes/login.js';
 import { handleLogout } from './routes/logout.js';
+import { listVideos } from './routes/videos.js';
 
 const CORS_HEADERS = {
   'Access-Control-Allow-Credentials': 'true',
@@ -31,6 +32,8 @@ export default {
         response = await handleLogin(request, env);
       } else if (request.method === 'POST' && url.pathname === '/api/logout') {
         response = await handleLogout();
+      } else if (request.method === 'GET' && url.pathname === '/api/videos') {
+        response = await listVideos(request, env);
       } else {
         response = new Response('Not found', { status: 404 });
       }
