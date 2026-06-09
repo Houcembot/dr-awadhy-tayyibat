@@ -212,18 +212,32 @@
     background: var(--paper);
     border: 1px solid var(--line);
     display: grid;
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: auto auto 1fr auto;
     min-height: 250px;
+    overflow: hidden;
   }
   .video-card.is-priority { border-color: rgba(45,106,79,0.42); }
+  .video-thumb {
+    aspect-ratio: 16 / 9;
+    background: var(--dark);
+    overflow: hidden;
+    position: relative;
+  }
+  .video-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .video-thumb img.failed { display: none; }
   .video-head {
-    min-height: 82px;
+    min-height: 50px;
     background: var(--dark);
     color: var(--cream);
-    padding: 16px;
+    padding: 12px 16px;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     gap: 12px;
   }
   .platform {
@@ -322,6 +336,7 @@
       <nav class="navlinks" aria-label="Navigation">
         <a href="index.html" data-i18n="nav_home">Accueil</a>
         <a href="videos.html" data-i18n="nav_videos">Vidéos</a>
+        <a href="temoignages.html" data-i18n="nav_temoig">Témoignages</a>
         <a href="index.html#references" data-i18n="nav_sources">Sources</a>
         <a href="chat.html" data-i18n="nav_chat">Chat</a>
         <div class="lang-switcher">
@@ -502,7 +517,12 @@ function renderVideos() {
   byId("status").textContent = t.displayed(videos.length);
   byId("empty").style.display = videos.length ? "none" : "block";
   byId("grid").innerHTML = videos.map(function(video) {
+    const isYT = /youtube/i.test(video.platform || "") && video.source_id;
+    const thumbHtml = isYT
+      ? '<div class="video-thumb"><img src="https://img.youtube.com/vi/' + escapeHtml(video.source_id) + '/mqdefault.jpg" alt="" loading="lazy" onerror="this.classList.add(\'failed\')"></div>'
+      : '';
     return '<article class="video-card ' + (isPriority(video) ? "is-priority" : "") + '">' +
+      thumbHtml +
       '<div class="video-head">' +
         '<span class="platform">' + escapeHtml(video.platform) + '</span>' +
         '<span class="duration">' + escapeHtml(video.duration_label || "-") + '</span>' +
