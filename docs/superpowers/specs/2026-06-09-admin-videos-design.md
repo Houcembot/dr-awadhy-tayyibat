@@ -130,7 +130,7 @@ CREATE INDEX idx_log_video ON validation_log(video_id, created_at);
 ## 5. Sécurité
 
 ### 5.1 Hashing password
-**PBKDF2-SHA256, 600 000 itérations**, salt 16 bytes random par user.
+**PBKDF2-SHA256, 100 000 itérations** (Cloudflare Workers refuse > 100k avec `NotSupportedError`, vérifié en prod 2026-06-09), salt 16 bytes random par user.
 Web Crypto API natif Workers (pas de WASM, pas de dépendance externe).
 
 ### 5.2 Session
