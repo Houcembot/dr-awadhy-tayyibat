@@ -570,13 +570,15 @@ function setLang(lang) {
 }
 
 async function init() {
-  const [videosRes, inventoryRes, topicsRes] = await Promise.all([
+  const [videosRes, inventoryRes, topicsRes, whitelistRes] = await Promise.all([
     fetch("data/videos.json"),
     fetch("data/youtube-inventory.json"),
-    fetch("data/topics.json")
+    fetch("data/topics.json"),
+    fetch("data/videos-whitelist.json")
   ]);
   const videos = await videosRes.json();
   const inventory = await inventoryRes.json();
+  const whitelist = new Set(await whitelistRes.json());
   const bySource = new Map();
   videos.forEach(function(video) { bySource.set(video.source_id || video.id, video); });
   inventory.forEach(function(video) {
@@ -586,7 +588,9 @@ async function init() {
     }
     bySource.set(key, video);
   });
-  state.videos = Array.from(bySource.values());
+  state.videos = Array.from(bySource.values()).filter(function(v) {
+    return whitelist.has(v.source_id);
+  });
   state.topics = await topicsRes.json();
   byId("stat-videos").textContent = state.videos.length;
   byId("stat-topics").textContent = state.topics.length;
