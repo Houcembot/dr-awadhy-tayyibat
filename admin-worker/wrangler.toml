@@ -6,7 +6,7 @@ compatibility_flags = ["nodejs_compat"]
 [[d1_databases]]
 binding = "ADMIN_DB"
 database_name = "tayyibat-admin-db"
-database_id = "REPLACE_AFTER_D1_CREATE"
+database_id = "8231a7d9-45b9-45f5-a954-3c1cd3a8d424"
 
 [[kv_namespaces]]
 binding = "RATE_LIMIT_KV"
