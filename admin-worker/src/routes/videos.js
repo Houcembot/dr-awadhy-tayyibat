@@ -114,3 +114,32 @@ export async function patchVideo(request, env, id) {
   const row = await env.ADMIN_DB.prepare('SELECT * FROM videos WHERE id = ?').bind(id).first();
   return new Response(JSON.stringify(row), { headers: { 'Content-Type': 'application/json' } });
 }
+
+export async function deleteVideo(request, env, id) {
+  const auth = await requireAuth(request, env.JWT_SECRET, ['admin']);
+  if (auth.error) return auth.error;
+
+  const v = await env.ADMIN_DB.prepare('SELECT id FROM videos WHERE id = ?').bind(id).first();
+  if (!v) return new Response('Not found', { status: 404 });
+
+  console.log(`video_deleted id=${id} by=${auth.user.uid}`);
+  await env.ADMIN_DB.prepare('DELETE FROM videos WHERE id = ?').bind(id).run();
+  return new Response(null, { status: 204 });
+}
+
+export async function getVideo(request, env, id) {
+  const auth = await requireAuth(request, env.JWT_SECRET, ['admin', 'verificateur']);
+  if (auth.error) return auth.error;
+
+  const video = await env.ADMIN_DB.prepare('SELECT * FROM videos WHERE id = ?').bind(id).first();
+  if (!video) return new Response('Not found', { status: 404 });
+  const history = await env.ADMIN_DB.prepare(
+    `SELECT l.id, l.action, l.previous_status, l.new_status, l.note, l.created_at, u.email AS user_email, u.display_name AS user_name
+     FROM validation_log l LEFT JOIN users u ON u.id = l.user_id
+     WHERE l.video_id = ? ORDER BY l.id DESC`
+  ).bind(id).all();
+
+  return new Response(JSON.stringify({ video, history: history.results }), {
+    headers: { 'Content-Type': 'application/json' }
+  });
+}

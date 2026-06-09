@@ -144,3 +144,35 @@ describe('PATCH /api/videos/:id', () => {
     expect(res.status).toBe(404);
   });
 });
+
+describe('DELETE /api/videos/:id', () => {
+  it('admin can delete', async () => {
+    const v = await env.ADMIN_DB.prepare('SELECT id FROM videos LIMIT 1').first();
+    const res = await call('DELETE', `/api/videos/${v.id}`);
+    expect(res.status).toBe(204);
+    const exists = await env.ADMIN_DB.prepare('SELECT id FROM videos WHERE id = ?').bind(v.id).first();
+    expect(exists).toBeNull();
+  });
+
+  it('vérificateur cannot delete', async () => {
+    await env.ADMIN_DB.prepare('INSERT INTO users (id, email, display_name, password_hash, password_salt, role) VALUES (2, ?, ?, ?, ?, ?)')
+      .bind('v@x', 'V', 'h', 's', 'verificateur').run();
+    const v = await env.ADMIN_DB.prepare('SELECT id FROM videos LIMIT 1').first();
+    const res = await call('DELETE', `/api/videos/${v.id}`, { role: 'verificateur', uid: 2 });
+    expect(res.status).toBe(403);
+  });
+});
+
+describe('GET /api/videos/:id', () => {
+  it('returns video + log history', async () => {
+    const v = await env.ADMIN_DB.prepare('SELECT id FROM videos LIMIT 1').first();
+    await env.ADMIN_DB.prepare(
+      `INSERT INTO validation_log (video_id, user_id, action) VALUES (?, 1, 'added')`
+    ).bind(v.id).run();
+    const res = await call('GET', `/api/videos/${v.id}`);
+    expect(res.status).toBe(200);
+    const j = await res.json();
+    expect(j.video.id).toBe(v.id);
+    expect(j.history.length).toBeGreaterThanOrEqual(1);
+  });
+});
