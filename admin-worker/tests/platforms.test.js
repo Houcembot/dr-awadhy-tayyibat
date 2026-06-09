@@ -3,6 +3,7 @@ import * as youtube from '../src/platforms/youtube.js';
 import * as tiktok from '../src/platforms/tiktok.js';
 import * as instagram from '../src/platforms/instagram.js';
 import * as facebook from '../src/platforms/facebook.js';
+import { detectPlatform, parseUrl } from '../src/platforms/index.js';
 
 describe('youtube.parse', () => {
   it('parses youtube.com/watch?v=ID', () => {
@@ -112,5 +113,33 @@ describe('facebook.fetchMetadata (MVP)', () => {
     const meta = await facebook.fetchMetadata('123', 'https://www.facebook.com/watch/?v=123');
     expect(meta.title).toBe('Facebook Video');
     expect(meta.embed_url).toContain('facebook.com/plugins/video.php');
+  });
+});
+
+describe('platform dispatcher', () => {
+  it('detects youtube', () => {
+    expect(detectPlatform('https://youtu.be/abc')).toBe('youtube');
+  });
+  it('detects tiktok', () => {
+    expect(detectPlatform('https://www.tiktok.com/@u/video/123')).toBe('tiktok');
+  });
+  it('detects instagram', () => {
+    expect(detectPlatform('https://www.instagram.com/reel/Cabc/')).toBe('instagram');
+  });
+  it('detects facebook', () => {
+    expect(detectPlatform('https://fb.watch/abc/')).toBe('facebook');
+  });
+  it('returns null for unsupported', () => {
+    expect(detectPlatform('https://vimeo.com/x')).toBe(null);
+  });
+
+  it('parseUrl returns parsed + platform', () => {
+    const r = parseUrl('https://youtu.be/cZ3GxPO4cXo');
+    expect(r.platform).toBe('youtube');
+    expect(r.parsed.external_id).toBe('cZ3GxPO4cXo');
+  });
+
+  it('parseUrl returns null for unsupported', () => {
+    expect(parseUrl('https://vimeo.com/x')).toBe(null);
   });
 });
