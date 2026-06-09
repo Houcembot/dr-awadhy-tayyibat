@@ -1,6 +1,7 @@
 import { handleLogin } from './routes/login.js';
 import { handleLogout } from './routes/logout.js';
 import { listVideos, addVideo, patchVideo, deleteVideo, getVideo } from './routes/videos.js';
+import { listUsers, createUser, patchUser, deleteUser } from './routes/users.js';
 
 const CORS_HEADERS = {
   'Access-Control-Allow-Credentials': 'true',
@@ -41,6 +42,15 @@ export default {
         if (request.method === 'GET') response = await getVideo(request, env, vid);
         else if (request.method === 'PATCH') response = await patchVideo(request, env, vid);
         else if (request.method === 'DELETE') response = await deleteVideo(request, env, vid);
+        else response = new Response('Method not allowed', { status: 405 });
+      } else if (request.method === 'GET' && url.pathname === '/api/users') {
+        response = await listUsers(request, env);
+      } else if (request.method === 'POST' && url.pathname === '/api/users') {
+        response = await createUser(request, env);
+      } else if (url.pathname.match(/^\/api\/users\/(\d+)$/)) {
+        const uid = parseInt(url.pathname.split('/')[3], 10);
+        if (request.method === 'PATCH') response = await patchUser(request, env, uid);
+        else if (request.method === 'DELETE') response = await deleteUser(request, env, uid);
         else response = new Response('Method not allowed', { status: 405 });
       } else {
         response = new Response('Not found', { status: 404 });
