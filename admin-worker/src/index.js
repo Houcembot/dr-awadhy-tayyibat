@@ -3,6 +3,7 @@ import { handleLogout } from './routes/logout.js';
 import { listVideos, addVideo, patchVideo, deleteVideo, getVideo } from './routes/videos.js';
 import { listUsers, createUser, patchUser, deleteUser } from './routes/users.js';
 import { listPublicVideos } from './routes/public.js';
+import { listWhitelist, addWhitelist, deleteWhitelist, listPublicWhitelist } from './routes/whitelist.js';
 
 const CORS_HEADERS = {
   'Access-Control-Allow-Credentials': 'true',
@@ -32,6 +33,15 @@ export default {
     try {
       if (request.method === 'GET' && url.pathname === '/api/public/videos') {
         response = await listPublicVideos(request, env);
+      } else if (request.method === 'GET' && url.pathname === '/api/public/videos-whitelist') {
+        response = await listPublicWhitelist(request, env);
+      } else if (request.method === 'GET' && url.pathname === '/api/whitelist') {
+        response = await listWhitelist(request, env);
+      } else if (request.method === 'POST' && url.pathname === '/api/whitelist') {
+        response = await addWhitelist(request, env);
+      } else if (url.pathname.match(/^\/api\/whitelist\/([^/]+)$/) && request.method === 'DELETE') {
+        const id = decodeURIComponent(url.pathname.split('/')[3]);
+        response = await deleteWhitelist(request, env, id);
       } else if (request.method === 'POST' && url.pathname === '/api/login') {
         response = await handleLogin(request, env);
       } else if (request.method === 'POST' && url.pathname === '/api/logout') {

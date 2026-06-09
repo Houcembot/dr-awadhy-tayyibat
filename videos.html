@@ -574,7 +574,7 @@ async function init() {
     fetch("data/videos.json"),
     fetch("data/youtube-inventory.json"),
     fetch("data/topics.json"),
-    fetch("data/videos-whitelist.json")
+    fetch("https://tayyibat-admin.houcemben.workers.dev/api/public/videos-whitelist")
   ]);
   const videos = await videosRes.json();
   const inventory = await inventoryRes.json();

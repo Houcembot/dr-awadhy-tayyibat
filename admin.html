@@ -55,7 +55,8 @@
 <header>
   <h1>Tayyibat Admin</h1>
   <nav id="nav" class="hidden">
-    <button data-view="videos" class="active">Vidéos</button>
+    <button data-view="videos" class="active">Vidéos témoignages</button>
+    <button data-view="whitelist">Whitelist /videos</button>
     <button data-view="users" id="nav-users">Utilisateurs</button>
     <span id="user-info" style="font-size: 13px; color: var(--cream);"></span>
     <button id="logout-btn">Déconnexion</button>
@@ -76,6 +77,7 @@
   </div>
 
   <div id="videos-view" class="hidden"></div>
+  <div id="whitelist-view" class="hidden"></div>
   <div id="users-view" class="hidden"></div>
 </main>
 
@@ -116,13 +118,14 @@
     showView('videos');
   }
   function showView(name) {
-    for (const v of ['videos', 'users']) {
+    for (const v of ['videos', 'whitelist', 'users']) {
       document.getElementById(`${v}-view`).classList.toggle('hidden', v !== name);
     }
     for (const b of document.querySelectorAll('#nav button[data-view]')) {
       b.classList.toggle('active', b.dataset.view === name);
     }
     if (name === 'videos') loadVideos();
+    else if (name === 'whitelist') loadWhitelist();
     else if (name === 'users') loadUsers();
   }
 
@@ -342,6 +345,139 @@
         videosState.page = 1;
         videosState.filters.status = 'pas_valide';
         loadVideos();
+      } catch (e) { err.textContent = e.message; }
+    });
+  }
+
+  // --- Whitelist view ---
+  let whitelistState = { items: [], filter: '' };
+
+  async function loadWhitelist() {
+    const j = await api('GET', '/api/whitelist');
+    whitelistState.items = j.items;
+    renderWhitelist();
+  }
+
+  function renderWhitelist() {
+    const v = document.getElementById('whitelist-view');
+    const isAdmin = currentUser?.role === 'admin';
+    const filter = whitelistState.filter.toLowerCase();
+    const filtered = filter
+      ? whitelistState.items.filter(x => (x.external_id || '').toLowerCase().includes(filter) || (x.title || '').toLowerCase().includes(filter))
+      : whitelistState.items;
+
+    v.innerHTML = `
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; flex-wrap:wrap; gap:12px;">
+        <h2 style="font-family:Cairo,serif; margin:0;">Whitelist /videos (${whitelistState.items.length})</h2>
+        ${isAdmin ? `<button class="primary" id="add-wl-btn">+ Ajouter une vidéo</button>` : ''}
+      </div>
+      <p style="color:var(--text-muted); font-size:14px;">Liste des IDs YouTube affichés sur la page publique <a href="/videos" target="_blank">/videos</a>. Une vidéo retirée ici disparaît côté public sous 60s (cache CDN).</p>
+      <input type="text" id="wl-search" placeholder="Filtrer par ID ou titre..." value="${filter}" style="margin-bottom:16px;">
+      <div style="overflow-x:auto;"><table>
+        <thead><tr><th>ID YouTube</th><th>Titre</th><th>Aperçu</th><th>Ajouté par</th><th>Date</th>${isAdmin ? '<th>Actions</th>' : ''}</tr></thead>
+        <tbody id="wl-tbody"></tbody>
+      </table></div>
+      <p style="color:var(--text-muted); font-size:13px; margin-top:12px;">${filtered.length} résultat(s) affichés.</p>
+    `;
+
+    document.getElementById('wl-search').addEventListener('input', (e) => {
+      whitelistState.filter = e.target.value;
+      renderWhitelistRows(isAdmin);
+    });
+    renderWhitelistRows(isAdmin);
+    if (isAdmin) document.getElementById('add-wl-btn').addEventListener('click', openAddWhitelistModal);
+  }
+
+  function renderWhitelistRows(isAdmin) {
+    const filter = whitelistState.filter.toLowerCase();
+    const filtered = filter
+      ? whitelistState.items.filter(x => (x.external_id || '').toLowerCase().includes(filter) || (x.title || '').toLowerCase().includes(filter))
+      : whitelistState.items;
+    const tbody = document.getElementById('wl-tbody');
+    tbody.innerHTML = '';
+    for (const item of filtered.slice(0, 200)) {
+      const tr = document.createElement('tr');
+      const idCell = document.createElement('td');
+      const idCode = document.createElement('code');
+      idCode.style.fontSize = '12px';
+      idCode.textContent = item.external_id;
+      idCell.appendChild(idCode);
+      const titleCell = document.createElement('td');
+      titleCell.textContent = item.title || '—';
+      titleCell.style.maxWidth = '260px';
+      titleCell.style.overflow = 'hidden';
+      titleCell.style.textOverflow = 'ellipsis';
+      titleCell.style.whiteSpace = 'nowrap';
+      const thumbCell = document.createElement('td');
+      const thumb = document.createElement('img');
+      thumb.src = `https://img.youtube.com/vi/${item.external_id}/default.jpg`;
+      thumb.style.cssText = 'width:80px; height:45px; object-fit:cover; display:block;';
+      thumb.loading = 'lazy';
+      const link = document.createElement('a');
+      link.href = `https://www.youtube.com/watch?v=${item.external_id}`;
+      link.target = '_blank';
+      link.rel = 'noopener';
+      link.appendChild(thumb);
+      thumbCell.appendChild(link);
+      const userCell = document.createElement('td');
+      userCell.textContent = item.added_by_email || '—';
+      userCell.style.fontSize = '12px';
+      const dateCell = document.createElement('td');
+      dateCell.textContent = (item.added_at || '').split(' ')[0] || '—';
+      dateCell.style.fontSize = '12px';
+      tr.appendChild(idCell);
+      tr.appendChild(titleCell);
+      tr.appendChild(thumbCell);
+      tr.appendChild(userCell);
+      tr.appendChild(dateCell);
+      if (isAdmin) {
+        const actionsCell = document.createElement('td');
+        const del = document.createElement('button');
+        del.className = 'danger';
+        del.textContent = 'Retirer';
+        del.addEventListener('click', async () => {
+          if (!confirm(`Retirer ${item.external_id} de la whitelist ?`)) return;
+          try {
+            await api('DELETE', `/api/whitelist/${encodeURIComponent(item.external_id)}`);
+            loadWhitelist();
+          } catch (e) { alert(e.message); }
+        });
+        actionsCell.appendChild(del);
+        tr.appendChild(actionsCell);
+      }
+      tbody.appendChild(tr);
+    }
+  }
+
+  function openAddWhitelistModal() {
+    const bg = document.createElement('div');
+    bg.className = 'modal-bg';
+    bg.innerHTML = `
+      <div class="modal" style="max-width:480px;">
+        <h2>Ajouter à la whitelist /videos</h2>
+        <p style="font-size:13px; color:var(--text-muted);">Colle une URL YouTube ou un ID. La vidéo apparaîtra sur /videos sous 60s.</p>
+        <label for="wl-input">URL ou ID YouTube</label>
+        <input type="text" id="wl-input" placeholder="https://www.youtube.com/watch?v=... ou Jgc1oVhmczI">
+        <label for="wl-title">Titre (optionnel)</label>
+        <input type="text" id="wl-title" placeholder="Pour t'y retrouver dans la liste">
+        <button class="primary" id="wl-submit" style="margin-top:12px; width:100%;">Ajouter</button>
+        <div class="error" id="wl-err"></div>
+        <button class="subtle" id="wl-cancel" style="width:100%; margin-top:8px;">Annuler</button>
+      </div>
+    `;
+    document.body.appendChild(bg);
+    const input = bg.querySelector('#wl-input');
+    input.focus();
+    bg.querySelector('#wl-cancel').addEventListener('click', () => bg.remove());
+    bg.addEventListener('click', (e) => { if (e.target === bg) bg.remove(); });
+    bg.querySelector('#wl-submit').addEventListener('click', async () => {
+      const err = bg.querySelector('#wl-err'); err.textContent = '';
+      try {
+        await api('POST', '/api/whitelist', {
+          url: input.value.trim(),
+          title: bg.querySelector('#wl-title').value.trim() || undefined
+        });
+        bg.remove(); loadWhitelist();
       } catch (e) { err.textContent = e.message; }
     });
   }
