@@ -286,6 +286,19 @@
     font-weight: 300;
   }
   .aliments-list li:last-child { border-bottom: none; }
+  .aliments-list li.cat-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    padding: 18px 20px 8px;
+    border-bottom: none;
+    display: block;
+  }
+  [lang="ar"] .aliments-list li.cat-label { font-family: 'Cairo', sans-serif; letter-spacing: 0.05em; }
+  .aliments-list li.cat-label:first-child { padding-top: 12px; }
   .dot-green { width: 6px; height: 6px; border-radius: 50%; background: var(--green-light); flex-shrink: 0; }
   .dot-red { width: 6px; height: 6px; border-radius: 50%; background: #E07088; flex-shrink: 0; }
 
@@ -345,7 +358,17 @@
     padding: 20px 18px; text-align: center;
     min-width: 130px; max-width: 160px;
   }
-  .schema-step .emoji { font-size: 1.5rem; margin-bottom: 8px; }
+  .schema-step .schema-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--gold);
+    opacity: 0.85;
+    line-height: 1;
+    margin-bottom: 10px;
+    letter-spacing: 0.02em;
+  }
+  [lang="ar"] .schema-step .schema-num { font-family: 'Cairo', sans-serif; font-weight: 700; }
   .schema-step p { font-size: 0.8rem; color: rgba(245,240,232,0.75); line-height: 1.4; margin: 0; }
   .schema-arrow { color: var(--gold); font-size: 1.4rem; padding: 0 4px; flex-shrink: 0; }
 
@@ -559,15 +582,15 @@
   <div class="schema">
     <h3 data-i18n="schema_title">La logique centrale du système Tayyibat</h3>
     <div class="schema-flow">
-      <div class="schema-step"><div class="emoji">🚫</div><p data-i18n="schema_step1">Éliminer les aliments inflammatoires</p></div>
+      <div class="schema-step"><div class="schema-num">01</div><p data-i18n="schema_step1">Éliminer les aliments inflammatoires</p></div>
       <div class="schema-arrow">→</div>
-      <div class="schema-step"><div class="emoji">😮‍💨</div><p data-i18n="schema_step2">Le système digestif se repose</p></div>
+      <div class="schema-step"><div class="schema-num">02</div><p data-i18n="schema_step2">Le système digestif se repose</p></div>
       <div class="schema-arrow">→</div>
-      <div class="schema-step"><div class="emoji">🔥</div><p data-i18n="schema_step3">L'inflammation chronique diminue</p></div>
+      <div class="schema-step"><div class="schema-num">03</div><p data-i18n="schema_step3">L'inflammation chronique diminue</p></div>
       <div class="schema-arrow">→</div>
-      <div class="schema-step"><div class="emoji">⚙️</div><p data-i18n="schema_step4">Les organes récupèrent leur fonction</p></div>
+      <div class="schema-step"><div class="schema-num">04</div><p data-i18n="schema_step4">Les organes récupèrent leur fonction</p></div>
       <div class="schema-arrow">→</div>
-      <div class="schema-step"><div class="emoji">✅</div><p data-i18n="schema_step5">Le corps se régule naturellement</p></div>
+      <div class="schema-step"><div class="schema-num">05</div><p data-i18n="schema_step5">Le corps se régule naturellement</p></div>
     </div>
   </div>
 </section>
@@ -617,35 +640,76 @@
     <div class="aliments-col">
       <div class="aliments-header green" data-i18n-html="al_green_header">✓ &nbsp; Aliments autorisés (Tayyibat)</div>
       <ul class="aliments-list">
-        <li><span class="dot-green"></span><span data-i18n="al_g1">Viande rouge (bœuf, agneau) — 1x/semaine</span></li>
-        <li><span class="dot-green"></span><span data-i18n="al_g2">Poisson — 2-3x/semaine</span></li>
-        <li><span class="dot-green"></span><span data-i18n="al_g3">Riz blanc (bien cuit)</span></li>
-        <li><span class="dot-green"></span><span data-i18n="al_g4">Pommes de terre (cuites)</span></li>
-        <li><span class="dot-green"></span><span data-i18n="al_g5">Courgette, courge, champignons</span></li>
-        <li><span class="dot-green"></span><span data-i18n="al_g6">Beurre clarifié (samneh)</span></li>
-        <li><span class="dot-green"></span><span data-i18n="al_g7">Huile d'olive</span></li>
-        <li><span class="dot-green"></span><span data-i18n="al_g8">Miel naturel (modéré)</span></li>
-        <li><span class="dot-green"></span><span data-i18n="al_g9">Foie (modéré)</span></li>
-        <li><span class="dot-green"></span><span data-i18n="al_g10">Freekeh (blé vert)</span></li>
-        <li><span class="dot-green"></span><span data-i18n="al_g11">Sel marin naturel</span></li>
-        <li><span class="dot-green"></span><span data-i18n="al_g12">Eau en quantité suffisante</span></li>
+        <li class="cat-label" data-i18n="cat_g_grains">Féculents</li>
+        <li><span class="dot-green"></span><span data-i18n="al_g1">Pain complet à la cannelle (type Rich Bake en Égypte)</span></li>
+        <li><span class="dot-green"></span><span data-i18n="al_g2">Riz blanc bien cuit, sans oignon ni ail</span></li>
+        <li><span class="dot-green"></span><span data-i18n="al_g3">Freekeh (blé vert) et boulghour, espacés</span></li>
+        <li><span class="dot-green"></span><span data-i18n="al_g4">Maïs (popcorn, grillé, bouilli) — pas en continu</span></li>
+        <li><span class="dot-green"></span><span data-i18n="al_g5">Pommes de terre sous toutes formes (frites, sautées, bouillies, chips maison) sans oignon ni ail</span></li>
+
+        <li class="cat-label" data-i18n="cat_g_fats">Huiles et graisses</li>
+        <li><span class="dot-green"></span><span data-i18n="al_g6">Huile d'olive, beurre/samneh local, huile de maïs, huile de tournesol</span></li>
+
+        <li class="cat-label" data-i18n="cat_g_cheese">Fromages autorisés</li>
+        <li><span class="dot-green"></span><span data-i18n="al_g7">Cheddar, edam/gouda, mozzarella, kashkaval, parmesan, roquefort</span></li>
+        <li><span class="dot-green"></span><span data-i18n="al_g8">Triangles fondus, romi de qualité (en petite quantité)</span></li>
+
+        <li class="cat-label" data-i18n="cat_g_protein">Protéines animales (en rotation, pas tous les jours)</li>
+        <li><span class="dot-green"></span><span data-i18n="al_g9">Viande rouge — 1×/semaine (bœuf ou buffle, préférence mouza bien saisie)</span></li>
+        <li><span class="dot-green"></span><span data-i18n="al_g10">Agneau / chèvre / chameau — 2×/semaine</span></li>
+        <li><span class="dot-green"></span><span data-i18n="al_g11">Foie d'agneau, kandouz, kawerâa, langue, mombar, akawi — petites quantités</span></li>
+        <li><span class="dot-green"></span><span data-i18n="al_g12">Poissons de mer (toutes espèces, de préférence non grillés)</span></li>
+        <li><span class="dot-green"></span><span data-i18n="al_g13">Pigeon (grillé ou farci au riz/freekeh), lapin</span></li>
+
+        <li class="cat-label" data-i18n="cat_g_fruits">Fruits autorisés</li>
+        <li><span class="dot-green"></span><span data-i18n="al_g14">Tous fruits & jus sauf interdits — préférence : dattes, ruṭab, figues, raisin, banane (une variété à la fois, espacés)</span></li>
+        <li><span class="dot-green"></span><span data-i18n="al_g15">Grenade, figue de Barbarie (jus), jus de canne, goyave sans pépins, pomme et poire sans peau</span></li>
+
+        <li class="cat-label" data-i18n="cat_g_sweets">Sucreries (modération)</li>
+        <li><span class="dot-green"></span><span data-i18n="al_g16">Confiture (occasionnelle), fruits secs et noix (sauf noisette, amande, cacahuète)</span></li>
+        <li><span class="dot-green"></span><span data-i18n="al_g17">Halva sombre, tahini sombre, basbousa de boutique (sans lait/yaourt/œufs)</span></li>
+        <li><span class="dot-green"></span><span data-i18n="al_g18">Chocolat noir et éclair (le reste est interdit), graines de tournesol</span></li>
+        <li><span class="dot-green"></span><span data-i18n="al_g19">Miel naturel (modéré)</span></li>
+
+        <li class="cat-label" data-i18n="cat_g_drinks">Boissons & condiments</li>
+        <li><span class="dot-green"></span><span data-i18n="al_g20">Café turc de qualité, thé vert, infusions, maghat, boissons traditionnelles de Ramadan</span></li>
+        <li><span class="dot-green"></span><span data-i18n="al_g21">Pickles à base d'olive</span></li>
+        <li><span class="dot-green"></span><span data-i18n="al_g22">Eau en quantité suffisante</span></li>
       </ul>
     </div>
     <div class="aliments-col">
       <div class="aliments-header red" data-i18n-html="al_red_header">✗ &nbsp; Aliments interdits (Khabithaat)</div>
       <ul class="aliments-list">
-        <li><span class="dot-red"></span><span data-i18n="al_r1">Farine blanche et dérivés</span></li>
-        <li><span class="dot-red"></span><span data-i18n="al_r2">Poulet et volaille d'élevage industriel</span></li>
-        <li><span class="dot-red"></span><span data-i18n="al_r3">Œufs (albumine difficile à digérer)</span></li>
-        <li><span class="dot-red"></span><span data-i18n="al_r4">Lait et produits laitiers liquides</span></li>
-        <li><span class="dot-red"></span><span data-i18n="al_r5">Légumineuses (lentilles, haricots...)</span></li>
-        <li><span class="dot-red"></span><span data-i18n="al_r6">Légumes verts crus</span></li>
-        <li><span class="dot-red"></span><span data-i18n="al_r7">Huiles végétales hydrogénées</span></li>
-        <li><span class="dot-red"></span><span data-i18n="al_r8">Sucre blanc raffiné</span></li>
-        <li><span class="dot-red"></span><span data-i18n="al_r9">Aliments ultra-transformés</span></li>
-        <li><span class="dot-red"></span><span data-i18n="al_r10">Pain de mie industriel</span></li>
-        <li><span class="dot-red"></span><span data-i18n="al_r11">Boissons gazeuses</span></li>
-        <li><span class="dot-red"></span><span data-i18n="al_r12">Fast-food et conserves</span></li>
+        <li class="cat-label" data-i18n="cat_r_fish">Poissons interdits</li>
+        <li><span class="dot-red"></span><span data-i18n="al_r1">Poissons d'aquaculture, crevettes, calamars, tilapia, mulet, œufs de poisson</span></li>
+
+        <li class="cat-label" data-i18n="cat_r_dairy">Œufs et laitages</li>
+        <li><span class="dot-red"></span><span data-i18n="al_r2">Œufs sous toutes leurs formes</span></li>
+        <li><span class="dot-red"></span><span data-i18n="al_r3">Lait de vache et de bufflesse + tous leurs dérivés liquides (yaourt, laban rayeb, labneh, crème laitière, chantilly)</span></li>
+        <li><span class="dot-red"></span><span data-i18n="al_r4">Fromage qarish, fromages blancs (toutes variétés)</span></li>
+
+        <li class="cat-label" data-i18n="cat_r_flour">Farines & pâtisseries</li>
+        <li><span class="dot-red"></span><span data-i18n="al_r5">Toute farine et pâtisserie (pain blanc, gâteaux, croissants, pâtés, crêpes, biscuits, génoise, tarte)</span></li>
+        <li><span class="dot-red"></span><span data-i18n="al_r6">Pâtisseries orientales : kunafa, balaḥ ash-shâm, zalabiya</span></li>
+        <li><span class="dot-red"></span><span data-i18n="al_r7">Tout produit à base de farine blanche, dont pâtes et lasagnes</span></li>
+
+        <li class="cat-label" data-i18n="cat_r_drinks">Boissons interdites</li>
+        <li><span class="dot-red"></span><span data-i18n="al_r8">Sodas, boissons à base d'orge, boissons énergétiques, Nescafé, café falsifié</span></li>
+
+        <li class="cat-label" data-i18n="cat_r_legumes">Légumineuses</li>
+        <li><span class="dot-red"></span><span data-i18n="al_r9">Fèves, lentilles, haricots, niébé, pois chiches</span></li>
+
+        <li class="cat-label" data-i18n="cat_r_veg">Légumes interdits</li>
+        <li><span class="dot-red"></span><span data-i18n="al_r10"><strong>Tous les légumes sauf la pomme de terre.</strong> Notamment : concombre, laitue, persil, céleri, coriandre verte, carotte, poivron, tomate, épinards, petits pois, haricot blanc, niébé, fève</span></li>
+
+        <li class="cat-label" data-i18n="cat_r_poultry">Volailles & abats interdits</li>
+        <li><span class="dot-red"></span><span data-i18n="al_r11">Poulet, foie et gésiers de poulet, canard, dinde</span></li>
+
+        <li class="cat-label" data-i18n="cat_r_fruits">Fruits interdits</li>
+        <li><span class="dot-red"></span><span data-i18n="al_r12">Pastèque, melon, orange, mandarine, mangue, kiwi, kaki, papaye, avocat</span></li>
+
+        <li class="cat-label" data-i18n="cat_r_meds">Médicaments</li>
+        <li><span class="dot-red"></span><span data-i18n-html="al_r13">Le système signale particulièrement : antiacides, aspirine, anticholestérol, antidépresseurs. <strong>⚠️ Ne jamais arrêter un traitement prescrit sans consultation médicale</strong> (voir nuances ci-dessous).</span></li>
       </ul>
     </div>
   </div>
@@ -812,17 +876,50 @@ const i18n = {
     al_label: "La liste des aliments", al_h2: "Les \"Tayyibat\" et les \"Khabithaat\"",
     al_p: "Le système classe les aliments en deux catégories selon leur impact sur l'inflammation et la charge digestive. Ce n'est pas une classification nutritionnelle classique — c'est une classification basée sur la réponse inflammatoire du corps.",
     al_green_header: "✓ &nbsp; Aliments autorisés (Tayyibat)", al_red_header: "✗ &nbsp; Aliments interdits (Khabithaat)",
-    al_g1: "Viande rouge (bœuf, agneau) — 1x/semaine", al_g2: "Poisson — 2-3x/semaine",
-    al_g3: "Riz blanc (bien cuit)", al_g4: "Pommes de terre (cuites)",
-    al_g5: "Courgette, courge, champignons", al_g6: "Beurre clarifié (samneh)",
-    al_g7: "Huile d'olive", al_g8: "Miel naturel (modéré)", al_g9: "Foie (modéré)",
-    al_g10: "Freekeh (blé vert)", al_g11: "Sel marin naturel", al_g12: "Eau en quantité suffisante",
-    al_r1: "Farine blanche et dérivés", al_r2: "Poulet et volaille d'élevage industriel",
-    al_r3: "Œufs (albumine difficile à digérer)", al_r4: "Lait et produits laitiers liquides",
-    al_r5: "Légumineuses (lentilles, haricots...)", al_r6: "Légumes verts crus",
-    al_r7: "Huiles végétales hydrogénées", al_r8: "Sucre blanc raffiné",
-    al_r9: "Aliments ultra-transformés", al_r10: "Pain de mie industriel",
-    al_r11: "Boissons gazeuses", al_r12: "Fast-food et conserves",
+    cat_g_grains: "Féculents", cat_g_fats: "Huiles et graisses",
+    cat_g_cheese: "Fromages autorisés", cat_g_protein: "Protéines animales (en rotation, pas tous les jours)",
+    cat_g_fruits: "Fruits autorisés", cat_g_sweets: "Sucreries (modération)",
+    cat_g_drinks: "Boissons & condiments",
+    al_g1: "Pain complet à la cannelle (type Rich Bake en Égypte)",
+    al_g2: "Riz blanc bien cuit, sans oignon ni ail",
+    al_g3: "Freekeh (blé vert) et boulghour, espacés",
+    al_g4: "Maïs (popcorn, grillé, bouilli) — pas en continu",
+    al_g5: "Pommes de terre sous toutes formes (frites, sautées, bouillies, chips maison) sans oignon ni ail",
+    al_g6: "Huile d'olive, beurre/samneh local, huile de maïs, huile de tournesol",
+    al_g7: "Cheddar, edam/gouda, mozzarella, kashkaval, parmesan, roquefort",
+    al_g8: "Triangles fondus, romi de qualité (en petite quantité)",
+    al_g9: "Viande rouge — 1×/semaine (bœuf ou buffle, préférence mouza bien saisie)",
+    al_g10: "Agneau / chèvre / chameau — 2×/semaine",
+    al_g11: "Foie d'agneau, kandouz, kawerâa, langue, mombar, akawi — petites quantités",
+    al_g12: "Poissons de mer (toutes espèces, de préférence non grillés)",
+    al_g13: "Pigeon (grillé ou farci au riz/freekeh), lapin",
+    al_g14: "Tous fruits & jus sauf interdits — préférence : dattes, ruṭab, figues, raisin, banane (une variété à la fois, espacés)",
+    al_g15: "Grenade, figue de Barbarie (jus), jus de canne, goyave sans pépins, pomme et poire sans peau",
+    al_g16: "Confiture (occasionnelle), fruits secs et noix (sauf noisette, amande, cacahuète)",
+    al_g17: "Halva sombre, tahini sombre, basbousa de boutique (sans lait/yaourt/œufs)",
+    al_g18: "Chocolat noir et éclair (le reste est interdit), graines de tournesol",
+    al_g19: "Miel naturel (modéré)",
+    al_g20: "Café turc de qualité, thé vert, infusions, maghat, boissons traditionnelles de Ramadan",
+    al_g21: "Pickles à base d'olive",
+    al_g22: "Eau en quantité suffisante",
+    cat_r_fish: "Poissons interdits", cat_r_dairy: "Œufs et laitages",
+    cat_r_flour: "Farines & pâtisseries", cat_r_drinks: "Boissons interdites",
+    cat_r_legumes: "Légumineuses", cat_r_veg: "Légumes interdits",
+    cat_r_poultry: "Volailles & abats interdits", cat_r_fruits: "Fruits interdits",
+    cat_r_meds: "Médicaments",
+    al_r1: "Poissons d'aquaculture, crevettes, calamars, tilapia, mulet, œufs de poisson",
+    al_r2: "Œufs sous toutes leurs formes",
+    al_r3: "Lait de vache et de bufflesse + tous leurs dérivés liquides (yaourt, laban rayeb, labneh, crème laitière, chantilly)",
+    al_r4: "Fromage qarish, fromages blancs (toutes variétés)",
+    al_r5: "Toute farine et pâtisserie (pain blanc, gâteaux, croissants, pâtés, crêpes, biscuits, génoise, tarte)",
+    al_r6: "Pâtisseries orientales : kunafa, balaḥ ash-shâm, zalabiya",
+    al_r7: "Tout produit à base de farine blanche, dont pâtes et lasagnes",
+    al_r8: "Sodas, boissons à base d'orge, boissons énergétiques, Nescafé, café falsifié",
+    al_r9: "Fèves, lentilles, haricots, niébé, pois chiches",
+    al_r10: "<strong>Tous les légumes sauf la pomme de terre.</strong> Notamment : concombre, laitue, persil, céleri, coriandre verte, carotte, poivron, tomate, épinards, petits pois, haricot blanc, niébé, fève",
+    al_r11: "Poulet, foie et gésiers de poulet, canard, dinde",
+    al_r12: "Pastèque, melon, orange, mandarine, mangue, kiwi, kaki, papaye, avocat",
+    al_r13: "Le système signale particulièrement : antiacides, aspirine, anticholestérol, antidépresseurs. <strong>⚠️ Ne jamais arrêter un traitement prescrit sans consultation médicale</strong> (voir nuances ci-dessous).",
     al_nuances_h4: "⚠️ Points importants à comprendre",
     al_nuance1: "<strong>Médicaments :</strong> le Dr Al Awadhy interdit formellement d'arrêter ou de réduire des médicaments prescrits sans consultation et suivi d'un médecin. Toute réduction éventuelle se fait progressivement et sous supervision médicale, à mesure que le corps retrouve son équilibre.",
     al_nuance5: "<strong>Tabac et fumée :</strong> le Dr Al Awadhy interdit le tabac sous toutes ses formes — cigarettes, chicha, vapotage et autres — parce que la fumée est nocive pour la santé et empêche tout processus de guérison.",
@@ -909,17 +1006,50 @@ const i18n = {
     al_label: "The Food List", al_h2: "The \"Tayyibat\" and the \"Khabithaat\"",
     al_p: "The system classifies foods into two categories based on their impact on inflammation and digestive load. This is not a classic nutritional classification — it is a classification based on the body's inflammatory response.",
     al_green_header: "✓ &nbsp; Allowed foods (Tayyibat)", al_red_header: "✗ &nbsp; Forbidden foods (Khabithaat)",
-    al_g1: "Red meat (beef, lamb) — 1x/week", al_g2: "Fish — 2-3x/week",
-    al_g3: "White rice (well cooked)", al_g4: "Potatoes (cooked)",
-    al_g5: "Zucchini, squash, mushrooms", al_g6: "Clarified butter (samneh)",
-    al_g7: "Olive oil", al_g8: "Natural honey (moderate)", al_g9: "Liver (moderate)",
-    al_g10: "Freekeh (green wheat)", al_g11: "Natural sea salt", al_g12: "Sufficient water",
-    al_r1: "White flour and derivatives", al_r2: "Industrially farmed chicken and poultry",
-    al_r3: "Eggs (albumin is hard to digest)", al_r4: "Milk and liquid dairy products",
-    al_r5: "Legumes (lentils, beans...)", al_r6: "Raw green vegetables",
-    al_r7: "Hydrogenated vegetable oils", al_r8: "Refined white sugar",
-    al_r9: "Ultra-processed foods", al_r10: "Industrial sliced bread",
-    al_r11: "Carbonated drinks", al_r12: "Fast food and canned goods",
+    cat_g_grains: "Starches", cat_g_fats: "Oils and fats",
+    cat_g_cheese: "Allowed cheeses", cat_g_protein: "Animal proteins (rotated, not every day)",
+    cat_g_fruits: "Allowed fruits", cat_g_sweets: "Sweets (moderation)",
+    cat_g_drinks: "Drinks & condiments",
+    al_g1: "Whole-wheat cinnamon bread (Rich Bake type in Egypt)",
+    al_g2: "White rice, well cooked, without onion or garlic",
+    al_g3: "Freekeh (green wheat) and bulgur, spaced out",
+    al_g4: "Corn (popcorn, grilled, boiled) — not continuously",
+    al_g5: "Potatoes in all forms (fried, sautéed, boiled, homemade chips) without onion or garlic",
+    al_g6: "Olive oil, local butter/samneh, corn oil, sunflower oil",
+    al_g7: "Cheddar, edam/gouda, mozzarella, kashkaval, parmesan, roquefort",
+    al_g8: "Melted triangles, quality romi (small amount)",
+    al_g9: "Red meat — 1×/week (beef or buffalo, prefer mouza well seared)",
+    al_g10: "Lamb / goat / camel — 2×/week",
+    al_g11: "Lamb liver, kandouz, kawerâa, tongue, mombar, akawi — small amounts",
+    al_g12: "Sea fish (all species, preferably not grilled)",
+    al_g13: "Pigeon (grilled or stuffed with rice/freekeh), rabbit",
+    al_g14: "All fruits & juices except forbidden — preference: dates, ruṭab, figs, grapes, banana (one variety at a time, spaced out)",
+    al_g15: "Pomegranate, prickly pear (juice), sugarcane juice, seedless guava, peeled apple and pear",
+    al_g16: "Jam (occasional), dried fruits and nuts (except hazelnut, almond, peanut)",
+    al_g17: "Dark halva, dark tahini, shop basbousa (no milk/yogurt/eggs)",
+    al_g18: "Dark chocolate and éclair (rest is forbidden), sunflower seeds",
+    al_g19: "Natural honey (moderate)",
+    al_g20: "Quality Turkish coffee, green tea, herbal infusions, maghat, traditional Ramadan drinks",
+    al_g21: "Olive-based pickles",
+    al_g22: "Sufficient water",
+    cat_r_fish: "Forbidden fish", cat_r_dairy: "Eggs and dairy",
+    cat_r_flour: "Flours & pastries", cat_r_drinks: "Forbidden drinks",
+    cat_r_legumes: "Legumes", cat_r_veg: "Forbidden vegetables",
+    cat_r_poultry: "Forbidden poultry & offal", cat_r_fruits: "Forbidden fruits",
+    cat_r_meds: "Medications",
+    al_r1: "Farmed fish, shrimp, squid, tilapia, mullet, fish roe",
+    al_r2: "Eggs in all forms",
+    al_r3: "Cow and buffalo milk + all liquid derivatives (yogurt, laban rayeb, labneh, dairy cream, chantilly)",
+    al_r4: "Qarish cheese, white cheeses (all varieties)",
+    al_r5: "All flour and pastries (white bread, cakes, croissants, pâté, crepes, biscuits, sponge cake, tart)",
+    al_r6: "Oriental pastries: kunafa, balaḥ ash-shâm, zalabiya",
+    al_r7: "Any product based on white flour, including pasta and lasagna",
+    al_r8: "Sodas, barley drinks, energy drinks, Nescafé, falsified coffee",
+    al_r9: "Fava beans, lentils, beans, cowpea, chickpeas",
+    al_r10: "<strong>All vegetables except potatoes.</strong> Specifically: cucumber, lettuce, parsley, celery, green coriander, carrot, pepper, tomato, spinach, peas, white beans, cowpea, fava",
+    al_r11: "Chicken, chicken liver and gizzards, duck, turkey",
+    al_r12: "Watermelon, cantaloupe, orange, mandarin, mango, kiwi, persimmon, papaya, avocado",
+    al_r13: "The system specifically warns about: antacids, aspirin, anti-cholesterol, antidepressants. <strong>⚠️ Never stop a prescribed treatment without medical consultation</strong> (see notes below).",
     al_nuances_h4: "⚠️ Important points to understand",
     al_nuance1: "<strong>Medications:</strong> Dr Al Awadhy strictly forbids stopping or reducing prescribed medications without consultation and follow-up by a physician. Any reduction is gradual and supervised medically as the body regains its balance.",
     al_nuance5: "<strong>Tobacco and smoke:</strong> Dr Al Awadhy forbids tobacco in all forms — cigarettes, shisha, vaping and others — because smoke is harmful to health and prevents any healing process.",
@@ -1006,17 +1136,50 @@ const i18n = {
     al_label: "قائمة الأطعمة", al_h2: "الطيبات والخبيثات",
     al_p: "يُصنّف النظام الأطعمة في فئتين وفق أثرها على الالتهاب والحمل الهضمي. هذا ليس تصنيفاً غذائياً كلاسيكياً — بل تصنيف قائم على الاستجابة الالتهابية للجسم.",
     al_green_header: "✓ &nbsp; الأطعمة المسموحة (الطيبات)", al_red_header: "✗ &nbsp; الأطعمة الممنوعة (الخبيثات)",
-    al_g1: "اللحم الأحمر (البقر، الضأن) — مرة/أسبوع", al_g2: "السمك — 2-3 مرات/أسبوع",
-    al_g3: "الأرز الأبيض (مطبوخ جيداً)", al_g4: "البطاطس (مطبوخة)",
-    al_g5: "الكوسا، القرع، الفطر", al_g6: "السمن البلدي المصفى",
-    al_g7: "زيت الزيتون", al_g8: "العسل الطبيعي (باعتدال)", al_g9: "الكبدة (باعتدال)",
-    al_g10: "الفريكة (القمح الأخضر)", al_g11: "ملح البحر الطبيعي", al_g12: "الماء بكميات كافية",
-    al_r1: "الدقيق الأبيض ومشتقاته", al_r2: "الدجاج والدواجن من التربية الصناعية",
-    al_r3: "البيض (الزلال صعب الهضم)", al_r4: "الحليب ومنتجاته السائلة",
-    al_r5: "البقوليات (عدس، فاصوليا...)", al_r6: "الخضروات الورقية الخضراء النيئة",
-    al_r7: "الزيوت النباتية المهدرجة", al_r8: "السكر الأبيض المكرر",
-    al_r9: "الأطعمة فائقة المعالجة", al_r10: "الخبز الصناعي",
-    al_r11: "المشروبات الغازية", al_r12: "الوجبات السريعة والمعلبات",
+    cat_g_grains: "النشويات", cat_g_fats: "الزيوت والدهون",
+    cat_g_cheese: "الأجبان المسموحة", cat_g_protein: "البروتينات الحيوانية (يوم ويوم، وليس يومياً)",
+    cat_g_fruits: "الفواكه المسموحة", cat_g_sweets: "الحلويات (باعتدال)",
+    cat_g_drinks: "المشروبات والمخللات",
+    al_g1: "توست القمح الكامل بالردة (مثل نوع ريتش بيك في مصر)",
+    al_g2: "أرز أبيض مطبوخ جيداً، بدون بصل أو ثوم",
+    al_g3: "الفريكة (القمح الأخضر) والبرغل، على فترات متباعدة",
+    al_g4: "الذرة (بوب كورن، مشوية، مسلوقة) — ليس باستمرار",
+    al_g5: "البطاطس بكل أشكالها (مقلية، محمرة، مسلوقة، شيبسي منزلي) بدون بصل أو ثوم",
+    al_g6: "زيت الزيتون، الزبدة/السمنة البلدي، زيت الذرة، زيت دوار الشمس",
+    al_g7: "جبنة شيدر، إيدام/جودا، موتزاريلا، كشكفال، براميزان، ريكفورد",
+    al_g8: "الجبنة المثلثات المطبوخة، الجبنة الرومي القليل (نوع جيد)",
+    al_g9: "اللحم الأحمر — مرة/أسبوع (بقري أو جاموسي، يفضل المُوزة تشوح جيداً وتتحمر)",
+    al_g10: "الضأن (الخرفان والماعز) أو الجملي — مرتين/أسبوع",
+    al_g11: "كبدة الضأن، الكندوز، الكوارع، اللسان، الممبار، العكاوي — بكميات قليلة",
+    al_g12: "الأسماك البحرية بجميع أنواعها (يفضل غير المشوية)",
+    al_g13: "الحمام (مشوي أو محشي أرز/فريك)، الأرانب",
+    al_g14: "كل أنواع الفواكه وعصائرها ما عدا الممنوعات — يفضل التمر القليل، الرطب، التين، العنب والموز (صنف واحد فقط على فترات متباعدة)",
+    al_g15: "الرمان، التين الشوكي (يعصر ويصفى)، عصير القصب، الجوافة بدون بذر، التفاح والكمثري بدون قشر",
+    al_g16: "المربى (ليس باستمرار)، الفواكه المجففة والمكسرات (ما عدا البندق واللوز والسوداني)",
+    al_g17: "الحلاوة الطحينية الغامقة، الطحينة الغامقة، البسبوسة من المحلات (بدون لبن/زبادي/بيض)",
+    al_g18: "الشوكولاتة الدارك والإكلير (وباقي الحلويات ممنوعة)، اللب السوري (دوار الشمس)",
+    al_g19: "العسل الطبيعي (باعتدال)",
+    al_g20: "القهوة التركي (نوع ثقة)، الشاي الأخضر، مشروبات الأعشاب والمغات، مشروبات رمضان الطبيعية",
+    al_g21: "المخللات بالزيتون",
+    al_g22: "الماء بكميات كافية",
+    cat_r_fish: "الأسماك الممنوعة", cat_r_dairy: "البيض والألبان",
+    cat_r_flour: "الدقيق والمخبوزات", cat_r_drinks: "المشروبات الممنوعة",
+    cat_r_legumes: "البقوليات", cat_r_veg: "الخضروات الممنوعة",
+    cat_r_poultry: "الطيور والدواجن الممنوعة", cat_r_fruits: "الفواكه الممنوعة",
+    cat_r_meds: "الأدوية",
+    al_r1: "أسماك المزارع، الجمبري، السبيط، البلطي، البوري، البطارخ",
+    al_r2: "البيض بجميع أنواعه",
+    al_r3: "اللبن البقري والجاموسي ومشتقاتهما السائلة (الزبادي، اللبن الرائب، اللبنة، الكريمة اللباني، الكريم شانتيه)",
+    al_r4: "الجبنة القريش، والجبنة البيضاء بجميع أنواعها",
+    al_r5: "الدقيق والمخبوزات بكل أنواعها (العيش الفينو، الكيك، الكرواسون، الباتيه، الكريب، البسكويت، الجاتو، التورتة)",
+    al_r6: "الحلويات الشرقية: الكنافة، بلح الشام، الزلابية",
+    al_r7: "أي شيء يحتوي على دقيق أبيض بما في ذلك المكرونة واللازانيا",
+    al_r8: "المياه الغازية، مشروبات الشعير، مشروبات الطاقة، النسكافيه، البن المغشوش",
+    al_r9: "الفول، العدس، الفاصوليا، اللوبيا، الحمص",
+    al_r10: "<strong>كل الخضروات ما عدا البطاطس.</strong> وتشمل: الخيار، الخس، الجرجير، البقدونس، الكرفس، الكزبرة الخضراء، الجزر، الفلفل، الطماطم، السبانخ، البسلة، الفاصوليا البيضاء، اللوبيا، الفول",
+    al_r11: "الفراخ، كبد وقوانص الفراخ، البط، الديك الرومي",
+    al_r12: "البطيخ، الكانتالوب، البرتقال، اليوسفي، المانجو، الكيوي، الكاكا، الباباز، الأفوكادو",
+    al_r13: "النظام يذكر تحديداً: أدوية الحموضة، الأسبرين، الكوليسترول، الاكتئاب. <strong>⚠️ لا يجوز إيقاف أي دواء موصوف دون استشارة طبيبك المختص</strong> (انظر النقاط المهمة أدناه).",
     al_nuances_h4: "⚠️ نقاط مهمة للفهم",
     al_nuance1: "<strong>الأدوية:</strong> الدكتور ضياء العوضي يُحذّر بشدة من إيقاف أو تقليل الأدوية الموصوفة دون استشارة طبيب مختص ومتابعته. أي تخفيض يجب أن يكون تدريجياً وتحت إشراف طبي مع تعافي الجسم.",
     al_nuance5: "<strong>التدخين والدخان:</strong> الدكتور ضياء العوضي يُحرّم التدخين بجميع أشكاله — السجائر، الشيشة، الفيب وغيرها — لأن الدخان ضار بالصحة ويعطّل أي عملية شفاء.",
