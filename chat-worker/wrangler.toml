@@ -8,5 +8,9 @@ binding = "RATE_LIMIT_KV"
 id = "49981be2901d404b8f052e164b00b4d0"
 preview_id = "29e7ac5e1cc74223be34e2c96301c09d"
 
-[build]
-command = "cp ../data/videos.json src/videos.json"
+# videos.json est géré par feed_chatbot.py — ne pas écraser
+# [build]
+# command = "cp ../data/videos.json src/videos.json"
+
+[vars]
+ADMIN_TRACK_URL = "https://tayyibat-admin.houcemben.workers.dev/api/track-chat"

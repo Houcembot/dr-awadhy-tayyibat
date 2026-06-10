@@ -219,6 +219,24 @@ export default {
           return Response.json({ answer: 'يرجى التمهل قليلاً.', sources: [], mode: 'v2_rate_limited' },
             { headers: corsHeaders(request) });
       }
+      // Fire-and-forget tracking ping to tayyibat-admin /api/track-chat
+      if (env.TRACKING_KEY && env.ADMIN_TRACK_URL) {
+        ctx?.waitUntil?.(
+          fetch(env.ADMIN_TRACK_URL, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-Tracking-Key': env.TRACKING_KEY
+            },
+            body: JSON.stringify({
+              ip: request.headers.get('CF-Connecting-IP'),
+              country: request.headers.get('CF-IPCountry'),
+              lang: ['fr', 'en', 'ar'].includes(body2.lang) ? body2.lang : null,
+              user_agent: (request.headers.get('User-Agent') || '').slice(0, 200)
+            })
+          }).catch(() => {})
+        );
+      }
       // Greeting / small-talk handler — short messages with no food canonical
       // should get a friendly response instead of "no result".
       const qNorm = q2.replace(/[أإآ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي').toLowerCase();
