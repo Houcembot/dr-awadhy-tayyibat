@@ -5,6 +5,7 @@ import { listUsers, createUser, patchUser, deleteUser } from './routes/users.js'
 import { listPublicVideos } from './routes/public.js';
 import { listWhitelist, addWhitelist, deleteWhitelist, listPublicWhitelist, patchWhitelist } from './routes/whitelist.js';
 import { handleTrack, handleTrackChat } from './routes/track.js';
+import { getAnalytics } from './routes/analytics.js';
 
 const CORS_HEADERS = {
   'Access-Control-Allow-Credentials': 'true',
@@ -73,6 +74,8 @@ export default {
         if (request.method === 'PATCH') response = await patchUser(request, env, uid);
         else if (request.method === 'DELETE') response = await deleteUser(request, env, uid);
         else response = new Response('Method not allowed', { status: 405 });
+      } else if (request.method === 'GET' && url.pathname === '/api/analytics') {
+        response = await getAnalytics(request, env);
       } else {
         response = new Response('Not found', { status: 404 });
       }
