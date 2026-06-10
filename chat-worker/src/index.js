@@ -219,10 +219,10 @@ export default {
           return Response.json({ answer: 'يرجى التمهل قليلاً.', sources: [], mode: 'v2_rate_limited' },
             { headers: corsHeaders(request) });
       }
-      // Fire-and-forget tracking ping to tayyibat-admin /api/track-chat
-      if (env.TRACKING_KEY && env.ADMIN_TRACK_URL) {
+      // Fire-and-forget tracking ping to tayyibat-admin /api/track-chat (via service binding)
+      if (env.TRACKING_KEY && env.ADMIN_WORKER) {
         ctx?.waitUntil?.(
-          fetch(env.ADMIN_TRACK_URL, {
+          env.ADMIN_WORKER.fetch('https://tayyibat-admin/api/track-chat', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

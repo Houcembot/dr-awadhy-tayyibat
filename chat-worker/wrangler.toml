@@ -14,3 +14,7 @@ preview_id = "29e7ac5e1cc74223be34e2c96301c09d"
 
 [vars]
 ADMIN_TRACK_URL = "https://tayyibat-admin.houcemben.workers.dev/api/track-chat"
+
+[[services]]
+binding = "ADMIN_WORKER"
+service = "tayyibat-admin"

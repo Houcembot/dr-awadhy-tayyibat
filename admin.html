@@ -58,6 +58,7 @@
     <button data-view="videos" class="active">Vidéos témoignages</button>
     <button data-view="whitelist">Whitelist /videos</button>
     <button data-view="users" id="nav-users">Utilisateurs</button>
+    <button data-view="analytics" id="nav-analytics">Analytics</button>
     <span id="user-info" style="font-size: 13px; color: var(--cream);"></span>
     <button id="logout-btn">Déconnexion</button>
   </nav>
@@ -79,6 +80,7 @@
   <div id="videos-view" class="hidden"></div>
   <div id="whitelist-view" class="hidden"></div>
   <div id="users-view" class="hidden"></div>
+  <div id="analytics-view" class="hidden"></div>
 </main>
 
 <script type="module">
@@ -115,10 +117,11 @@
     document.getElementById('nav').classList.remove('hidden');
     document.getElementById('user-info').textContent = `${user.role} • uid ${user.uid}`;
     document.getElementById('nav-users').style.display = user.role === 'admin' ? '' : 'none';
+    document.getElementById('nav-analytics').style.display = user.role === 'admin' ? '' : 'none';
     showView('videos');
   }
   function showView(name) {
-    for (const v of ['videos', 'whitelist', 'users']) {
+    for (const v of ['videos', 'whitelist', 'users', 'analytics']) {
       document.getElementById(`${v}-view`).classList.toggle('hidden', v !== name);
     }
     for (const b of document.querySelectorAll('#nav button[data-view]')) {
@@ -127,6 +130,7 @@
     if (name === 'videos') loadVideos();
     else if (name === 'whitelist') loadWhitelist();
     else if (name === 'users') loadUsers();
+    else if (name === 'analytics') loadAnalytics();
   }
 
   document.getElementById('login-form').addEventListener('submit', async (e) => {
@@ -593,6 +597,140 @@
         bg.remove(); loadUsers();
       } catch (e) { err.textContent = e.message; }
     });
+  }
+
+  // --- Analytics view ---
+  function flagEmoji(cc) {
+    if (!cc || cc.length !== 2) return '🌐';
+    const A = 0x1F1E6;
+    return String.fromCodePoint(A + cc.toUpperCase().charCodeAt(0) - 65)
+         + String.fromCodePoint(A + cc.toUpperCase().charCodeAt(1) - 65);
+  }
+
+  function fmtDuration(ms) {
+    if (!ms || ms < 0) return '—';
+    const s = Math.floor(ms / 1000);
+    if (s < 60) return s + 's';
+    const m = Math.floor(s / 60);
+    const r = s % 60;
+    return m + 'm' + (r < 10 ? '0' + r : r);
+  }
+
+  let analyticsState = { data: null, recentPage: 1, perPage: 50, filter: '' };
+
+  async function loadAnalytics() {
+    const v = document.getElementById('analytics-view');
+    v.innerHTML = '<p style="color:var(--text-muted)">Chargement…</p>';
+    try {
+      const data = await api('GET', '/api/analytics');
+      analyticsState.data = data;
+      renderAnalytics();
+    } catch (e) {
+      v.innerHTML = `<p style="color:var(--danger)">Erreur : ${e.message}</p>`;
+    }
+  }
+
+  function renderAnalytics() {
+    const v = document.getElementById('analytics-view');
+    const d = analyticsState.data;
+    if (!d) return;
+    const s = d.summary;
+    const topCountry = d.top_countries[0];
+
+    const filter = analyticsState.filter.toLowerCase();
+    const filtered = filter
+      ? d.recent.filter(r =>
+          (r.ip || '').includes(filter)
+          || (r.country || '').toLowerCase().includes(filter)
+          || (r.page_path || '').toLowerCase().includes(filter))
+      : d.recent;
+    const totalPages = Math.max(1, Math.ceil(filtered.length / analyticsState.perPage));
+    if (analyticsState.recentPage > totalPages) analyticsState.recentPage = 1;
+    const start = (analyticsState.recentPage - 1) * analyticsState.perPage;
+    const pageRows = filtered.slice(start, start + analyticsState.perPage);
+
+    v.innerHTML = `
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; flex-wrap:wrap; gap:12px;">
+        <h2 style="font-family:Cairo,serif; margin:0;">Analytics (30 derniers jours)</h2>
+        <button class="subtle" id="refresh-analytics">🔄 Rafraîchir</button>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:16px; margin-bottom:32px;">
+        ${[
+          ['Visiteurs uniques', s.unique_ips],
+          ['Visites totales', s.total_views_30d],
+          ['Questions chatbot', s.chatbot_questions_30d],
+          ['Durée moyenne / page', fmtDuration(s.avg_duration_ms)],
+          ['Pays #1', topCountry ? (flagEmoji(topCountry.country) + ' ' + topCountry.country) : '—']
+        ].map(([label, val]) => `
+          <div style="background:white; padding:18px; border-radius:6px; box-shadow:0 1px 4px rgba(0,0,0,0.06);">
+            <div style="font-size:11px; text-transform:uppercase; letter-spacing:0.12em; color:var(--text-muted)">${label}</div>
+            <div style="font-size:1.6rem; font-weight:700; margin-top:4px; color:var(--dark)">${val}</div>
+          </div>
+        `).join('')}
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px; margin-bottom:32px;">
+        <div>
+          <h3 style="font-family:Cairo,serif; font-size:14px; text-transform:uppercase; letter-spacing:0.12em; color:var(--text-muted)">Top 10 pays</h3>
+          <ul style="list-style:none; padding:0; margin:0;">
+            ${d.top_countries.map(c => `
+              <li style="padding:8px 0; border-bottom:1px solid #eee; display:flex; justify-content:space-between;">
+                <span>${flagEmoji(c.country)} ${c.country}</span>
+                <strong>${c.n}</strong>
+              </li>
+            `).join('') || '<li style="color:var(--text-muted)">Aucune donnée</li>'}
+          </ul>
+        </div>
+        <div>
+          <h3 style="font-family:Cairo,serif; font-size:14px; text-transform:uppercase; letter-spacing:0.12em; color:var(--text-muted)">Top 10 pages</h3>
+          <ul style="list-style:none; padding:0; margin:0;">
+            ${d.top_pages.map(p => `
+              <li style="padding:8px 0; border-bottom:1px solid #eee; display:flex; justify-content:space-between;">
+                <code style="font-size:12px;">${p.page_path}</code>
+                <strong>${p.n}</strong>
+              </li>
+            `).join('') || '<li style="color:var(--text-muted)">Aucune donnée</li>'}
+          </ul>
+        </div>
+      </div>
+
+      <h3 style="font-family:Cairo,serif; margin-bottom:8px;">Dernières visites</h3>
+      <input type="text" id="recent-filter" placeholder="Filtrer par IP, pays ou page…" value="${filter}" style="margin-bottom:12px;">
+      <div style="overflow-x:auto;"><table>
+        <thead><tr><th>Temps</th><th>IP</th><th>Pays</th><th>Page</th><th>Durée</th><th>Lang</th><th>Chat?</th></tr></thead>
+        <tbody>
+          ${pageRows.map(r => `
+            <tr>
+              <td style="font-size:12px;">${(r.ts || '').replace('T', ' ').substring(0, 19)}</td>
+              <td style="font-family:monospace; font-size:12px;">${r.ip}</td>
+              <td>${r.country ? (flagEmoji(r.country) + ' ' + r.country) : '—'}</td>
+              <td><code style="font-size:12px;">${r.page_path}</code></td>
+              <td style="font-size:12px;">${fmtDuration(r.duration_ms)}</td>
+              <td style="font-size:12px;">${r.lang || '—'}</td>
+              <td style="font-size:12px;">${r.is_chatbot_question ? '💬' : ''}</td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table></div>
+      <div style="margin-top:12px; text-align:center;">
+        Page ${analyticsState.recentPage}/${totalPages}
+        <button class="subtle" id="ana-prev" ${analyticsState.recentPage <= 1 ? 'disabled' : ''}>‹</button>
+        <button class="subtle" id="ana-next" ${analyticsState.recentPage >= totalPages ? 'disabled' : ''}>›</button>
+      </div>
+    `;
+
+    document.getElementById('refresh-analytics').addEventListener('click', loadAnalytics);
+    let filterTimer;
+    document.getElementById('recent-filter').addEventListener('input', e => {
+      clearTimeout(filterTimer);
+      filterTimer = setTimeout(() => {
+        analyticsState.filter = e.target.value;
+        analyticsState.recentPage = 1;
+        renderAnalytics();
+      }, 200);
+    });
+    document.getElementById('ana-prev').addEventListener('click', () => { analyticsState.recentPage--; renderAnalytics(); });
+    document.getElementById('ana-next').addEventListener('click', () => { analyticsState.recentPage++; renderAnalytics(); });
   }
 
   // Auto-detect existing session
