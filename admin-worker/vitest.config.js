@@ -8,7 +8,11 @@ export default defineWorkersConfig({
         miniflare: {
           d1Databases: ['ADMIN_DB'],
           kvNamespaces: ['RATE_LIMIT_KV'],
-          bindings: { JWT_SECRET: 'test-secret-32-bytes-fixed-string' }
+          bindings: {
+            JWT_SECRET: 'test-secret-32-bytes-fixed-string',
+            TRACKING_KEY: 'test-tracking-key',
+            ALLOWED_ORIGIN: 'https://tayyibat.pages.dev'
+          }
         }
       }
     }

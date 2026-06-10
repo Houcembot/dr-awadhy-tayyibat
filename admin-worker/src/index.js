@@ -4,6 +4,7 @@ import { listVideos, addVideo, patchVideo, deleteVideo, getVideo } from './route
 import { listUsers, createUser, patchUser, deleteUser } from './routes/users.js';
 import { listPublicVideos } from './routes/public.js';
 import { listWhitelist, addWhitelist, deleteWhitelist, listPublicWhitelist, patchWhitelist } from './routes/whitelist.js';
+import { handleTrack, handleTrackChat } from './routes/track.js';
 
 const CORS_HEADERS = {
   'Access-Control-Allow-Credentials': 'true',
@@ -31,7 +32,11 @@ export default {
     const url = new URL(request.url);
     let response;
     try {
-      if (request.method === 'GET' && url.pathname === '/api/public/videos') {
+      if (request.method === 'POST' && url.pathname === '/api/track') {
+        response = await handleTrack(request, env);
+      } else if (request.method === 'POST' && url.pathname === '/api/track-chat') {
+        response = await handleTrackChat(request, env);
+      } else if (request.method === 'GET' && url.pathname === '/api/public/videos') {
         response = await listPublicVideos(request, env);
       } else if (request.method === 'GET' && url.pathname === '/api/public/videos-whitelist') {
         response = await listPublicWhitelist(request, env);
