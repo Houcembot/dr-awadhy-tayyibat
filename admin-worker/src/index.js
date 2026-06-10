@@ -84,5 +84,12 @@ export default {
       response = new Response('Internal error', { status: 500 });
     }
     return withCors(env, request, response);
+  },
+
+  async scheduled(event, env, ctx) {
+    const r = await env.ADMIN_DB.prepare(
+      "DELETE FROM page_views WHERE ts < datetime('now', '-30 days')"
+    ).run();
+    console.log(`purge_30d removed=${r.meta.changes}`);
   }
 };

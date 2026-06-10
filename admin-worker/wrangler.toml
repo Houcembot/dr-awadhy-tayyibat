@@ -14,3 +14,6 @@ id = "49981be2901d404b8f052e164b00b4d0"
 
 [vars]
 ALLOWED_ORIGIN = "https://tayyibat.pages.dev"
+
+[triggers]
+crons = ["0 3 * * *"]
