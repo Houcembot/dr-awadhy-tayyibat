@@ -81,6 +81,48 @@
                letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap; }
   .chat-send:hover { background: #2c2c28; }
 
+  /* ── V2 response elements ───────────────────────────────────────────── */
+  .chat-v2-label {
+    display: block; font-family: "Cairo", sans-serif; font-size: 0.78rem;
+    color: var(--muted); direction: rtl; text-align: right;
+    padding-bottom: 8px; margin-bottom: 10px;
+    border-bottom: 1px solid rgba(201,168,76,0.25);
+  }
+  .chat-v2-quote {
+    direction: rtl; text-align: right; margin: 0 0 12px;
+    padding: 10px 14px 10px 10px;
+    font-family: "Cairo", sans-serif; font-size: 0.97rem; line-height: 1.8;
+    background: rgba(201,168,76,0.07);
+    border-right: 3px solid var(--gold); color: var(--ink);
+  }
+  .chat-v2-yt {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--dark); color: var(--gold-soft); text-decoration: none;
+    padding: 10px 14px; margin-bottom: 8px;
+  }
+  .chat-v2-yt:hover { background: #2c2c28; }
+  .chat-v2-yt-icon { width: 18px; height: 18px; fill: var(--gold-soft); flex-shrink: 0; }
+  .chat-v2-yt-info { flex: 1; min-width: 0; direction: rtl; text-align: right; }
+  .chat-v2-yt-title { display: block; font-family: "Cairo", sans-serif; font-weight: 700;
+    font-size: 0.88rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .chat-v2-yt-ts { display: block; font-size: 0.78rem; opacity: 0.7; margin-top: 2px; }
+  .chat-v2-yt-cta { font-size: 0.8rem; letter-spacing: 0.07em; flex-shrink: 0; white-space: nowrap; }
+  .chat-v2-more { margin-bottom: 6px; }
+  .chat-v2-more summary {
+    font-size: 0.82rem; color: var(--muted); cursor: pointer; padding: 4px 0;
+    list-style: none; direction: rtl; user-select: none;
+  }
+  .chat-v2-more summary::-webkit-details-marker { display: none; }
+  .chat-v2-more-item {
+    display: flex; align-items: center; gap: 8px; padding: 7px 4px;
+    border-bottom: 1px solid var(--line);
+    text-decoration: none; color: var(--ink); direction: rtl;
+  }
+  .chat-v2-more-item:last-child { border-bottom: none; }
+  .chat-v2-more-title { font-family: "Cairo", sans-serif; font-size: 0.88rem; font-weight: 600;
+    flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .chat-v2-more-ts { font-size: 0.78rem; color: var(--muted); flex-shrink: 0; }
+
   @media (max-width: 620px) {
     .topbar-inner { flex-direction: column; align-items: flex-start; }
     .navlinks { justify-content: flex-start; }
@@ -115,7 +157,104 @@
 </main>
 
 <script type="module">
-import { sendQuestion, t, getLang } from './chat-core.js';
+import { fetchChatV2, escapeHtml, t, getLang } from './chat-core.js';
+
+const YT_ICON = `<svg class="chat-v2-yt-icon" viewBox="0 0 24 24" aria-hidden="true">
+  <path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.5A3 3 0 00.5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 002.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 002.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.8 15.5V8.5l6.3 3.5-6.3 3.5z"/>
+</svg>`;
+
+const DISCLAIMER = `<p class="chat-disclaimer" dir="rtl">⚠ هذه المعلومات تعليمية ولا تغني عن استشارة طبيب متخصص.</p>`;
+
+function renderV2(data) {
+  const el = document.createElement('div');
+  el.className = 'chat-msg chat-msg--bot';
+
+  if (!data || data.mode === 'v2_rate_limited') {
+    el.innerHTML = `<p dir="rtl" style="font-family:Cairo,sans-serif;margin:0 0 6px">${escapeHtml(data?.answer || 'يرجى التمهل.')}</p>${DISCLAIMER}`;
+    return el;
+  }
+  // Phase Finale: handle both legacy v2_no_result and new v3_no_result.
+  if (data.mode === 'v2_no_result' || data.mode === 'v3_no_result') {
+    el.innerHTML = `<p dir="rtl" style="font-family:Cairo,sans-serif;margin:0 0 6px">${escapeHtml(data.answer || 'لم أجد مقطعاً واضحاً من كلام الدكتور ضياء حول هذا السؤال.')}</p>${DISCLAIMER}`;
+    return el;
+  }
+
+  const sources = data.sources || [];
+  const main = sources[0] || {};
+  const rest = sources.slice(1);
+
+  const quote = escapeHtml((main.quote || '').slice(0, 300));
+  const title = escapeHtml((main.title || main.id || '').slice(0, 55));
+  const ts    = escapeHtml(main.timestamp || '');
+  const url   = escapeHtml(main.url || '#');
+
+  // Phase Finale db_resume 3-couches : object {verdict, simple, explanation?}
+  const dbResume  = (data.db_resume && typeof data.db_resume === 'object') ? data.db_resume : null;
+  const dbSimple  = dbResume?.simple || '';
+  const dbExplain = dbResume?.explanation || '';
+
+  // Composed-dish prefix (worker prepends to data.answer when principal canonical missing)
+  const answerFirstLine = (data.answer || '').split('\n')[0] || '';
+  const composedPrefix  = answerFirstLine.startsWith('لم أجد كلاماً مباشراً') ? answerFirstLine : '';
+
+  // Main content: prefer db_resume.simple > raw quote
+  let mainContent;
+  if (dbSimple) {
+    const prefixHtml = composedPrefix
+      ? `<p class="chat-v2-prefix" dir="rtl" style="font-style:italic;color:#666;font-size:0.92em;margin:0 0 10px">${escapeHtml(composedPrefix)}</p>`
+      : '';
+    mainContent = `${prefixHtml}<p class="chat-v2-summary" dir="rtl" style="font-family:Cairo,sans-serif;line-height:1.6">${escapeHtml(dbSimple)}</p>`;
+  } else if (quote) {
+    mainContent = `<blockquote class="chat-v2-quote">"${quote}…"</blockquote>`;
+  } else {
+    mainContent = `<p dir="rtl" style="font-family:Cairo,sans-serif">${escapeHtml(data.answer || '')}</p>`;
+  }
+
+  // Layer 2 (optional): pedagogic explanation, collapsible
+  const explanationHtml = dbExplain
+    ? `<details class="chat-v2-more">
+        <summary>▾ شرح أكثر</summary>
+        <p dir="rtl" style="font-family:Cairo,sans-serif;padding:8px;background:#f8f8f8;border-radius:6px;margin:6px 0">${escapeHtml(dbExplain)}</p>
+      </details>`
+    : '';
+
+  // Layer 3: raw Dr quote, collapsible if we showed dbSimple. Otherwise quote is already main.
+  const transcriptHtml = (dbSimple && quote)
+    ? `<details class="chat-v2-more">
+        <summary>🗣 كلام الدكتور الأصلي</summary>
+        <blockquote class="chat-v2-quote">"${quote}…"</blockquote>
+      </details>`
+    : '';
+
+  const moreHtml = rest.length > 0
+    ? `<details class="chat-v2-more">
+        <summary>▾ مصادر أخرى (${rest.length})</summary>
+        ${rest.map(s => `
+          <a class="chat-v2-more-item" href="${escapeHtml(s.url || '#')}" target="_blank" rel="noopener">
+            <span class="chat-v2-more-title">${escapeHtml((s.title || '').slice(0, 50))}</span>
+            <span class="chat-v2-more-ts">⏱ ${escapeHtml(s.timestamp || '')}</span>
+          </a>`).join('')}
+      </details>`
+    : '';
+
+  el.innerHTML = `
+    <span class="chat-v2-label">🎤 بحسب كلام الدكتور ضياء العوضي</span>
+    ${mainContent}
+    <a class="chat-v2-yt" href="${url}" target="_blank" rel="noopener">
+      ${YT_ICON}
+      <span class="chat-v2-yt-info">
+        <span class="chat-v2-yt-title">${title}</span>
+        <span class="chat-v2-yt-ts">⏱ ${ts}</span>
+      </span>
+      <span class="chat-v2-yt-cta">شاهد ▶</span>
+    </a>
+    ${explanationHtml}
+    ${transcriptHtml}
+    ${moreHtml}
+    ${DISCLAIMER}`;
+
+  return el;
+}
 
 const I18N_PAGE = {
   fr: { brand: 'Le Système Tayyibat', nav_home: 'Accueil', nav_videos: 'Vidéos', nav_chat: 'Chat',
@@ -127,6 +266,7 @@ const I18N_PAGE = {
 };
 
 function applyLang(lang) {
+  localStorage.setItem('lang', lang);
   const tr = I18N_PAGE[lang] || I18N_PAGE.fr;
   document.documentElement.lang = lang;
   document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
@@ -139,7 +279,6 @@ function applyLang(lang) {
   document.getElementById('send-btn').textContent = t('send');
   document.querySelectorAll('.lang-btn').forEach(btn =>
     btn.classList.toggle('active', btn.dataset.lang === lang));
-  localStorage.setItem('lang', lang);
 }
 
 function init() {
@@ -148,21 +287,59 @@ function init() {
 
   const msgs = document.getElementById('messages');
   const welcome = document.createElement('div');
-  welcome.className = 'chat-msg chat-msg--bot';
+  welcome.className = 'chat-msg chat-msg--bot welcome-msg';
   welcome.textContent = t('welcome');
   msgs.appendChild(welcome);
+  const reply = document.createElement('p');
+  reply.className = 'chat-disclaimer reply-disclaimer';
+  reply.textContent = t('reply_note');
+  msgs.appendChild(reply);
 
   document.querySelectorAll('.lang-btn').forEach(btn =>
-    btn.addEventListener('click', () => applyLang(btn.dataset.lang)));
+    btn.addEventListener('click', () => {
+      applyLang(btn.dataset.lang);
+      const w = document.querySelector('.welcome-msg');
+      if (w) w.textContent = t('welcome');
+      const r = document.querySelector('.reply-disclaimer');
+      if (r) r.textContent = t('reply_note');
+    }));
 
   document.getElementById('form').addEventListener('submit', async e => {
     e.preventDefault();
-    const input = document.getElementById('input');
+    const input  = document.getElementById('input');
+    const sendBtn = document.getElementById('send-btn');
     const question = input.value.trim();
     if (!question) return;
     input.value = '';
     input.style.height = '';
-    await sendQuestion(question, msgs);
+    input.disabled = true;
+    sendBtn.disabled = true;
+
+    const userEl = document.createElement('div');
+    userEl.className = 'chat-msg chat-msg--user';
+    userEl.innerHTML = `<span dir="rtl">${escapeHtml(question)}</span>`;
+    msgs.appendChild(userEl);
+
+    const thinking = document.createElement('div');
+    thinking.className = 'chat-msg chat-msg--bot';
+    thinking.innerHTML = `<em>${t('thinking')}</em>`;
+    msgs.appendChild(thinking);
+    msgs.scrollTop = msgs.scrollHeight;
+
+    let data;
+    try {
+      data = await fetchChatV2(question);
+    } catch {
+      thinking.innerHTML = `<span class="chat-error">${t('error_generic')}</span>`;
+      input.disabled = false;
+      sendBtn.disabled = false;
+      return;
+    }
+
+    thinking.replaceWith(renderV2(data));
+    msgs.scrollTop = msgs.scrollHeight;
+    input.disabled = false;
+    sendBtn.disabled = false;
   });
 
   document.getElementById('input').addEventListener('input', function() {
